@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">mumong-andorid</string>
+    <string name="hello_home_fragment">Hello home fragment</string>>
+    <string name="hello_calendar_fragment">Hello calendar fragment</string>
+    <string name="hello_feed_fragment">Hello feed fragment</string>>
+    <string name="hello_profile_fragment">Hello profile fragment</string>
 </resources>

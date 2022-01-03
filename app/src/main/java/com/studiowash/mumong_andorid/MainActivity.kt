@@ -1,11 +1,52 @@
 package com.studiowash.mumong_andorid
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
+import com.studiowash.mumong_andorid.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        initBottomNavigation()
+    }
+
+    private fun initBottomNavigation() {
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.page_home -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.homeFragment)
+                    true
+                }
+                R.id.page_practice -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.practiceFragment)
+                    true
+                }
+                R.id.page_feed -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.feedFragment)
+                    true
+                }
+                R.id.page_profile -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.profileFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (binding.bottomNavigationView.selectedItemId == R.id.page_home) {
+            finish()
+        } else {
+            binding.bottomNavigationView.selectedItemId = R.id.page_home
+        }
     }
 }
