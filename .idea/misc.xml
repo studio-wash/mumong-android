@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/dev/mumong-android/app/src/main/res/layout/activity_main.xml" value="0.20208333333333334" />
+        <entry key="..\:/dev/mumong-android/app/src/main/res/layout/calendar_view.xml" value="0.20572916666666666" />
         <entry key="..\:/dev/mumong-android/app/src/main/res/layout/fragment_feed.xml" value="0.20208333333333334" />
         <entry key="..\:/dev/mumong-android/app/src/main/res/layout/fragment_home.xml" value="0.29074074074074074" />
+        <entry key="..\:/dev/mumong-android/app/src/main/res/layout/fragment_practice.xml" value="0.20572916666666666" />
         <entry key="..\:/dev/mumong-android/app/src/main/res/layout/fragment_profile.xml" value="0.20208333333333334" />
         <entry key="..\:/dev/mumong-android/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.20208333333333334" />
       </map>
