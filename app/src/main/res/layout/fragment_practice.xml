@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong_andorid.practice.DateScrollView
+        <com.studiowash.mumong.practice.DateScrollView
             android:id="@+id/date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         <View
             android:id="@+id/separator_1"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/date_scroll_view"/>
         <LinearLayout
@@ -68,12 +68,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="오늘의 연습"/>
+                android:text="@string/practice_practice_today_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_2"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/practice_today_linear_layout"/>
         <LinearLayout
@@ -85,12 +85,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="연습 기록"/>
+                android:text="@string/practice_practice_analytics_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_3"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/practice_analytics_linear_layout"/>
         <LinearLayout
@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="곡별 연습"/>
+                android:text="@string/practice_practice_pieces_title"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
