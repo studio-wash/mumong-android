@@ -3,14 +3,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        tools:context=".HomeFragment"
+        android:background="@color/brand_color_4">
 
-        <TextView
+        <ImageView
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/hello_home_fragment" />
+            android:src="@drawable/logo_mumong"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
