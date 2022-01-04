@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">mumong</string>
+    <string name="app_name">뮤몽</string>
+
+    <!-- Fragment Titles -->
+    <string name="title_home_fragment">홈</string>
     <string name="title_practice_fragment">연습장</string>
-    <string name="title_feed_fragment">피드</string>>
-    <string name="hide_profile_fragment">내 정보</string>
+    <string name="title_social_fragment">소셜</string>
+    <string name="title_community_fragment">커뮤니티</string>
+
+    <!-- Bottom Navigation Bar -->
+    <string name="nav_home_label">홈</string>
+    <string name="nav_practice_label">연습장</string>
+    <string name="nav_social_label">소셜</string>
+    <string name="nav_community_label">커뮤니티</string>
 </resources>

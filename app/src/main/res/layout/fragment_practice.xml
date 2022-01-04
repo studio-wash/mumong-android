@@ -56,7 +56,7 @@
         <View
             android:id="@+id/separator_1"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/date_scroll_view"/>
         <LinearLayout
@@ -73,7 +73,7 @@
         <View
             android:id="@+id/separator_2"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/practice_today_linear_layout"/>
         <LinearLayout
@@ -90,7 +90,7 @@
         <View
             android:id="@+id/separator_3"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="@dimen/horizontal_separator_height"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/practice_analytics_linear_layout"/>
         <LinearLayout

@@ -6,23 +6,23 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/practiceFragment"
-        android:name="com.studiowash.mumong.practice.PracticeFragment"
-        android:label="fragment_calendar"
-        tools:layout="@layout/fragment_practice" />
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.studiowash.mumong.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.studiowash.mumong.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/practiceFragment"
+        android:name="com.studiowash.mumong.practice.PracticeFragment"
+        android:label="fragment_calendar"
+        tools:layout="@layout/fragment_practice" />
     <fragment
-        android:id="@+id/feedFragment"
-        android:name="com.studiowash.mumong.FeedFragment"
-        android:label="fragment_feed"
-        tools:layout="@layout/fragment_feed" />
+        android:id="@+id/socialFragment"
+        android:name="com.studiowash.mumong.SocialFragment"
+        android:label="fragment_social"
+        tools:layout="@layout/fragment_social" />
+    <fragment
+        android:id="@+id/communityFragment"
+        android:name="com.studiowash.mumong.CommunityFragment"
+        android:label="fragment_community"
+        tools:layout="@layout/fragment_community" />
 </navigation>

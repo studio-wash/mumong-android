@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
                     binding.navHostFragment.findNavController().navigate(R.id.practiceFragment)
                     true
                 }
-                R.id.page_feed -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.feedFragment)
+                R.id.page_social -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.socialFragment)
                     true
                 }
-                R.id.page_profile -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.profileFragment)
+                R.id.page_community -> {
+                    binding.navHostFragment.findNavController().navigate(R.id.communityFragment)
                     true
                 }
                 else -> false
