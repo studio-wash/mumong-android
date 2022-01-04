@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="오늘의 연습"/>
+                android:text="@string/practice_practice_today_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_2"
@@ -85,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="연습 기록"/>
+                android:text="@string/practice_practice_analytics_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_3"
@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="곡별 연습"/>
+                android:text="@string/practice_practice_pieces_title"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

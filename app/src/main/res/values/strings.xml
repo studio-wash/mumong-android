@@ -12,4 +12,17 @@
     <string name="nav_practice_label">연습장</string>
     <string name="nav_social_label">소셜</string>
     <string name="nav_community_label">커뮤니티</string>
+
+    <!-- Home Fragment -->
+    <string name="home_notice_title">공지사항</string>
+    <string name="home_event_title">이벤트</string>
+
+    <!-- Practice Fragment -->
+    <string name="practice_practice_today_title">오늘의 연습</string>
+    <string name="practice_practice_analytics_title">연습 기록</string>
+    <string name="practice_practice_pieces_title">곡별 연습</string>
+
+    <!-- Social Fragment -->
+
+    <!-- Community Fragment -->
 </resources>
