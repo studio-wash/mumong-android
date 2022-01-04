@@ -1,11 +1,11 @@
-package com.studiowash.mumong_andorid.practice
+package com.studiowash.mumong.practice
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.studiowash.mumong_andorid.databinding.FragmentPracticeBinding
+import com.studiowash.mumong.databinding.FragmentPracticeBinding
 
 class PracticeFragment : Fragment() {
     private lateinit var binding: FragmentPracticeBinding

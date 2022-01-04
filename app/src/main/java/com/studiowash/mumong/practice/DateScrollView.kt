@@ -1,4 +1,4 @@
-package com.studiowash.mumong_andorid.practice
+package com.studiowash.mumong.practice
 
 import android.content.Context
 import android.util.AttributeSet
@@ -8,8 +8,8 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong_andorid.databinding.DateScrollViewBinding
-import com.studiowash.mumong_andorid.databinding.ItemDateBinding
+import com.studiowash.mumong.databinding.DateScrollViewBinding
+import com.studiowash.mumong.databinding.ItemDateBinding
 
 class DateScrollView @JvmOverloads constructor(
     context: Context,

@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong_andorid.practice.DateScrollView
+        <com.studiowash.mumong.practice.DateScrollView
             android:id="@+id/date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

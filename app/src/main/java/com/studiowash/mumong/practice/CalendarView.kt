@@ -1,11 +1,11 @@
-package com.studiowash.mumong_andorid.practice
+package com.studiowash.mumong.practice
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import com.studiowash.mumong_andorid.databinding.CalendarViewBinding
+import com.studiowash.mumong.databinding.CalendarViewBinding
 
 class CalendarView @JvmOverloads constructor(
     context: Context,

@@ -1,14 +1,10 @@
-package com.studiowash.mumong_andorid
+package com.studiowash.mumong
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import com.studiowash.mumong_andorid.databinding.ActivityMainBinding
+import com.studiowash.mumong.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

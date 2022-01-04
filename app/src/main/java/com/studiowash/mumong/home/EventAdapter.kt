@@ -1,9 +1,9 @@
-package com.studiowash.mumong_andorid.home
+package com.studiowash.mumong.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong_andorid.databinding.ItemEventBinding
+import com.studiowash.mumong.databinding.ItemEventBinding
 
 class EventAdapter : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
     class EventViewHolder(val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root)

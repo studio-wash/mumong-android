@@ -8,7 +8,7 @@ android {
     setCompileSdkVersion(31)
 
     defaultConfig {
-        applicationId = "com.studiowash.mumong_andorid"
+        applicationId = "com.studiowash.mumong"
         minSdk = 24
         targetSdk = 31
         versionCode = 1

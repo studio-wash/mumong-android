@@ -1,4 +1,4 @@
-package com.studiowash.mumong_andorid
+package com.studiowash.mumong
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

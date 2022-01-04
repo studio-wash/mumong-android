@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/practiceFragment"
-        android:name="com.studiowash.mumong_andorid.practice.PracticeFragment"
+        android:name="mumong.practice.PracticeFragment"
         android:label="fragment_calendar"
         tools:layout="@layout/fragment_practice" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.studiowash.mumong_andorid.home.HomeFragment"
+        android:name="mumong.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.studiowash.mumong_andorid.ProfileFragment"
+        android:name="mumong.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.studiowash.mumong_andorid.FeedFragment"
+        android:name="mumong.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" />
 </navigation>

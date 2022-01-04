@@ -1,9 +1,9 @@
-package com.studiowash.mumong_andorid.home
+package com.studiowash.mumong.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong_andorid.databinding.ItemNoticeBinding
+import com.studiowash.mumong.databinding.ItemNoticeBinding
 
 class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
     class NoticeViewHolder(val binding: ItemNoticeBinding) : RecyclerView.ViewHolder(binding.root)

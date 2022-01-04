@@ -1,4 +1,4 @@
-package com.studiowash.mumong_andorid.home
+package com.studiowash.mumong.home
 
 data class EventItem(
     val imageSrc: String
