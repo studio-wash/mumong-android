@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">mumong-andorid</string>
-    <string name="hello_home_fragment">Hello home fragment</string>>
     <string name="hello_practice_fragment">Hello practice fragment</string>
     <string name="hello_feed_fragment">Hello feed fragment</string>>
     <string name="hello_profile_fragment">Hello profile fragment</string>
