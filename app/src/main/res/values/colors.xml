@@ -10,4 +10,6 @@
 
     <color name="brand_color">#B97DE8</color>
     <color name="brand_color_4">#F6F1FB</color>
+
+    <color name="gray">#F8F8F8</color>
 </resources>

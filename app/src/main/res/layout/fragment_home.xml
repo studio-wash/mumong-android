@@ -1,6 +1,8 @@
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home.HomeFragment"
@@ -15,6 +17,22 @@
             android:src="@drawable/logo_mumong"/>
 
         <LinearLayout
+            android:id="@+id/home_practice_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toTopOf="@id/home_main_linear_layout"
+            android:background="@color/gray"
+            android:orientation="horizontal" />
+        <ImageView
+            android:id="@+id/crate_new_practice_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_crate_new_practice"
+            app:layout_constraintEnd_toEndOf="@id/home_practice_linear_layout"
+            app:layout_constraintTop_toTopOf="@id/home_practice_linear_layout"
+            app:layout_constraintBottom_toTopOf="@id/home_practice_linear_layout"/>
+        <LinearLayout
+            android:id="@+id/home_main_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
