@@ -5,6 +5,12 @@
         <variable
             name="date"
             type="int" />
+        <variable
+            name="isSelected"
+            type="boolean" />
+        <variable
+            name="isToday"
+            type="boolean" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -16,7 +22,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@{Integer.toString(date)}"/>
+            android:text="@{Integer.toString(date)}"
+            android:textColor="@{isSelected ? @color/black : isToday ? @color/brand_color_2 : @color/icon_off}"/>
         <View
             android:id="@+id/notice_image_view"
             android:layout_width="50dp"
