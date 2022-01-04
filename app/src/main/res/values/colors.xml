@@ -13,6 +13,7 @@
     <color name="brand_color_4">#F6F1FB</color>
 
     <color name="gray">#F8F8F8</color>
+    <color name="gray_2">#EBEBEB</color>
 
     <color name="icon_off">#C7C7C7</color>
 </resources>

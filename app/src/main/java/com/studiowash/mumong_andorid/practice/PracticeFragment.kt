@@ -22,6 +22,7 @@ class PracticeFragment : Fragment() {
     }
 
     private fun initView() {
-
+        binding.year = 2022
+        binding.month = 1
     }
 }
