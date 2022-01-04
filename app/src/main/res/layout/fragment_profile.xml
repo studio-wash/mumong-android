@@ -13,6 +13,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/hello_profile_fragment" />
+            android:text="@string/hide_profile_fragment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
