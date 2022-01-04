@@ -1,9 +1,11 @@
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ProfileFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ProfileFragment">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/title_text"
@@ -11,6 +13,6 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/hello_profile_fragment" />
+            android:text="@string/hide_profile_fragment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

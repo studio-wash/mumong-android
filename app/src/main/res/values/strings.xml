@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">mumong-andorid</string>
-    <string name="hello_practice_fragment">Hello practice fragment</string>
-    <string name="hello_feed_fragment">Hello feed fragment</string>>
-    <string name="hello_profile_fragment">Hello profile fragment</string>
+    <string name="title_practice_fragment">연습장</string>
+    <string name="title_feed_fragment">피드</string>>
+    <string name="hide_profile_fragment">내 정보</string>
 </resources>
