@@ -34,13 +34,7 @@ class CustomizableCalendarView @JvmOverloads constructor(
     }
 
     fun setYearAndMonth(year: Int, month: Int) {
-        val calendar: Calendar = Calendar.getInstance().apply {
-            set(year, month, 1)
-        }
-        calendarDateAdapter.startDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-        calendarDateAdapter.daysInThisMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-        calendar.add(Calendar.MONTH, -1) // parse previous month
-        calendarDateAdapter.daysInLastMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        calendarDateAdapter.setYearAndMonth(year, month)
     }
 
     fun setToday(day: Int) {
@@ -53,9 +47,22 @@ class CustomizableCalendarView @JvmOverloads constructor(
     fun refresh() = binding.dateRecyclerView.adapter?.notifyDataSetChanged()
 
     private class CalendarDateAdapter : RecyclerView.Adapter<CalendarDateAdapter.CalendarDateViewHolder>() {
-        var startDayOfWeek = Calendar.MONDAY
-        var daysInThisMonth = 31
-        var daysInLastMonth = 31
+
+        fun setYearAndMonth(year: Int, month: Int) {
+            val calendar: Calendar = Calendar.getInstance().apply {
+                set(year, month, 1)
+            }
+            startDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+            daysInThisMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+            calendar.add(Calendar.MONTH, -1) // parse previous month
+            daysInLastMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        }
+
+        private var startDayOfWeek = Calendar.MONDAY
+
+        private var daysInThisMonth = 31
+        private var daysInLastMonth = 31
+
         var today = 1
         var selectedDay = 1
 
@@ -68,16 +75,16 @@ class CustomizableCalendarView @JvmOverloads constructor(
 
         override fun onBindViewHolder(holder: CalendarDateViewHolder, position: Int) {
             val dayInThisMonth = (position + 1) - (startDayOfWeek - 1)
-            val dayForText = when {
+            val day = when {
                 dayInThisMonth <= 0 -> dayInThisMonth + daysInLastMonth
                 dayInThisMonth > daysInThisMonth -> dayInThisMonth%daysInThisMonth
                 else -> dayInThisMonth
             }
             holder.view.apply {
-                day = dayForText
+                this.day = day
                 isToday = dayInThisMonth == today
                 isSelected = dayInThisMonth == selectedDay
-                isThisMonth = dayInThisMonth == dayForText
+                isThisMonth = dayInThisMonth == day
             }
         }
 
