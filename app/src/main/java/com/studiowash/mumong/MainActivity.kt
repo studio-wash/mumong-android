@@ -22,26 +22,5 @@ class MainActivity : AppCompatActivity() {
             binding.bottomNavigationView.setupWithNavController(navController)
 
         }
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId) {
-                R.id.homeFragmentNav -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.homeFragmentNav)
-                    true
-                }
-                R.id.practiceNestedNav -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.practiceNestedNav)
-                    true
-                }
-                R.id.socialFragmentNav -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.socialFragmentNav)
-                    true
-                }
-                R.id.communityFragmentNav -> {
-                    binding.navHostFragment.findNavController().navigate(R.id.communityFragmentNav)
-                    true
-                }
-                else -> false
-            }
-        }
     }
 }
