@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.AttrRes
+import androidx.annotation.StringRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.CustomizableCalendarViewBinding
 import java.util.*
 
@@ -103,17 +105,27 @@ class CustomizableCalendarView @JvmOverloads constructor(
         }
 
         override fun onBindViewHolder(holder: DayInWeekViewHolder, position: Int) {
-            holder.view.text = DayInWeek.values().getOrNull(position)?.text
+            DayInWeek.values().getOrNull(position)?.textRes?.let {
+                holder.view.setText(it)
+            }
         }
 
         override fun getItemCount() = DAYS_IN_WEEK
+    }
+    
+    private enum class DayInWeek(@StringRes val textRes: Int){
+        Sun(R.string.practice_calendar_sunday),
+        Mon(R.string.practice_calendar_monday),
+        Tue(R.string.practice_calendar_tuesday),
+        Wed(R.string.practice_calendar_wednesday),
+        Thu(R.string.practice_calendar_thursday),
+        Fri(R.string.practice_calendar_friday),
+        Sat(R.string.practice_calendar_satureday)
     }
 
     companion object {
         private const val DAYS_IN_WEEK = 7
         private const val WEEKS_IN_CALENDAR_MONTH = 6
         private const val DAYS_IN_CALENDAR_MONTH = DAYS_IN_WEEK * WEEKS_IN_CALENDAR_MONTH
-
-        private enum class DayInWeek(val text: String){ Sun("일"), Mon("월"), Tue("화"), Wed("수"), Thu("목"), Fri("금"), Sat("토") }
     }
 }

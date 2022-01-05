@@ -18,9 +18,16 @@
     <string name="home_event_title">이벤트</string>
 
     <!-- Practice Fragment -->
-    <string name="practice_practice_today_title">오늘의 연습</string>
-    <string name="practice_practice_analytics_title">연습 기록</string>
-    <string name="practice_practice_pieces_title">곡별 연습</string>
+    <string name="practice_home_practice_today_title">오늘의 연습</string>
+    <string name="practice_home_practice_analytics_title">연습 기록</string>
+    <string name="practice_home_practice_pieces_title">곡별 연습</string>
+    <string name="practice_calendar_monday">월</string>
+    <string name="practice_calendar_tuesday">화</string>
+    <string name="practice_calendar_wednesday">수</string>
+    <string name="practice_calendar_thursday">목</string>
+    <string name="practice_calendar_friday">금</string>
+    <string name="practice_calendar_satureday">토</string>
+    <string name="practice_calendar_sunday">일</string>
 
     <!-- Social Fragment -->
 
