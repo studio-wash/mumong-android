@@ -2,27 +2,40 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    android:id="@+id/nav_main"
+    app:startDestination="@id/homeFragmentNav">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragmentNav"
         android:name="com.studiowash.mumong.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/practiceFragment"
-        android:name="com.studiowash.mumong.practice.PracticeFragment"
-        android:label="fragment_calendar"
-        tools:layout="@layout/fragment_practice" />
-    <fragment
-        android:id="@+id/socialFragment"
+        android:id="@+id/socialFragmentNav"
         android:name="com.studiowash.mumong.SocialFragment"
         android:label="fragment_social"
         tools:layout="@layout/fragment_social" />
     <fragment
-        android:id="@+id/communityFragment"
+        android:id="@+id/communityFragmentNav"
         android:name="com.studiowash.mumong.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
+
+    <navigation android:id="@+id/practiceNestedNav"
+        app:startDestination="@id/practiceFragmentNav">
+        <fragment
+            android:id="@+id/practiceFragmentNav"
+            android:name="com.studiowash.mumong.practice.PracticeFragment"
+            android:label="fragment_calendar"
+            tools:layout="@layout/fragment_practice">
+            <action
+                android:id="@+id/action_practiceFragmentNav_to_practiceCalendarFragmentNav"
+                app:destination="@id/practiceCalendarFragmentNav" />
+        </fragment>
+        <fragment
+            android:id="@+id/practiceCalendarFragmentNav"
+            android:name="com.studiowash.mumong.practice.PracticeCalendarFragment"
+            android:label="PracticeCalendarFragment"
+            tools:layout="@layout/fragment_practice_calendar" />
+    </navigation>
 </navigation>
