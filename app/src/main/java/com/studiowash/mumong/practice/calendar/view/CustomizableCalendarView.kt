@@ -2,22 +2,36 @@ package com.studiowash.mumong.practice.calendar.view
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.studiowash.mumong.databinding.CustomizableCalendarViewBinding
 import java.util.*
 
-class CalendarRecyclerView @JvmOverloads constructor(
+class CustomizableCalendarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0
-) : RecyclerView(context, attrs, defStyleAttr) {
+) : FrameLayout(context, attrs, defStyleAttr) {
+    private val binding = CustomizableCalendarViewBinding.inflate(LayoutInflater.from(context), this, true)
     private val calendarDateAdapter = CalendarDateAdapter()
+    private val dayInWeekAdapter = DayInWeekAdapter()
 
     init {
-        layoutManager = GridLayoutManager(context, DAYS_IN_WEEK)
-        adapter = calendarDateAdapter
+        binding.dateRecyclerView.apply {
+            layoutManager = GridLayoutManager(context, DAYS_IN_WEEK)
+            adapter = calendarDateAdapter
+        }
+        binding.dayOfWeekRecyclerView.apply {
+            layoutManager = GridLayoutManager(context, DAYS_IN_WEEK)
+            adapter = dayInWeekAdapter
+        }
     }
 
     fun setYearAndMonth(year: Int, month: Int) {
@@ -37,16 +51,16 @@ class CalendarRecyclerView @JvmOverloads constructor(
         calendarDateAdapter.selectedDay = day
     }
 
-    fun refresh() = adapter?.notifyDataSetChanged()
+    fun refresh() = binding.dateRecyclerView.adapter?.notifyDataSetChanged()
 
-    private class CalendarDateAdapter : Adapter<CalendarDateAdapter.CalendarDateViewHolder>() {
+    private class CalendarDateAdapter : RecyclerView.Adapter<CalendarDateAdapter.CalendarDateViewHolder>() {
         var startDayOfWeek = Calendar.MONDAY
         var daysInThisMonth = 31
         var daysInLastMonth = 31
         var today = 1
         var selectedDay = 1
 
-        private class CalendarDateViewHolder(val view: CalendarDateView) : ViewHolder(view)
+        private class CalendarDateViewHolder(val view: CalendarDateView) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarDateViewHolder {
             val view = CalendarDateView(parent.context)
@@ -70,9 +84,29 @@ class CalendarRecyclerView @JvmOverloads constructor(
         override fun getItemCount() = DAYS_IN_CALENDAR_MONTH
     }
 
+    private class DayInWeekAdapter : RecyclerView.Adapter<DayInWeekAdapter.DayInWeekViewHolder>() {
+        private class DayInWeekViewHolder(val view: TextView) : RecyclerView.ViewHolder(view)
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayInWeekViewHolder {
+            val view = TextView(parent.context).apply {
+                layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+                gravity = Gravity.CENTER
+            }
+            return DayInWeekViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: DayInWeekViewHolder, position: Int) {
+            holder.view.text = DayInWeek.values().getOrNull(position)?.text
+        }
+
+        override fun getItemCount() = DAYS_IN_WEEK
+    }
+
     companion object {
         private const val DAYS_IN_WEEK = 7
         private const val WEEKS_IN_CALENDAR_MONTH = 6
         private const val DAYS_IN_CALENDAR_MONTH = DAYS_IN_WEEK * WEEKS_IN_CALENDAR_MONTH
+
+        private enum class DayInWeek(val text: String){ Sun("일"), Mon("월"), Tue("화"), Wed("수"), Thu("목"), Fri("금"), Sat("토") }
     }
 }

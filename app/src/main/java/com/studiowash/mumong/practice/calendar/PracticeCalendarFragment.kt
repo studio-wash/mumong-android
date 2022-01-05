@@ -21,7 +21,7 @@ class PracticeCalendarFragment : Fragment(){
     }
 
     private fun initDate() {
-        binding.calendarRecyclerView.apply {
+        binding.calendarView.apply {
             val calendar = Calendar.getInstance()
             setYearAndMonth(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH))
             val today = Calendar.DAY_OF_MONTH

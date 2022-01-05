@@ -12,8 +12,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/title_practice_fragment" />
-        <com.studiowash.mumong.practice.calendar.view.CalendarRecyclerView
-            android:id="@+id/calendar_recycler_view"
+        <com.studiowash.mumong.practice.calendar.view.CustomizableCalendarView
+            android:id="@+id/calendar_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/title_text"/>
