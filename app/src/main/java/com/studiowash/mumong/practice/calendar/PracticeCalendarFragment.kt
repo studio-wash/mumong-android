@@ -17,14 +17,4 @@ class PracticeCalendarFragment : Fragment(){
         binding = FragmentPracticeCalendarBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-    override fun onDestroyView() {
-        println("destroyed view PracticeCalendarFragment")
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        println("destroyed PracticeCalendarFragment")
-        super.onDestroy()
-    }
 }
