@@ -46,7 +46,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
 
-    val navVersion = "2.3.5"
+    val navVersion = "2.4.0-beta02"
     // Java language implementation
     implementation("androidx.navigation:navigation-fragment:$navVersion")
     implementation("androidx.navigation:navigation-ui:$navVersion")

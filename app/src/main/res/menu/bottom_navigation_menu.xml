@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:id="@+id/page_home"
+        android:id="@+id/homeFragmentNav"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/nav_home_label"/>
 
     <item
-        android:id="@+id/page_practice"
+        android:id="@+id/practiceNestedNav"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/nav_practice_label"/>
 
     <item
-        android:id="@+id/page_social"
+        android:id="@+id/socialFragmentNav"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/nav_social_label"/>
 
     <item
-        android:id="@+id/page_community"
+        android:id="@+id/communityFragmentNav"
         android:enabled="true"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/nav_community_label"/>

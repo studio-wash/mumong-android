@@ -4,105 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".practice.PracticeFragment">
-    <data>
-        <variable
-            name="year"
-            type="int" />
-        <variable
-            name="month"
-            type="int" />
-    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent">
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/title_practice_fragment" />
-        <LinearLayout
-            android:id="@+id/calendar_info_linear_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/title_text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/calendar_info_year_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{Integer.toString(year)}"/>
-            <ImageView
-                android:id="@+id/calendar_info_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_calendar"/>
-            <TextView
-                android:id="@+id/calendar_info_month_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{Integer.toString(month)}"/>
-        </LinearLayout>
-        <com.studiowash.mumong.practice.DateScrollView
-            android:id="@+id/date_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/calendar_info_linear_layout"
-            android:paddingBottom="30dp"/>
-        <View
-            android:id="@+id/separator_1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_separator_height"
-            android:background="@color/gray_2"
-            app:layout_constraintTop_toBottomOf="@id/date_scroll_view"/>
-        <LinearLayout
-            android:id="@+id/practice_today_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/separator_1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/practice_practice_today_title"/>
-        </LinearLayout>
-        <View
-            android:id="@+id/separator_2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_separator_height"
-            android:background="@color/gray_2"
-            app:layout_constraintTop_toBottomOf="@id/practice_today_linear_layout"/>
-        <LinearLayout
-            android:id="@+id/practice_analytics_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/separator_2">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/practice_practice_analytics_title"/>
-        </LinearLayout>
-        <View
-            android:id="@+id/separator_3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_separator_height"
-            android:background="@color/gray_2"
-            app:layout_constraintTop_toBottomOf="@id/practice_analytics_linear_layout"/>
-        <LinearLayout
-            android:id="@+id/practice_pieces_linear_layout"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/separator_3">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/practice_practice_pieces_title"/>
-        </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph_practice_fragment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
