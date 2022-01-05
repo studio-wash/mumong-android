@@ -42,14 +42,4 @@ class PracticeHomeFragment : Fragment(){
             }
         })
     }
-
-    override fun onDestroyView() {
-        println("destroyed view PracticeHomeFragment")
-        super.onDestroyView()
-    }
-
-    override fun onDestroy() {
-        println("destroyed PracticeHomeFragment")
-        super.onDestroy()
-    }
 }
