@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -60,10 +59,10 @@ class CustomizableCalendarView @JvmOverloads constructor(
         var today = 1
         var selectedDay = 1
 
-        private class CalendarDateViewHolder(val view: CalendarDateView) : RecyclerView.ViewHolder(view)
+        private class CalendarDateViewHolder(val view: CustomizableCalendarDateView) : RecyclerView.ViewHolder(view)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarDateViewHolder {
-            val view = CalendarDateView(parent.context)
+            val view = CustomizableCalendarDateView(parent.context)
             return CalendarDateViewHolder(view)
         }
 
@@ -78,6 +77,7 @@ class CustomizableCalendarView @JvmOverloads constructor(
                 day = dayForText
                 isToday = dayInThisMonth == today
                 isSelected = dayInThisMonth == selectedDay
+                isThisMonth = dayInThisMonth == dayForText
             }
         }
 

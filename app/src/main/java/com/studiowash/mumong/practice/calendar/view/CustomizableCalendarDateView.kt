@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import com.studiowash.mumong.databinding.ItemPracticeCalendarDateBinding
 
-class CalendarDateView @JvmOverloads constructor(
+class CustomizableCalendarDateView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0
@@ -23,6 +23,11 @@ class CalendarDateView @JvmOverloads constructor(
         set(value) {
             field = value
             binding.isToday = value
+        }
+    var isThisMonth: Boolean = true
+        set(value) {
+            field = value
+            binding.isThisMonth = value
         }
 
     override fun setSelected(selected: Boolean) {
