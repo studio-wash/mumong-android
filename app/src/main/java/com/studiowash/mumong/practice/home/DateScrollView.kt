@@ -1,4 +1,4 @@
-package com.studiowash.mumong.practice
+package com.studiowash.mumong.practice.home
 
 import android.content.Context
 import android.util.AttributeSet

@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_main"
+    android:id="@+id/navMainACtivity"
     app:startDestination="@id/homeFragmentNav">
 
     <fragment
@@ -21,21 +21,5 @@
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
 
-    <navigation android:id="@+id/practiceNestedNav"
-        app:startDestination="@id/practiceFragmentNav">
-        <fragment
-            android:id="@+id/practiceFragmentNav"
-            android:name="com.studiowash.mumong.practice.PracticeFragment"
-            android:label="fragment_calendar"
-            tools:layout="@layout/fragment_practice">
-            <action
-                android:id="@+id/action_practiceFragmentNav_to_practiceCalendarFragmentNav"
-                app:destination="@id/practiceCalendarFragmentNav" />
-        </fragment>
-        <fragment
-            android:id="@+id/practiceCalendarFragmentNav"
-            android:name="com.studiowash.mumong.practice.PracticeCalendarFragment"
-            android:label="PracticeCalendarFragment"
-            tools:layout="@layout/fragment_practice_calendar" />
-    </navigation>
+    <include app:graph="@navigation/nav_graph_practice_fragment" />
 </navigation>
