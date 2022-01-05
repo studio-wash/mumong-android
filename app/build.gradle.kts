@@ -8,7 +8,7 @@ android {
     setCompileSdkVersion(31)
 
     defaultConfig {
-        applicationId = "com.studiowash.mumong_andorid"
+        applicationId = "com.studiowash.mumong"
         minSdk = 24
         targetSdk = 31
         versionCode = 1
@@ -46,7 +46,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
 
-    val navVersion = "2.3.5"
+    val navVersion = "2.4.0-beta02"
     // Java language implementation
     implementation("androidx.navigation:navigation-fragment:$navVersion")
     implementation("androidx.navigation:navigation-ui:$navVersion")
