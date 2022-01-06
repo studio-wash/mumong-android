@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.CustomizableCalendarViewBinding
 import java.util.*
 
@@ -16,6 +17,26 @@ class CustomizableCalendarView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = CustomizableCalendarViewBinding.inflate(LayoutInflater.from(context), this, true)
+
+    init {
+        readAttributes(attrs)
+    }
+
+    private fun readAttributes(attrs: AttributeSet?) {
+        val obtainedAttributes = context.obtainStyledAttributes(attrs, R.styleable.CustomizableCalendarView)
+        try {
+            dividerRes = obtainedAttributes.getResourceId(R.styleable.CustomizableCalendarView_divider_src, R.drawable.divider_calendar)
+        } finally {
+            obtainedAttributes.recycle()
+        }
+    }
+
+    var dividerRes = R.drawable.divider_calendar
+        set(value) {
+            field = value
+            binding.dividerRes = value
+        }
+
     var calendarDateAdapter: CalendarDateAdapter<*>? = null
         set(value){
             field = value
