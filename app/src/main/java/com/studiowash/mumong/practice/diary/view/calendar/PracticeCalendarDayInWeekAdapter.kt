@@ -32,12 +32,12 @@ class PracticeCalendarDayInWeekAdapter : CustomizableCalendarView.DayInWeekAdapt
     override fun getItemCount() = CustomizableCalendarView.DAYS_IN_WEEK
 
     enum class DayInWeek(@StringRes val textRes: Int){
-        Sun(R.string._customizable_calendar_sunday),
-        Mon(R.string._customizable_calendar_monday),
-        Tue(R.string._customizable_calendar_tuesday),
-        Wed(R.string._customizable_calendar_wednesday),
-        Thu(R.string._customizable_calendar_thursday),
-        Fri(R.string._customizable_calendar_friday),
-        Sat(R.string._customizable_calendar_satureday)
+        Sun(R.string.practice_calendar_sunday),
+        Mon(R.string.practice_calendar_monday),
+        Tue(R.string.practice_calendar_tuesday),
+        Wed(R.string.practice_calendar_wednesday),
+        Thu(R.string.practice_calendar_thursday),
+        Fri(R.string.practice_calendar_friday),
+        Sat(R.string.practice_calendar_satureday)
     }
 }
