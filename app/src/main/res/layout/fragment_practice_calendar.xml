@@ -12,7 +12,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/title_practice_fragment" />
-        <com.studiowash.mumong.practice.calendar.view.CustomizableCalendarView
+        <com.studiowash.mumong.practice.diary.view.calendar.view.CustomizableCalendarView
             android:id="@+id/calendar_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.studiowash.mumong.practice.calendar.view
+package com.studiowash.mumong.practice.diary.view.calendar.view
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

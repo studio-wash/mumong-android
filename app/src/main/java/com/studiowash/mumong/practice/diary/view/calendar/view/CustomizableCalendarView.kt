@@ -1,17 +1,12 @@
-package com.studiowash.mumong.practice.calendar.view
+package com.studiowash.mumong.practice.diary.view.calendar.view
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.annotation.AttrRes
-import androidx.annotation.StringRes
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.CustomizableCalendarViewBinding
 import java.util.*
 
@@ -21,8 +16,16 @@ class CustomizableCalendarView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = CustomizableCalendarViewBinding.inflate(LayoutInflater.from(context), this, true)
-    private val calendarDateAdapter = SimpleCalendarDateAdapter()
-    private val dayInWeekAdapter = DayInWeekAdapter()
+    var calendarDateAdapter: CalendarDateAdapter<*> = SimpleCalendarDateAdapter()
+        set(value){
+            field = value
+            binding.dateRecyclerView.adapter = value
+        }
+    var dayInWeekAdapter: DayInWeekAdapter<*> = SimpleDayInWeekAdapter()
+        set(value){
+            field = value
+            binding.dayOfWeekRecyclerView.adapter = value
+        }
 
     init {
         binding.dateRecyclerView.apply {
@@ -48,34 +51,8 @@ class CustomizableCalendarView @JvmOverloads constructor(
 
     fun refresh() = binding.dateRecyclerView.adapter?.notifyDataSetChanged()
 
-    private class DayInWeekAdapter : RecyclerView.Adapter<DayInWeekAdapter.DayInWeekViewHolder>() {
-        private class DayInWeekViewHolder(val view: TextView) : RecyclerView.ViewHolder(view)
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DayInWeekViewHolder {
-            val view = TextView(parent.context).apply {
-                layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
-                gravity = Gravity.CENTER
-            }
-            return DayInWeekViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: DayInWeekViewHolder, position: Int) {
-            DayInWeek.values().getOrNull(position)?.textRes?.let {
-                holder.view.setText(it)
-            }
-        }
-
+    abstract class DayInWeekAdapter<T: RecyclerView.ViewHolder> : RecyclerView.Adapter<T>() {
         override fun getItemCount() = DAYS_IN_WEEK
-    }
-    
-    private enum class DayInWeek(@StringRes val textRes: Int){
-        Sun(R.string.practice_calendar_sunday),
-        Mon(R.string.practice_calendar_monday),
-        Tue(R.string.practice_calendar_tuesday),
-        Wed(R.string.practice_calendar_wednesday),
-        Thu(R.string.practice_calendar_thursday),
-        Fri(R.string.practice_calendar_friday),
-        Sat(R.string.practice_calendar_satureday)
     }
 
     abstract class CalendarDateAdapter<T: RecyclerView.ViewHolder> : RecyclerView.Adapter<T>() {
@@ -107,7 +84,6 @@ class CustomizableCalendarView @JvmOverloads constructor(
 
         override fun onBindViewHolder(holder: T, position: Int) {
             calendar.set(year, month, 1)
-
             val dayConcerningThisMonth = (position + 1) - (startDayOfWeek - 1)
             val monthDiff = when {
                 dayConcerningThisMonth <= 0 -> -1

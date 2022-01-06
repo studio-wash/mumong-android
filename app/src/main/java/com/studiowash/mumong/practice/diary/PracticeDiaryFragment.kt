@@ -1,4 +1,4 @@
-package com.studiowash.mumong.practice.calendar
+package com.studiowash.mumong.practice.diary
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.studiowash.mumong.databinding.FragmentPracticeCalendarBinding
+import com.studiowash.mumong.practice.diary.view.calendar.PracticeCalendarDateAdapter
+import com.studiowash.mumong.practice.diary.view.calendar.PracticeCalendarDayInWeekAdapter
 import java.util.*
 
-class PracticeCalendarFragment : Fragment(){
+class PracticeDiaryFragment : Fragment(){
     private lateinit var binding: FragmentPracticeCalendarBinding
 
     override fun onCreateView(
@@ -22,11 +24,16 @@ class PracticeCalendarFragment : Fragment(){
 
     private fun initDate() {
         binding.calendarView.apply {
+            calendarDateAdapter = PracticeCalendarDateAdapter()
+            dayInWeekAdapter = PracticeCalendarDayInWeekAdapter()
+
             val calendar = Calendar.getInstance()
+            val today = calendar.get(Calendar.DAY_OF_MONTH)
+
             setYearAndMonth(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH))
-            val today = Calendar.DAY_OF_MONTH
             setToday(today)
             setSelectedDay(today)
+
             refresh()
         }
     }

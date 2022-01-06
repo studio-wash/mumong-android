@@ -1,4 +1,4 @@
-package com.studiowash.mumong.practice.calendar.view
+package com.studiowash.mumong.practice.diary.view.calendar
 
 import android.content.Context
 import android.util.AttributeSet
@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import com.studiowash.mumong.databinding.ItemPracticeCalendarDateBinding
 
-class SimpleCalendarDateView @JvmOverloads constructor(
+class PracticeCalendarDateView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0
