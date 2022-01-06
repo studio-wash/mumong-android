@@ -16,7 +16,7 @@ class CustomizableCalendarView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = CustomizableCalendarViewBinding.inflate(LayoutInflater.from(context), this, true)
-    var calendarDateAdapter: CalendarDateAdapter<*> = SimpleCalendarDateAdapter()
+    var calendarDateAdapter: CalendarDateAdapter<*>? = null
         set(value){
             field = value
             binding.dateRecyclerView.adapter = value
@@ -39,14 +39,14 @@ class CustomizableCalendarView @JvmOverloads constructor(
     }
 
     fun setYearAndMonth(year: Int, month: Int) {
-        calendarDateAdapter.setYearAndMonth(year, month)
+        calendarDateAdapter?.setYearAndMonth(year, month)
     }
 
     fun setToday(day: Int) {
-        calendarDateAdapter.today = day
+        calendarDateAdapter?.today = day
     }
     fun setSelectedDay(day: Int) {
-        calendarDateAdapter.selectedDay = day
+        calendarDateAdapter?.selectedDay = day
     }
 
     fun refresh() = binding.dateRecyclerView.adapter?.notifyDataSetChanged()
