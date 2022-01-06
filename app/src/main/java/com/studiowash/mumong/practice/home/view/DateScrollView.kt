@@ -17,7 +17,7 @@ class DateScrollView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = DateScrollViewBinding.inflate(LayoutInflater.from(context), this, true)
-    private val dateAdapter = DateAdapter()
+    private val dateAdapter = DefaultDateAdapter()
 
     private var selectedPosition: Int = 3
     private var todayPosition: Int = 13
@@ -36,7 +36,7 @@ class DateScrollView @JvmOverloads constructor(
         binding.dateRecyclerView.scrollToPosition(selectedPosition)
     }
 
-    private class DateAdapter: RecyclerView.Adapter<DateAdapter.DateViewHolder>() {
+    private class DefaultDateAdapter: RecyclerView.Adapter<DefaultDateAdapter.DateViewHolder>() {
         var todayPosition: Int = 0
         var selectedPosition: Int = 0
 

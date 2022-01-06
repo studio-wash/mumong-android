@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import com.studiowash.mumong.databinding.ItemPracticeCalendarDateBinding
 
-class CustomizableCalendarDateView @JvmOverloads constructor(
+class SimpleCalendarDateView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0

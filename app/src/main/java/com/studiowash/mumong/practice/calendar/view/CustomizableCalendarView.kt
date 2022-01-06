@@ -21,7 +21,7 @@ class CustomizableCalendarView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = CustomizableCalendarViewBinding.inflate(LayoutInflater.from(context), this, true)
-    private val calendarDateAdapter = CalendarDateAdapter()
+    private val calendarDateAdapter = SimpleCalendarDateAdapter()
     private val dayInWeekAdapter = DayInWeekAdapter()
 
     init {
@@ -47,51 +47,6 @@ class CustomizableCalendarView @JvmOverloads constructor(
     }
 
     fun refresh() = binding.dateRecyclerView.adapter?.notifyDataSetChanged()
-
-    private class CalendarDateAdapter : RecyclerView.Adapter<CalendarDateAdapter.CalendarDateViewHolder>() {
-
-        fun setYearAndMonth(year: Int, month: Int) {
-            val calendar: Calendar = Calendar.getInstance().apply {
-                set(year, month, 1)
-            }
-            startDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-            daysInThisMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-            calendar.add(Calendar.MONTH, -1) // parse previous month
-            daysInLastMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-        }
-
-        private var startDayOfWeek = Calendar.MONDAY
-
-        private var daysInThisMonth = 31
-        private var daysInLastMonth = 31
-
-        var today = 1
-        var selectedDay = 1
-
-        private class CalendarDateViewHolder(val view: CustomizableCalendarDateView) : RecyclerView.ViewHolder(view)
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarDateViewHolder {
-            val view = CustomizableCalendarDateView(parent.context)
-            return CalendarDateViewHolder(view)
-        }
-
-        override fun onBindViewHolder(holder: CalendarDateViewHolder, position: Int) {
-            val dayInThisMonth = (position + 1) - (startDayOfWeek - 1)
-            val day = when {
-                dayInThisMonth <= 0 -> dayInThisMonth + daysInLastMonth
-                dayInThisMonth > daysInThisMonth -> dayInThisMonth%daysInThisMonth
-                else -> dayInThisMonth
-            }
-            holder.view.apply {
-                this.day = day
-                isToday = dayInThisMonth == today
-                isSelected = dayInThisMonth == selectedDay
-                isThisMonth = dayInThisMonth == day
-            }
-        }
-
-        override fun getItemCount() = DAYS_IN_CALENDAR_MONTH
-    }
 
     private class DayInWeekAdapter : RecyclerView.Adapter<DayInWeekAdapter.DayInWeekViewHolder>() {
         private class DayInWeekViewHolder(val view: TextView) : RecyclerView.ViewHolder(view)
@@ -123,9 +78,71 @@ class CustomizableCalendarView @JvmOverloads constructor(
         Sat(R.string.practice_calendar_satureday)
     }
 
+    abstract class CalendarDateAdapter<T: RecyclerView.ViewHolder> : RecyclerView.Adapter<T>() {
+
+        fun setYearAndMonth(year: Int, month: Int) {
+            this.year = year
+            this.month = month
+            calendar.set(year, month, 1)
+            startDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+            daysInThisMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+            calendar.add(Calendar.MONTH, -1) // parse previous month
+            daysInLastMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        }
+
+        fun getCalendarYear() = year
+        fun getCalendarMonth() = month
+
+        private var year: Int = 0
+        private var month: Int = 0
+        private var calendar: Calendar = Calendar.getInstance()
+
+        private var startDayOfWeek = Calendar.MONDAY
+
+        private var daysInThisMonth = 31
+        private var daysInLastMonth = 31
+
+        var today = 1
+        var selectedDay = 1
+
+        override fun onBindViewHolder(holder: T, position: Int) {
+            calendar.set(year, month, 1)
+
+            val dayConcerningThisMonth = (position + 1) - (startDayOfWeek - 1)
+            val monthDiff = when {
+                dayConcerningThisMonth <= 0 -> -1
+                dayConcerningThisMonth > daysInThisMonth -> 1
+                else -> 0
+            }
+            calendar.add(Calendar.MONTH, monthDiff)
+
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+
+            val dayForDisplay = when {
+                dayConcerningThisMonth <= 0 -> dayConcerningThisMonth + daysInLastMonth
+                dayConcerningThisMonth > daysInThisMonth -> dayConcerningThisMonth%daysInThisMonth
+                else -> dayConcerningThisMonth
+            }
+
+            val isToday = dayConcerningThisMonth == today
+            val isSelected = dayConcerningThisMonth == selectedDay
+            val day = dayForDisplay
+            val isThisMonth = year == this.year && month == this.month
+
+            this.onBindViewHolder(holder, position, year, month, day, isToday, isSelected, isThisMonth)
+        }
+        abstract fun onBindViewHolder(holder: T, position: Int, year: Int, month: Int, day: Int, isToday: Boolean, isSelected: Boolean, isThisMonth: Boolean)
+
+        override fun getItemCount() = DAYS_IN_CALENDAR_MONTH
+
+        companion object {
+            private const val WEEKS_IN_CALENDAR_MONTH = 6
+            private const val DAYS_IN_CALENDAR_MONTH = DAYS_IN_WEEK * WEEKS_IN_CALENDAR_MONTH
+        }
+    }
+
     companion object {
-        private const val DAYS_IN_WEEK = 7
-        private const val WEEKS_IN_CALENDAR_MONTH = 6
-        private const val DAYS_IN_CALENDAR_MONTH = DAYS_IN_WEEK * WEEKS_IN_CALENDAR_MONTH
+        const val DAYS_IN_WEEK = 7
     }
 }
