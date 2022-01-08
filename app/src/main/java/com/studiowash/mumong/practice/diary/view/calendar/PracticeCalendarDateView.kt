@@ -29,6 +29,11 @@ class PracticeCalendarDateView @JvmOverloads constructor(
             field = value
             binding.isThisMonth = value
         }
+    var practicePercent: Float = 0f
+        set(value) {
+            field = value
+            binding.calendarDateBackgroundView.percent = value
+        }
 
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
