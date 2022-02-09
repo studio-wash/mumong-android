@@ -9,7 +9,7 @@ import androidx.annotation.AttrRes
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.DateScrollViewBinding
-import com.studiowash.mumong.databinding.ItemDateBinding
+import com.studiowash.mumong.databinding.ItemPracticeDateBinding
 
 class DateScrollView @JvmOverloads constructor(
     context: Context,
@@ -40,10 +40,10 @@ class DateScrollView @JvmOverloads constructor(
         var todayPosition: Int = 0
         var selectedPosition: Int = 0
 
-        private class DateViewHolder(val binding: ItemDateBinding) : RecyclerView.ViewHolder(binding.root)
+        private class DateViewHolder(val binding: ItemPracticeDateBinding) : RecyclerView.ViewHolder(binding.root)
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DateViewHolder {
-            val binding = ItemDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            val binding = ItemPracticeDateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
             return DateViewHolder(binding)
         }
 

@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_social" />
     <fragment
         android:id="@+id/communityFragmentNav"
-        android:name="com.studiowash.mumong.CommunityFragment"
+        android:name="com.studiowash.mumong.community.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
 

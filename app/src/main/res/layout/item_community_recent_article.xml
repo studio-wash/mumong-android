@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.community.RecentArticleItem" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container_constraint_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+        android:paddingVertical="20dp">
+        <!-- 게시글 제목 -->
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{item.title}"/>
+        <!-- 첨부된 녹음파일 리스트 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/record_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/title_text_view" />
+        <TextView
+            android:id="@+id/content_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/record_list_recycler_view"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{item.content}"/>
+
+        <!-- 글쓴이 정보 -->
+        <ImageView
+            android:id="@+id/user_profile_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_text_view"
+            imageSrc="@{item.userIconSrc}"/>
+        <TextView
+            android:id="@+id/user_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:text="@{item.userName}"/>
+        <ImageView
+            android:id="@+id/user_name_profile_image_separator_dot"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:src="@drawable/drawable_seperator_dot"
+            app:layout_constraintStart_toEndOf="@id/user_name_text_view"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:layout_marginStart="3dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:text="@{item.writtenTime}"
+            android:layout_marginStart="3dp"/>
+
+        <!-- 우측 하단 좋아요, 댓글 개수 -->
+        <TextView
+            android:id="@+id/comment_count_text_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:text="@{Integer.toString(item.commentCount)}"/>
+        <ImageView
+            android:id="@+id/comment_count_image_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toStartOf="@id/comment_count_text_view"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:src="@drawable/ic_comment_selected"/>
+        <TextView
+            android:id="@+id/like_count_text_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toStartOf="@id/comment_count_image_view"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:text="@{Integer.toString(item.likeCount)}"/>
+        <ImageView
+            android:id="@+id/like_count_image_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintEnd_toStartOf="@id/like_count_text_view"
+            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            android:src="@drawable/ic_like_selected"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

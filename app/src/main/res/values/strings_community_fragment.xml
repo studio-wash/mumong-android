@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 카테고리 타이틀 -->
+    <string name="community_title_favorite_boards">즐겨찾는 게시판</string>
+    <string name="community_title_mumong_pick">뮤몽 PICK</string>
+    <string name="community_title_recent_articles">실시간 게시글</string>
+
+    <!-- 단어 -->
+    <string name="community_suggest">추천</string>
+    <string name="community_notice">공지사항</string>
+
+    <!-- 게시글 정보 -->
+    <string name="community_article_time_template">%d분 전</string>
+</resources>
