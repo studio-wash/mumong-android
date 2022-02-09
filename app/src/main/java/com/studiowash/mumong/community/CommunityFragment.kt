@@ -26,11 +26,15 @@ class CommunityFragment : Fragment() {
         )
     }
 
-    private val mumongPickArticleAdapter = MumongPickArticleAdapter().apply {
-        mumongPickArticleItems = listOf(
-            MumongPickArticleItem("추천", "피아노를 공부하는 루틴", "데이드림", "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            MumongPickArticleItem("공지사항", "깨끗한 커뮤니티를 만들자", "뮤몽 운영진", "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            MumongPickArticleItem("공지사항", "깨끗한 커뮤니티를 만들자", "뮤몽 운영진", "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+    private val tagsAdapter = TagAdapter().apply {
+        tagItems = listOf(
+            TagItem("자유"),
+            TagItem("베스트"),
+            TagItem("내 음악을 들어줘"),
+            TagItem("꿀팁"),
+            TagItem("질문답변"),
+            TagItem("홍보"),
+            TagItem("무슨 태그일까요")
         )
     }
 
@@ -81,8 +85,8 @@ class CommunityFragment : Fragment() {
             adapter = favoriteBoardAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
-        binding.mumongPickRecyclerView.apply {
-            adapter = mumongPickArticleAdapter
+        binding.tagRecyclerView.apply {
+            adapter = tagsAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
         binding.recentArticlesRecyclerView.apply {
