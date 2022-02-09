@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">뮤몽</string>
 
-    <string name="adfit_client_id">DAN-qPia47sOfpcajRFD</string>
+    <string name="adfit_client_id">DAN-XuUWhh7ZeB0hSQDl</string>
 
     <!-- Fragment Titles -->
     <string name="title_home_fragment">홈</string>

@@ -23,7 +23,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@{Integer.toString(date)}"
-            android:textColor="@{isSelected ? @color/black : isToday ? @color/brand_color_2 : @color/icon_off}"/>
+            android:textColor="@{isSelected ? @color/text_black : isToday ? @color/brand_color_2 : @color/icon_off}"/>
         <View
             android:id="@+id/notice_image_view"
             android:layout_width="50dp"
