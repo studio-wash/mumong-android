@@ -10,7 +10,8 @@
         android:id="@+id/item_container_constraint_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+        android:paddingVertical="@dimen/fragment_default_top_padding">
         <!-- 게시글 제목 -->
         <TextView
             android:id="@+id/title_text_view"
