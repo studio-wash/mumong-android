@@ -1,12 +1,17 @@
 package com.studiowash.mumong.community
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentCommunityBinding
 
@@ -85,6 +90,43 @@ class CommunityFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
+        initAdfit()
+    }
+
+    private fun initAdfit() {
+        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id))
+        binding.adfitAdView.setAdListener(object : AdListener {  // optional :: 광고 수신 리스너 설정
+            override fun onAdLoaded() {
+                Log.d(tag, "onAdLoaded")
+            }
+
+            override fun onAdFailed(errorCode: Int) {
+                Log.e(tag, "onAdFailed $errorCode")
+            }
+
+            override fun onAdClicked() {
+                Log.d(tag, "onADClicked")
+            }
+        })
+
+        lifecycle.addObserver(object : LifecycleObserver {
+            // todo : deprecated
+            @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+            fun onResume() {
+                binding.adfitAdView.resume()
+            }
+
+            @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+            fun onPause() {
+                binding.adfitAdView.pause()
+            }
+
+            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+            fun onDestroy() {
+                binding.adfitAdView.destroy()
+            }
+        })
+        binding.adfitAdView.loadAd()
     }
 
     private fun initObserve() {
