@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="horizontal_separator_height">5dp</dimen>
+
+    <dimen name="fragment_default_horizontal_padding">20dp</dimen>
+    <dimen name="fragment_default_top_padding">20dp</dimen>
+
+    <!-- 커뮤니티 -->
+    <dimen name="community_fragment_title_bottom_padding">10dp</dimen>
 </resources>
