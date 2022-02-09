@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong.practice.home.DateScrollView
+        <com.studiowash.mumong.practice.home.view.DateScrollView
             android:id="@+id/date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/practice_practice_today_title"/>
+                android:text="@string/practice_home_practice_today_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_2"
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/practice_practice_analytics_title"/>
+                android:text="@string/practice_home_practice_analytics_title"/>
         </LinearLayout>
         <View
             android:id="@+id/separator_3"
@@ -106,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/practice_practice_pieces_title"/>
+                android:text="@string/practice_home_practice_pieces_title"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

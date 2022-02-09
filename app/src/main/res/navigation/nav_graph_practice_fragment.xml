@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/practiceCalendarFragmentNav"
-        android:name="com.studiowash.mumong.practice.calendar.PracticeCalendarFragment"
+        android:name="com.studiowash.mumong.practice.diary.PracticeDiaryFragment"
         android:label="PracticeCalendarFragment"
         tools:layout="@layout/fragment_practice_calendar" />
 </navigation>
