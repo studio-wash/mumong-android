@@ -15,4 +15,5 @@
     <color name="gray_2">#EBEBEB</color>
 
     <color name="icon_off">#C7C7C7</color>
+    <color name="text_gray">#C7C7C7</color>
 </resources>

@@ -10,5 +10,5 @@
     <string name="community_notice">공지사항</string>
 
     <!-- 게시글 정보 -->
-    <string name="community_article_time">%d분 전</string>
+    <string name="community_article_time_template">%d분 전</string>
 </resources>
