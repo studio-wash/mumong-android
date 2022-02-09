@@ -18,7 +18,7 @@ import com.studiowash.mumong.databinding.FragmentCommunityBinding
 class CommunityFragment : Fragment() {
     private lateinit var binding: FragmentCommunityBinding
 
-    private val favoriteBoardAdapter = FavoriteBoardAdapter().apply {
+    private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
         favoriteBoardItems = listOf(
             FavoriteBoardItem("피아노"),
             FavoriteBoardItem("밴드"),
@@ -132,6 +132,7 @@ class CommunityFragment : Fragment() {
 
     private fun initView() {
         binding.favoriteBoardsRecyclerView.apply {
+            itemAnimator = null
             adapter = favoriteBoardAdapter
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
@@ -184,5 +185,9 @@ class CommunityFragment : Fragment() {
     }
 
     private fun initObserve() {
+    }
+
+    private fun onClickBoard(boardIndex: Int) {
+        favoriteBoardAdapter.selectedIndex = boardIndex
     }
 }
