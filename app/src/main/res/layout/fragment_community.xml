@@ -57,7 +57,7 @@
         <View
             android:id="@+id/separator_1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/horizontal_separator_height"
+            android:layout_height="@dimen/horizontal_separator_height_thin"
             android:background="@color/gray_2"
             app:layout_constraintTop_toBottomOf="@id/recent_articles_title_text_view"/>
         <androidx.recyclerview.widget.RecyclerView
