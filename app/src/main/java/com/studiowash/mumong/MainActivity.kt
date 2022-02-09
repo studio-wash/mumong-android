@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         initNavigation()
     }
 
+
     private fun initNavigation() {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()?.let { navController ->
             binding.bottomNavigationView.setupWithNavController(navController)

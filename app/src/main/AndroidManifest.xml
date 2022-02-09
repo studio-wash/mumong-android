@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Mumongandorid">
+        android:theme="@style/Theme.MuMong">
         <activity
             android:name="com.studiowash.mumong.MainActivity"
             android:exported="true">
