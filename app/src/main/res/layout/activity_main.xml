@@ -22,7 +22,9 @@
             android:id="@+id/bottom_navigation_view"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            app:labelVisibilityMode="labeled"
             app:itemTextColor="@color/navigation_text_color"
+            app:itemBackground="@android:color/transparent"
             app:menu="@menu/bottom_navigation_menu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
