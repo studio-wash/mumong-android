@@ -62,4 +62,11 @@ dependencies {
     val glideVersion = "4.11.0"
     implementation("com.github.bumptech.glide:glide:$glideVersion")
     annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
+
+    // Kakao AD SDK
+    val adfitVersion = "3.8.5"
+//    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+//    implementation("com.google.android.gms:play-services-ads-identifier:$play_service_version")
+//    implementation("com.android.installreferrer:installreferrer:$install_referrer_version")
+    implementation("com.kakao.adfit:ads-base:$adfitVersion")
 }
