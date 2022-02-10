@@ -1,11 +1,12 @@
 package com.studiowash.mumong.community.article
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
+
 
 class CommunityArticleFragment : Fragment() {
     private lateinit var binding: FragmentCommunityArticleBinding
@@ -21,6 +22,25 @@ class CommunityArticleFragment : Fragment() {
         initView(article)
         initObserve()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        binding.toolbar.inflateMenu(R.menu.toolbar_action_menu)
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.action_more -> true
+                else -> super.onOptionsItemSelected(it)
+            }
+        }
     }
 
     private fun initView(article: CommunityArticleItem?) {

@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_community_home" >
         <action
             android:id="@+id/action_communityHomeFragmentNav_to_communityArticleFragmentNav"
-            app:destination="@id/communityArticleFragmentNav" />
+            app:destination="@id/communityArticleFragmentNav"/>
     </fragment>
     <fragment
         android:id="@+id/communityArticleFragmentNav"
