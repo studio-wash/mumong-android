@@ -11,7 +11,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingTop="@dimen/fragment_default_top_padding">
         <LinearLayout
             android:id="@+id/page_buttons_linear_layout"
@@ -19,7 +18,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/fragment_default_horizontal_padding">
             <LinearLayout
                 android:id="@+id/friend_page_button_linear_layout"
                 android:layout_width="wrap_content"

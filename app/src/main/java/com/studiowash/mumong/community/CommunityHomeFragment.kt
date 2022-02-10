@@ -41,7 +41,7 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val recentArticleAdapter = RecentArticlesAdapter(this::onClickArticle).apply {
+    private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
             CommunityArticleItem(
                 "이 어플 참 괜찮네요",
