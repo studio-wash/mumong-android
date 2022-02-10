@@ -45,6 +45,13 @@ class CommunityArticleFragment : Fragment() {
 
     private fun initView(article: CommunityArticleItem?) {
         binding.item = article
+        // todo : viewmodel로 추후 이동
+        binding.likeCountImageView.setOnClickListener {
+            it.isSelected = it.isSelected.not()
+        }
+        binding.bookmarkCountImageView.setOnClickListener {
+            it.isSelected = it.isSelected.not()
+        }
     }
 
     private fun initObserve() {
