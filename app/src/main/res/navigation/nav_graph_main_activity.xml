@@ -8,18 +8,14 @@
     <fragment
         android:id="@+id/homeFragmentNav"
         android:name="com.studiowash.mumong.home.HomeFragment"
-        android:label="fragment_home"
+        android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/socialFragmentNav"
         android:name="com.studiowash.mumong.SocialFragment"
-        android:label="fragment_social"
+        android:label="SocialFragment"
         tools:layout="@layout/fragment_social" />
-    <fragment
-        android:id="@+id/communityFragmentNav"
-        android:name="com.studiowash.mumong.CommunityFragment"
-        android:label="fragment_community"
-        tools:layout="@layout/fragment_community" />
 
+    <include app:graph="@navigation/nav_graph_community_fragment" />
     <include app:graph="@navigation/nav_graph_practice_fragment" />
 </navigation>

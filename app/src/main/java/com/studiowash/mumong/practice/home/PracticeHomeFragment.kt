@@ -34,12 +34,12 @@ class PracticeHomeFragment : Fragment(){
     }
 
     private fun initObserve() {
-        practiceHomeViewModel.clickEventLiveData.observe(viewLifecycleOwner, {
+        practiceHomeViewModel.clickEventLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 PracticeClickEvent.OnClickCalendarIcon -> {
                     findNavController().navigate(R.id.action_practiceFragmentNav_to_practiceCalendarFragmentNav)
                 }
             }
-        })
+        }
     }
 }

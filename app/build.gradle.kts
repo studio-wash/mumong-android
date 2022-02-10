@@ -45,13 +45,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 
-
+    // jetpack navigation component
     val navVersion = "2.4.0-beta02"
-    // Java language implementation
-    implementation("androidx.navigation:navigation-fragment:$navVersion")
-    implementation("androidx.navigation:navigation-ui:$navVersion")
-
-    // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
@@ -62,4 +57,12 @@ dependencies {
     val glideVersion = "4.11.0"
     implementation("com.github.bumptech.glide:glide:$glideVersion")
     annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
+
+    // Kakao AD SDK
+    val adfitVersion = "3.8.5"
+    val kotlinVersion = "1.3.72"
+    val playServiceVersion = "17.0.0"
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
+    implementation("com.google.android.gms:play-services-ads-identifier:$playServiceVersion")
+    implementation("com.kakao.adfit:ads-base:$adfitVersion")
 }

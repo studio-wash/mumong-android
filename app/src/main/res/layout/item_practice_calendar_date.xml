@@ -29,6 +29,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@{Integer.toString(day)}"
-            android:textColor="@{isToday ? @color/brand_color_2 : isThisMonth ? @color/black : @color/icon_off}"/>
+            android:textColor="@{isToday ? @color/brand_color_2 : isThisMonth ? @color/text_black : @color/icon_off}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
