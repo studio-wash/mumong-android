@@ -39,4 +39,7 @@
     <string name="community_title_recent_articles">실시간 게시글</string>
     <string name="community_suggest">추천</string>
     <string name="community_notice">공지사항</string>
+
+    <!-- Tooblar Actions -->
+    <string name="toolbar_action_more">More</string>
 </resources>

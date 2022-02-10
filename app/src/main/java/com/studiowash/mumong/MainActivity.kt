@@ -2,6 +2,7 @@ package com.studiowash.mumong
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -15,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         initNavigation()
     }
-
 
     private fun initNavigation() {
         binding.bottomNavigationView.itemIconTintList = null

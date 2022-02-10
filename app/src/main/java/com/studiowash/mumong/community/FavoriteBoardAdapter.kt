@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemCommunityBoardBinding
 
-class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int) -> Unit) : RecyclerView.Adapter<FavoriteBoardAdapter.FavoriteBoardViewHolder>() {
+class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: FavoriteBoardItem) -> Unit) : RecyclerView.Adapter<FavoriteBoardAdapter.FavoriteBoardViewHolder>() {
     class FavoriteBoardViewHolder(val binding: ItemCommunityBoardBinding) : RecyclerView.ViewHolder(binding.root)
 
     var favoriteBoardItems = listOf<FavoriteBoardItem>()
@@ -23,12 +23,13 @@ class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int) -> Unit) 
     }
 
     override fun onBindViewHolder(holder: FavoriteBoardViewHolder, position: Int) {
+        val board = favoriteBoardItems[position]
         with (holder.binding) {
-            item = favoriteBoardItems[position]
+            item = board
             isFirstItem = position == 0
             isSelected = position == selectedIndex
             root.setOnClickListener {
-                onClickBoard.invoke(position)
+                onClickBoard.invoke(position, board)
             }
         }
     }
