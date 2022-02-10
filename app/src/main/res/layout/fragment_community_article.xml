@@ -88,39 +88,36 @@
             <!-- 우측 하단 좋아요, 댓글 개수 -->
             <TextView
                 android:id="@+id/comment_count_text_view"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:text="@{Integer.toString(item.commentCount)}"/>
+                android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
             <ImageView
                 android:id="@+id/comment_count_image_view"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 app:layout_constraintEnd_toStartOf="@id/comment_count_text_view"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:src="@drawable/ic_comment_selected"
-                android:layout_marginEnd="3dp"/>
+                android:src="@drawable/ic_comment_selected" />
             <TextView
                 android:id="@+id/like_count_text_view"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toStartOf="@id/comment_count_image_view"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:text="@{Integer.toString(item.likeCount)}"
-                android:layout_marginEnd="3dp"/>
+                android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
             <ImageView
                 android:id="@+id/like_count_image_view"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
                 app:layout_constraintEnd_toStartOf="@id/like_count_text_view"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:src="@drawable/ic_like_selected"
-                android:layout_marginEnd="3dp"/>
+                android:src="@drawable/ic_like_selected"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
