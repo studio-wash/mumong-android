@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
-import com.studiowash.mumong.databinding.FragmentCommunityBinding
+import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 
-class CommunityFragment : Fragment() {
-    private lateinit var binding: FragmentCommunityBinding
+class CommunityHomeFragment : Fragment() {
+    private lateinit var binding: FragmentCommunityHomeBinding
 
     private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
         favoriteBoardItems = listOf(
@@ -121,7 +121,7 @@ class CommunityFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCommunityBinding.inflate(inflater, container, false)
+        binding = FragmentCommunityHomeBinding.inflate(inflater, container, false)
         //binding.viewModel = communityViewModel
 
         initView()
@@ -129,6 +129,7 @@ class CommunityFragment : Fragment() {
 
         return binding.root
     }
+
 
     private fun initView() {
         binding.favoriteBoardsRecyclerView.apply {
