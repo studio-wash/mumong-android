@@ -24,30 +24,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:paddingHorizontal="@dimen/fragment_default_horizontal_padding">
-            <!-- 게시글 제목 -->
-            <TextView
-                android:id="@+id/title_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="@{item.title}"
-                android:textSize="17sp"
-                android:layout_marginTop="@dimen/fragment_default_top_padding"/>
-            <!-- 첨부된 녹음파일 리스트 -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/record_list_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/title_text_view"
-                android:layout_marginTop="10dp" />
-            <TextView
-                android:id="@+id/content_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/record_list_recycler_view"
-                app:layout_constraintStart_toStartOf="parent"
-                android:text="@{item.content}"/>
 
             <!-- 글쓴이 정보 -->
             <ImageView
@@ -55,7 +31,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/content_text_view"
+                app:layout_constraintTop_toTopOf="parent"
                 imageSrc="@{item.userIconSrc}"
                 android:layout_marginTop="15dp"/>
             <TextView
@@ -65,7 +41,7 @@
                 app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:text="@{item.userName}"
+                android:text="@{item.userName, default=`작성자`}"
                 android:textStyle="bold"/>
             <ImageView
                 android:id="@+id/user_name_profile_image_separator_dot"
@@ -82,42 +58,85 @@
                 app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
                 app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
                 app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:text="@{item.writtenTime}"
+                android:text="@{item.writtenTime, default=`1분 전`}"
                 android:layout_marginStart="3dp"/>
 
-            <!-- 우측 하단 좋아요, 댓글 개수 -->
+            <!-- 게시글 제목 -->
             <TextView
-                android:id="@+id/comment_count_text_view"
+                android:id="@+id/title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-                app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
+                android:text="@{item.title, default=`제목`}"
+                android:textSize="17sp"
+                android:layout_marginTop="@dimen/fragment_default_top_padding"/>
+            <!-- 첨부된 녹음파일 리스트 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/record_list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                android:layout_marginTop="10dp" />
+            <TextView
+                android:id="@+id/content_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/record_list_recycler_view"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{item.content, default=`본문`}"/>
+
+            <!-- 좌측 하단 좋아요, 북마크 -->
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:id="@+id/like_count_image_view"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/content_text_view"
+                android:src="@drawable/btn_like"/>
+            <TextView
+                android:id="@+id/like_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/like_count_image_view"
+                app:layout_constraintTop_toTopOf="@id/like_count_image_view"
+                app:layout_constraintBottom_toBottomOf="@id/like_count_image_view"
+                android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
+            <ImageView
+                android:id="@+id/bookmark_count_image_view"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                app:layout_constraintStart_toEndOf="@id/like_count_text_view"
+                app:layout_constraintTop_toTopOf="@id/like_count_image_view"
+                app:layout_constraintBottom_toBottomOf="@id/like_count_image_view"
+                android:src="@drawable/btn_bookmark" />
+            <TextView
+                android:id="@+id/bookmark_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/bookmark_count_image_view"
+                app:layout_constraintTop_toTopOf="@id/like_count_image_view"
+                app:layout_constraintBottom_toBottomOf="@id/like_count_image_view"
                 android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
+
+            <!-- 우측 하단 댓글 -->
             <ImageView
                 android:id="@+id/comment_count_image_view"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 app:layout_constraintEnd_toStartOf="@id/comment_count_text_view"
-                app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-                app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:src="@drawable/ic_comment_selected" />
+                app:layout_constraintTop_toTopOf="@id/like_count_image_view"
+                app:layout_constraintBottom_toBottomOf="@id/like_count_image_view"
+                android:src="@drawable/ic_comment_unselected" />
             <TextView
-                android:id="@+id/like_count_text_view"
+                android:id="@+id/comment_count_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@id/comment_count_image_view"
-                app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-                app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
-            <ImageView
-                android:id="@+id/like_count_image_view"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                app:layout_constraintEnd_toStartOf="@id/like_count_text_view"
-                app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-                app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-                android:src="@drawable/ic_like_selected"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/like_count_image_view"
+                app:layout_constraintBottom_toBottomOf="@id/like_count_image_view"
+                android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
