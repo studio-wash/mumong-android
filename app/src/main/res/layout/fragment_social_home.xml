@@ -34,7 +34,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/brand_color_1"/>
+                    android:background="@color/brand_color_1"
+                    invisibleUnless="@{pageIndex == 0}"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/group_page_button_linear_layout"
@@ -51,7 +52,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:textColor="@color/brand_color_1"/>
+                    android:background="@color/brand_color_1"
+                    invisibleUnless="@{pageIndex == 1}"/>
             </LinearLayout>
         </LinearLayout>
         <androidx.fragment.app.FragmentContainerView

@@ -19,6 +19,12 @@ object BindingAdapters {
     }
 
     @JvmStatic
+    @BindingAdapter("invisibleUnless")
+    fun setInvisibleUnless(view: View, condition: Boolean) {
+        view.visibility = if (condition) View.VISIBLE else View.INVISIBLE
+    }
+
+    @JvmStatic
     @BindingAdapter("isSelected")
     fun setIsSelected(view: View, selected: Boolean) {
         view.isSelected = selected
