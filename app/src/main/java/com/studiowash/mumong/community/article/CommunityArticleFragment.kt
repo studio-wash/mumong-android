@@ -16,13 +16,15 @@ class CommunityArticleFragment : Fragment() {
     ): View {
         binding = FragmentCommunityArticleBinding.inflate(inflater, container, false)
 
-        initView()
+        val article = arguments?.getSerializable("ARTICLE") as? CommunityArticleItem
+
+        initView(article)
         initObserve()
         return binding.root
     }
 
-    private fun initView() {
-
+    private fun initView(article: CommunityArticleItem?) {
+        binding.item = article
     }
 
     private fun initObserve() {

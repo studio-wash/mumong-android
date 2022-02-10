@@ -5,14 +5,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
+import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 
 class CommunityHomeFragment : Fragment() {
@@ -26,7 +29,7 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val tagsAdapter = TagAdapter().apply {
+    private val tagsAdapter = TagAdapter(this::onClickTag).apply {
         tagItems = listOf(
             TagItem("자유"),
             TagItem("베스트"),
@@ -38,9 +41,9 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val recentArticleAdapter = RecentArticlesAdapter().apply {
+    private val recentArticleAdapter = RecentArticlesAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
-            RecentArticleItem(
+            CommunityArticleItem(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -48,7 +51,7 @@ class CommunityHomeFragment : Fragment() {
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -56,7 +59,7 @@ class CommunityHomeFragment : Fragment() {
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -65,7 +68,7 @@ class CommunityHomeFragment : Fragment() {
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
 
-            RecentArticleItem(
+            CommunityArticleItem(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -73,7 +76,7 @@ class CommunityHomeFragment : Fragment() {
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -81,7 +84,7 @@ class CommunityHomeFragment : Fragment() {
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -90,7 +93,7 @@ class CommunityHomeFragment : Fragment() {
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
 
-            RecentArticleItem(
+            CommunityArticleItem(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -98,7 +101,7 @@ class CommunityHomeFragment : Fragment() {
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -106,7 +109,7 @@ class CommunityHomeFragment : Fragment() {
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
-            RecentArticleItem(
+            CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -188,7 +191,18 @@ class CommunityHomeFragment : Fragment() {
     private fun initObserve() {
     }
 
-    private fun onClickBoard(boardIndex: Int) {
+    private fun onClickBoard(boardIndex: Int, board: FavoriteBoardItem) {
         favoriteBoardAdapter.selectedIndex = boardIndex
+    }
+
+    private fun onClickTag(tagIndex: Int, tag: TagItem) {
+        // todo
+    }
+
+    private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
+        findNavController().navigate(
+            R.id.action_communityHomeFragmentNav_to_communityArticleFragmentNav,
+            bundleOf("ARTICLE" to article)
+        )
     }
 }
