@@ -12,10 +12,11 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/socialFragmentNav"
-        android:name="com.studiowash.mumong.SocialFragment"
+        android:name="com.studiowash.mumong.social.SocialHomeFragment"
         android:label="SocialFragment"
-        tools:layout="@layout/fragment_social" />
+        tools:layout="@layout/fragment_social_home" />
 
-    <include app:graph="@navigation/nav_graph_community_fragment" />
-    <include app:graph="@navigation/nav_graph_practice_fragment" />
+    <include app:graph="@navigation/nav_graph_main_social_fragment" />
+    <include app:graph="@navigation/nav_graph_main_community_fragment" />
+    <include app:graph="@navigation/nav_graph_main_practice_fragment" />
 </navigation>
