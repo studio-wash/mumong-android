@@ -46,11 +46,12 @@ class CommunityArticleFragment : Fragment() {
     private fun initView(article: CommunityArticleItem?) {
         binding.item = article
         // todo : viewmodel로 추후 이동
-        binding.likeCountImageView.setOnClickListener {
-            it.isSelected = it.isSelected.not()
+        // SERVER API : 좋아요, 북마크 결과 받아서 ui에 적용 가능한 api
+        binding.likeButtonLinearLayout.setOnClickListener {
+            binding.isLiked = binding.isLiked.not()
         }
-        binding.bookmarkCountImageView.setOnClickListener {
-            it.isSelected = it.isSelected.not()
+        binding.bookmarkButtonLinearLayout.setOnClickListener {
+            binding.isBookmarked = binding.isBookmarked.not()
         }
     }
 
