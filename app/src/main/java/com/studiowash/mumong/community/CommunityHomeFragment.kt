@@ -153,7 +153,7 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun initAdfit() {
-        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id))
+        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id_100))
         binding.adfitAdView.setAdListener(object : AdListener {  // optional :: 광고 수신 리스너 설정
             override fun onAdLoaded() {
                 Log.d(tag, "onAdLoaded")
