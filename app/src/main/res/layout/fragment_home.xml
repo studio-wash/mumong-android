@@ -14,7 +14,9 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/logo_mumong"/>
+            android:src="@drawable/logo_mumong"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"/>
 
         <ImageView
             android:id="@+id/content_top_cloud_linear_layout"
