@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.social.friend.OnlineFriendItem" />
+        <variable
+            name="isFirstItem"
+            type="boolean" />
+        <variable
+            name="isSelected"
+            type="boolean" />
+    </data>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+        <View
+            android:id="@+id/start_margin_view"
+            android:layout_width="@dimen/community_board_padding_horizontal"
+            android:layout_height="match_parent"
+            goneUnless="@{!isFirstItem}"/>
+        <ImageView
+            android:id="@+id/board_name_text_view"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@{item.isOnline ? @drawable/bg_online_friend_circle : null, default=`@drawable/bg_online_friend_circle`}"
+            android:padding="20dp"
+            imageSrc="@{item.profileImageSrc}"/>
+        <View
+            android:id="@+id/end_margin_view"
+            android:layout_width="@dimen/community_board_padding_horizontal"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</layout>
