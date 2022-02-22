@@ -108,6 +108,7 @@ class SocialContentFriendFragment : Fragment() {
         binding.friendArticlesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = articleAdapter
+            itemAnimator = null
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }

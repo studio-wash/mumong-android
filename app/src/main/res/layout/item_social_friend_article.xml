@@ -64,7 +64,8 @@
             android:text="@{item.content, default=`본문`}"
             android:ellipsize="end"
             android:inputType="none"
-            android:maxLines="2"/>
+            android:maxLines="2"
+            android:layout_marginTop="5dp"/>
 
         <!-- 우측 하단 좋아요, 댓글 개수 -->
         <LinearLayout
