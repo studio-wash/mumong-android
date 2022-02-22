@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
-        android:paddingVertical="20dp">
+        android:paddingVertical="15dp">
         <!-- 글쓴이 정보 -->
         <ImageView
             android:id="@+id/user_profile_image_view"
@@ -19,8 +19,7 @@
             android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            imageSrc="@{item.userIconSrc}"
-            android:layout_marginTop="15dp"/>
+            imageSrc="@{item.userIconSrc}"/>
         <TextView
             android:id="@+id/user_name_text_view"
             android:layout_width="wrap_content"
@@ -30,6 +29,12 @@
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
             android:text="@{item.userName, default=`작성자`}"
             android:textStyle="bold"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_more_three_dots"/>
         <ImageView
             android:id="@+id/user_name_profile_image_separator_dot"
             android:layout_width="2dp"

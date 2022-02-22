@@ -24,7 +24,7 @@
             <View
                 android:id="@+id/adfit_background_view"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="100dp"
                 android:background="@color/adfit_background_color"
                 app:layout_constraintTop_toBottomOf="@id/favorite_boards_recycler_view"
                 app:layout_constraintStart_toStartOf="parent"

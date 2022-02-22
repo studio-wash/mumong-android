@@ -12,7 +12,7 @@ import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 class SocialFriendArticleAdapter(private val onClick: (position: Int, item: SocialFriendArticleItem) -> Unit) : RecyclerView.Adapter<SocialFriendArticleAdapter.RecentArticleViewHolder>() {
     class RecentArticleViewHolder(val binding: ItemSocialFriendArticleBinding) : RecyclerView.ViewHolder(binding.root)
     var items = listOf<SocialFriendArticleItem>()
-    
+
     // todo : 이후 플레이어 뷰를 만들 경우 observe로 해결하는 것이 맞음.
     var recordPlayingItemIndex: Int? = null
         set(value) {
