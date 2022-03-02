@@ -12,40 +12,59 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingVertical="20dp">
-        <!-- 게시글 제목 -->
-        <TextView
-            android:id="@+id/title_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="@{item.title, default=`제목`}"
-            android:textSize="17sp"/>
-        <!-- 첨부된 녹음파일 리스트 -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/record_list_recycler_view"
+
+        <!-- 내용 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/article_content_constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/title_text_view"
-            android:layout_marginTop="10dp" />
-        <TextView
-            android:id="@+id/content_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/record_list_recycler_view"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@{item.content, default=`본문`}"
-            android:ellipsize="end"
-            android:inputType="none"
-            android:maxLines="2"/>
+            app:layout_constraintTop_toTopOf="parent">
 
+            <!-- 게시글 제목 -->
+            <TextView
+                android:id="@+id/title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{item.title, default=`제목`}"
+                android:textSize="17sp"
+                android:maxLines="2"/>
+
+            <!-- 게시글 본문 -->
+            <TextView
+                android:id="@+id/content_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                app:layout_constraintStart_toStartOf="@id/title_text_view"
+                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{item.content, default=`본문`}"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="2"/>
+
+            <!-- 첨부 이미지 -->
+            <ImageView
+                android:id="@+id/represent_image_view"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title_text_view"
+                goneUnless="@{!item.attachedImages.empty}"
+                imageSrc="@{item.attachedImages.empty ? null : item.attachedImages[0].imageSrc}"
+                android:scaleType="centerCrop"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- 글쓴이 정보 -->
         <ImageView
             android:id="@+id/user_profile_image_view"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/content_text_view"
+            app:layout_constraintTop_toBottomOf="@id/article_content_constraint_layout"
             imageSrc="@{item.userIconSrc}"
             android:layout_marginTop="15dp"/>
         <TextView

@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
+import com.studiowash.mumong.common.AttachedImageItem
+import com.studiowash.mumong.common.AttachedRecordingItem
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 
@@ -49,7 +51,8 @@ class CommunityHomeFragment : Fragment() {
                 "1분 전",
                 21, 2,
                 "데이드림",
-                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
+                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"))
             ),
             CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
@@ -57,7 +60,9 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 "데샤",
-                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
+                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
+                attachedRecordings = listOf(AttachedRecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
