@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/socialNestedNav"
+    app:startDestination="@id/socialHomeFragmentNav">
+
+    <fragment
+        android:id="@+id/socialHomeFragmentNav"
+        android:name="com.studiowash.mumong.social.SocialHomeFragment"
+        android:label="SocialHomefragment"
+        tools:layout="@layout/fragment_social_home" >
+        <action
+            android:id="@+id/action_socialHomeFragmentNav_to_socialArticleFragmentNav"
+            app:destination="@id/socialArticleFragmentNav"/>
+    </fragment>
+    <fragment
+        android:id="@+id/socialArticleFragmentNav"
+        android:name="com.studiowash.mumong.social.article.SocialArticleFragment"
+        android:label="SocialArticleFragment"
+        tools:layout="@layout/fragment_social_article" />
+</navigation>

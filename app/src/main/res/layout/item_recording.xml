@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.common.AttachedRecordingItem" />
+        <variable
+            name="isPlaying"
+            type="boolean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_rect_8dp_fill_brand_3"
+        android:layout_marginBottom="5dp">
+        <TextView
+            android:id="@+id/instrument_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.type, default=`피아노`}"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/bg_rounded_rect_20dp_border_brand_1"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/brand_color_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/music_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{item.title, default=`제목`}"
+            app:layout_constraintStart_toEndOf="@id/instrument_text_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageView
+            android:id="@+id/play_pause_image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/btn_recording_status"
+            android:layout_marginEnd="5dp"
+            android:padding="10dp"
+            isActivated="@{isPlaying}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

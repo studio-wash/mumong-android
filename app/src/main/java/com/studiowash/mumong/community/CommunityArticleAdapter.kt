@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.ItemCommunityArticleBinding
 
-class RecentArticlesAdapter(private val onClickArticle: (articleIndex: Int, article: CommunityArticleItem) -> Unit) : RecyclerView.Adapter<RecentArticlesAdapter.RecentArticleViewHolder>() {
+class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: CommunityArticleItem) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {
     class RecentArticleViewHolder(val binding: ItemCommunityArticleBinding) : RecyclerView.ViewHolder(binding.root)
 
     var recentArticleItems = listOf<CommunityArticleItem>()

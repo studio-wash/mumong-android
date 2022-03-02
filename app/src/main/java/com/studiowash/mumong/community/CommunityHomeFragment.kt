@@ -41,7 +41,7 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val recentArticleAdapter = RecentArticlesAdapter(this::onClickArticle).apply {
+    private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
             CommunityArticleItem(
                 "이 어플 참 괜찮네요",
@@ -153,7 +153,7 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun initAdfit() {
-        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id))
+        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id_100))
         binding.adfitAdView.setAdListener(object : AdListener {  // optional :: 광고 수신 리스너 설정
             override fun onAdLoaded() {
                 Log.d(tag, "onAdLoaded")
