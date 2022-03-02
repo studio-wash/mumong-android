@@ -3,10 +3,10 @@ package com.studiowash.mumong.common
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.databinding.ItemRecordingBinding
+import com.studiowash.mumong.databinding.ItemAttachedRecordingBinding
 
 class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val onClickPause:() -> Unit) : RecyclerView.Adapter<AttachedRecordingAdapter.AttachedRecordingViewHolder>() {
-    class AttachedRecordingViewHolder(val binding: ItemRecordingBinding) : RecyclerView.ViewHolder(binding.root)
+    class AttachedRecordingViewHolder(val binding: ItemAttachedRecordingBinding) : RecyclerView.ViewHolder(binding.root)
 
     var items = listOf<AttachedRecordingItem>()
     var playingRecordingIndex: Int? = null
@@ -18,7 +18,7 @@ class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val 
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttachedRecordingViewHolder {
-        val binding = ItemRecordingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemAttachedRecordingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AttachedRecordingViewHolder(binding)
     }
 

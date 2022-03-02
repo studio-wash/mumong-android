@@ -52,7 +52,7 @@ class CommunityHomeFragment : Fragment() {
                 21, 2,
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
-                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"))
+                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png", 200, 150), AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png", 150, 300))
             ),
             CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
@@ -61,7 +61,7 @@ class CommunityHomeFragment : Fragment() {
                 21, 2,
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
-                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
+                attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png", 100, 100)),
                 attachedRecordings = listOf(AttachedRecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
             CommunityArticleItem(

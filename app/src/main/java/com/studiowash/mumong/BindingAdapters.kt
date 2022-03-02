@@ -4,12 +4,13 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.studiowash.mumong.util.GlideSimpleImageLoader
 
 object BindingAdapters {
     @JvmStatic
     @BindingAdapter("imageSrc")
     fun setImageSrc(imageView: ImageView, src: String?) {
-        Glide.with(imageView.context).load(src).into(imageView)
+        GlideSimpleImageLoader.loadImage(imageView, src)
     }
 
     @JvmStatic
