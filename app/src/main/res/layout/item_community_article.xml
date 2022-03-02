@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="com.studiowash.mumong.util.StringUtils"/>
         <variable
             name="item"
             type="com.studiowash.mumong.community.article.CommunityArticleItem" />
@@ -28,7 +29,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/represent_image_view"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{item.title, default=`제목`}"
+                android:text="@{item.attachedRecordings == null || item.attachedRecordings.empty ? item.title : StringUtils.INSTANCE.getWithRecordingMicIcon(context, item.title), default=`제목`}"
                 android:textSize="17sp"
                 android:maxLines="2"/>
 
