@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.common.AttachedRecordingItem
-import com.studiowash.mumong.databinding.FragmentSocialContentFriendBinding
+import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
-class SocialContentFriendFragment : Fragment() {
+class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
-    private var _binding: FragmentSocialContentFriendBinding? = null
+    private var _binding: FragmentSocialHomeFriendBinding? = null
 
     private val onlineFriendAdapter = OnlineFriendAdapter(this::onClickOnlineFriend).apply {
         items = listOf(
@@ -95,7 +95,7 @@ class SocialContentFriendFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSocialContentFriendBinding.inflate(inflater, container, false)
+        _binding = FragmentSocialHomeFriendBinding.inflate(inflater, container, false)
         initView()
         return binding.root
     }

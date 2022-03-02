@@ -22,7 +22,7 @@
             android:id="@+id/bg_friend_image_view"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@drawable/bg_friend_image_2"
+            android:background="@drawable/bg_friend_image"
             imageSrc="@{item.profileImageSrc}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

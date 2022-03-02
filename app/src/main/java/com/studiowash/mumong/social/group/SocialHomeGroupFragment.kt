@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.studiowash.mumong.databinding.FragmentSocialContentGroupBinding
 
-class SocialContentGroupFragment : Fragment() {
+class SocialHomeGroupFragment : Fragment() {
     private lateinit var binding: FragmentSocialContentGroupBinding
 
     override fun onCreateView(

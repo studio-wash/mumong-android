@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.tabs.TabLayoutMediator
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentSocialHomeBinding
 
@@ -31,11 +29,11 @@ class SocialHomeFragment : Fragment() {
         val innerNavController = (childFragmentManager.findFragmentById(R.id.social_home_content_view) as NavHostFragment).navController
         binding.friendPageButtonLinearLayout.setOnClickListener{
             binding.pageIndex = 0
-            innerNavController.navigate(R.id.socialContentFriendFragmentNav)
+            innerNavController.navigate(R.id.socialHomeFriendFragmentNav)
         }
         binding.groupPageButtonLinearLayout.setOnClickListener {
             binding.pageIndex = 1
-            innerNavController.navigate(R.id.socialContentGroupFragmentNav)
+            innerNavController.navigate(R.id.socialHomeGroupFragmentNav)
         }
 //        initAdfit()
     }
