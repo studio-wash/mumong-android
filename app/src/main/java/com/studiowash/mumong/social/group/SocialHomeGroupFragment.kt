@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.studiowash.mumong.databinding.FragmentSocialContentGroupBinding
+import com.studiowash.mumong.databinding.FragmentSocialHomeGroupBinding
 
-class SocialContentGroupFragment : Fragment() {
-    private lateinit var binding: FragmentSocialContentGroupBinding
+class SocialHomeGroupFragment : Fragment() {
+    private lateinit var binding: FragmentSocialHomeGroupBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSocialContentGroupBinding.inflate(inflater, container, false)
+        binding = FragmentSocialHomeGroupBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

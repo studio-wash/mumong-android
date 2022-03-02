@@ -4,15 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.studiowash.mumong.databinding.FragmentSocialContentFriendBinding
+import com.studiowash.mumong.R
+import com.studiowash.mumong.common.AttachedRecordingItem
+import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
-class SocialContentFriendFragment : Fragment() {
+class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
-    private var _binding: FragmentSocialContentFriendBinding? = null
+    private var _binding: FragmentSocialHomeFriendBinding? = null
 
     private val onlineFriendAdapter = OnlineFriendAdapter(this::onClickOnlineFriend).apply {
         items = listOf(
@@ -32,7 +36,21 @@ class SocialContentFriendFragment : Fragment() {
                 "1분 전",
                 84, 24,
                 "데이드림",
-                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
+                attachedRecordings = listOf(
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "피아노",
+                        "녹턴 Op.9-2 (쇼팽)"
+                    ),
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "통기타",
+                        "10월의 어느 멋진 날"
+                    )
+                )
             ),
             SocialFriendArticleItem(
                 "바빠서 오늘 연습은 패스",
@@ -46,7 +64,33 @@ class SocialContentFriendFragment : Fragment() {
                 "1일 전",
                 245, 121,
                 "까지",
-                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
+                attachedRecordings = listOf(
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "피아노",
+                        "녹턴 Op.9-(쇼팽)"
+                    ),
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "콘트라베이스",
+                        "10월의 어느 멋진 날"
+                    ),
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "드럼",
+                        "BEAT 120"
+                    ),
+                    AttachedRecordingItem(
+                        "none",
+                        "1:34",
+                        "통기타",
+                        "10월의 어느 멋진 날"
+                    )
+                )
             ),
         )
     }
@@ -54,7 +98,7 @@ class SocialContentFriendFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentSocialContentFriendBinding.inflate(inflater, container, false)
+        _binding = FragmentSocialHomeFriendBinding.inflate(inflater, container, false)
         initView()
         return binding.root
     }
@@ -67,6 +111,7 @@ class SocialContentFriendFragment : Fragment() {
         binding.friendArticlesRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = articleAdapter
+            itemAnimator = null
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
@@ -75,8 +120,11 @@ class SocialContentFriendFragment : Fragment() {
         // todo
     }
 
-    private fun onClickArticle(position: Int, item: SocialFriendArticleItem) {
-        // todo
+    private fun onClickArticle(position: Int, article: SocialFriendArticleItem) {
+        activity?.findNavController(R.id.nav_host_fragment)?.navigate(
+            R.id.action_socialHomeFragmentNav_to_socialArticleFragmentNav,
+            bundleOf("ARTICLE" to article)
+        )
     }
 
     override fun onDestroy() {

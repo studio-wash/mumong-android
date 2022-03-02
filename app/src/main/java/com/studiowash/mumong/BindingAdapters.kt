@@ -29,4 +29,10 @@ object BindingAdapters {
     fun setIsSelected(view: View, selected: Boolean) {
         view.isSelected = selected
     }
+
+    @JvmStatic
+    @BindingAdapter("isActivated")
+    fun setIsActivated(view: View, activated: Boolean) {
+        view.isActivated = activated
+    }
 }
