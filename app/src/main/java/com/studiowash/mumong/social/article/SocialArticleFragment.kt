@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
+import com.studiowash.mumong.common.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
+import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
 class SocialArticleFragment : Fragment() {
     private lateinit var binding: FragmentSocialArticleBinding
+
+    private val recordingAdapter = AttachedRecordingAdapter({}, {})
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,7 +21,7 @@ class SocialArticleFragment : Fragment() {
     ): View {
         binding = FragmentSocialArticleBinding.inflate(inflater, container, false)
 
-        val article = arguments?.getSerializable("ARTICLE") as? SocialArticleItem
+        val article = arguments?.getSerializable("ARTICLE") as? SocialFriendArticleItem
 
         initView(article)
         initObserve()
@@ -43,8 +47,15 @@ class SocialArticleFragment : Fragment() {
         }
     }
 
-    private fun initView(article: SocialArticleItem?) {
+    private fun initView(article: SocialFriendArticleItem?) {
         binding.item = article
+        binding.recordListRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = recordingAdapter
+            itemAnimator = null
+        }
+        recordingAdapter.items = article?.attachedRecordings ?: emptyList()
+
         // todo : viewmodel로 추후 이동
         // SERVER API : 좋아요, 북마크 결과 받아서 ui에 적용 가능한 api
         binding.likeButtonLinearLayout.setOnClickListener {

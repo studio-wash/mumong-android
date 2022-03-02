@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.studiowash.mumong.R
 import com.studiowash.mumong.common.AttachedRecordingItem
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
@@ -117,8 +120,11 @@ class SocialHomeFriendFragment : Fragment() {
         // todo
     }
 
-    private fun onClickArticle(position: Int, item: SocialFriendArticleItem) {
-        // todo
+    private fun onClickArticle(position: Int, article: SocialFriendArticleItem) {
+        activity?.findNavController(R.id.nav_host_fragment)?.navigate(
+            R.id.action_socialHomeFragmentNav_to_socialArticleFragmentNav,
+            bundleOf("ARTICLE" to article)
+        )
     }
 
     override fun onDestroy() {
