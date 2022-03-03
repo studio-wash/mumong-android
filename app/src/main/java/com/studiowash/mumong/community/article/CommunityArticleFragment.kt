@@ -1,16 +1,20 @@
 package com.studiowash.mumong.community.article
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.common.adapter.CommentAdapter
 import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
-
 
 class CommunityArticleFragment : Fragment() {
     private lateinit var binding: FragmentCommunityArticleBinding
@@ -82,10 +86,42 @@ class CommunityArticleFragment : Fragment() {
             adapter = commentAdapter
         }
         commentAdapter.items = article?.comments ?: emptyList()
+
+        initAdfit()
     }
 
     private fun initObserve() {
 
     }
 
+
+    private fun initAdfit() {
+        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id_50))
+        binding.adfitAdView.setAdListener(object : AdListener {  // optional :: 광고 수신 리스너 설정
+            override fun onAdLoaded() {
+                Log.d(tag, "onAdLoaded")
+            }
+
+            override fun onAdFailed(errorCode: Int) {
+                Log.e(tag, "onAdFailed $errorCode")
+            }
+
+            override fun onAdClicked() {
+                Log.d(tag, "onADClicked")
+            }
+        })
+
+        lifecycle.addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                when (event) {
+                    Lifecycle.Event.ON_RESUME -> binding.adfitAdView.resume()
+                    Lifecycle.Event.ON_PAUSE -> binding.adfitAdView.pause()
+                    Lifecycle.Event.ON_DESTROY ->binding.adfitAdView.destroy()
+                    else -> {}
+                }
+            }
+        })
+
+        binding.adfitAdView.loadAd()
+    }
 }

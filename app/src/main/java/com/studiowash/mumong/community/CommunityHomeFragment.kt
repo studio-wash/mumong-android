@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -225,23 +223,17 @@ class CommunityHomeFragment : Fragment() {
             }
         })
 
-        lifecycle.addObserver(object : LifecycleObserver {
-            // todo : deprecated
-            @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-            fun onResume() {
-                binding.adfitAdView.resume()
-            }
-
-            @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-            fun onPause() {
-                binding.adfitAdView.pause()
-            }
-
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            fun onDestroy() {
-                binding.adfitAdView.destroy()
+        lifecycle.addObserver(object : LifecycleEventObserver {
+            override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+                when (event) {
+                    Lifecycle.Event.ON_RESUME -> binding.adfitAdView.resume()
+                    Lifecycle.Event.ON_PAUSE -> binding.adfitAdView.pause()
+                    Lifecycle.Event.ON_DESTROY ->binding.adfitAdView.destroy()
+                    else -> {}
+                }
             }
         })
+
         binding.adfitAdView.loadAd()
     }
 
