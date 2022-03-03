@@ -1,4 +1,4 @@
-package com.studiowash.mumong.common
+package com.studiowash.mumong.common.model
 
 data class AttachedRecordingItem(
     val recordingSrc: String,

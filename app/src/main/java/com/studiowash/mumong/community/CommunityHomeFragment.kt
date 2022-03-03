@@ -15,10 +15,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedImageItem
-import com.studiowash.mumong.common.AttachedRecordingItem
+import com.studiowash.mumong.common.model.AttachedImageItem
+import com.studiowash.mumong.common.model.AttachedRecordingItem
+import com.studiowash.mumong.common.model.CommentItem
+import com.studiowash.mumong.common.model.CommentReplyItem
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
+import org.w3c.dom.Comment
 
 class CommunityHomeFragment : Fragment() {
     private lateinit var binding: FragmentCommunityHomeBinding
@@ -50,6 +53,47 @@ class CommunityHomeFragment : Fragment() {
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
                 21, 2,
+                listOf(
+                    CommentItem(
+                        "맞아요..! 어플 너무 좋아요ㅜㅜㅜ",
+                        "1분 전",
+                        2,
+                        listOf(),
+                        "비지비지",
+                        "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    ),
+                    CommentItem(
+                        "저는 연습실 예약이 조금 어려운데, 그것도 넣으면 좋을 거 같아요! 당장 만들기에는 힘이 들겠지만..!",
+                        "방금",
+                        5,
+                        listOf(
+                            CommentReplyItem(
+                                "오 이거 진짜 좋은 거 같아요!",
+                                "방금",
+                                0,
+                                "까지",
+                                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                            ),
+                            CommentReplyItem(
+                                "헐 진짜요!",
+                                "방금",
+                                0,
+                                "비지비지",
+                                "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                            )
+                        ),
+                        "까지",
+                        "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    ),
+                    CommentItem(
+                        "맞아요..! 어플 너무 좋아요ㅜㅜㅜ",
+                        "1분 전",
+                        2,
+                        listOf(),
+                        "비지비지",
+                        "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    )
+                ),
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"))
@@ -59,6 +103,7 @@ class CommunityHomeFragment : Fragment() {
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png",
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
@@ -69,6 +114,7 @@ class CommunityHomeFragment : Fragment() {
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "샤샤샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -78,6 +124,7 @@ class CommunityHomeFragment : Fragment() {
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
                 21, 2,
+                listOf(),
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -86,6 +133,7 @@ class CommunityHomeFragment : Fragment() {
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -94,6 +142,7 @@ class CommunityHomeFragment : Fragment() {
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "샤샤샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -103,6 +152,7 @@ class CommunityHomeFragment : Fragment() {
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
                 21, 2,
+                listOf(),
                 "데이드림",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -111,6 +161,7 @@ class CommunityHomeFragment : Fragment() {
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "데샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             ),
@@ -119,6 +170,7 @@ class CommunityHomeFragment : Fragment() {
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
                 21, 2,
+                listOf(),
                 "샤샤샤",
                 "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
             )

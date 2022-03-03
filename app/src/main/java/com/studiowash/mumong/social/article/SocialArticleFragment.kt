@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedImageAdapter
-import com.studiowash.mumong.common.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.AttachedImageAdapter
+import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 

@@ -1,8 +1,9 @@
-package com.studiowash.mumong.common
+package com.studiowash.mumong.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.studiowash.mumong.common.model.AttachedImageItem
 import com.studiowash.mumong.databinding.ItemAttachedImageBinding
 
 

@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedRecordingItem
+import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 

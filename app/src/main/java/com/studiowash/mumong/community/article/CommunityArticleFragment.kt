@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedImageAdapter
-import com.studiowash.mumong.common.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.AttachedImageAdapter
+import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.CommentAdapter
 import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
 
 
@@ -16,6 +17,7 @@ class CommunityArticleFragment : Fragment() {
 
     private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
+    private val commentAdapter = CommentAdapter({}, {})
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,6 +76,12 @@ class CommunityArticleFragment : Fragment() {
             itemAnimator = null
         }
         attachedImageAdapter.items = article?.attachedImages ?: emptyList()
+
+        binding.commentsRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = commentAdapter
+        }
+        commentAdapter.items = article?.comments ?: emptyList()
     }
 
     private fun initObserve() {

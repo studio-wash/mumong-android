@@ -1,8 +1,9 @@
-package com.studiowash.mumong.common
+package com.studiowash.mumong.common.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.databinding.ItemAttachedRecordingBinding
 
 class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val onClickPause:() -> Unit) : RecyclerView.Adapter<AttachedRecordingAdapter.AttachedRecordingViewHolder>() {

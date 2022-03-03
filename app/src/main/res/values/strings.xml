@@ -43,4 +43,7 @@
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+
+    <!-- Common -->
+    <string name="reply">대댓글</string>
 </resources>
