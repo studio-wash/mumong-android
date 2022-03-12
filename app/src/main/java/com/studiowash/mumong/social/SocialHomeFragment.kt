@@ -17,11 +17,7 @@ class SocialHomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSocialHomeBinding.inflate(inflater, container, false)
-        //binding.viewModel = socialViewModel
-
         initView()
-//        initObserve()
-
         return binding.root
     }
 
@@ -35,53 +31,5 @@ class SocialHomeFragment : Fragment() {
             binding.pageIndex = 1
             innerNavController.navigate(R.id.socialHomeGroupFragmentNav)
         }
-//        initAdfit()
     }
-
-    private fun initAdfit() {
-        // todo : move to viewpager inner fragment
-//        binding.adfitAdView.setClientId(getString(R.string.adfit_client_id))
-//        binding.adfitAdView.setAdListener(object : AdListener {  // optional :: 광고 수신 리스너 설정
-//            override fun onAdLoaded() {
-//                Log.d(tag, "onAdLoaded")
-//            }
-//
-//            override fun onAdFailed(errorCode: Int) {
-//                Log.e(tag, "onAdFailed $errorCode")
-//            }
-//
-//            override fun onAdClicked() {
-//                Log.d(tag, "onADClicked")
-//            }
-//        })
-//
-//        lifecycle.addObserver(object : LifecycleObserver {
-//            // todo : deprecated
-//            @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-//            fun onResume() {
-//                binding.adfitAdView.resume()
-//            }
-//
-//            @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-//            fun onPause() {
-//                binding.adfitAdView.pause()
-//            }
-//
-//            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-//            fun onDestroy() {
-//                binding.adfitAdView.destroy()
-//            }
-//        })
-//        binding.adfitAdView.loadAd()
-    }
-//
-//    private fun initObserve() {
-//    }
-//
-//    private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
-//        findNavController().navigate(
-//            R.id.action_socialHomeFragmentNav_to_socialArticleFragmentNav,
-//            bundleOf("ARTICLE" to article)
-//        )
-//    }
 }
