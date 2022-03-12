@@ -1,5 +1,6 @@
 package com.studiowash.mumong.community
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.studiowash.mumong.common.model.AttachedImageItem
 import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.common.model.CommentItem
 import com.studiowash.mumong.common.model.CommentReplyItem
+import com.studiowash.mumong.community.article.CommunityArticleActivity
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 import com.studiowash.mumong.util.findNavControllerSafety
@@ -250,9 +252,9 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
-//        findNavControllerSafety(R.id.communityHomeFragmentNav)?.navigate(
-//            R.id.action_communityHomeFragmentNav_to_communityArticleFragmentNav,
-//            bundleOf("ARTICLE" to article)
-//        )
+        val intent = Intent(context, CommunityArticleActivity::class.java).apply {
+            putExtra("ARTICLE", article)
+        }
+        startActivity(intent)
     }
 }

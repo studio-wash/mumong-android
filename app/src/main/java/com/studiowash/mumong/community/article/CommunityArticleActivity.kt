@@ -1,0 +1,21 @@
+package com.studiowash.mumong.community.article
+
+import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.studiowash.mumong.R
+import com.studiowash.mumong.databinding.ActivityCommunityArticleBinding
+
+class CommunityArticleActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCommunityArticleBinding
+    private val viewModel: CommunityArticleActivityViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_community_article)
+
+        val article = intent?.getSerializableExtra("ARTICLE") as? CommunityArticleItem
+        viewModel.setArticle(article)
+    }
+}
