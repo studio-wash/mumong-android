@@ -250,9 +250,9 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
-        findNavControllerSafety(R.id.communityHomeFragmentNav)?.navigate(
-            R.id.action_communityHomeFragmentNav_to_communityArticleFragmentNav,
-            bundleOf("ARTICLE" to article)
-        )
+//        findNavControllerSafety(R.id.communityHomeFragmentNav)?.navigate(
+//            R.id.action_communityHomeFragmentNav_to_communityArticleFragmentNav,
+//            bundleOf("ARTICLE" to article)
+//        )
     }
 }
