@@ -15,8 +15,11 @@
         android:name="com.studiowash.mumong.social.SocialHomeFragment"
         android:label="SocialFragment"
         tools:layout="@layout/fragment_social_home" />
+    <fragment
+        android:id="@+id/communityFragmentNav"
+        android:name="com.studiowash.mumong.community.CommunityHomeFragment"
+        android:label="CommunityFragment"
+        tools:layout="@layout/fragment_community_home" />
 
-    <include app:graph="@navigation/nav_graph_main_social_fragment" />
-    <include app:graph="@navigation/nav_graph_main_community_fragment" />
     <include app:graph="@navigation/nav_graph_main_practice_fragment" />
 </navigation>

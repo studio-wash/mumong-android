@@ -193,7 +193,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"/>
+                    android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+                    android:paddingBottom="20dp"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

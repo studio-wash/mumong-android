@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
@@ -18,6 +19,7 @@ import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
 
 class CommunityArticleFragment : Fragment() {
     private lateinit var binding: FragmentCommunityArticleBinding
+    private val activityViewModel: CommunityArticleActivityViewModel by activityViewModels()
 
     private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
@@ -29,9 +31,6 @@ class CommunityArticleFragment : Fragment() {
     ): View {
         binding = FragmentCommunityArticleBinding.inflate(inflater, container, false)
 
-        val article = arguments?.getSerializable("ARTICLE") as? CommunityArticleItem
-
-        initView(article)
         initObserve()
         return binding.root
     }
@@ -43,7 +42,7 @@ class CommunityArticleFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+            activity?.onBackPressed()
         }
 
         binding.toolbar.inflateMenu(R.menu.toolbar_action_menu)
@@ -55,7 +54,13 @@ class CommunityArticleFragment : Fragment() {
         }
     }
 
-    private fun initView(article: CommunityArticleItem?) {
+    private fun initObserve() {
+        activityViewModel.articleLiveData.observe(viewLifecycleOwner) {
+            onUpdateArticle(it)
+        }
+    }
+
+    private fun onUpdateArticle(article: CommunityArticleItem?) {
         binding.item = article
 
         // todo : viewmodel로 추후 이동
@@ -89,11 +94,6 @@ class CommunityArticleFragment : Fragment() {
 
         initAdfit()
     }
-
-    private fun initObserve() {
-
-    }
-
 
     private fun initAdfit() {
         binding.adfitAdView.setClientId(getString(R.string.adfit_client_id_50))
