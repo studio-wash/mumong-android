@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.common.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 

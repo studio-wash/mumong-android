@@ -6,14 +6,16 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.AttachedImageAdapter
+import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
 class SocialArticleFragment : Fragment() {
     private lateinit var binding: FragmentSocialArticleBinding
 
-    private val recordingAdapter = AttachedRecordingAdapter({}, {})
+    private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
+    private val attachedImageAdapter = AttachedImageAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,12 +51,6 @@ class SocialArticleFragment : Fragment() {
 
     private fun initView(article: SocialFriendArticleItem?) {
         binding.item = article
-        binding.recordListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = recordingAdapter
-            itemAnimator = null
-        }
-        recordingAdapter.items = article?.attachedRecordings ?: emptyList()
 
         // todo : viewmodel로 추후 이동
         // SERVER API : 좋아요, 북마크 결과 받아서 ui에 적용 가능한 api
@@ -64,6 +60,20 @@ class SocialArticleFragment : Fragment() {
         binding.bookmarkButtonLinearLayout.setOnClickListener {
             binding.isBookmarked = binding.isBookmarked.not()
         }
+
+        binding.recordListRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = attachedRecordingAdapter
+            itemAnimator = null
+        }
+        attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
+
+        binding.imageListRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = attachedImageAdapter
+            itemAnimator = null
+        }
+        attachedImageAdapter.items = article?.attachedImages ?: emptyList()
     }
 
     private fun initObserve() {
