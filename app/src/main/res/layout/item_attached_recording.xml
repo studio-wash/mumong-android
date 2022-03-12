@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.common.AttachedRecordingItem" />
+            type="com.studiowash.mumong.common.model.AttachedRecordingItem" />
         <variable
             name="isPlaying"
             type="boolean" />

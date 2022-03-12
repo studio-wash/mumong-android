@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">뮤몽</string>
 
-    <string name="adfit_client_id">DAN-XuUWhh7ZeB0hSQDl</string>
+    <string name="adfit_client_id_50">DAN-XuUWhh7ZeB0hSQDl</string>
     <string name="adfit_client_id_100">DAN-qPia47sOfpcajRFD</string>
 
     <!-- Fragment Titles -->
@@ -43,4 +43,7 @@
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+
+    <!-- Common -->
+    <string name="reply">대댓글</string>
 </resources>

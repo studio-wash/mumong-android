@@ -2,6 +2,7 @@ package com.studiowash.mumong.community
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.ItemCommunityArticleBinding

@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.AttachedRecordingItem
+import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
@@ -121,10 +121,10 @@ class SocialHomeFriendFragment : Fragment() {
     }
 
     private fun onClickArticle(position: Int, article: SocialFriendArticleItem) {
-        activity?.findNavController(R.id.nav_host_fragment)?.navigate(
-            R.id.action_socialHomeFragmentNav_to_socialArticleFragmentNav,
-            bundleOf("ARTICLE" to article)
-        )
+//        activity?.findNavController(R.id.nav_host_fragment)?.navigate(
+//            R.id.action_socialHomeFragmentNav_to_socialArticleFragmentNav,
+//            bundleOf("ARTICLE" to article)
+//        )
     }
 
     override fun onDestroy() {
