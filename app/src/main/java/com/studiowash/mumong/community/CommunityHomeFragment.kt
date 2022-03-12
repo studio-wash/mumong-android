@@ -19,6 +19,7 @@ import com.studiowash.mumong.common.model.CommentItem
 import com.studiowash.mumong.common.model.CommentReplyItem
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
+import com.studiowash.mumong.util.findNavControllerSafety
 import org.w3c.dom.Comment
 
 class CommunityHomeFragment : Fragment() {
@@ -249,7 +250,7 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
-        findNavController().navigate(
+        findNavControllerSafety(R.id.communityHomeFragmentNav)?.navigate(
             R.id.action_communityHomeFragmentNav_to_communityArticleFragmentNav,
             bundleOf("ARTICLE" to article)
         )
