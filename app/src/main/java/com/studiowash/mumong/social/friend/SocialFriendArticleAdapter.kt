@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
-import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
+import com.studiowash.mumong.social.article.SocialArticleItem
 
-class SocialFriendArticleAdapter(private val onClick: (position: Int, item: SocialFriendArticleItem) -> Unit) : RecyclerView.Adapter<SocialFriendArticleAdapter.RecentArticleViewHolder>() {
+class SocialFriendArticleAdapter(private val onClick: (position: Int, item: SocialArticleItem) -> Unit) : RecyclerView.Adapter<SocialFriendArticleAdapter.RecentArticleViewHolder>() {
     class RecentArticleViewHolder(val binding: ItemSocialFriendArticleBinding) : RecyclerView.ViewHolder(binding.root)
-    var items = listOf<SocialFriendArticleItem>()
+    var items = listOf<SocialArticleItem>()
 
     // todo : 이후 플레이어 뷰를 만들 경우 observe로 해결하는 것이 맞음.
     var recordPlayingItemIndex: Int? = null
