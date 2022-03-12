@@ -14,5 +14,6 @@
         <!-- Customize your theme here. -->
 
         <item name="windowNoTitle">true</item>
+        <item name="font">@font/pretendard_medium</item>
     </style>
 </resources>
