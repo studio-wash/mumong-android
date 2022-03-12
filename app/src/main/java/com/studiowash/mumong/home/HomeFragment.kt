@@ -20,6 +20,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         initView()
+        initOnClick()
 
         return binding.root
     }
@@ -46,5 +47,11 @@ class HomeFragment : Fragment() {
             EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
             EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
         )
+    }
+
+    private fun initOnClick() {
+        binding.profileIconImageView.setOnClickListener {
+
+        }
     }
 }

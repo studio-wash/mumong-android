@@ -18,6 +18,7 @@ class SocialHomeFragment : Fragment() {
     ): View {
         binding = FragmentSocialHomeBinding.inflate(inflater, container, false)
         initView()
+        initOnClick()
         return binding.root
     }
 
@@ -30,6 +31,12 @@ class SocialHomeFragment : Fragment() {
         binding.groupPageButtonLinearLayout.setOnClickListener {
             binding.pageIndex = 1
             innerNavController.navigate(R.id.socialHomeGroupFragmentNav)
+        }
+    }
+
+    private fun initOnClick() {
+        binding.profileIconImageView.setOnClickListener {
+
         }
     }
 }

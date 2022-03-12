@@ -184,6 +184,7 @@ class CommunityHomeFragment : Fragment() {
         //binding.viewModel = communityViewModel
 
         initView()
+        initOnClick()
         initObserve()
 
         return binding.root
@@ -206,6 +207,12 @@ class CommunityHomeFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
         initAdfit()
+    }
+
+    private fun initOnClick() {
+        binding.profileIconImageView.setOnClickListener {
+
+        }
     }
 
     private fun initAdfit() {

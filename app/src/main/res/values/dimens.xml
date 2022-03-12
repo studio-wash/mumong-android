@@ -6,6 +6,8 @@
     <dimen name="fragment_default_horizontal_padding">20dp</dimen>
     <dimen name="fragment_default_top_padding">20dp</dimen>
 
+    <dimen name="icon_profile_width">25dp</dimen>
+
     <!-- 커뮤니티 -->
     <dimen name="community_fragment_title_bottom_padding">10dp</dimen>
     <dimen name="community_board_padding_horizontal">20dp</dimen>
