@@ -18,4 +18,9 @@ class CommunityArticleActivity : AppCompatActivity() {
         val article = intent?.getSerializableExtra("ARTICLE") as? CommunityArticleItem
         viewModel.setArticle(article)
     }
+
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.hold, R.anim.slide_out_to_right)
+    }
 }

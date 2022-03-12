@@ -256,5 +256,6 @@ class CommunityHomeFragment : Fragment() {
             putExtra("ARTICLE", article)
         }
         startActivity(intent)
+        activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
     }
 }
