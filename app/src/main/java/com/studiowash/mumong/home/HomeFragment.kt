@@ -1,12 +1,15 @@
 package com.studiowash.mumong.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentHomeBinding
+import com.studiowash.mumong.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -51,7 +54,9 @@ class HomeFragment : Fragment() {
 
     private fun initOnClick() {
         binding.profileIconImageView.setOnClickListener {
-
+            val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
+            activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
     }
 }

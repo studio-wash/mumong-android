@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".community.article.CommunityArticleActivity" />
         <activity android:name=".social.article.SocialArticleActivity" />
+        <activity android:name=".profile.ProfileActivity" />
     </application>
 
 </manifest>

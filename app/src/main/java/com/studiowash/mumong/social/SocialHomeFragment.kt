@@ -1,5 +1,6 @@
 package com.studiowash.mumong.social
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentSocialHomeBinding
+import com.studiowash.mumong.profile.ProfileActivity
 
 class SocialHomeFragment : Fragment() {
     private lateinit var binding: FragmentSocialHomeBinding
@@ -36,7 +38,9 @@ class SocialHomeFragment : Fragment() {
 
     private fun initOnClick() {
         binding.profileIconImageView.setOnClickListener {
-
+            val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
+            activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
     }
 }
