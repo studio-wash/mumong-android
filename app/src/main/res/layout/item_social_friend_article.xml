@@ -21,38 +21,56 @@
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/ic_default_profile"
             imageSrc="@{item.user.profileImg}"/>
-        <TextView
-            android:id="@+id/user_name_text_view"
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_more_three_dots"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
             app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-            android:text="@{item.user.nickname, default=`작성자`}"
-            android:textStyle="bold"/>
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_more_three_dots"/>
-        <ImageView
-            android:id="@+id/user_name_profile_image_separator_dot"
-            android:layout_width="2dp"
-            android:layout_height="2dp"
-            android:src="@drawable/drawable_seperator_dot"
-            app:layout_constraintStart_toEndOf="@id/user_name_text_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-            android:layout_marginStart="3dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-            android:text="@{item.writtenTime, default=`1분 전`}"
-            android:layout_marginStart="3dp"/>
+            android:layout_marginStart="10dp">
+            <TextView
+                android:id="@+id/user_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@{item.user.nickname, default=`작성자`}"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/article_written_time_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/user_name_text_view"
+                app:layout_constraintStart_toStartOf="@id/user_name_text_view"
+                android:text="@{item.writtenTime, default=`1분 전`}"
+                android:textSize="10sp"/>
+            <ImageView
+                android:id="@+id/user_name_profile_image_separator_dot"
+                android:layout_width="2dp"
+                android:layout_height="2dp"
+                android:src="@drawable/drawable_seperator_dot"
+                app:layout_constraintStart_toEndOf="@id/article_written_time_text_view"
+                app:layout_constraintTop_toTopOf="@id/article_written_time_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/article_written_time_text_view"
+                android:layout_marginStart="3dp"/>
+            <TextView
+                android:id="@+id/practicing_instruments_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
+                app:layout_constraintTop_toTopOf="@id/article_written_time_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/article_written_time_text_view"
+                android:text="피아노 연습 중"
+                android:layout_marginStart="3dp"
+                android:textSize="10sp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- 첨부된 녹음파일 리스트 -->
         <androidx.recyclerview.widget.RecyclerView
@@ -61,7 +79,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
             android:layout_marginTop="10dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager "/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <TextView
             android:id="@+id/content_text_view"
             android:layout_width="wrap_content"
@@ -72,7 +90,20 @@
             android:ellipsize="end"
             android:inputType="none"
             android:maxLines="2"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:textSize="12sp"/>
+
+        <!-- 좌측 하단 북마크 -->
+        <ImageView
+            android:id="@+id/bookmark_image_view"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_text_view"
+            android:gravity="center_vertical"
+            android:src="@drawable/btn_bookmark"
+            android:layout_marginTop="11dp"
+            android:layout_marginStart="-6dp"/>
 
         <!-- 우측 하단 좋아요, 댓글 개수 -->
         <LinearLayout
@@ -80,16 +111,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@id/comment_linear_layout"
-            app:layout_constraintTop_toTopOf="@id/comment_linear_layout"
-            app:layout_constraintBottom_toBottomOf="@id/comment_linear_layout"
-            android:gravity="center_vertical">
+            app:layout_constraintTop_toTopOf="@id/bookmark_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/bookmark_image_view"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="3dp">
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/btn_like"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
                 android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
         </LinearLayout>
         <LinearLayout
@@ -97,15 +130,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/content_text_view"
+            app:layout_constraintTop_toTopOf="@id/bookmark_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/bookmark_image_view"
             android:gravity="center_vertical">
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/btn_comment"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
                 android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

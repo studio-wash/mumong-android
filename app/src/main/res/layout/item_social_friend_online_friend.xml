@@ -16,12 +16,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingVertical="10dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="8dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="20dp">
         <ImageView
-            android:id="@+id/bg_friend_image_view"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/profile_image_view"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:background="@drawable/bg_friend_image"
             imageSrc="@{item.user.profileImg}"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,21 +30,22 @@
             app:layout_constraintTop_toTopOf="parent"/>
         <ImageView
             android:id="@+id/border_online_friend"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:src="@{item.isOnline ? @drawable/border_online_friend_image : null, default=`@drawable/border_online_friend_image`}"
-            app:layout_constraintStart_toStartOf="@id/bg_friend_image_view"
-            app:layout_constraintEnd_toEndOf="@id/bg_friend_image_view"
-            app:layout_constraintTop_toTopOf="@id/bg_friend_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/bg_friend_image_view"/>
+            app:layout_constraintStart_toStartOf="@id/profile_image_view"
+            app:layout_constraintEnd_toEndOf="@id/profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/profile_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/profile_image_view"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{item.user.nickname, default=`username`}"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="4dp"
             android:layout_gravity="center_horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/border_online_friend"/>
+            app:layout_constraintTop_toBottomOf="@id/border_online_friend"
+            android:textSize="12sp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
