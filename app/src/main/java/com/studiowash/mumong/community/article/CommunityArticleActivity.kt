@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.R
+import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.ActivityCommunityArticleBinding
 
 class CommunityArticleActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class CommunityArticleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_community_article)
 
-        val article = intent?.getSerializableExtra("ARTICLE") as? CommunityArticleItem
+        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? CommunityArticleItem
         viewModel.setArticle(article)
     }
 
