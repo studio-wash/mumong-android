@@ -26,7 +26,7 @@ class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: Fa
         val board = favoriteBoardItems[position]
         with (holder.binding) {
             item = board
-            isFirstItem = position == 0
+            isLastItem = position == itemCount - 1
             isSelected = position == selectedIndex
             root.setOnClickListener {
                 onClickBoard.invoke(position, board)

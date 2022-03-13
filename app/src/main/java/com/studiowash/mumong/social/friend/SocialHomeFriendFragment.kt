@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.common.model.User
@@ -20,8 +19,8 @@ class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding: FragmentSocialHomeFriendBinding? = null
 
-    private val onlineFriendAdapter = OnlineFriendAdapter(this::onClickOnlineFriend).apply {
-        items = listOf(
+    private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickArticle, this::onClickFriend).apply {
+        friends = listOf(
             OnlineFriendItem(User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
             OnlineFriendItem(User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
             OnlineFriendItem(User(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
@@ -29,10 +28,8 @@ class SocialHomeFriendFragment : Fragment() {
             OnlineFriendItem(User(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), false),
             OnlineFriendItem(User(nickname = "데이이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), false)
         )
-    }
 
-    private val articleAdapter = SocialFriendArticleAdapter(this::onClickArticle).apply {
-        items = listOf(
+        articles = listOf(
             SocialArticleItem(
                 "오늘은  레슨실에서 녹턴 피아노 연습!\n통기타 2주차 연습곡으로 10월의 어느 멋진 날 연습했다! 코드 잡는 법이 아직 어렵다.",
                 "1분 전",
@@ -93,6 +90,7 @@ class SocialHomeFriendFragment : Fragment() {
             ),
         )
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -103,17 +101,14 @@ class SocialHomeFriendFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.onlineFriendsRecyclerView.apply {
-            adapter = onlineFriendAdapter
-        }
-        binding.friendArticlesRecyclerView.apply {
-            adapter = articleAdapter
+        binding.socialHomeFriendRecyclerView.apply {
+            adapter = socialHomeFriendAdapter
             itemAnimator = null
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
     }
 
-    private fun onClickOnlineFriend(position: Int, friend: OnlineFriendItem) {
+    private fun onClickFriend(position: Int, friend: OnlineFriendItem) {
         // todo
     }
 

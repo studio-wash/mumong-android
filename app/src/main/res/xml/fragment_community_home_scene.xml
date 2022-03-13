@@ -4,8 +4,7 @@
 
     <Transition
         app:constraintSetStart="@id/expanded"
-        app:constraintSetEnd="@id/collapsed"
-        app:motionInterpolator="linear">
+        app:constraintSetEnd="@id/collapsed">
         <OnSwipe
             app:dragDirection="dragUp"
             app:touchAnchorId="@id/recent_articles_recycler_view"

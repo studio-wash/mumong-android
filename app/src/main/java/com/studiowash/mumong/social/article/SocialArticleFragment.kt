@@ -5,8 +5,6 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter

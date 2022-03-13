@@ -31,7 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:text="@{item.title, default=`제목`}"
                 android:ellipsize="end"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:maxLines="1"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -57,7 +57,7 @@
                 app:layout_constraintEnd_toStartOf="@id/represent_image_view"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:text="@{item.content, default=`본문`}"
                 android:ellipsize="end"
                 android:inputType="none"
@@ -77,8 +77,8 @@
         <!-- 글쓴이 정보 -->
         <ImageView
             android:id="@+id/user_profile_image_view"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_content_constraint_layout"
             android:src="@drawable/ic_default_profile"
@@ -92,6 +92,7 @@
             app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
             android:text="@{item.user.nickname, default=`작성자`}"
+            android:textSize="11sp"
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/user_name_profile_image_separator_dot"
@@ -109,6 +110,7 @@
             app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
             android:text="@{item.writtenTime, default=`1분 전`}"
+            android:textSize="10sp"
             android:layout_marginStart="3dp"/>
 
         <!-- 우측 하단 좋아요, 댓글 개수 -->
@@ -119,14 +121,16 @@
             app:layout_constraintEnd_toStartOf="@id/comment_linear_layout"
             app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginEnd="3dp">
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_like_selected"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
                 android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
         </LinearLayout>
         <LinearLayout
@@ -138,12 +142,13 @@
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
             android:gravity="center_vertical">
             <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:src="@drawable/ic_comment_selected"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
                 android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
