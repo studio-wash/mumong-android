@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.studiowash.mumong.R
-import com.studiowash.mumong.const.StringKeySet
+import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeBinding
 import com.studiowash.mumong.profile.ProfileActivity
 

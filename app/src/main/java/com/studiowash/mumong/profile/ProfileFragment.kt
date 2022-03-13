@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.studiowash.mumong.const.StringKeySet
+import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

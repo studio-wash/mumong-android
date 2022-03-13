@@ -5,7 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.R
-import com.studiowash.mumong.const.StringKeySet
+import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.ActivityCommunityArticleBinding
 
 class CommunityArticleActivity : AppCompatActivity() {
