@@ -1,7 +1,8 @@
 package com.studiowash.mumong.social.friend
 
+import com.studiowash.mumong.common.model.User
+
 data class OnlineFriendItem (
-    val userName: String,
-    val profileImageSrc: String,
+    val user: User,
     val isOnline: Boolean
 )
