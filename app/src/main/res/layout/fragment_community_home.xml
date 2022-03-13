@@ -6,7 +6,8 @@
     <data>
         <import type="com.studiowash.mumong.singleton.LoginObject" />
     </data>
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <com.studiowash.mumong.widget.SavingMotionLayout
+        android:id="@+id/motion_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/fragment_community_home_scene">
@@ -81,5 +82,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+    </com.studiowash.mumong.widget.SavingMotionLayout>
 </layout>
