@@ -3,6 +3,7 @@ package com.studiowash.mumong.community.article
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -30,7 +31,7 @@ class CommunityArticleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCommunityArticleBinding.inflate(inflater, container, false)
-
+        initView()
         initObserve()
         return binding.root
     }
@@ -38,6 +39,12 @@ class CommunityArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+    }
+
+    private fun initView() {
+        binding.commentWriteView.setOnConfirmListener {
+            Toast.makeText(context, "confirmed: $it", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initToolbar() {

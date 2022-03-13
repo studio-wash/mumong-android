@@ -68,4 +68,7 @@
     <string name="profile_common_mumong_guide">뮤몽 안내서</string>
     <string name="profile_common_about_us">제작자 이야기</string>
     <string name="profile_common_version_info">버전 정보</string>
+
+    <!-- Comment -->
+    <string name="comment_hint">댓글을 남겨주세요.</string>
 </resources>
