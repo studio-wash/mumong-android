@@ -7,7 +7,5 @@ data class CommentItem(
     val writtenTime: String,
     val likeCount: Int,
     val replies: List<CommentReplyItem>,
-    // todo: 아래 두 개는 이후 user로 통일
-    val userName: String,
-    val userIconSrc: String
+    val user: User
 ) : Serializable
