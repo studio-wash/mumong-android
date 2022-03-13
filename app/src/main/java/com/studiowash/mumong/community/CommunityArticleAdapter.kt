@@ -23,6 +23,7 @@ class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, ar
         holder.binding.root.setOnClickListener {
             onClickArticle.invoke(position, article)
         }
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = recentArticleItems.size

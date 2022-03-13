@@ -17,9 +17,12 @@ class TagAdapter(private val onClickTag: (tagIndex: Int, tag: TagItem) -> Unit) 
 
     override fun onBindViewHolder(holder: TagViewHolder, position: Int) {
         val tag = tagItems[position]
-        holder.binding.item = tag
-        holder.binding.root.setOnClickListener {
-            onClickTag.invoke(position, tag)
+        holder.binding.apply {
+            item = tag
+            root.setOnClickListener {
+                onClickTag.invoke(position, tag)
+            }
+            executePendingBindings()
         }
     }
 

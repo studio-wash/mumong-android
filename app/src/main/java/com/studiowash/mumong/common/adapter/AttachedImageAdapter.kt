@@ -20,6 +20,7 @@ class AttachedImageAdapter : RecyclerView.Adapter<AttachedImageAdapter.AttachedI
     override fun onBindViewHolder(holder: AttachedImageViewHolder, position: Int) {
         val imageItem = items[position]
         holder.binding.item = imageItem
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = items.size
