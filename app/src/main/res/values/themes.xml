@@ -18,6 +18,7 @@
         <item name="windowNoTitle">true</item>
 
         <item name="fontFamily">@font/font_pretendard</item>
+        <item name="lineHeight">20sp</item>
     </style>
 
     <style name="Theme.MuMong.SlideRight" parent="Theme.MuMong">

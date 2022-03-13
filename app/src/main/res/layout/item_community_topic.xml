@@ -47,7 +47,7 @@
         </LinearLayout>
         <View
             android:id="@+id/end_margin_view"
-            android:layout_width="@dimen/community_tag_margin"
+            android:layout_width="@dimen/community_topic_item_spacing"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
