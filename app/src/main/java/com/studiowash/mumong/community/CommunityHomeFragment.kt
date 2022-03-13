@@ -88,7 +88,7 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
-                attachedRecordings = listOf(AttachedRecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
+                recordings = listOf(RecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",

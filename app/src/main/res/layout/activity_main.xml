@@ -6,10 +6,7 @@
     tools:context=".MainActivity">
     <data>
         <variable
-            name="currentMusicSrc"
-            type="String" />
-        <variable
-            name="isPlayingMusic"
+            name="showMusicPlayer"
             type="boolean" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,7 +29,7 @@
             android:elevation="@dimen/single_elevation"
             app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
             app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-            goneUnless="@{currentMusicSrc != null}"/>
+            app:goneUnless="@{showMusicPlayer}"/>
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
             android:layout_height="wrap_content"
@@ -45,6 +42,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/music_player_view"
             android:background="@color/white"
-            app:elevation="@{currentMusicSrc == null ? @dimen/single_elevation : @dimen/double_elevation, default=@dimen/double_elevation}"/>
+            app:elevation="@{showMusicPlayer ? @dimen/double_elevation : @dimen/single_elevation, default=@dimen/double_elevation}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

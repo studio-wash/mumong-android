@@ -1,7 +1,7 @@
 package com.studiowash.mumong.community.article
 
 import com.studiowash.mumong.common.model.AttachedImageItem
-import com.studiowash.mumong.common.model.AttachedRecordingItem
+import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.common.model.CommentItem
 import com.studiowash.mumong.common.model.User
 import java.io.Serializable
@@ -17,5 +17,5 @@ data class CommunityArticleItem(
     val comments: List<CommentItem>,
     val user: User,
     val attachedImages: List<AttachedImageItem>? = null,
-    val attachedRecordings: List<AttachedRecordingItem>? = null
+    val recordings: List<RecordingItem>? = null
 ) : Serializable

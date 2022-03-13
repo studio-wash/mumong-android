@@ -3,13 +3,13 @@ package com.studiowash.mumong.common.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.common.model.AttachedRecordingItem
-import com.studiowash.mumong.databinding.ItemAttachedRecordingBinding
+import com.studiowash.mumong.common.model.RecordingItem
+import com.studiowash.mumong.databinding.ItemRecordingBinding
 
-class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val onClickPause:() -> Unit) : RecyclerView.Adapter<AttachedRecordingAdapter.AttachedRecordingViewHolder>() {
-    class AttachedRecordingViewHolder(val binding: ItemAttachedRecordingBinding) : RecyclerView.ViewHolder(binding.root)
+class AttachedRecordingAdapter(private val onClickPlay: (recording: RecordingItem) -> Unit, private val onClickPause:(recording: RecordingItem) -> Unit) : RecyclerView.Adapter<AttachedRecordingAdapter.AttachedRecordingViewHolder>() {
+    class AttachedRecordingViewHolder(val binding: ItemRecordingBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var items = listOf<AttachedRecordingItem>()
+    var items = listOf<RecordingItem>()
     var playingRecordingIndex: Int? = null
         set(value) {
             val oldIndex = field
@@ -19,7 +19,7 @@ class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val 
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttachedRecordingViewHolder {
-        val binding = ItemAttachedRecordingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemRecordingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AttachedRecordingViewHolder(binding)
     }
 
@@ -32,11 +32,11 @@ class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val 
         holder.binding.playPauseImageView.setOnClickListener {
             val wasPlaying = holder.binding.isPlaying
             if (wasPlaying) {
-                onClickPause.invoke()
+                onClickPause.invoke(recordingItem)
                 holder.binding.isPlaying = false
                 playingRecordingIndex = null
             } else {
-                onClickPlay.invoke()
+                onClickPlay.invoke(recordingItem)
                 holder.binding.isPlaying = true
                 playingRecordingIndex = position
             }

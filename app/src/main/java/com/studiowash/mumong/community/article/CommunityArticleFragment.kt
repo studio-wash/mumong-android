@@ -9,8 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
@@ -83,7 +81,7 @@ class CommunityArticleFragment : Fragment() {
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
-        attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
+        attachedRecordingAdapter.items = article?.recordings ?: emptyList()
 
         binding.imageListRecyclerView.apply {
             adapter = attachedImageAdapter

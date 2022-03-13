@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="currentRecording"
+            type="com.studiowash.mumong.common.model.RecordingItem" />
+        <variable
+            name="isPlaying"
+            type="boolean" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +51,7 @@
             app:layout_constraintTop_toTopOf="@id/controller_linear_layout"
             app:layout_constraintBottom_toBottomOf="@id/controller_linear_layout"
             android:gravity="center|start"
-            android:text="녹턴 Op.9, 2번 (쇼팽) 연주를 h"
+            android:text="@{currentRecording.title, default=`제목`}"
             android:textSize="12sp"/>
 
         <LinearLayout

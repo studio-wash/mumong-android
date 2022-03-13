@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.databinding.ActivityMainBinding
 import com.studiowash.mumong.singleton.MusicChangeListener
 import com.studiowash.mumong.singleton.MusicPlayer
@@ -13,19 +14,14 @@ import com.studiowash.mumong.singleton.MusicPlayer
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val musicChangeListener = MusicChangeListener { src ->
-        binding.currentMusicSrc = src
+    private val musicChangeListener = MusicChangeListener { recording ->
+        onUpdateCurrentMusic(recording)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        initMusicPlayer()
         initNavigation()
-    }
-
-    private fun initMusicPlayer() {
-        MusicPlayer.addOnMusicChangeListener(musicChangeListener)
     }
 
     private fun initNavigation() {
@@ -35,8 +31,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onDestroy() {
+    private fun onUpdateCurrentMusic(recording: RecordingItem?) {
+        binding.showMusicPlayer = recording != null
+        binding.musicPlayerView.currentRecording = recording
+    }
+
+    override fun onResume() {
+        super.onResume()
+        onUpdateCurrentMusic(MusicPlayer.currentMusic)
+        MusicPlayer.addOnMusicChangeListener(musicChangeListener)
+    }
+
+    override fun onPause() {
         MusicPlayer.removeOnMusicChangeListener(musicChangeListener)
-        super.onDestroy()
+        super.onPause()
     }
 }

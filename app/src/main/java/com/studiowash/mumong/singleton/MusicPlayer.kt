@@ -1,8 +1,10 @@
 package com.studiowash.mumong.singleton
 
+import com.studiowash.mumong.common.model.RecordingItem
+
 object MusicPlayer {
     var isPlaying = false
-    var currentMusicSrc: String? = null
+    var currentMusic: RecordingItem? = null
         set(value) {
             field = value
             onMusicChangeListeners.forEach {
@@ -20,5 +22,5 @@ object MusicPlayer {
 }
 
 fun interface MusicChangeListener {
-    fun onMusicChanged(src:String?)
+    fun onMusicChanged(src: RecordingItem?)
 }

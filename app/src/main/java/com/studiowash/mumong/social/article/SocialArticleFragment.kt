@@ -74,7 +74,7 @@ class SocialArticleFragment : Fragment() {
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
-        attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
+        attachedRecordingAdapter.items = article?.recordings ?: emptyList()
 
         binding.imageListRecyclerView.apply {
             adapter = attachedImageAdapter
