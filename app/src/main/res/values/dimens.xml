@@ -11,5 +11,5 @@
     <!-- 커뮤니티 -->
     <dimen name="community_fragment_title_bottom_padding">10dp</dimen>
     <dimen name="community_board_padding_horizontal">20dp</dimen>
-    <dimen name="community_tag_padding_horizontal_half">2dp</dimen>
+    <dimen name="community_tag_margin">4dp</dimen>
 </resources>
