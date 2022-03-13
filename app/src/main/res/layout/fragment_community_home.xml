@@ -59,12 +59,13 @@
             android:id="@+id/topic_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
+            android:paddingTop="9dp"
             android:clipToPadding="false"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/adfit_frame_layout" />
+            app:layout_constraintTop_toBottomOf="@id/adfit_frame_layout"
+            android:background="@color/white"/>
 
         <!-- 실시간 게시글 -->
         <View
