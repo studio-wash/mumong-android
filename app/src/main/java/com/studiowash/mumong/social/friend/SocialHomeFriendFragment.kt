@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.model.AttachedRecordingItem
 import com.studiowash.mumong.common.model.User
@@ -15,6 +14,7 @@ import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.singleton.MusicPlayer
 import com.studiowash.mumong.social.article.SocialArticleActivity
 import com.studiowash.mumong.social.article.SocialArticleItem
+import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
 
 class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
@@ -105,7 +105,7 @@ class SocialHomeFriendFragment : Fragment() {
         binding.socialHomeFriendRecyclerView.apply {
             adapter = socialHomeFriendAdapter
             itemAnimator = null
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addItemDecoration(HorizontalDividerItemDecorator(context))
         }
     }
 
