@@ -30,16 +30,8 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val tagsAdapter = TagAdapter(this::onClickTag).apply {
-        tagItems = listOf(
-            TagItem("자유"),
-            TagItem("베스트"),
-            TagItem("내 음악을 들어줘"),
-            TagItem("꿀팁"),
-            TagItem("질문답변"),
-            TagItem("홍보"),
-            TagItem("무슨 태그일까요")
-        )
+    private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
+        topicItems = CommunityTopic.values().toList()
     }
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
@@ -179,8 +171,9 @@ class CommunityHomeFragment : Fragment() {
             itemAnimator = null
             adapter = favoriteBoardAdapter
         }
-        binding.tagRecyclerView.apply {
-            adapter = tagsAdapter
+        binding.topicRecyclerView.apply {
+            itemAnimator = null
+            adapter = topicAdapter
         }
         binding.recentArticlesRecyclerView.apply {
             adapter = recentArticleAdapter
@@ -235,7 +228,11 @@ class CommunityHomeFragment : Fragment() {
         favoriteBoardAdapter.selectedIndex = boardIndex
     }
 
-    private fun onClickTag(tagIndex: Int, tag: TagItem) {
+    private fun onClickBest() {
+        // todo
+    }
+
+    private fun onClickTopic(tagIndex: Int, tag: CommunityTopic) {
         // todo
     }
 
