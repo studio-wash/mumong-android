@@ -15,11 +15,15 @@ class CommentWriteView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = ViewCommentWriteBinding.inflate(LayoutInflater.from(context), this, true)
 
-    val text get() = binding.commentEditText.text.toString()
-
     init {
         binding.commentEditText.doAfterTextChanged {
             binding.isValidComment = it?.isNotBlank() == true
+        }
+    }
+
+    fun setOnConfirmListener(onConfirm: (comment: String) -> Unit) {
+        binding.commentConfirmImageView.setOnClickListener {
+            onConfirm.invoke(binding.commentEditText.text.toString())
         }
     }
 }
