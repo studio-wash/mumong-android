@@ -17,6 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/bg_rounded_rect_20dp_fill_light_gray">
             <EditText
+                android:id="@+id/comment_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
@@ -25,6 +26,7 @@
                 android:textSize="12sp"
                 android:hint="@string/comment_hint"/>
             <ImageView
+                android:id="@+id/comment_confirm_image_view"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"

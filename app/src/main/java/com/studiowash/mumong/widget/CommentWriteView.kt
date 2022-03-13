@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
+import androidx.core.widget.doAfterTextChanged
 import com.studiowash.mumong.databinding.ViewCommentWriteBinding
 
 class CommentWriteView @JvmOverloads constructor(
@@ -13,4 +14,12 @@ class CommentWriteView @JvmOverloads constructor(
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = ViewCommentWriteBinding.inflate(LayoutInflater.from(context), this, true)
+
+    val text get() = binding.commentEditText.text.toString()
+
+    init {
+        binding.commentEditText.doAfterTextChanged {
+            binding.isValidComment = it?.isNotBlank() == true
+        }
+    }
 }
