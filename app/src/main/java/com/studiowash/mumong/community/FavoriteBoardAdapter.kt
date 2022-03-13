@@ -31,6 +31,7 @@ class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: Fa
             root.setOnClickListener {
                 onClickBoard.invoke(position, board)
             }
+            executePendingBindings()
         }
     }
 

@@ -44,6 +44,8 @@ class SocialFriendArticleAdapter(private val onClick: (position: Int, item: Soci
             itemAnimator = null
         }
         attachedRecordingAdapter.items = article.attachedRecordings ?: emptyList()
+
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = items.size
