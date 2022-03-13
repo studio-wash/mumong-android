@@ -26,9 +26,9 @@
             android:elevation="5dp">
             <ImageView
                 android:id="@+id/profile_icon_image_view"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_attached_recording_mic"
+                android:layout_width="@dimen/icon_profile_width"
+                android:layout_height="@dimen/icon_profile_width"
+                android:src="@drawable/ic_default_profile"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>

@@ -60,7 +60,7 @@
             android:id="@+id/profile_icon_image_view"
             android:layout_width="@dimen/icon_profile_width"
             android:layout_height="@dimen/icon_profile_width"
-            android:src="@drawable/ic_attached_recording_mic"
+            android:src="@drawable/ic_default_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"/>
