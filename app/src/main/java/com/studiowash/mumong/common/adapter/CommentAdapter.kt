@@ -11,10 +11,7 @@ class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onCli
     class CommentViewHolder(val binding: ItemCommentBinding) : RecyclerView.ViewHolder(binding.root) {
         val replyAdapter = CommentReplyAdapter({}, {})
         init {
-            binding.repliesRecyclerView.apply {
-                layoutManager = LinearLayoutManager(context)
-                adapter = replyAdapter
-            }
+            binding.repliesRecyclerView.adapter = replyAdapter
         }
     }
 
@@ -28,6 +25,7 @@ class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onCli
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
         val item = items[position]
         holder.binding.item = item
+        holder.binding.executePendingBindings()
         holder.replyAdapter.items = item.replies
         holder.replyAdapter.notifyDataSetChanged()
     }

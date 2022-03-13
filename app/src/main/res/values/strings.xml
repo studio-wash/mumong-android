@@ -4,17 +4,24 @@
     <string name="adfit_client_id_50">DAN-XuUWhh7ZeB0hSQDl</string>
     <string name="adfit_client_id_100">DAN-qPia47sOfpcajRFD</string>
 
+    <!-- Common -->
+    <string name="reply">대댓글</string>
+    <string name="title_home">홈</string>
+    <string name="title_practice">연습장</string>
+    <string name="title_social">소셜</string>
+    <string name="title_community">커뮤니티</string>
+
     <!-- Fragment Titles -->
-    <string name="title_home_fragment">홈</string>
-    <string name="title_practice_fragment">연습장</string>
-    <string name="title_social_fragment">소셜</string>
-    <string name="title_community_fragment">커뮤니티</string>
+    <string name="title_home_fragment">@string/title_home</string>
+    <string name="title_practice_fragment">@string/title_practice</string>
+    <string name="title_social_fragment">@string/title_social</string>
+    <string name="title_community_fragment">@string/title_community</string>
 
     <!-- Bottom Navigation Bar -->
-    <string name="nav_home_label">홈</string>
-    <string name="nav_practice_label">연습장</string>
-    <string name="nav_social_label">소셜</string>
-    <string name="nav_community_label">커뮤니티</string>
+    <string name="nav_home_label">@string/title_home</string>
+    <string name="nav_practice_label">@string/title_practice</string>
+    <string name="nav_social_label">@string/title_social</string>
+    <string name="nav_community_label">@string/title_community</string>
 
     <!-- Home Fragment -->
     <string name="home_notice_title">공지사항</string>
@@ -43,7 +50,25 @@
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+    
+    <!-- Profile -->
+    <string name="profile_edit_account">계정 편집하기</string>
+    <string name="profile_common_notice">공지사항</string>
+    <string name="profile_common_alert">알림</string>
+    <string name="profile_common_settings">설정</string>
+    <string name="profile_social_friends">친구 목록</string>
+    <string name="profile_social_groups">그룹 목록</string>
+    <string name="profile_social_my_articles">나의 피드</string>
+    <string name="profile_social_commented">댓글 단 피드</string>
+    <string name="profile_social_bookmarked">스크랩한 피드</string>
+    <string name="profile_community_favorite_boards">즐겨찾는 게시판</string>
+    <string name="profile_community_my_articles">나의 글</string>
+    <string name="profile_community_commented">댓글 단 글</string>
+    <string name="profile_community_bookmarked">스크랩한 글</string>
+    <string name="profile_common_mumong_guide">뮤몽 안내서</string>
+    <string name="profile_common_about_us">제작자 이야기</string>
+    <string name="profile_common_version_info">버전 정보</string>
 
-    <!-- Common -->
-    <string name="reply">대댓글</string>
+    <!-- Comment -->
+    <string name="comment_hint">댓글을 남겨주세요.</string>
 </resources>

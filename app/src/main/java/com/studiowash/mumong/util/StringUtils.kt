@@ -8,6 +8,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.studiowash.mumong.R
 
 object StringUtils {
+    // unused for now
     fun getWithRecordingMicIcon(context: Context, text: String) : SpannableStringBuilder {
         val ssb = SpannableStringBuilder(text)
         val drawable = ResourcesCompat.getDrawable(context.resources, R.drawable.ic_attached_recording_mic, context.theme)

@@ -41,6 +41,8 @@ class AttachedRecordingAdapter(private val onClickPlay: () -> Unit, private val 
                 playingRecordingIndex = position
             }
         }
+
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = items.size

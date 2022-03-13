@@ -23,6 +23,7 @@ class OnlineFriendAdapter(private val onClick: (position: Int, item: OnlineFrien
             root.setOnClickListener {
                 onClick.invoke(position, friend)
             }
+            executePendingBindings()
         }
     }
 

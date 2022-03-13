@@ -27,11 +27,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                app:layout_constraintEnd_toStartOf="@id/title_mic_image_view"
                 app:layout_constraintTop_toTopOf="parent"
-                android:text="@{item.attachedRecordings == null || item.attachedRecordings.empty ? item.title : StringUtils.INSTANCE.getWithRecordingMicIcon(context, item.title), default=`제목`}"
-                android:textSize="17sp"
-                android:maxLines="2"/>
+                android:text="@{item.title, default=`제목`}"
+                android:ellipsize="end"
+                android:textSize="15sp"
+                android:maxLines="1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintWidth="true"/>
+
+            <ImageView
+                android:id="@+id/title_mic_image_view"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_attached_recording_mic"
+                app:layout_constraintTop_toTopOf="@id/title_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/title_text_view"
+                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                invisibleUnless="@{item.attachedRecordings != null &amp;&amp; !item.attachedRecordings.empty}"/>
 
             <!-- 게시글 본문 -->
             <TextView
@@ -43,6 +57,7 @@
                 app:layout_constraintEnd_toStartOf="@id/represent_image_view"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
+                android:textSize="13sp"
                 android:text="@{item.content, default=`본문`}"
                 android:ellipsize="end"
                 android:inputType="none"
@@ -66,7 +81,8 @@
             android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_content_constraint_layout"
-            imageSrc="@{item.userIconSrc}"
+            android:src="@drawable/ic_default_profile"
+            imageSrc="@{item.user.profileImg}"
             android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/user_name_text_view"
@@ -75,7 +91,7 @@
             app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
             app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
             app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
-            android:text="@{item.userName, default=`작성자`}"
+            android:text="@{item.user.nickname, default=`작성자`}"
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/user_name_profile_image_separator_dot"

@@ -2,7 +2,6 @@ package com.studiowash.mumong.social.friend
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
@@ -39,11 +38,12 @@ class SocialFriendArticleAdapter(private val onClick: (position: Int, item: Soci
             onClick.invoke(position, article)
         }
         holder.binding.recordListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
         attachedRecordingAdapter.items = article.attachedRecordings ?: emptyList()
+
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = items.size
