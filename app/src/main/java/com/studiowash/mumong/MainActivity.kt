@@ -21,7 +21,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        initOnClick()
         initNavigation()
+    }
+
+    private fun initOnClick() {
+        binding.musicPlayerView.setOnClickListener {
+            MusicPlayer.currentMusic = null // todo : this is just for testing
+        }
     }
 
     private fun initNavigation() {
