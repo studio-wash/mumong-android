@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginEnd="8dp"
+        android:paddingTop="13dp"
         android:paddingBottom="20dp">
         <ImageView
             android:id="@+id/profile_image_view"
