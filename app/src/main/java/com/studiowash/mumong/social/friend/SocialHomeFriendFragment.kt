@@ -6,20 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.studiowash.mumong.R
-import com.studiowash.mumong.common.model.AttachedRecordingItem
+import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.common.model.User
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
+import com.studiowash.mumong.singleton.MusicPlayer
 import com.studiowash.mumong.social.article.SocialArticleActivity
 import com.studiowash.mumong.social.article.SocialArticleItem
+import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
 
 class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding: FragmentSocialHomeFriendBinding? = null
 
-    private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickArticle, this::onClickFriend).apply {
+    private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickFriend, this::onClickArticle, this::onClickPlay, this::onClickPause).apply {
         friends = listOf(
             OnlineFriendItem(User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
             OnlineFriendItem(User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
@@ -35,14 +36,14 @@ class SocialHomeFriendFragment : Fragment() {
                 "1분 전",
                 84, 24,
                 User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-                attachedRecordings = listOf(
-                    AttachedRecordingItem(
+                recordings = listOf(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "피아노",
                         "녹턴 Op.9-2 (쇼팽)"
                     ),
-                    AttachedRecordingItem(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "통기타",
@@ -61,26 +62,26 @@ class SocialHomeFriendFragment : Fragment() {
                 "1일 전",
                 245, 121,
                 User(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-                attachedRecordings = listOf(
-                    AttachedRecordingItem(
+                recordings = listOf(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "피아노",
                         "녹턴 Op.9-(쇼팽)"
                     ),
-                    AttachedRecordingItem(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "콘트라베이스",
                         "10월의 어느 멋진 날"
                     ),
-                    AttachedRecordingItem(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "드럼",
                         "BEAT 120"
                     ),
-                    AttachedRecordingItem(
+                    RecordingItem(
                         "none",
                         "1:34",
                         "통기타",
@@ -104,7 +105,7 @@ class SocialHomeFriendFragment : Fragment() {
         binding.socialHomeFriendRecyclerView.apply {
             adapter = socialHomeFriendAdapter
             itemAnimator = null
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addItemDecoration(HorizontalDividerItemDecorator(context))
         }
     }
 
@@ -118,6 +119,15 @@ class SocialHomeFriendFragment : Fragment() {
         }
         startActivity(intent)
         activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
+    }
+
+    private fun onClickPlay(recording: RecordingItem?) {
+        MusicPlayer.currentMusic = recording
+        MusicPlayer.isPlaying = true
+    }
+
+    private fun onClickPause(recording: RecordingItem?) {
+        MusicPlayer.isPlaying = false
     }
 
     override fun onDestroy() {

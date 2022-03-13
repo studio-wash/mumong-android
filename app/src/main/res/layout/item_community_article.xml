@@ -45,7 +45,7 @@
                 app:layout_constraintTop_toTopOf="@id/title_text_view"
                 app:layout_constraintBottom_toBottomOf="@id/title_text_view"
                 app:layout_constraintEnd_toStartOf="@id/represent_image_view"
-                invisibleUnless="@{item.attachedRecordings != null &amp;&amp; !item.attachedRecordings.empty}"/>
+                invisibleUnless="@{item.recordings != null &amp;&amp; !item.recordings.empty}"/>
 
             <!-- 게시글 본문 -->
             <TextView

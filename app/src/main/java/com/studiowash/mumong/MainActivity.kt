@@ -2,24 +2,26 @@ package com.studiowash.mumong
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.databinding.ActivityMainBinding
+import com.studiowash.mumong.singleton.MusicChangeListener
+import com.studiowash.mumong.singleton.MusicPlayer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
+    private val musicChangeListener = MusicChangeListener { recording ->
+        onUpdateCurrentMusic(recording)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        initView()
         initNavigation()
-    }
-
-    private fun initView() {
     }
 
     private fun initNavigation() {
@@ -27,5 +29,21 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.findFragmentById(R.id.nav_host_fragment)?.findNavController()?.let { navController ->
             binding.bottomNavigationView.setupWithNavController(navController)
         }
+    }
+
+    private fun onUpdateCurrentMusic(recording: RecordingItem?) {
+        binding.showMusicPlayer = recording != null
+        binding.musicPlayerView.currentRecording = recording
+    }
+
+    override fun onResume() {
+        super.onResume()
+        onUpdateCurrentMusic(MusicPlayer.currentMusic)
+        MusicPlayer.addOnMusicChangeListener(musicChangeListener)
+    }
+
+    override fun onPause() {
+        MusicPlayer.removeOnMusicChangeListener(musicChangeListener)
+        super.onPause()
     }
 }

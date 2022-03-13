@@ -2,7 +2,7 @@ package com.studiowash.mumong.singleton
 
 import com.studiowash.mumong.common.model.User
 
-object LoginObject {
+object LoginStatus {
     var currentUser: User? =
         User(
             "sechiyo97@daum.net",

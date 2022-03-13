@@ -4,13 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
+import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
 import com.studiowash.mumong.databinding.ItemSocialFriendHeaderFriendsBinding
 import com.studiowash.mumong.social.article.SocialArticleItem
 
 class SocialHomeFriendAdapter(
+    private val onClickFriend: (friendPosition: Int, item: OnlineFriendItem) -> Unit,
     private val onClickArticle: (articlePosition: Int, item: SocialArticleItem) -> Unit,
-    private val onClickFriend: (friendPosition: Int, item: OnlineFriendItem) -> Unit
+    private val onClickPlay: (recording: RecordingItem?) -> Unit,
+    private val onClickPause: (recording: RecordingItem?) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class RecentArticleViewHolder(val binding: ItemSocialFriendArticleBinding) : RecyclerView.ViewHolder(binding.root)
     inner class HeaderFriendsViewHolder(val binding: ItemSocialFriendHeaderFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -52,8 +55,10 @@ class SocialHomeFriendAdapter(
                 val articlePosition = position - ONLINE_FRIENDS_HEADER_COUNT
                 val attachedRecordingAdapter = AttachedRecordingAdapter({
                     recordPlayingItemIndex = articlePosition
+                    onClickPlay.invoke(it)
                 }, {
                     recordPlayingItemIndex = null
+                    onClickPause.invoke(it)
                 })
 
                 val article = articles[articlePosition]
@@ -65,7 +70,7 @@ class SocialHomeFriendAdapter(
                     adapter = attachedRecordingAdapter
                     itemAnimator = null
                 }
-                attachedRecordingAdapter.items = article.attachedRecordings ?: emptyList()
+                attachedRecordingAdapter.items = article.recordings ?: emptyList()
 
                 holder.binding.executePendingBindings()
             }

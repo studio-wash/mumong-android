@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentProfileBinding
-import com.studiowash.mumong.singleton.LoginObject
+import com.studiowash.mumong.singleton.LoginStatus
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -25,7 +25,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.user = LoginObject.currentUser
+        binding.user = LoginStatus.currentUser
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
             initScrollY()
         }

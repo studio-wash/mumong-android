@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.model.*
@@ -18,6 +17,7 @@ import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 import com.studiowash.mumong.profile.ProfileActivity
+import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
 
 class CommunityHomeFragment : Fragment() {
     private lateinit var binding: FragmentCommunityHomeBinding
@@ -88,7 +88,7 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
-                attachedRecordings = listOf(AttachedRecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
+                recordings = listOf(RecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
@@ -177,7 +177,7 @@ class CommunityHomeFragment : Fragment() {
         }
         binding.recentArticlesRecyclerView.apply {
             adapter = recentArticleAdapter
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addItemDecoration(HorizontalDividerItemDecorator(context))
         }
         initAdfit()
     }
