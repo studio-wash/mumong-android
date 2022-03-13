@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.model.AttachedRecordingItem
+import com.studiowash.mumong.const.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
 import com.studiowash.mumong.social.article.SocialArticleActivity
 import com.studiowash.mumong.social.article.SocialArticleItem
@@ -122,7 +123,7 @@ class SocialHomeFriendFragment : Fragment() {
 
     private fun onClickArticle(position: Int, article: SocialArticleItem) {
         val intent = Intent(context, SocialArticleActivity::class.java).apply {
-            putExtra("ARTICLE", article)
+            putExtra(StringKeySet.ARTICLE, article)
         }
         startActivity(intent)
         activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)

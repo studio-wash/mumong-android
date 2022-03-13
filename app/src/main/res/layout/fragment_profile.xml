@@ -50,6 +50,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <ScrollView
+            android:id="@+id/items_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:clipToPadding="false"
@@ -87,6 +88,7 @@
 
                 <!-- 소셜 -->
                 <TextView
+                    android:id="@+id/title_social_category_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_social"
@@ -123,6 +125,7 @@
 
                 <!-- 커뮤니티 -->
                 <TextView
+                    android:id="@+id/title_community_category_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/title_community"

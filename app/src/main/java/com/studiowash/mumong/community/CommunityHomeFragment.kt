@@ -20,6 +20,7 @@ import com.studiowash.mumong.common.model.CommentItem
 import com.studiowash.mumong.common.model.CommentReplyItem
 import com.studiowash.mumong.community.article.CommunityArticleActivity
 import com.studiowash.mumong.community.article.CommunityArticleItem
+import com.studiowash.mumong.const.StringKeySet
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 import com.studiowash.mumong.profile.ProfileActivity
 
@@ -213,6 +214,7 @@ class CommunityHomeFragment : Fragment() {
     private fun initOnClick() {
         binding.profileIconImageView.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
+            intent.putExtra(StringKeySet.CATEGORY, StringKeySet.COMMUNITY)
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
@@ -261,7 +263,7 @@ class CommunityHomeFragment : Fragment() {
 
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleItem) {
         val intent = Intent(context, CommunityArticleActivity::class.java).apply {
-            putExtra("ARTICLE", article)
+            putExtra(StringKeySet.ARTICLE, article)
         }
         startActivity(intent)
         activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)

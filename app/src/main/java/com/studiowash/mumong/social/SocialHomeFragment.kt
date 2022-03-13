@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.studiowash.mumong.R
+import com.studiowash.mumong.const.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeBinding
 import com.studiowash.mumong.profile.ProfileActivity
 
@@ -39,6 +40,7 @@ class SocialHomeFragment : Fragment() {
     private fun initOnClick() {
         binding.profileIconImageView.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
+            intent.putExtra(StringKeySet.CATEGORY, StringKeySet.SOCIAL)
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
