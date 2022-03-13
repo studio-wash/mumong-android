@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
             android:layout_marginTop="10dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager "/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <TextView
             android:id="@+id/content_text_view"
             android:layout_width="wrap_content"
