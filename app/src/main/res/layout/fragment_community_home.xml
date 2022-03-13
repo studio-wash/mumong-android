@@ -22,7 +22,9 @@
                 android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                 android:paddingTop="10dp"
                 android:paddingBottom="5dp"
-                android:clipToPadding="false"/>
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             <ImageView
                 android:id="@+id/profile_icon_image_view"
@@ -61,7 +63,9 @@
                 app:layout_constraintTop_toBottomOf="@id/adfit_frame_layout"
                 android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                 android:layout_marginTop="10dp"
-                android:clipToPadding="false"/>
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             <!-- 실시간 게시글 -->
             <View
@@ -75,7 +79,9 @@
                 android:id="@+id/recent_articles_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/separator_1"/>
+                app:layout_constraintTop_toBottomOf="@id/separator_1"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

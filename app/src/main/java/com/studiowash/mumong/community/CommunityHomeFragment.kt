@@ -179,15 +179,12 @@ class CommunityHomeFragment : Fragment() {
         binding.favoriteBoardsRecyclerView.apply {
             itemAnimator = null
             adapter = favoriteBoardAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
         binding.tagRecyclerView.apply {
             adapter = tagsAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
         binding.recentArticlesRecyclerView.apply {
             adapter = recentArticleAdapter
-            layoutManager = LinearLayoutManager(context)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
         initAdfit()

@@ -29,14 +29,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.noticeRecyclerView.apply {
-            adapter = noticeAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        }
-        binding.eventRecyclerView.apply {
-            adapter = eventAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        }
+        binding.noticeRecyclerView.adapter = noticeAdapter
+        binding.eventRecyclerView.adapter = eventAdapter
 
         noticeAdapter.noticeItems = listOf(
             NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
