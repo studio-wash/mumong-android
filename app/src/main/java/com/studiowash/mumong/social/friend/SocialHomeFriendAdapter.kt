@@ -12,8 +12,8 @@ import com.studiowash.mumong.social.article.SocialArticleItem
 class SocialHomeFriendAdapter(
     private val onClickFriend: (friendPosition: Int, item: OnlineFriendItem) -> Unit,
     private val onClickArticle: (articlePosition: Int, item: SocialArticleItem) -> Unit,
-    private val onClickPlay: (recording: RecordingItem?) -> Unit,
-    private val onClickPause: (recording: RecordingItem?) -> Unit
+    private val onPlayRecording: (recording: RecordingItem?) -> Unit,
+    private val onPauseRecording: (recording: RecordingItem?) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class RecentArticleViewHolder(val binding: ItemSocialFriendArticleBinding) : RecyclerView.ViewHolder(binding.root)
     inner class HeaderFriendsViewHolder(val binding: ItemSocialFriendHeaderFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -55,10 +55,10 @@ class SocialHomeFriendAdapter(
                 val articlePosition = position - ONLINE_FRIENDS_HEADER_COUNT
                 val attachedRecordingAdapter = RecordingAdapter({
                     recordPlayingItemIndex = articlePosition
-                    onClickPlay.invoke(it)
+                    onPlayRecording.invoke(it)
                 }, {
                     recordPlayingItemIndex = null
-                    onClickPause.invoke(it)
+                    onPauseRecording.invoke(it)
                 })
 
                 val article = articles[articlePosition]
