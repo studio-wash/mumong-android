@@ -17,6 +17,7 @@ class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
 
     override fun onBindViewHolder(holder: NoticeViewHolder, position: Int) {
         holder.binding.item = noticeItems[position]
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = noticeItems.size

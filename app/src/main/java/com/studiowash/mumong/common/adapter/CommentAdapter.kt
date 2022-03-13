@@ -28,6 +28,7 @@ class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onCli
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
         val item = items[position]
         holder.binding.item = item
+        holder.binding.executePendingBindings()
         holder.replyAdapter.items = item.replies
         holder.replyAdapter.notifyDataSetChanged()
     }

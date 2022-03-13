@@ -17,6 +17,7 @@ class EventAdapter : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         holder.binding.item = eventItems[position]
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = eventItems.size

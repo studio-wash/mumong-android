@@ -19,6 +19,7 @@ class CommentReplyAdapter(val onClickLike: (position: Int) -> Unit, private val 
     override fun onBindViewHolder(holder: CommentReplyViewHolder, position: Int) {
         val item = items[position]
         holder.binding.item = item
+        holder.binding.executePendingBindings()
     }
 
     override fun getItemCount() = items.size
