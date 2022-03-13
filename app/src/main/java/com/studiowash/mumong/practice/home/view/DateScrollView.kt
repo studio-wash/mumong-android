@@ -25,7 +25,6 @@ class DateScrollView @JvmOverloads constructor(
     init {
         binding.dateRecyclerView.apply {
             adapter = dateAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
 
         dateAdapter.apply {

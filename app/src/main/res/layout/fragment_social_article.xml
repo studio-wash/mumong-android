@@ -78,7 +78,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <!-- 본문 -->
                 <TextView
@@ -96,7 +97,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/content_text_view"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <!-- 좌측 하단 좋아요, 북마크 -->
                 <LinearLayout

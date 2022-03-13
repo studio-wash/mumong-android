@@ -80,21 +80,18 @@ class CommunityArticleFragment : Fragment() {
         }
 
         binding.recordListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
         attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
 
         binding.imageListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedImageAdapter
             itemAnimator = null
         }
         attachedImageAdapter.items = article?.attachedImages ?: emptyList()
 
         binding.commentsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = commentAdapter
         }
         commentAdapter.items = article?.comments ?: emptyList()

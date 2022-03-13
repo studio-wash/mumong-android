@@ -104,11 +104,9 @@ class SocialHomeFriendFragment : Fragment() {
 
     private fun initView() {
         binding.onlineFriendsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = onlineFriendAdapter
         }
         binding.friendArticlesRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = articleAdapter
             itemAnimator = null
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))

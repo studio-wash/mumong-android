@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.studiowash.mumong.constant.StringKeySet
+import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentProfileBinding
 import com.studiowash.mumong.singleton.LoginObject
 
@@ -38,8 +39,8 @@ class ProfileFragment : Fragment() {
 
     private fun initScrollY() {
         val titleView = when (activity?.intent?.getStringExtra(StringKeySet.CATEGORY)) {
-            StringKeySet.SOCIAL -> binding.titleSocialCategoryTextView
-            StringKeySet.COMMUNITY -> binding.titleCommunityCategoryTextView
+            StringValueSet.SOCIAL -> binding.titleSocialCategoryTextView
+            StringValueSet.COMMUNITY -> binding.titleCommunityCategoryTextView
             else -> return
         }
 
