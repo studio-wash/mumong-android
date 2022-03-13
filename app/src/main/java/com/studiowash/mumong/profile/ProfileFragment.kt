@@ -24,5 +24,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initOnClick() {
+        binding.closeButtonImageView.setOnClickListener {
+            activity?.finish()
+        }
     }
 }
