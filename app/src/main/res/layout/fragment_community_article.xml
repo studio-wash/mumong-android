@@ -198,5 +198,11 @@
                     android:paddingBottom="20dp"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+        <com.studiowash.mumong.widget.CommentWriteView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -5,12 +5,12 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import com.studiowash.mumong.databinding.ItemAttachedRecordingBinding
+import com.studiowash.mumong.databinding.ViewCommentWriteBinding
 
-class RecordingItemView @JvmOverloads constructor(
+class CommentWriteView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
-    private val binding = ItemAttachedRecordingBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewCommentWriteBinding.inflate(LayoutInflater.from(context), this, true)
 }
