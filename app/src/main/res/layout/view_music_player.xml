@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+        android:paddingVertical="9dp"
+        android:background="@drawable/bg_rounded_top_rect_20dp_fill_white">
+        <TextView
+            android:id="@+id/current_music_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/text_dark_gray"
+            android:textSize="10sp"
+            android:text="03:07"/>
+        <TextView
+            android:id="@+id/total_music_time_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal"
+            android:textColor="@color/text_dark_gray"
+            android:textSize="10sp"
+            android:text="03:07"/>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/current_music_time_text_view"
+            app:layout_constraintEnd_toStartOf="@id/total_music_time_text_view"
+            app:layout_constraintBottom_toBottomOf="@id/current_music_time_text_view"
+            android:paddingHorizontal="10dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+        
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/controller_linear_layout"
+            app:layout_constraintTop_toTopOf="@id/controller_linear_layout"
+            app:layout_constraintBottom_toBottomOf="@id/controller_linear_layout"
+            android:gravity="center|start"
+            android:text="녹턴 Op.9, 2번 (쇼팽) 연주를 h"
+            android:textSize="12sp"/>
+
+        <LinearLayout
+            android:id="@+id/controller_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/progress_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+            <ImageView
+                android:id="@+id/previous_music_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_player_controller_previous"/>
+            <ImageView
+                android:id="@+id/play_pause_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_player_controller_play"/>
+            <ImageView
+                android:id="@+id/next_music_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_player_controller_next"
+                android:layout_marginEnd="20dp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".home.HomeFragment">
     <data>
-        <import type="com.studiowash.mumong.singleton.LoginObject"/>
+        <import type="com.studiowash.mumong.singleton.LoginStatus"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/fragment_default_top_padding"
             android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"
-            imageSrc="@{LoginObject.INSTANCE.currentUser.profileImg}"/>
+            imageSrc="@{LoginStatus.INSTANCE.currentUser.profileImg}"/>
 
         <ImageView
             android:id="@+id/content_top_cloud_linear_layout"

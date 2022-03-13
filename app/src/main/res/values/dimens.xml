@@ -8,6 +8,9 @@
 
     <dimen name="icon_profile_width">32dp</dimen>
 
+    <dimen name="single_elevation">8dp</dimen>
+    <dimen name="double_elevation">16dp</dimen>
+
     <!-- 커뮤니티 -->
     <dimen name="community_fragment_title_bottom_padding">10dp</dimen>
     <dimen name="community_board_item_spacing">16dp</dimen>
