@@ -48,6 +48,13 @@
     <string name="community_suggest">추천</string>
     <string name="community_notice">공지사항</string>
 
+    <string name="community_topic_best">베스트</string>
+    <string name="community_topic_daily">일상</string>
+    <string name="community_topic_recording">내 음악을 들어줘</string>
+    <string name="community_topic_tip">꿀팁</string>
+    <string name="community_topic_question">질문답변</string>
+    <string name="community_topic_advertise">홍보</string>
+
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
     
@@ -68,4 +75,7 @@
     <string name="profile_common_mumong_guide">뮤몽 안내서</string>
     <string name="profile_common_about_us">제작자 이야기</string>
     <string name="profile_common_version_info">버전 정보</string>
+
+    <!-- Comment -->
+    <string name="comment_hint">댓글을 남겨주세요.</string>
 </resources>

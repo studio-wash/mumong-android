@@ -26,14 +26,13 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toTopOf="@id/comment_write_view">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_height="0dp"
                 android:layout_width="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="wrap_content"
                 android:paddingHorizontal="@dimen/fragment_default_horizontal_padding">
 
                 <!-- 글쓴이 정보 -->
@@ -79,7 +78,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <!-- 본문 -->
                 <TextView
@@ -97,7 +97,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/content_text_view"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                 <!-- 좌측 하단 좋아요, 북마크 -->
                 <LinearLayout
@@ -158,5 +159,10 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+        <com.studiowash.mumong.widget.CommentWriteView
+            android:id="@+id/comment_write_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

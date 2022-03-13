@@ -8,16 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.model.*
 import com.studiowash.mumong.community.article.CommunityArticleActivity
 import com.studiowash.mumong.community.article.CommunityArticleItem
 import com.studiowash.mumong.constant.StringKeySet
+import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
 import com.studiowash.mumong.profile.ProfileActivity
+import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
 
 class CommunityHomeFragment : Fragment() {
     private lateinit var binding: FragmentCommunityHomeBinding
@@ -30,16 +30,8 @@ class CommunityHomeFragment : Fragment() {
         )
     }
 
-    private val tagsAdapter = TagAdapter(this::onClickTag).apply {
-        tagItems = listOf(
-            TagItem("자유"),
-            TagItem("베스트"),
-            TagItem("내 음악을 들어줘"),
-            TagItem("꿀팁"),
-            TagItem("질문답변"),
-            TagItem("홍보"),
-            TagItem("무슨 태그일까요")
-        )
+    private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
+        topicItems = CommunityTopic.values().toList()
     }
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
@@ -96,7 +88,7 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
-                attachedRecordings = listOf(AttachedRecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
+                recordings = listOf(RecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
@@ -178,16 +170,14 @@ class CommunityHomeFragment : Fragment() {
         binding.favoriteBoardsRecyclerView.apply {
             itemAnimator = null
             adapter = favoriteBoardAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         }
-        binding.tagRecyclerView.apply {
-            adapter = tagsAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.topicRecyclerView.apply {
+            itemAnimator = null
+            adapter = topicAdapter
         }
         binding.recentArticlesRecyclerView.apply {
             adapter = recentArticleAdapter
-            layoutManager = LinearLayoutManager(context)
-            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+            addItemDecoration(HorizontalDividerItemDecorator(context))
         }
         initAdfit()
     }
@@ -195,7 +185,7 @@ class CommunityHomeFragment : Fragment() {
     private fun initOnClick() {
         binding.profileIconImageView.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
-            intent.putExtra(StringKeySet.CATEGORY, StringKeySet.COMMUNITY)
+            intent.putExtra(StringKeySet.CATEGORY, StringValueSet.COMMUNITY)
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
@@ -238,7 +228,11 @@ class CommunityHomeFragment : Fragment() {
         favoriteBoardAdapter.selectedIndex = boardIndex
     }
 
-    private fun onClickTag(tagIndex: Int, tag: TagItem) {
+    private fun onClickBest() {
+        // todo
+    }
+
+    private fun onClickTopic(tagIndex: Int, tag: CommunityTopic) {
         // todo
     }
 

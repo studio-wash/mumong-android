@@ -2,10 +2,9 @@ package com.studiowash.mumong.social.article
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
@@ -23,6 +22,7 @@ class SocialArticleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSocialArticleBinding.inflate(inflater, container, false)
+        initView()
         initObserve()
         return binding.root
     }
@@ -30,6 +30,12 @@ class SocialArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+    }
+
+    private fun initView() {
+        binding.commentWriteView.setOnConfirmListener {
+            Toast.makeText(context, "confirmed: $it", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initToolbar() {
@@ -65,14 +71,12 @@ class SocialArticleFragment : Fragment() {
         }
 
         binding.recordListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
-        attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
+        attachedRecordingAdapter.items = article?.recordings ?: emptyList()
 
         binding.imageListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedImageAdapter
             itemAnimator = null
         }

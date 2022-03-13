@@ -49,14 +49,8 @@ class CustomizableCalendarView @JvmOverloads constructor(
         }
 
     init {
-        binding.dateRecyclerView.apply {
-            layoutManager = GridLayoutManager(context, DAYS_IN_WEEK)
-            adapter = calendarDateAdapter
-        }
-        binding.dayOfWeekRecyclerView.apply {
-            layoutManager = GridLayoutManager(context, DAYS_IN_WEEK)
-            adapter = dayInWeekAdapter
-        }
+        binding.dateRecyclerView.adapter = calendarDateAdapter
+        binding.dayOfWeekRecyclerView.adapter = dayInWeekAdapter
     }
 
     fun setYearAndMonth(year: Int, month: Int) {

@@ -3,13 +3,12 @@ package com.studiowash.mumong.community.article
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
@@ -30,7 +29,7 @@ class CommunityArticleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentCommunityArticleBinding.inflate(inflater, container, false)
-
+        initView()
         initObserve()
         return binding.root
     }
@@ -38,6 +37,12 @@ class CommunityArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initToolbar()
+    }
+
+    private fun initView() {
+        binding.commentWriteView.setOnConfirmListener {
+            Toast.makeText(context, "confirmed: $it", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initToolbar() {
@@ -73,21 +78,18 @@ class CommunityArticleFragment : Fragment() {
         }
 
         binding.recordListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedRecordingAdapter
             itemAnimator = null
         }
-        attachedRecordingAdapter.items = article?.attachedRecordings ?: emptyList()
+        attachedRecordingAdapter.items = article?.recordings ?: emptyList()
 
         binding.imageListRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = attachedImageAdapter
             itemAnimator = null
         }
         attachedImageAdapter.items = article?.attachedImages ?: emptyList()
 
         binding.commentsRecyclerView.apply {
-            layoutManager = LinearLayoutManager(context)
             adapter = commentAdapter
         }
         commentAdapter.items = article?.comments ?: emptyList()

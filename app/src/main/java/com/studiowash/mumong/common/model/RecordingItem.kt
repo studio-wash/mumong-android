@@ -2,7 +2,7 @@ package com.studiowash.mumong.common.model
 
 import java.io.Serializable
 
-data class AttachedRecordingItem(
+data class RecordingItem(
     val recordingSrc: String,
     val length: String,
     val type: String,

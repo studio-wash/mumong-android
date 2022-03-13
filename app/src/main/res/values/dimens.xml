@@ -3,13 +3,16 @@
     <dimen name="horizontal_separator_height_thick">5dp</dimen>
     <dimen name="horizontal_separator_height_thin">1dp</dimen>
 
-    <dimen name="fragment_default_horizontal_padding">20dp</dimen>
-    <dimen name="fragment_default_top_padding">20dp</dimen>
+    <dimen name="fragment_default_horizontal_padding">24dp</dimen>
+    <dimen name="fragment_default_top_padding">16dp</dimen>
 
     <dimen name="icon_profile_width">32dp</dimen>
 
+    <dimen name="single_elevation">8dp</dimen>
+    <dimen name="double_elevation">16dp</dimen>
+
     <!-- 커뮤니티 -->
     <dimen name="community_fragment_title_bottom_padding">10dp</dimen>
-    <dimen name="community_board_padding_horizontal">20dp</dimen>
-    <dimen name="community_tag_padding_horizontal_half">2dp</dimen>
+    <dimen name="community_board_item_spacing">16dp</dimen>
+    <dimen name="community_topic_item_spacing">4dp</dimen>
 </resources>
