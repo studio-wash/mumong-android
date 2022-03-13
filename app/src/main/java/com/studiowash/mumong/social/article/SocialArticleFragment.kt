@@ -3,16 +3,17 @@ package com.studiowash.mumong.social.article
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
-import com.studiowash.mumong.social.friend.article.SocialFriendArticleItem
 
 class SocialArticleFragment : Fragment() {
     private lateinit var binding: FragmentSocialArticleBinding
+    private val activityViewModel: SocialArticleActivityViewModel by activityViewModels()
 
     private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
@@ -22,10 +23,6 @@ class SocialArticleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSocialArticleBinding.inflate(inflater, container, false)
-
-        val article = arguments?.getSerializable("ARTICLE") as? SocialFriendArticleItem
-
-        initView(article)
         initObserve()
         return binding.root
     }
@@ -37,7 +34,7 @@ class SocialArticleFragment : Fragment() {
 
     private fun initToolbar() {
         binding.toolbar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+            activity?.onBackPressed()
         }
 
         binding.toolbar.inflateMenu(R.menu.toolbar_action_menu)
@@ -49,7 +46,13 @@ class SocialArticleFragment : Fragment() {
         }
     }
 
-    private fun initView(article: SocialFriendArticleItem?) {
+    private fun initObserve() {
+        activityViewModel.articleLiveData.observe(viewLifecycleOwner) {
+            onUpdateArticle(it)
+        }
+    }
+
+    private fun onUpdateArticle(article: SocialArticleItem?) {
         binding.item = article
 
         // todo : viewmodel로 추후 이동
@@ -74,10 +77,6 @@ class SocialArticleFragment : Fragment() {
             itemAnimator = null
         }
         attachedImageAdapter.items = article?.attachedImages ?: emptyList()
-    }
-
-    private fun initObserve() {
-
     }
 
 }
