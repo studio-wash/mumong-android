@@ -12,7 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
-import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.RecordingAdapter
 import com.studiowash.mumong.common.adapter.CommentAdapter
 import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
 
@@ -20,7 +20,7 @@ class CommunityArticleFragment : Fragment() {
     private lateinit var binding: FragmentCommunityArticleBinding
     private val activityViewModel: CommunityArticleActivityViewModel by activityViewModels()
 
-    private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
+    private val attachedRecordingAdapter = RecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
     private val commentAdapter = CommentAdapter({}, {})
 

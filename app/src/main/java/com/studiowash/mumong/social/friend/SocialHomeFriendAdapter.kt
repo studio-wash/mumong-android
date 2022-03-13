@@ -3,7 +3,7 @@ package com.studiowash.mumong.social.friend
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.RecordingAdapter
 import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
 import com.studiowash.mumong.databinding.ItemSocialFriendHeaderFriendsBinding
@@ -53,7 +53,7 @@ class SocialHomeFriendAdapter(
             }
             is RecentArticleViewHolder -> {
                 val articlePosition = position - ONLINE_FRIENDS_HEADER_COUNT
-                val attachedRecordingAdapter = AttachedRecordingAdapter({
+                val attachedRecordingAdapter = RecordingAdapter({
                     recordPlayingItemIndex = articlePosition
                     onClickPlay.invoke(it)
                 }, {

@@ -5,8 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.databinding.ItemRecordingBinding
+import com.studiowash.mumong.singleton.MusicPlayer
 
-class AttachedRecordingAdapter(private val onClickPlay: (recording: RecordingItem) -> Unit, private val onClickPause:(recording: RecordingItem) -> Unit) : RecyclerView.Adapter<AttachedRecordingAdapter.AttachedRecordingViewHolder>() {
+class RecordingAdapter(private val onClickPlay: (recording: RecordingItem) -> Unit, private val onClickPause:(recording: RecordingItem) -> Unit) : RecyclerView.Adapter<RecordingAdapter.AttachedRecordingViewHolder>() {
     class AttachedRecordingViewHolder(val binding: ItemRecordingBinding) : RecyclerView.ViewHolder(binding.root)
 
     var items = listOf<RecordingItem>()
@@ -35,10 +36,17 @@ class AttachedRecordingAdapter(private val onClickPlay: (recording: RecordingIte
                 onClickPause.invoke(recordingItem)
                 holder.binding.isPlaying = false
                 playingRecordingIndex = null
+
+                // todo: move this to custom recording view
+                MusicPlayer.isPlaying = false
             } else {
                 onClickPlay.invoke(recordingItem)
                 holder.binding.isPlaying = true
                 playingRecordingIndex = position
+
+                // todo: move this to custom recording view
+                MusicPlayer.currentMusic = recordingItem
+                MusicPlayer.isPlaying = true
             }
         }
 

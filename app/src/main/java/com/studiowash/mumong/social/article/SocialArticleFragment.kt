@@ -7,14 +7,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.studiowash.mumong.R
 import com.studiowash.mumong.common.adapter.AttachedImageAdapter
-import com.studiowash.mumong.common.adapter.AttachedRecordingAdapter
+import com.studiowash.mumong.common.adapter.RecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
 
 class SocialArticleFragment : Fragment() {
     private lateinit var binding: FragmentSocialArticleBinding
     private val activityViewModel: SocialArticleActivityViewModel by activityViewModels()
 
-    private val attachedRecordingAdapter = AttachedRecordingAdapter({}, {})
+    private val attachedRecordingAdapter = RecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
 
     override fun onCreateView(

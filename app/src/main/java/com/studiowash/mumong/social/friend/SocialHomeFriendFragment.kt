@@ -122,12 +122,9 @@ class SocialHomeFriendFragment : Fragment() {
     }
 
     private fun onClickPlay(recording: RecordingItem?) {
-        MusicPlayer.currentMusic = recording
-        MusicPlayer.isPlaying = true
     }
 
     private fun onClickPause(recording: RecordingItem?) {
-        MusicPlayer.isPlaying = false
     }
 
     override fun onDestroy() {
