@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".practice.home.PracticeHomeFragment">
+    tools:context=".presentation.practice.home.PracticeHomeFragment">
     <data>
         <variable
             name="viewModel"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong.practice.home.view.DateScrollView
+        <com.studiowash.mumong.presentation.practice.home.view.DateScrollView
             android:id="@+id/date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

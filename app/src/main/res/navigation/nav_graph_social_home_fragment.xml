@@ -6,12 +6,12 @@
     app:startDestination="@id/socialHomeFriendFragmentNav">
     <fragment
         android:id="@+id/socialHomeFriendFragmentNav"
-        android:name="com.studiowash.mumong.social.friend.SocialHomeFriendFragment"
+        android:name="com.studiowash.mumong.presentation.social.friend.SocialHomeFriendFragment"
         android:label="SocialHomeFriendFragment"
         tools:layout="@layout/fragment_social_home_friend" />
     <fragment
         android:id="@+id/socialHomeGroupFragmentNav"
-        android:name="com.studiowash.mumong.social.group.SocialHomeGroupFragment"
+        android:name="com.studiowash.mumong.presentation.social.group.SocialHomeGroupFragment"
         android:label="SocialHomeGroupFragment"
         tools:layout="@layout/fragment_social_home_group" />
 </navigation>

@@ -21,9 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".community.article.CommunityArticleActivity" />
-        <activity android:name=".social.article.SocialArticleActivity" />
-        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.community.article.CommunityArticleActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.social.article.SocialArticleActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.profile.ProfileActivity" />
     </application>
 
 </manifest>

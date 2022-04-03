@@ -2,11 +2,10 @@ package com.studiowash.mumong
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.studiowash.mumong.common.model.RecordingItem
+import com.studiowash.mumong.domain.common.RecordingItem
 import com.studiowash.mumong.databinding.ActivityMainBinding
 import com.studiowash.mumong.singleton.MusicChangeListener
 import com.studiowash.mumong.singleton.MusicPlayer
