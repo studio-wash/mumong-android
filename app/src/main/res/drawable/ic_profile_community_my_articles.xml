@@ -17,14 +17,14 @@
       android:strokeLineCap="round"/>
   <path
       android:strokeWidth="1"
-      android:pathData="M6.5,17V11L9,14L11.5,11V17"
+      android:pathData="M6.5,16V10L9,13L11.5,10V16"
       android:strokeLineJoin="round"
       android:fillColor="#00000000"
       android:strokeColor="#404040"
       android:strokeLineCap="round"/>
   <path
       android:strokeWidth="1"
-      android:pathData="M17.5,11H13.5V14M17.5,17H13.5V14M17.5,14H13.5"
+      android:pathData="M17.5,10H13.5V13M17.5,16H13.5V13M17.5,13H13.5"
       android:strokeLineJoin="round"
       android:fillColor="#00000000"
       android:strokeColor="#404040"

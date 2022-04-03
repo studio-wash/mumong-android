@@ -59,7 +59,7 @@
     <string name="toolbar_action_more">More</string>
     
     <!-- Profile -->
-    <string name="profile_edit_account">계정 편집하기</string>
+    <string name="profile_edit_account"><u>계정 편집하기</u></string>
     <string name="profile_common_notice">공지사항</string>
     <string name="profile_common_alert">알림</string>
     <string name="profile_common_settings">설정</string>
