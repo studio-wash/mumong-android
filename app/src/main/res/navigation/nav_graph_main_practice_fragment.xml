@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/practiceNestedNav"
+    app:startDestination="@id/practiceHomeFragmentNav">
+    <fragment
+        android:id="@+id/practiceHomeFragmentNav"
+        android:name="com.studiowash.mumong.practice.home.PracticeHomeFragment"
+        android:label="PracticeHomeFragment"
+        tools:layout="@layout/fragment_practice_home">
+        <action
+            android:id="@+id/action_practiceFragmentNav_to_practiceCalendarFragmentNav"
+            app:destination="@id/practiceDiaryFragmentNav" />
+    </fragment>
+    <fragment
+        android:id="@+id/practiceDiaryFragmentNav"
+        android:name="com.studiowash.mumong.practice.diary.PracticeDiaryFragment"
+        android:label="PracticeDiaryFragment"
+        tools:layout="@layout/fragment_practice_calendar" />
+</navigation>
