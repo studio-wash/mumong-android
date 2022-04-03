@@ -33,11 +33,15 @@ class RecordingItemView @JvmOverloads constructor(
     init {
         binding.playPauseImageView.setOnClickListener {
             isPlaying = isPlaying.not()
-
-            MusicPlayer.currentMusic = item
-            MusicPlayer.isPlaying = isPlaying
-
             onPlayingStatusChanged?.invoke(isPlaying)
+
+            if (MusicPlayer.currentMusic != item)
+                MusicPlayer.currentMusic = item
+
+            if (isPlaying)
+                MusicPlayer.start()
+            else
+                MusicPlayer.pause()
         }
     }
 }
