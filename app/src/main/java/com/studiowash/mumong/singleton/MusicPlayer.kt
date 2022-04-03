@@ -14,6 +14,12 @@ object MusicPlayer {
         )
     }
 
+    init {
+        mediaPlayer.setOnPreparedListener {
+            it.start()
+        }
+    }
+
     private var isPlaying = false
 
     var currentMusic: RecordingItem? = null
@@ -27,9 +33,6 @@ object MusicPlayer {
 
     fun start() {
         isPlaying = true
-        if (mediaPlayer.isPlaying.not() && currentMusic != null) {
-            mediaPlayer.setOnPreparedListener { it.start() }
-        }
     }
 
     fun pause() {
