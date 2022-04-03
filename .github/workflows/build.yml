@@ -16,9 +16,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-      name: Build and Run
-      runs-on: ubuntu-latest
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -27,11 +27,11 @@ jobs:
         with:
           java-version: 1.8
       - name: Run Unit tests
-        run: bash ./gradlew test —stacktrace
+        run: bash ./gradlew test --stacktrace
 
   apk:
     name: Generate APK
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
@@ -40,7 +40,7 @@ jobs:
         with:
           java-version: 1.8
       - name: Build debug APK
-        run: bash ./gradlew assembleDebug —stacktrace
+        run: bash ./gradlew assembleDebug --stacktrace
       - name: Create APK artifact
         uses: actions/upload-artifact@v1
         with:
