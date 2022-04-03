@@ -11,7 +11,6 @@ import com.studiowash.mumong.common.model.RecordingItem
 import com.studiowash.mumong.common.model.User
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
-import com.studiowash.mumong.singleton.MusicPlayer
 import com.studiowash.mumong.social.article.SocialArticleActivity
 import com.studiowash.mumong.social.article.SocialArticleItem
 import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
@@ -20,7 +19,7 @@ class SocialHomeFriendFragment : Fragment() {
     private val binding get() = _binding!!
     private var _binding: FragmentSocialHomeFriendBinding? = null
 
-    private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickFriend, this::onClickArticle, this::onClickPlay, this::onClickPause).apply {
+    private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickFriend, this::onClickArticle, this::onPlayRecording, this::onPauseRecording).apply {
         friends = listOf(
             OnlineFriendItem(User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
             OnlineFriendItem(User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), true),
@@ -121,13 +120,10 @@ class SocialHomeFriendFragment : Fragment() {
         activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
     }
 
-    private fun onClickPlay(recording: RecordingItem?) {
-        MusicPlayer.currentMusic = recording
-        MusicPlayer.isPlaying = true
+    private fun onPlayRecording(recording: RecordingItem?) {
     }
 
-    private fun onClickPause(recording: RecordingItem?) {
-        MusicPlayer.isPlaying = false
+    private fun onPauseRecording(recording: RecordingItem?) {
     }
 
     override fun onDestroy() {
