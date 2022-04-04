@@ -5,9 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import androidx.core.widget.doAfterTextChanged
-import com.studiowash.mumong.common.model.RecordingItem
-import com.studiowash.mumong.databinding.ViewCommentWriteBinding
+import com.studiowash.mumong.domain.common.RecordingItem
 import com.studiowash.mumong.databinding.ViewMusicPlayerBinding
 
 class MusicPlayerView @JvmOverloads constructor(

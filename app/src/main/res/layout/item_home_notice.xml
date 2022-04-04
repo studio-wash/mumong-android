@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.home.NoticeItem" />
+            type="com.studiowash.mumong.domain.home.NoticeItem" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"

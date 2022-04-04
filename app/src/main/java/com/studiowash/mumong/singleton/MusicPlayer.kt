@@ -2,7 +2,7 @@ package com.studiowash.mumong.singleton
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
-import com.studiowash.mumong.common.model.RecordingItem
+import com.studiowash.mumong.domain.common.RecordingItem
 
 
 object MusicPlayer {
