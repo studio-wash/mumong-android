@@ -1,4 +1,4 @@
-package com.studiowash.mumong.domain
+package com.studiowash.mumong.module.sound
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer

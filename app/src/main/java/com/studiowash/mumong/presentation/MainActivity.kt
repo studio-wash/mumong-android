@@ -8,8 +8,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.studiowash.mumong.R
 import com.studiowash.mumong.domain.model.common.RecordingItem
 import com.studiowash.mumong.databinding.ActivityMainBinding
-import com.studiowash.mumong.domain.MusicChangeListener
-import com.studiowash.mumong.domain.MusicPlayService
+import com.studiowash.mumong.module.sound.MusicChangeListener
+import com.studiowash.mumong.module.sound.MusicPlayService
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
