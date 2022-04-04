@@ -1,6 +1,6 @@
 package com.studiowash.mumong.singleton
 
-import com.studiowash.mumong.common.model.User
+import com.studiowash.mumong.domain.common.User
 
 object LoginStatus {
     var currentUser: User? =

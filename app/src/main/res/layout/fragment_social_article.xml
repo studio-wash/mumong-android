@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.social.article.SocialArticleItem" />
+            type="com.studiowash.mumong.domain.social.SocialArticleItem" />
         <variable
             name="isLiked"
             type="boolean" />
