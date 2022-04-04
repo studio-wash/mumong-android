@@ -24,26 +24,38 @@
             android:background="@color/white"
             android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
             android:paddingTop="@dimen/fragment_default_top_padding"
-            android:paddingBottom="30dp"
+            android:paddingBottom="20dp"
             android:elevation="5dp">
             <ImageView
                 android:id="@+id/profile_icon_image_view"
                 android:layout_width="@dimen/icon_profile_width"
                 android:layout_height="@dimen/icon_profile_width"
                 android:src="@drawable/ic_default_profile"
+                android:clipToOutline="true"
+                android:background="@drawable/bg_circle_white"
                 imageSrc="@{user.profileImg}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
+                android:id="@+id/nickname_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="@{user.nickname, default=`닉네임`}"
+                app:layout_constraintStart_toEndOf="@id/profile_icon_image_view"
+                app:layout_constraintTop_toTopOf="@id/profile_icon_image_view"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/profile_edit_account"
                 app:layout_constraintBottom_toBottomOf="@id/profile_icon_image_view"
                 app:layout_constraintStart_toEndOf="@id/profile_icon_image_view"
-                app:layout_constraintTop_toTopOf="@id/profile_icon_image_view" />
+                app:layout_constraintTop_toBottomOf="@id/nickname_text_view"
+                android:textSize="10sp"
+                android:textColor="@color/brand_color_1"/>
             <ImageView
                 android:id="@+id/close_button_image_view"
                 android:layout_width="25dp"
