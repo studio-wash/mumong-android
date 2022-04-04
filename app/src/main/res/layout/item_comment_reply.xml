@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.common.model.CommentReplyItem" />
+            type="com.studiowash.mumong.domain.model.common.CommentReplyItem" />
         <variable
             name="isLiked"
             type="boolean" />
