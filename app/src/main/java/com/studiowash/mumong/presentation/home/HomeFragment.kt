@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentHomeBinding
-import com.studiowash.mumong.domain.home.EventItem
-import com.studiowash.mumong.domain.home.NoticeItem
+import com.studiowash.mumong.domain.model.home.EventItem
+import com.studiowash.mumong.domain.model.home.NoticeItem
 import com.studiowash.mumong.presentation.profile.ProfileActivity
 
 class HomeFragment : Fragment() {

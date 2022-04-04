@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.R
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.ActivitySocialArticleBinding
-import com.studiowash.mumong.domain.social.SocialArticleItem
+import com.studiowash.mumong.domain.model.social.SocialArticleItem
 
 class SocialArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySocialArticleBinding

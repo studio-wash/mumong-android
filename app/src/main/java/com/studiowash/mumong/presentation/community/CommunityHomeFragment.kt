@@ -10,16 +10,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
-import com.studiowash.mumong.domain.common.*
+import com.studiowash.mumong.domain.model.common.*
 import com.studiowash.mumong.presentation.community.article.CommunityArticleActivity
-import com.studiowash.mumong.domain.community.CommunityArticleItem
+import com.studiowash.mumong.domain.model.community.CommunityArticleItem
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
-import com.studiowash.mumong.domain.community.CommunityTopic
-import com.studiowash.mumong.domain.community.FavoriteBoardItem
+import com.studiowash.mumong.domain.model.user.UserItem
+import com.studiowash.mumong.domain.model.community.CommunityTopicItem
+import com.studiowash.mumong.domain.model.community.FavoriteBoardItem
 import com.studiowash.mumong.presentation.profile.ProfileActivity
-import com.studiowash.mumong.widget.HorizontalDividerItemDecorator
+import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class CommunityHomeFragment : Fragment() {
     private lateinit var binding: FragmentCommunityHomeBinding
@@ -33,7 +34,7 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
-        topicItems = CommunityTopic.values().toList()
+        topicItems = CommunityTopicItem.values().toList()
     }
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
@@ -49,7 +50,7 @@ class CommunityHomeFragment : Fragment() {
                         "1분 전",
                         2,
                         listOf(),
-                        User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                        UserItem(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
                     ),
                     CommentItem(
                         "저는 연습실 예약이 조금 어려운데, 그것도 넣으면 좋을 거 같아요! 당장 만들기에는 힘이 들겠지만..!",
@@ -60,26 +61,26 @@ class CommunityHomeFragment : Fragment() {
                                 "오 이거 진짜 좋은 거 같아요!",
                                 "방금",
                                 0,
-                                User(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                                UserItem(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
                             ),
                             CommentReplyItem(
                                 "헐 진짜요!",
                                 "방금",
                                 0,
-                                User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                                UserItem(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
                             )
                         ),
-                        User(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                        UserItem(nickname = "까지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
                     ),
                     CommentItem(
                         "맞아요..! 어플 너무 좋아요ㅜㅜㅜ",
                         "1분 전",
                         2,
                         listOf(),
-                        User(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                        UserItem(nickname = "비지비지", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
                     )
                 ),
-                User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+                UserItem(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"), AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"))
             ),
             CommunityArticleItem(
@@ -88,7 +89,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+                UserItem(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
                 attachedImages = listOf(AttachedImageItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")),
                 recordings = listOf(RecordingItem("", "3:32", "피아노", "녹턴 Op.9,2번(쇼팽)"))
             ),
@@ -98,7 +99,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
 
             CommunityArticleItem(
@@ -107,7 +108,7 @@ class CommunityHomeFragment : Fragment() {
                 "1분 전",
                 21, 2,
                 listOf(),
-                User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
             CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
@@ -115,7 +116,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
@@ -123,7 +124,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
 
             CommunityArticleItem(
@@ -132,7 +133,7 @@ class CommunityHomeFragment : Fragment() {
                 "1분 전",
                 21, 2,
                 listOf(),
-                User(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "데이드림", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
             CommunityArticleItem(
                 "오늘 연습! 한 번 평가 부탁드려요~",
@@ -140,7 +141,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "데샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             ),
             CommunityArticleItem(
                 "같이 밴드 하실 분 모집합니다!",
@@ -148,7 +149,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                User(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                UserItem(nickname = "샤샤샤", profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
             )
         )
     }
@@ -234,7 +235,7 @@ class CommunityHomeFragment : Fragment() {
         // todo
     }
 
-    private fun onClickTopic(tagIndex: Int, tag: CommunityTopic) {
+    private fun onClickTopic(tagIndex: Int, tag: CommunityTopicItem) {
         // todo
     }
 

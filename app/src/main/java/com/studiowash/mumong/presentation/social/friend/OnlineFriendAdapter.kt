@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemSocialFriendOnlineFriendBinding
-import com.studiowash.mumong.domain.social.OnlineFriendItem
+import com.studiowash.mumong.domain.model.social.OnlineFriendItem
 
 class OnlineFriendAdapter(private val onClick: (position: Int, item: OnlineFriendItem) -> Unit) : RecyclerView.Adapter<OnlineFriendAdapter.OnlineFriendViewHolder>() {
     class OnlineFriendViewHolder(val binding: ItemSocialFriendOnlineFriendBinding) : RecyclerView.ViewHolder(binding.root)

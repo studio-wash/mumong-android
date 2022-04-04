@@ -2,7 +2,7 @@ package com.studiowash.mumong.presentation.practice.home
 
 import android.view.View
 import androidx.lifecycle.ViewModel
-import com.studiowash.mumong.SingleLiveData
+import com.studiowash.mumong.presentation.SingleLiveData
 import com.studiowash.mumong.presentation.practice.PracticeClickEvent
 
 class PracticeHomeViewModel : ViewModel() {

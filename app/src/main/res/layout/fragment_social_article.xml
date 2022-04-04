@@ -159,7 +159,7 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
-        <com.studiowash.mumong.widget.CommentWriteView
+        <com.studiowash.mumong.presentation.widget.CommentWriteView
             android:id="@+id/comment_write_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
