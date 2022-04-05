@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemHomeNoticeBinding
-import com.studiowash.mumong.domain.home.NoticeItem
+import com.studiowash.mumong.domain.model.home.NoticeItem
 
 class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
     class NoticeViewHolder(val binding: ItemHomeNoticeBinding) : RecyclerView.ViewHolder(binding.root)

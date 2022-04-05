@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
-import com.studiowash.mumong.domain.common.RecordingItem
+import com.studiowash.mumong.domain.model.common.RecordingItem
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
 import com.studiowash.mumong.databinding.ItemSocialFriendHeaderFriendsBinding
-import com.studiowash.mumong.domain.social.OnlineFriendItem
-import com.studiowash.mumong.domain.social.SocialArticleItem
+import com.studiowash.mumong.domain.model.social.OnlineFriendItem
+import com.studiowash.mumong.domain.model.social.SocialArticleItem
 
 class SocialHomeFriendAdapter(
     private val onClickFriend: (friendPosition: Int, item: OnlineFriendItem) -> Unit,

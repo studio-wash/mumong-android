@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemCommunityBoardBinding
-import com.studiowash.mumong.domain.community.FavoriteBoardItem
+import com.studiowash.mumong.domain.model.community.FavoriteBoardItem
 
 class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: FavoriteBoardItem) -> Unit) : RecyclerView.Adapter<FavoriteBoardAdapter.FavoriteBoardViewHolder>() {
     class FavoriteBoardViewHolder(val binding: ItemCommunityBoardBinding) : RecyclerView.ViewHolder(binding.root)

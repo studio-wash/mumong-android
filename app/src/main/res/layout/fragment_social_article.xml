@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.social.SocialArticleItem" />
+            type="com.studiowash.mumong.domain.model.social.SocialArticleItem" />
         <variable
             name="isLiked"
             type="boolean" />
@@ -159,7 +159,7 @@
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
-        <com.studiowash.mumong.widget.CommentWriteView
+        <com.studiowash.mumong.presentation.widget.CommentWriteView
             android:id="@+id/comment_write_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

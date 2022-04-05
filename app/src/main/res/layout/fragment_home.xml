@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.home.HomeFragment">
     <data>
-        <import type="com.studiowash.mumong.singleton.LoginStatus"/>
+        <import type="com.studiowash.mumong.domain.LoginStatus"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
