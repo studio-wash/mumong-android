@@ -4,8 +4,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CommunityPostData (
-    @SerialName("post_id") val postId: Int,
+data class CommunityArticleData (
+    @SerialName("article_id") val articleId: Int,
     @SerialName("board_id") val boardId: Int,
     @SerialName("user_id") val userId: Int,
     @SerialName("content") val content: String,
