@@ -19,14 +19,14 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingVertical="9dp"
-        android:background="@drawable/bg_rounded_top_rect_20dp_fill_white">
+        android:background="@drawable/bg_rounded_top_rect_20dp_fill_brand_gradient">
         <TextView
             android:id="@+id/current_music_time_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/text_dark_gray"
+            android:textColor="@color/white"
             android:textSize="10sp"
             android:text="@{String.format(`%02d:%02d`, currentTimeSec/60, currentTimeSec%60)}"/>
         <TextView
@@ -36,11 +36,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:orientation="horizontal"
-            android:textColor="@color/text_dark_gray"
+            android:textColor="@color/white"
             android:textSize="10sp"
             android:text="@{String.format(`%02d:%02d`, totalTimeSec/60, totalTimeSec%60)}"/>
-        <ProgressBar
-            android:id="@+id/progress_bar"
+        <SeekBar
+            android:id="@+id/seek_bar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/current_music_time_text_view"
@@ -59,13 +59,14 @@
             app:layout_constraintBottom_toBottomOf="@id/controller_linear_layout"
             android:gravity="center|start"
             android:text="@{currentRecording.title, default=`제목`}"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@color/white"/>
 
         <LinearLayout
             android:id="@+id/controller_linear_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/progress_bar"
+            app:layout_constraintTop_toBottomOf="@id/seek_bar"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="horizontal"
             android:layout_marginTop="5dp">

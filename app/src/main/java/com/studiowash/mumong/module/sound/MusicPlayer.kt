@@ -29,6 +29,9 @@ object MusicPlayer {
 
     init {
         mediaPlayer.setOnCompletionListener {
+            musicPlayerListeners.forEach {
+                it.onUpdatePosition(mediaPlayer.currentPosition)
+            }
             musicTimer?.cancel()
         }
         mediaPlayer.setOnPreparedListener { player ->
@@ -62,6 +65,10 @@ object MusicPlayer {
             mediaPlayer.pause()
             musicTimer?.cancel()
         }
+    }
+
+    fun seekPercent(progress: Int) {
+        mediaPlayer.seekTo((mediaPlayer.duration * progress.toFloat()/100).toInt())
     }
 
     private fun onMusicChangedInternal(recording: RecordingItem?) {

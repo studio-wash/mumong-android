@@ -13,6 +13,7 @@ import com.studiowash.mumong.module.sound.MusicPlayer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var isDraggingMusicTrackBar = false
 
     private val musicChangeListener = object :MusicChangeListener {
         override fun onMusicChanged(recording: RecordingItem?) {
@@ -24,8 +25,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onUpdatePosition(currentMilli: Int) {
+            if (isDraggingMusicTrackBar) return
             binding.musicPlayerView.currentSeconds = currentMilli / MusicPlayer.SECOND_IN_MILLI
-            println("currentSeconds ${currentMilli / MusicPlayer.SECOND_IN_MILLI}")
         }
     }
 
@@ -37,8 +38,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initOnClick() {
-        binding.musicPlayerView.setOnClickListener {
-            MusicPlayer.currentMusic = null // todo : this is just for testing
+        // todo : seekbar listener 전체를 옮기기
+        binding.musicPlayerView.onStartTrackingTouchListener = {
+            isDraggingMusicTrackBar = true
+        }
+        binding.musicPlayerView.onStopTrackingTouchListener = {
+            MusicPlayer.seekPercent(it.progress)
+            isDraggingMusicTrackBar = false
         }
     }
 
