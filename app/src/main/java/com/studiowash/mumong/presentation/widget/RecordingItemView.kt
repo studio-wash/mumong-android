@@ -7,7 +7,7 @@ import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import com.studiowash.mumong.domain.model.common.RecordingItem
 import com.studiowash.mumong.databinding.ItemRecordingBinding
-import com.studiowash.mumong.module.sound.MusicPlayService
+import com.studiowash.mumong.module.sound.MusicPlayer
 
 class RecordingItemView @JvmOverloads constructor(
     context: Context,
@@ -35,13 +35,13 @@ class RecordingItemView @JvmOverloads constructor(
             isPlaying = isPlaying.not()
             onPlayingStatusChanged?.invoke(isPlaying)
 
-            if (MusicPlayService.currentMusic != item)
-                MusicPlayService.currentMusic = item
+            if (MusicPlayer.currentMusic != item)
+                MusicPlayer.currentMusic = item
 
             if (isPlaying)
-                MusicPlayService.start()
+                MusicPlayer.start()
             else
-                MusicPlayService.pause()
+                MusicPlayer.pause()
         }
     }
 }

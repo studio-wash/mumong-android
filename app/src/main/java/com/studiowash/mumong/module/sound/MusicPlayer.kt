@@ -3,9 +3,22 @@ package com.studiowash.mumong.module.sound
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import com.studiowash.mumong.domain.model.common.RecordingItem
+import java.util.*
 
 
-object MusicPlayService {
+object MusicPlayer {
+    const val SECOND_IN_MILLI = 1000
+    private var musicTimer : Timer? = null
+    class MusicTimerTask : TimerTask() {
+        override fun run() {
+            if (mediaPlayer.isPlaying) {
+                musicPlayerListeners.forEach {
+                    it.onUpdatePosition(mediaPlayer.currentPosition)
+                }
+            }
+        }
+    }
+
     private val mediaPlayer = MediaPlayer().apply {
         setAudioAttributes(
             AudioAttributes.Builder()
@@ -15,8 +28,16 @@ object MusicPlayService {
     }
 
     init {
-        mediaPlayer.setOnPreparedListener {
-            it.start()
+        mediaPlayer.setOnCompletionListener {
+            musicTimer?.cancel()
+        }
+        mediaPlayer.setOnPreparedListener { player ->
+            player.start()
+            musicTimer = Timer()
+            musicTimer?.schedule(MusicTimerTask(), 0, SECOND_IN_MILLI.toLong())
+            musicPlayerListeners.forEach {
+                it.onMusicPrepared(player.duration)
+            }
         }
     }
 
@@ -26,7 +47,7 @@ object MusicPlayService {
         set(value) {
             field = value
             onMusicChangedInternal(value)
-            onMusicChangeListeners.forEach {
+            musicPlayerListeners.forEach {
                 it.onMusicChanged(value)
             }
         }
@@ -37,7 +58,10 @@ object MusicPlayService {
 
     fun pause() {
         isPlaying = false
-        if (mediaPlayer.isPlaying) mediaPlayer.stop()
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.pause()
+            musicTimer?.cancel()
+        }
     }
 
     private fun onMusicChangedInternal(recording: RecordingItem?) {
@@ -48,15 +72,17 @@ object MusicPlayService {
         }
     }
 
-    private val onMusicChangeListeners = mutableListOf<MusicChangeListener>()
+    private val musicPlayerListeners = mutableListOf<MusicChangeListener>()
 
     fun addOnMusicChangeListener(listener: MusicChangeListener) =
-        onMusicChangeListeners.add(listener)
+        musicPlayerListeners.add(listener)
 
     fun removeOnMusicChangeListener(listener: MusicChangeListener) =
-        onMusicChangeListeners.remove(listener)
+        musicPlayerListeners.remove(listener)
 }
 
-fun interface MusicChangeListener {
-    fun onMusicChanged(src: RecordingItem?)
+interface MusicChangeListener {
+    fun onMusicChanged(recording: RecordingItem?)
+    fun onMusicPrepared(durationMilli: Int)
+    fun onUpdatePosition(currentMilli: Int)
 }

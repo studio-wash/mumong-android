@@ -20,4 +20,16 @@ class MusicPlayerView @JvmOverloads constructor(
             field = value
             binding.currentRecording = value
         }
+
+    var totalSeconds: Int = 0
+        set(value) {
+            field = value
+            binding.totalTimeSec = value
+        }
+
+    var currentSeconds: Int = 0
+        set(value) {
+            field = value
+            binding.currentTimeSec = value
+        }
 }

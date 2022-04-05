@@ -9,13 +9,24 @@ import com.studiowash.mumong.R
 import com.studiowash.mumong.domain.model.common.RecordingItem
 import com.studiowash.mumong.databinding.ActivityMainBinding
 import com.studiowash.mumong.module.sound.MusicChangeListener
-import com.studiowash.mumong.module.sound.MusicPlayService
+import com.studiowash.mumong.module.sound.MusicPlayer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val musicChangeListener = MusicChangeListener { recording ->
-        onUpdateCurrentMusic(recording)
+    private val musicChangeListener = object :MusicChangeListener {
+        override fun onMusicChanged(recording: RecordingItem?) {
+            onUpdateCurrentMusic(recording)
+        }
+
+        override fun onMusicPrepared(durationMilli: Int) {
+            binding.musicPlayerView.totalSeconds = durationMilli / MusicPlayer.SECOND_IN_MILLI
+        }
+
+        override fun onUpdatePosition(currentMilli: Int) {
+            binding.musicPlayerView.currentSeconds = currentMilli / MusicPlayer.SECOND_IN_MILLI
+            println("currentSeconds ${currentMilli / MusicPlayer.SECOND_IN_MILLI}")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initOnClick() {
         binding.musicPlayerView.setOnClickListener {
-            MusicPlayService.currentMusic = null // todo : this is just for testing
+            MusicPlayer.currentMusic = null // todo : this is just for testing
         }
     }
 
@@ -40,17 +51,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun onUpdateCurrentMusic(recording: RecordingItem?) {
         binding.showMusicPlayer = recording != null
-        binding.musicPlayerView.currentRecording = recording
+        binding.musicPlayerView.apply {
+            currentRecording = recording
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        onUpdateCurrentMusic(MusicPlayService.currentMusic)
-        MusicPlayService.addOnMusicChangeListener(musicChangeListener)
+        onUpdateCurrentMusic(MusicPlayer.currentMusic)
+        MusicPlayer.addOnMusicChangeListener(musicChangeListener)
     }
 
     override fun onPause() {
-        MusicPlayService.removeOnMusicChangeListener(musicChangeListener)
+        MusicPlayer.removeOnMusicChangeListener(musicChangeListener)
         super.onPause()
     }
 }
