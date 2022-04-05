@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemHomeEventBinding
-import com.studiowash.mumong.domain.home.EventItem
+import com.studiowash.mumong.domain.model.home.EventItem
 
 class EventAdapter : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
     class EventViewHolder(val binding: ItemHomeEventBinding) : RecyclerView.ViewHolder(binding.root)

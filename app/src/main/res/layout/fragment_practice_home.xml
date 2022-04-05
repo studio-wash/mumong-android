@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.studiowash.mumong.practice.home.PracticeHomeViewModel" />
+            type="com.studiowash.mumong.presentation.practice.home.PracticeHomeViewModel" />
         <variable
             name="year"
             type="int" />

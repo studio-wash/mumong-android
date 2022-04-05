@@ -5,7 +5,7 @@
     <data>
         <variable
             name="user"
-            type="com.studiowash.mumong.common.model.User" />
+            type="com.studiowash.mumong.domain.model.user.UserItem" />
         <variable
             name="showNoticeRedDot"
             type="boolean" />

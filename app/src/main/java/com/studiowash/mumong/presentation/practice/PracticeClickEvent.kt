@@ -1,6 +1,6 @@
 package com.studiowash.mumong.presentation.practice
 
-import com.studiowash.mumong.ClickEvent
+import com.studiowash.mumong.presentation.ClickEvent
 
 sealed class PracticeClickEvent : ClickEvent {
     object OnClickCalendarIcon: PracticeClickEvent()

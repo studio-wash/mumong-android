@@ -2,7 +2,7 @@ package com.studiowash.mumong.presentation.community.article
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.studiowash.mumong.domain.community.CommunityArticleItem
+import com.studiowash.mumong.domain.model.community.CommunityArticleItem
 
 class CommunityArticleActivityViewModel : ViewModel() {
     val articleLiveData get() = _articleLiveData

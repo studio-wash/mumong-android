@@ -3,7 +3,7 @@ package com.studiowash.mumong.presentation.common.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.common.AttachedImageItem
+import com.studiowash.mumong.domain.model.common.AttachedImageItem
 import com.studiowash.mumong.databinding.ItemAttachedImageBinding
 
 

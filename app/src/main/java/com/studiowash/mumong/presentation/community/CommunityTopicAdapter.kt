@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.ItemCommunityTopicBinding
-import com.studiowash.mumong.domain.community.CommunityTopic
+import com.studiowash.mumong.domain.model.community.CommunityTopicItem
 
-class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopic) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
+class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicItem) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
     class CommunityTopicViewHolder(val binding: ItemCommunityTopicBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var topicItems = listOf<CommunityTopic>()
+    var topicItems = listOf<CommunityTopicItem>()
     var selectedIndex: Int? = null
         set(value) {
             val originalIndex = field

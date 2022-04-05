@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MuMong">
         <activity
-            android:name="com.studiowash.mumong.MainActivity"
+            android:name="com.studiowash.mumong.presentation.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

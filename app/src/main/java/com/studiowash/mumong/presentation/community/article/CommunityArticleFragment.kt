@@ -15,7 +15,7 @@ import com.studiowash.mumong.presentation.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
 import com.studiowash.mumong.presentation.common.adapter.CommentAdapter
 import com.studiowash.mumong.databinding.FragmentCommunityArticleBinding
-import com.studiowash.mumong.domain.community.CommunityArticleItem
+import com.studiowash.mumong.domain.model.community.CommunityArticleItem
 
 class CommunityArticleFragment : Fragment() {
     private lateinit var binding: FragmentCommunityArticleBinding
