@@ -1,4 +1,4 @@
-package com.studiowash.mumong.domain.entity.response
+package com.studiowash.mumong.data.response
 
 object ResponseCode {
     const val EXCEPTION_UNKNOWN_STATUS = -1

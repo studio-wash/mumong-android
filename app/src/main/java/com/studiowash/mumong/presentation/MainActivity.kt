@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.studiowash.mumong.R
 import com.studiowash.mumong.domain.entity.common.RecordingEntity
 import com.studiowash.mumong.databinding.ActivityMainBinding
