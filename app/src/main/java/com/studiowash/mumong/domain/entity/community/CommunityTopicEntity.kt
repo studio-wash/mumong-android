@@ -1,9 +1,9 @@
-package com.studiowash.mumong.domain.model.community
+package com.studiowash.mumong.domain.entity.community
 
 import androidx.annotation.StringRes
 import com.studiowash.mumong.R
 
-enum class CommunityTopicItem(@StringRes val topicNameRes: Int) {
+enum class CommunityTopicEntity(@StringRes val topicNameRes: Int) {
     DAILY(R.string.community_topic_daily),
     RECORDING(R.string.community_topic_recording),
     TIP(R.string.community_topic_tip),

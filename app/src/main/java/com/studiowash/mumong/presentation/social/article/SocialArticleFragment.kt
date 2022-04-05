@@ -9,7 +9,7 @@ import com.studiowash.mumong.R
 import com.studiowash.mumong.presentation.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
 import com.studiowash.mumong.databinding.FragmentSocialArticleBinding
-import com.studiowash.mumong.domain.model.social.SocialArticleItem
+import com.studiowash.mumong.domain.entity.social.SocialArticleEntity
 
 class SocialArticleFragment : Fragment() {
     private lateinit var binding: FragmentSocialArticleBinding
@@ -59,7 +59,7 @@ class SocialArticleFragment : Fragment() {
         }
     }
 
-    private fun onUpdateArticle(article: SocialArticleItem?) {
+    private fun onUpdateArticle(article: SocialArticleEntity?) {
         binding.item = article
 
         // todo : viewmodel로 추후 이동

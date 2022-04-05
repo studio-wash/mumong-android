@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.R
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.ActivitySocialArticleBinding
-import com.studiowash.mumong.domain.model.social.SocialArticleItem
+import com.studiowash.mumong.domain.entity.social.SocialArticleEntity
 
 class SocialArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySocialArticleBinding
@@ -17,7 +17,7 @@ class SocialArticleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_social_article)
 
-        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? SocialArticleItem
+        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? SocialArticleEntity
         viewModel.setArticle(article)
     }
 

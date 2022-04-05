@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentHomeBinding
-import com.studiowash.mumong.domain.model.home.EventItem
-import com.studiowash.mumong.domain.model.home.NoticeItem
+import com.studiowash.mumong.domain.entity.home.EventEntity
+import com.studiowash.mumong.domain.entity.home.NoticeEntity
 import com.studiowash.mumong.presentation.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
@@ -34,16 +34,16 @@ class HomeFragment : Fragment() {
         binding.eventRecyclerView.adapter = eventAdapter
 
         noticeAdapter.noticeItems = listOf(
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
         )
         eventAdapter.eventItems = listOf(
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
         )
     }
 

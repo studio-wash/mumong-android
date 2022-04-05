@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import com.studiowash.mumong.R
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.entity.common.RecordingEntity
 import com.studiowash.mumong.databinding.ActivityMainBinding
 import com.studiowash.mumong.module.sound.MusicChangeListener
 import com.studiowash.mumong.module.sound.MusicPlayer
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var isDraggingMusicTrackBar = false
 
     private val musicChangeListener = object :MusicChangeListener {
-        override fun onMusicChanged(recording: RecordingItem?) {
+        override fun onMusicChanged(recording: RecordingEntity?) {
             onUpdateCurrentMusic(recording)
         }
 
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun onUpdateCurrentMusic(recording: RecordingItem?) {
+    private fun onUpdateCurrentMusic(recording: RecordingEntity?) {
         binding.showMusicPlayer = recording != null
         binding.musicPlayerView.apply {
             currentRecording = recording

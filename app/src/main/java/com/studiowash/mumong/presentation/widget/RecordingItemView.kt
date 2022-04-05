@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.entity.common.RecordingEntity
 import com.studiowash.mumong.databinding.ItemRecordingBinding
 import com.studiowash.mumong.module.sound.MusicPlayer
 
@@ -22,7 +22,7 @@ class RecordingItemView @JvmOverloads constructor(
             binding.isPlaying = value
         }
 
-    var item: RecordingItem? = null
+    var item: RecordingEntity? = null
         set(value) {
             field = value
             binding.item = item

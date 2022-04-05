@@ -1,8 +1,8 @@
-package com.studiowash.mumong.domain.model.common
+package com.studiowash.mumong.domain.entity.common
 
 import java.io.Serializable
 
-data class RecordingItem(
+data class RecordingEntity(
     val recordingSrc: String,
     val length: String,
     val type: String,

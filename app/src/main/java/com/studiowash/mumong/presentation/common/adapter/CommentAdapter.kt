@@ -3,7 +3,7 @@ package com.studiowash.mumong.presentation.common.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.model.common.CommentItem
+import com.studiowash.mumong.domain.entity.common.CommentEntity
 import com.studiowash.mumong.databinding.ItemCommentBinding
 
 class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onClickReply:() -> Unit) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {
@@ -14,7 +14,7 @@ class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onCli
         }
     }
 
-    var items = listOf<CommentItem>()
+    var items = listOf<CommentEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
         val binding = ItemCommentBinding.inflate(LayoutInflater.from(parent.context), parent, false)

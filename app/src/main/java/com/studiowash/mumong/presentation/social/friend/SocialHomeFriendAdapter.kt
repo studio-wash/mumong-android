@@ -4,17 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.entity.common.RecordingEntity
 import com.studiowash.mumong.databinding.ItemSocialFriendArticleBinding
 import com.studiowash.mumong.databinding.ItemSocialFriendHeaderFriendsBinding
-import com.studiowash.mumong.domain.model.social.OnlineFriendItem
-import com.studiowash.mumong.domain.model.social.SocialArticleItem
+import com.studiowash.mumong.domain.entity.social.OnlineFriendEntity
+import com.studiowash.mumong.domain.entity.social.SocialArticleEntity
 
 class SocialHomeFriendAdapter(
-    private val onClickFriend: (friendPosition: Int, item: OnlineFriendItem) -> Unit,
-    private val onClickArticle: (articlePosition: Int, item: SocialArticleItem) -> Unit,
-    private val onPlayRecording: (recording: RecordingItem?) -> Unit,
-    private val onPauseRecording: (recording: RecordingItem?) -> Unit
+    private val onClickFriend: (friendPosition: Int, item: OnlineFriendEntity) -> Unit,
+    private val onClickArticle: (articlePosition: Int, item: SocialArticleEntity) -> Unit,
+    private val onPlayRecording: (recording: RecordingEntity?) -> Unit,
+    private val onPauseRecording: (recording: RecordingEntity?) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class RecentArticleViewHolder(val binding: ItemSocialFriendArticleBinding) : RecyclerView.ViewHolder(binding.root)
     inner class HeaderFriendsViewHolder(val binding: ItemSocialFriendHeaderFriendsBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -22,8 +22,8 @@ class SocialHomeFriendAdapter(
         init { binding.friendsRecyclerView.adapter = friendAdapter }
     }
 
-    var friends = listOf<OnlineFriendItem>()
-    var articles = listOf<SocialArticleItem>()
+    var friends = listOf<OnlineFriendEntity>()
+    var articles = listOf<SocialArticleEntity>()
 
     // todo : 이후 플레이어 뷰를 만들 경우 observe로 해결하는 것이 맞음.
     var recordPlayingItemIndex: Int? = null

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.SeekBar
 import androidx.annotation.AttrRes
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.entity.common.RecordingEntity
 import com.studiowash.mumong.databinding.ViewMusicPlayerBinding
 
 class MusicPlayerView @JvmOverloads constructor(
@@ -33,7 +33,7 @@ class MusicPlayerView @JvmOverloads constructor(
     var onStartTrackingTouchListener: ((seekBar: SeekBar) -> Unit) ?= null
     var onStopTrackingTouchListener: ((seekBar: SeekBar) -> Unit) ?= null
 
-    var currentRecording: RecordingItem? = null
+    var currentRecording: RecordingEntity? = null
         set(value) {
             field = value
             binding.currentRecording = value

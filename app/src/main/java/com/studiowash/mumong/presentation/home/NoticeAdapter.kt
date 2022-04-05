@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemHomeNoticeBinding
-import com.studiowash.mumong.domain.model.home.NoticeItem
+import com.studiowash.mumong.domain.entity.home.NoticeEntity
 
 class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
     class NoticeViewHolder(val binding: ItemHomeNoticeBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var noticeItems = listOf<NoticeItem>()
+    var noticeItems = listOf<NoticeEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticeViewHolder {
         val binding = ItemHomeNoticeBinding.inflate(LayoutInflater.from(parent.context), parent, false)

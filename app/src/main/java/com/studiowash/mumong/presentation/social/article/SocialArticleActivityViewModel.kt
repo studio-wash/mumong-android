@@ -2,13 +2,13 @@ package com.studiowash.mumong.presentation.social.article
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.studiowash.mumong.domain.model.social.SocialArticleItem
+import com.studiowash.mumong.domain.entity.social.SocialArticleEntity
 
 class SocialArticleActivityViewModel : ViewModel() {
     val articleLiveData get() = _articleLiveData
-    private val _articleLiveData = MutableLiveData<SocialArticleItem?>()
+    private val _articleLiveData = MutableLiveData<SocialArticleEntity?>()
 
-    fun setArticle(article: SocialArticleItem?) {
+    fun setArticle(article: SocialArticleEntity?) {
         _articleLiveData.value = article
     }
 }

@@ -1,8 +1,8 @@
-package com.studiowash.mumong.domain.model.user
+package com.studiowash.mumong.domain.entity.user
 
 import java.io.Serializable
 
-data class UserItem (
+data class UserEntity (
     val email: String = "",
     val nickname: String = "",
     val profileImg: String = "",
