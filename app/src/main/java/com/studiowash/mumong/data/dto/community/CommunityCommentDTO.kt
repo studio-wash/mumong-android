@@ -1,10 +1,10 @@
-package com.studiowash.mumong.data.model.community
+package com.studiowash.mumong.data.dto.community
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CommunityCommentData (
+data class CommunityCommentDTO (
     @SerialName("comment_id") val commentId: Int, // 댓글 번호
     @SerialName("article_id") val articleId: Int,
     @SerialName("user_id") val userId: Int,

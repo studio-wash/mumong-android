@@ -1,10 +1,10 @@
-package com.studiowash.mumong.data.model.social
+package com.studiowash.mumong.data.dto.social
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SocialFeedCommentData (
+data class SocialFeedCommentDTO (
     @SerialName("comment_id") val commentId: Int, // 댓글 번호
     @SerialName("social_feed_id") val socialFeedId: Int,
     @SerialName("user_id") val userId: Int,

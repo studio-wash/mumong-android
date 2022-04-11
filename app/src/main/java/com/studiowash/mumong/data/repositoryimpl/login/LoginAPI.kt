@@ -1,7 +1,7 @@
 package com.studiowash.mumong.data.repositoryimpl.login
 
 import com.studiowash.mumong.data.response.RequestResult
-import com.studiowash.mumong.data.model.user.LoginResultData
+import com.studiowash.mumong.data.dto.user.LoginResultDTO
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -11,5 +11,5 @@ interface LoginApi {
     suspend fun login(
         @Query("id") id: String,
         @Query("password") password: String
-    ): RequestResult<LoginResultData>
+    ): RequestResult<LoginResultDTO>
 }

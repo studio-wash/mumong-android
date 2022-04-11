@@ -1,10 +1,10 @@
-package com.studiowash.mumong.data.model.user
+package com.studiowash.mumong.data.dto.user
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class UserData (
+data class UserDTO (
     @SerialName("user_id") val userId: Int,
     @SerialName("email") val email: String,
     @SerialName("nickname") val nickname: String,
