@@ -69,4 +69,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     implementation("com.google.android.gms:play-services-ads-identifier:$playServiceVersion")
     implementation("com.kakao.adfit:ads-base:$adfitVersion")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.5.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.5.0")
 }
