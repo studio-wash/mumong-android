@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.model.community.FavoriteBoardItem" />
+            type="com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity" />
         <variable
             name="isLastItem"
             type="boolean" />

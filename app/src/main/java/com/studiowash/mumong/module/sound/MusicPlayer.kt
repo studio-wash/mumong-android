@@ -2,7 +2,7 @@ package com.studiowash.mumong.module.sound
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import java.util.*
 
 
@@ -46,7 +46,7 @@ object MusicPlayer {
 
     private var isPlaying = false
 
-    var currentMusic: RecordingItem? = null
+    var currentMusic: RecordingEntity? = null
         set(value) {
             field = value
             onMusicChangedInternal(value)
@@ -71,7 +71,7 @@ object MusicPlayer {
         mediaPlayer.seekTo((mediaPlayer.duration * progress.toFloat()/100).toInt())
     }
 
-    private fun onMusicChangedInternal(recording: RecordingItem?) {
+    private fun onMusicChangedInternal(recording: RecordingEntity?) {
         if (recording != null) {
             mediaPlayer.reset()
             mediaPlayer.setDataSource("https://download.samplelib.com/mp3/sample-15s.mp3")
@@ -89,7 +89,7 @@ object MusicPlayer {
 }
 
 interface MusicChangeListener {
-    fun onMusicChanged(recording: RecordingItem?)
+    fun onMusicChanged(recording: RecordingEntity?)
     fun onMusicPrepared(durationMilli: Int)
     fun onUpdatePosition(currentMilli: Int)
 }

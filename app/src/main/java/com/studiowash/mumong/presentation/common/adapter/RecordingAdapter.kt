@@ -2,13 +2,13 @@ package com.studiowash.mumong.presentation.common.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.model.common.RecordingItem
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.presentation.widget.RecordingItemView
 
-class RecordingAdapter(private val onPlayRecording: (recording: RecordingItem) -> Unit, private val onPauseRecording:(recording: RecordingItem) -> Unit) : RecyclerView.Adapter<RecordingAdapter.AttachedRecordingViewHolder>() {
+class RecordingAdapter(private val onPlayRecording: (recording: RecordingEntity) -> Unit, private val onPauseRecording:(recording: RecordingEntity) -> Unit) : RecyclerView.Adapter<RecordingAdapter.AttachedRecordingViewHolder>() {
     class AttachedRecordingViewHolder(val view: RecordingItemView) : RecyclerView.ViewHolder(view)
 
-    var items = listOf<RecordingItem>()
+    var items = listOf<RecordingEntity>()
     var playingRecordingIndex: Int? = null
         set(value) {
             val oldIndex = field

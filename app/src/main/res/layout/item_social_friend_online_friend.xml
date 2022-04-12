@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.model.social.OnlineFriendItem" />
+            type="com.studiowash.mumong.domain.social.entity.OnlineFriendEntity" />
         <variable
             name="isFirstItem"
             type="boolean" />

@@ -3,13 +3,13 @@ package com.studiowash.mumong.presentation.community
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.model.community.CommunityArticleItem
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.databinding.ItemCommunityArticleBinding
 
-class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: CommunityArticleItem) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {
+class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: CommunityArticleEntity) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {
     class RecentArticleViewHolder(val binding: ItemCommunityArticleBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var recentArticleItems = listOf<CommunityArticleItem>()
+    var recentArticleItems = listOf<CommunityArticleEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentArticleViewHolder {
         val binding = ItemCommunityArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
