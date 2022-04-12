@@ -5,7 +5,6 @@ import android.media.MediaPlayer
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import java.util.*
 
-
 object MusicPlayer {
     const val SECOND_IN_MILLI = 1000
     private var musicTimer : Timer? = null
@@ -32,19 +31,23 @@ object MusicPlayer {
             musicPlayerListeners.forEach {
                 it.onUpdatePosition(mediaPlayer.currentPosition)
             }
-            musicTimer?.cancel()
+            stopTimer()
         }
         mediaPlayer.setOnPreparedListener { player ->
             player.start()
-            musicTimer = Timer()
-            musicTimer?.schedule(MusicTimerTask(), 0, SECOND_IN_MILLI.toLong())
+            startTimer()
             musicPlayerListeners.forEach {
                 it.onMusicPrepared(player.duration)
             }
         }
     }
 
-    private var isPlaying = false
+    private var musicPlayState = MusicPlayState.Stop
+        set(value) {
+            musicPlayerListeners.forEach {
+                it.onMusicPlayStateChanged(value)
+            }
+        }
 
     var currentMusic: RecordingEntity? = null
         set(value) {
@@ -56,14 +59,24 @@ object MusicPlayer {
         }
 
     fun start() {
-        isPlaying = true
+        startTimer()
+        mediaPlayer.start()
+        musicPlayState = MusicPlayState.Play
     }
 
     fun pause() {
-        isPlaying = false
+        stopTimer()
+        musicPlayState = MusicPlayState.Pause
         if (mediaPlayer.isPlaying) {
             mediaPlayer.pause()
-            musicTimer?.cancel()
+        }
+    }
+
+    fun stop() {
+        musicPlayState = MusicPlayState.Stop
+        if (mediaPlayer.isPlaying) {
+            mediaPlayer.stop()
+            stopTimer()
         }
     }
 
@@ -79,6 +92,14 @@ object MusicPlayer {
         }
     }
 
+    private fun startTimer() {
+        musicTimer = Timer()
+        musicTimer?.schedule(MusicTimerTask(), 0, SECOND_IN_MILLI.toLong())
+    }
+
+    private fun stopTimer() =
+        musicTimer?.cancel()
+
     private val musicPlayerListeners = mutableListOf<MusicChangeListener>()
 
     fun addOnMusicChangeListener(listener: MusicChangeListener) =
@@ -86,10 +107,14 @@ object MusicPlayer {
 
     fun removeOnMusicChangeListener(listener: MusicChangeListener) =
         musicPlayerListeners.remove(listener)
+
+    enum class MusicPlayState{ Play, Pause, Stop }
 }
 
 interface MusicChangeListener {
     fun onMusicChanged(recording: RecordingEntity?)
     fun onMusicPrepared(durationMilli: Int)
     fun onUpdatePosition(currentMilli: Int)
+    fun onMusicPlayStateChanged(state: MusicPlayer.MusicPlayState)
 }
+
