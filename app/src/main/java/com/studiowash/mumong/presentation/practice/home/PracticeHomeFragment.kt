@@ -44,6 +44,7 @@ class PracticeHomeFragment : Fragment(){
                 PracticeClickEvent.OnClickAddNewPractice -> {
                     val intent = Intent(context, AddPracticeActivity::class.java)
                     startActivity(intent)
+                    activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
                 }
             }
         }
