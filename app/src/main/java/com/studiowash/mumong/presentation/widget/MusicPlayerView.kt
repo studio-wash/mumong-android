@@ -18,7 +18,7 @@ class MusicPlayerView @JvmOverloads constructor(
 
 
     init {
-        binding.seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+        binding.sbSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {}
             override fun onStartTrackingTouch(seekBar: SeekBar) {
                 onStartTrackingTouchListener?.invoke(seekBar)
@@ -28,10 +28,26 @@ class MusicPlayerView @JvmOverloads constructor(
                 onStopTrackingTouchListener?.invoke(seekBar)
             }
         })
+
+        binding.ivBtnPlayPause.setOnClickListener {
+            onClickPlayPause?.invoke(this.isPlaying)
+        }
+
+        binding.ivBtnClose.setOnClickListener {
+            onClickClose?.invoke()
+        }
     }
 
     var onStartTrackingTouchListener: ((seekBar: SeekBar) -> Unit) ?= null
     var onStopTrackingTouchListener: ((seekBar: SeekBar) -> Unit) ?= null
+    var onClickPlayPause: ((isPlaying: Boolean) -> Unit) ?= null
+    var onClickClose: (() -> Unit) ?= null
+
+    var isPlaying: Boolean = false
+        set(value) {
+            field = value
+            binding.isPlaying = value
+        }
 
     var currentRecording: RecordingEntity? = null
         set(value) {
