@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.studiowash.mumong.data.response.RequestResult
-import com.studiowash.mumong.data.test.dto.TestGetHelloResult
-import com.studiowash.mumong.data.test.dto.TestPutEchoResult
+import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResult
+import com.studiowash.mumong.data.test.remote.dto.TestPutEchoResult
 import com.studiowash.mumong.domain.test.usecase.TestGetHelloUseCase
 import com.studiowash.mumong.domain.test.usecase.TestPutEchoUseCase
 import com.studiowash.mumong.presentation.SingleLiveEvent

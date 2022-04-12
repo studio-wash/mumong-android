@@ -1,4 +1,4 @@
-package com.studiowash.mumong.data.test.dto
+package com.studiowash.mumong.data.test.remote.dto
 
 import com.google.gson.annotations.SerializedName
 

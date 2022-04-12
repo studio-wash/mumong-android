@@ -1,6 +1,6 @@
-package com.studiowash.mumong.data.test.module
+package com.studiowash.mumong.data.test
 
-import com.studiowash.mumong.data.test.repository.TestApi
+import com.studiowash.mumong.data.test.remote.api.TestApi
 import com.studiowash.mumong.data.test.repository.TestRepositoryImpl
 import com.studiowash.mumong.di.NetworkModule
 import com.studiowash.mumong.domain.test.repository.TestRepository

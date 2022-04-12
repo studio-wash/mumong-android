@@ -1,8 +1,8 @@
-package com.studiowash.mumong.data.test.repository
+package com.studiowash.mumong.data.test.remote.api
 
-import com.studiowash.mumong.data.test.dto.TestGetHelloResult
-import com.studiowash.mumong.data.test.dto.TestPutEchoRequest
-import com.studiowash.mumong.data.test.dto.TestPutEchoResult
+import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResult
+import com.studiowash.mumong.data.test.remote.dto.TestPutEchoRequest
+import com.studiowash.mumong.data.test.remote.dto.TestPutEchoResult
 import retrofit2.Response
 import retrofit2.http.*
 
