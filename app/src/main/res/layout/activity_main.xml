@@ -3,27 +3,45 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".presentation.MainActivity">
+    <data>
+        <variable
+            name="showMusicPlayer"
+            type="boolean" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+            app:layout_constraintBottom_toTopOf="@id/music_player_view"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/nav_graph" />
+            app:navGraph="@navigation/nav_graph_main_activity" />
+        <com.studiowash.mumong.presentation.widget.MusicPlayerView
+            android:id="@+id/music_player_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_top_rect_20dp_fill_white"
+            android:elevation="@dimen/single_elevation"
+            app:layout_constraintTop_toBottomOf="@id/nav_host_fragment"
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
+            app:goneUnless="@{showMusicPlayer}"/>
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/navigation_text_color"
+            app:itemBackground="@android:color/transparent"
             app:menu="@menu/bottom_navigation_menu"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/music_player_view"
+            android:background="@color/white"
+            app:elevation="@{showMusicPlayer ? @dimen/double_elevation : @dimen/single_elevation, default=@dimen/double_elevation}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
