@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/ll_calendar_info"
             android:paddingBottom="30dp"/>
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <LinearLayout
             android:id="@+id/ll_new_practice_wrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +81,7 @@
                 android:text="@string/practice_add_new_practice"
                 android:textColor="@color/text_invert"
                 android:textSize="18sp"/>
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_practice_today"
             android:layout_width="match_parent"

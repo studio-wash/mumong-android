@@ -51,7 +51,7 @@ class CommunityArticleFragment : Fragment() {
             activity?.onBackPressed()
         }
 
-        binding.toolbar.inflateMenu(R.menu.toolbar_action_menu)
+        binding.toolbar.inflateMenu(R.menu.toolbar_action_menu_article)
         binding.toolbar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.action_more -> true

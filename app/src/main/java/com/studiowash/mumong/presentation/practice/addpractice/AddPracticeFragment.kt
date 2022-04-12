@@ -13,5 +13,11 @@ class AddPracticeFragment : Fragment(R.layout.fragment_practice_add_practice) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPracticeAddPracticeBinding.bind(view)
+
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.inflateMenu(R.menu.toolbar_action_menu_add_practice)
     }
 }
