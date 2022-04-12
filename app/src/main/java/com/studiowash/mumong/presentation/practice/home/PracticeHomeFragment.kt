@@ -1,5 +1,6 @@
 package com.studiowash.mumong.presentation.practice.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentPracticeHomeBinding
 import com.studiowash.mumong.presentation.practice.PracticeClickEvent
+import com.studiowash.mumong.presentation.practice.addpractice.AddPracticeActivity
 
 class PracticeHomeFragment : Fragment(){
     private lateinit var binding: FragmentPracticeHomeBinding
@@ -34,10 +36,14 @@ class PracticeHomeFragment : Fragment(){
     }
 
     private fun initObserve() {
-        practiceHomeViewModel.clickEventLiveData.observe(viewLifecycleOwner) {
+        practiceHomeViewModel.onClickLiveEvent.observe(viewLifecycleOwner) {
             when (it) {
                 PracticeClickEvent.OnClickCalendarIcon -> {
                     findNavController().navigate(R.id.action_practiceFragmentNav_to_practiceCalendarFragmentNav)
+                }
+                PracticeClickEvent.OnClickAddNewPractice -> {
+                    val intent = Intent(context, AddPracticeActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }

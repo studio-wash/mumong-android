@@ -3,6 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="text_invert">#FFFFFFFF</color>
+
     <color name="brand_color_1">#419FD9</color>
     <color name="brand_color_2">#A0CFEC</color>
     <color name="brand_color_3">#C6E2F4</color>

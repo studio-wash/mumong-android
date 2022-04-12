@@ -38,6 +38,7 @@
     <string name="practice_calendar_friday">금</string>
     <string name="practice_calendar_satureday">토</string>
     <string name="practice_calendar_sunday">일</string>
+    <string name="practice_add_new_practice">오늘의 연습 추가하기</string>
 
     <!-- Social Fragment -->
 
