@@ -3,30 +3,38 @@ package com.studiowash.mumong.presentation.home
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.FragmentHomeBinding
-import com.studiowash.mumong.domain.model.home.EventItem
-import com.studiowash.mumong.domain.model.home.NoticeItem
+import com.studiowash.mumong.domain.home.entity.EventEntity
+import com.studiowash.mumong.domain.home.entity.NoticeEntity
+import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.profile.ProfileActivity
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+@AndroidEntryPoint
+class HomeFragment : Fragment(R.layout.fragment_home) {
+    private val binding get() = _binding!!
+    private var _binding: FragmentHomeBinding? = null
+
     private val noticeAdapter = NoticeAdapter()
     private val eventAdapter = EventAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+    private val viewModel: HomeViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentHomeBinding.bind(view)
 
         initView()
         initOnClick()
-
-        return binding.root
+        initObserve()
     }
 
     private fun initView() {
@@ -34,17 +42,40 @@ class HomeFragment : Fragment() {
         binding.eventRecyclerView.adapter = eventAdapter
 
         noticeAdapter.noticeItems = listOf(
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            NoticeItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
         )
         eventAdapter.eventItems = listOf(
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            EventItem("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
+            EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
         )
+    }
+
+    private fun initObserve() {
+        viewModel.testPutEchoLoadingState.flowWithLifecycle(viewLifecycleOwner.lifecycle, Lifecycle.State.STARTED)
+            .onEach { state -> handleLoadingState(state) }
+            .launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewModel.showToastEvent.observe(viewLifecycleOwner) { message ->
+            activity?.showToast(message)
+        }
+    }
+
+    private fun handleLoadingState(stateTestPutEcho: HomeViewModel.TestPutEchoLoadingState){
+        when(stateTestPutEcho){
+            is HomeViewModel.TestPutEchoLoadingState.Init -> Unit
+            is HomeViewModel.TestPutEchoLoadingState.Loading -> binding.showLoadingBar = true
+            is HomeViewModel.TestPutEchoLoadingState.Success -> {
+                binding.showLoadingBar = false
+            }
+            is HomeViewModel.TestPutEchoLoadingState.Fail -> {
+                binding.showLoadingBar = false
+            }
+        }
     }
 
     private fun initOnClick() {
@@ -53,5 +84,10 @@ class HomeFragment : Fragment() {
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

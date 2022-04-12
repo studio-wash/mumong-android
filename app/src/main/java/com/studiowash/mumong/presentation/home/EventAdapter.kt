@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.databinding.ItemHomeEventBinding
-import com.studiowash.mumong.domain.model.home.EventItem
+import com.studiowash.mumong.domain.home.entity.EventEntity
 
 class EventAdapter : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
     class EventViewHolder(val binding: ItemHomeEventBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var eventItems = listOf<EventItem>()
+    var eventItems = listOf<EventEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val binding = ItemHomeEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)

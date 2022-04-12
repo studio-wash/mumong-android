@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.social.SocialHomeFragment">
     <data>
-        <import type="com.studiowash.mumong.domain.LoginStatus" />
+        <import type="com.studiowash.mumong.domain.login.LoginStatus" />
         <variable
             name="pageIndex"
             type="int" />
