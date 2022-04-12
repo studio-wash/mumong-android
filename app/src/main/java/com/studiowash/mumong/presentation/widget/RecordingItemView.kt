@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
-import com.studiowash.mumong.domain.entity.common.RecordingEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.databinding.ItemRecordingBinding
 import com.studiowash.mumong.module.sound.MusicPlayer
 

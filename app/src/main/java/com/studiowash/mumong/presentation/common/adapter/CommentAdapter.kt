@@ -3,7 +3,7 @@ package com.studiowash.mumong.presentation.common.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.entity.common.CommentEntity
+import com.studiowash.mumong.domain.common.entity.CommentEntity
 import com.studiowash.mumong.databinding.ItemCommentBinding
 
 class CommentAdapter(val onClickLike: (position: Int) -> Unit, private val onClickReply:() -> Unit) : RecyclerView.Adapter<CommentAdapter.CommentViewHolder>() {

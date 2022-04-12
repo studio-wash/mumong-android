@@ -3,7 +3,7 @@
     <data>
         <variable
             name="currentRecording"
-            type="com.studiowash.mumong.domain.entity.common.RecordingEntity" />
+            type="com.studiowash.mumong.domain.common.entity.RecordingEntity" />
         <variable
             name="isPlaying"
             type="boolean" />

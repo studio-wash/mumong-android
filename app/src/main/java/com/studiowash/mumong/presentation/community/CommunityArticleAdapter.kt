@@ -3,7 +3,7 @@ package com.studiowash.mumong.presentation.community
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.entity.community.CommunityArticleEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.databinding.ItemCommunityArticleBinding
 
 class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: CommunityArticleEntity) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {

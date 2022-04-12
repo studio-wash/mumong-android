@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.studiowash.mumong.R
-import com.studiowash.mumong.domain.entity.common.RecordingEntity
-import com.studiowash.mumong.domain.entity.user.UserEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
+import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.FragmentSocialHomeFriendBinding
-import com.studiowash.mumong.domain.entity.social.OnlineFriendEntity
+import com.studiowash.mumong.domain.social.entity.OnlineFriendEntity
 import com.studiowash.mumong.presentation.social.article.SocialArticleActivity
-import com.studiowash.mumong.domain.entity.social.SocialArticleEntity
+import com.studiowash.mumong.domain.social.entity.SocialArticleEntity
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class SocialHomeFriendFragment : Fragment() {

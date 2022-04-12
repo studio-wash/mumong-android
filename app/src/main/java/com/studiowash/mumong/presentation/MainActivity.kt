@@ -6,11 +6,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.studiowash.mumong.R
-import com.studiowash.mumong.domain.entity.common.RecordingEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.databinding.ActivityMainBinding
 import com.studiowash.mumong.module.sound.MusicChangeListener
 import com.studiowash.mumong.module.sound.MusicPlayer
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var isDraggingMusicTrackBar = false

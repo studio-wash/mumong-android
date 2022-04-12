@@ -1,6 +1,7 @@
 package com.studiowash.mumong.di
 
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,12 +43,13 @@ class NetworkModule {
 
     @Provides
     fun providesGson(): Gson {
-        return Gson()
+//        return Gson()
+        return GsonBuilder().setLenient().create() // todo: 서버에서 json 형식 정상화하면 제거
     }
 
     @Provides
-    fun providesGsonConverterFactory(): GsonConverterFactory {
-        return GsonConverterFactory.create()
+    fun providesGsonConverterFactory(gson: Gson): GsonConverterFactory {
+        return GsonConverterFactory.create(gson)
     }
 
     companion object {

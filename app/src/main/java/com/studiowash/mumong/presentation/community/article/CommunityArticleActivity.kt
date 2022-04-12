@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.R
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.databinding.ActivityCommunityArticleBinding
-import com.studiowash.mumong.domain.entity.community.CommunityArticleEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 
 class CommunityArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCommunityArticleBinding

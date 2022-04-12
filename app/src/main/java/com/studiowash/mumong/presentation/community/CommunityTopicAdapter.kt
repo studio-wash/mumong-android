@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.R
 import com.studiowash.mumong.databinding.ItemCommunityTopicBinding
-import com.studiowash.mumong.domain.entity.community.CommunityTopicEntity
+import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 
 class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
     class CommunityTopicViewHolder(val binding: ItemCommunityTopicBinding) : RecyclerView.ViewHolder(binding.root)

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.community.eFragment">
     <data>
-        <import type="com.studiowash.mumong.domain.LoginStatus" />
+        <import type="com.studiowash.mumong.domain.login.LoginStatus" />
     </data>
     <com.studiowash.mumong.presentation.widget.SavingMotionLayout
         android:id="@+id/motion_layout"

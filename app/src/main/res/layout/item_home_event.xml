@@ -3,7 +3,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.entity.home.EventEntity" />
+            type="com.studiowash.mumong.domain.home.entity.EventEntity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="100dp"

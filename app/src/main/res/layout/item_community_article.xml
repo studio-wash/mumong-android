@@ -5,7 +5,7 @@
         <import type="com.studiowash.mumong.util.StringUtils"/>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.entity.community.CommunityArticleEntity" />
+            type="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_container_constraint_layout"

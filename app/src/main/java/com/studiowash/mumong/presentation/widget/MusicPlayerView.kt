@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.SeekBar
 import androidx.annotation.AttrRes
-import com.studiowash.mumong.domain.entity.common.RecordingEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.databinding.ViewMusicPlayerBinding
 
 class MusicPlayerView @JvmOverloads constructor(

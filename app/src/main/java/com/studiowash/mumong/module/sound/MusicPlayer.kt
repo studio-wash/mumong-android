@@ -2,7 +2,7 @@ package com.studiowash.mumong.module.sound
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer
-import com.studiowash.mumong.domain.entity.common.RecordingEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import java.util.*
 
 

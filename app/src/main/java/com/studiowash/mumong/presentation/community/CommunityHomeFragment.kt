@@ -10,15 +10,18 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.R
-import com.studiowash.mumong.domain.entity.common.*
 import com.studiowash.mumong.presentation.community.article.CommunityArticleActivity
-import com.studiowash.mumong.domain.entity.community.CommunityArticleEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.constant.StringKeySet
 import com.studiowash.mumong.constant.StringValueSet
 import com.studiowash.mumong.databinding.FragmentCommunityHomeBinding
-import com.studiowash.mumong.domain.entity.user.UserEntity
-import com.studiowash.mumong.domain.entity.community.CommunityTopicEntity
-import com.studiowash.mumong.domain.entity.community.FavoriteBoardEntity
+import com.studiowash.mumong.domain.common.entity.AttachedImageEntity
+import com.studiowash.mumong.domain.common.entity.CommentEntity
+import com.studiowash.mumong.domain.common.entity.CommentReplyEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
+import com.studiowash.mumong.domain.login.entity.UserEntity
+import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
+import com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity
 import com.studiowash.mumong.presentation.profile.ProfileActivity
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
