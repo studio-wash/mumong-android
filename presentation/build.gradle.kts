@@ -61,12 +61,10 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads-identifier:$playServiceVersion")
     implementation("com.kakao.adfit:ads-base:$adfitVersion")
 
-    // glide
-    val glideVersion = "4.11.0"
-    implementation("com.github.bumptech.glide:glide:$glideVersion")
-    annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
+    // glide coil
+    implementation("io.coil-kt:coil:2.0.0-rc03")
 
-    // cilt
+    // hilt
     val hiltVersion = "2.41"
     implementation("com.google.dagger:hilt-android:${hiltVersion}")
     kapt("com.google.dagger:hilt-android-compiler:${hiltVersion}")

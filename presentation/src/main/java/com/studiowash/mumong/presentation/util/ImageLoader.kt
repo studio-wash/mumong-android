@@ -2,13 +2,13 @@ package com.studiowash.mumong.presentation.util
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
-import com.bumptech.glide.Glide
+import coil.load
 
-object GlideSimpleImageLoader {
+object ImageLoader {
     fun loadImage(imageView: ImageView, uri: String?, placeholder: Drawable? = null) {
-        Glide.with(imageView.context)
-            .load(uri)
-            .placeholder(placeholder)
-            .into(imageView)
+        imageView.load(uri) {
+            crossfade(true)
+            placeholder(placeholder)
+        }
     }
 }
