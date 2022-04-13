@@ -1,11 +1,11 @@
 package com.studiowash.mumong.domain.test.repository
 
-import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResult
-import com.studiowash.mumong.data.test.remote.dto.TestPutEchoResult
-import com.studiowash.mumong.data.response.RequestResult
+import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.domain.test.entity.TestGetHelloResultEntity
+import com.studiowash.mumong.domain.test.entity.TestPutEchoResultEntity
 import kotlinx.coroutines.flow.Flow
 
 interface TestRepository {
-    suspend fun getHello(): Flow<RequestResult<TestGetHelloResult>>
-    suspend fun putData(name: String, id: Long): Flow<RequestResult<TestPutEchoResult>>
+    suspend fun getHello(): Flow<RequestResult<TestGetHelloResultEntity>>
+    suspend fun putData(name: String, id: Long): Flow<RequestResult<TestPutEchoResultEntity>>
 }

@@ -3,9 +3,9 @@ package com.studiowash.mumong.presentation.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.studiowash.mumong.data.response.RequestResult
-import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResult
-import com.studiowash.mumong.data.test.remote.dto.TestPutEchoResult
+import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResultDTO
+import com.studiowash.mumong.data.test.remote.dto.TestPutEchoResultDTO
 import com.studiowash.mumong.domain.test.usecase.TestGetHelloUseCase
 import com.studiowash.mumong.domain.test.usecase.TestPutEchoUseCase
 import com.studiowash.mumong.presentation.SingleLiveEvent
@@ -82,14 +82,14 @@ class HomeViewModel @Inject constructor(
     sealed class TestPutEchoLoadingState {
         object Init : TestPutEchoLoadingState()
         object Loading : TestPutEchoLoadingState()
-        data class Success(val result: TestPutEchoResult) : TestPutEchoLoadingState()
+        data class Success(val result: TestPutEchoResultDTO) : TestPutEchoLoadingState()
         data class Fail(val responseCode: Int, val message: String?) : TestPutEchoLoadingState()
     }
 
     sealed class TestGetHelloLoadingState {
         object Init : TestGetHelloLoadingState()
         object Loading : TestGetHelloLoadingState()
-        data class Success(val result: TestGetHelloResult) : TestGetHelloLoadingState()
+        data class Success(val result: TestGetHelloResultDTO) : TestGetHelloLoadingState()
         data class Fail(val responseCode: Int, val message: String?) : TestGetHelloLoadingState()
     }
 }

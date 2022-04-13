@@ -1,7 +1,7 @@
 package com.studiowash.mumong.domain.community.repository
 
 import com.studiowash.mumong.data.community.dto.CommunityArticleDTO
-import com.studiowash.mumong.data.response.RequestResult
+import com.studiowash.mumong.domain.common.RequestResult
 import retrofit2.http.Field
 import retrofit2.http.GET
 
