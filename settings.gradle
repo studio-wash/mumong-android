@@ -9,3 +9,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "mumong-android"
 include ':app'
+include ':domain'
+include ':data'
+include ':presentation'
