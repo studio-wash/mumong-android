@@ -25,6 +25,7 @@
         <activity android:name="com.studiowash.mumong.presentation.community.article.CommunityArticleActivity" />
         <activity android:name="com.studiowash.mumong.presentation.social.article.SocialArticleActivity" />
         <activity android:name="com.studiowash.mumong.presentation.profile.ProfileActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.practice.addpractice.AddPracticeActivity" />
     </application>
 
 </manifest>

@@ -38,6 +38,11 @@
     <string name="practice_calendar_friday">금</string>
     <string name="practice_calendar_satureday">토</string>
     <string name="practice_calendar_sunday">일</string>
+    <string name="practice_add_new_practice">오늘의 연습 추가하기</string>
+
+    <string name="practice_add_practice_select_piece">곡을 선택해 주세요.</string>
+    <string name="practice_add_practice_will_show_file_name">이 곳에 녹음 중인 파일명이 표시됩니다.</string>
+    <string name="practice_add_practice_practice_today_title">오늘의 연습</string>
 
     <!-- Social Fragment -->
 
@@ -57,6 +62,7 @@
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+    <string name="toolbar_action_tuner">Tuner</string>
     
     <!-- Profile -->
     <string name="profile_edit_account"><u>계정 편집하기</u></string>
