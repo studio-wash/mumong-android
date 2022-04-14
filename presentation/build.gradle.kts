@@ -81,8 +81,14 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
 
     // compose
-    implementation("androidx.compose.ui:ui:1.2.0-alpha07")
-    implementation("androidx.compose.material:material:1.2.0-alpha07")
+    val composeVersion = "1.2.0-alpha07"
+    implementation("androidx.compose.runtime:runtime:$composeVersion")
+    implementation("androidx.compose.ui:ui:$composeVersion")
+    implementation("androidx.compose.foundation:foundation:$composeVersion")
+    implementation("androidx.compose.foundation:foundation-layout:$composeVersion")
+    implementation("androidx.compose.material:material:$composeVersion")
+    implementation("androidx.compose.runtime:runtime-livedata:$composeVersion")
+    implementation("androidx.compose.ui:ui-tooling:$composeVersion")
 
     // test
     testImplementation("junit:junit:4.13.2")
