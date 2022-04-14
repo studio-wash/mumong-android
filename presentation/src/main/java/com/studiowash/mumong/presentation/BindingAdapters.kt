@@ -4,13 +4,13 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.studiowash.mumong.presentation.util.GlideSimpleImageLoader
+import com.studiowash.mumong.presentation.util.ImageLoader
 
 object BindingAdapters {
     @JvmStatic
     @BindingAdapter(value=["imageSrc", "placeholder"], requireAll = false)
     fun setImageSrc(imageView: ImageView, src: String? = null, placeholder: Drawable? = null) {
-        if (src != null) GlideSimpleImageLoader.loadImage(imageView, src, placeholder)
+        if (src != null) ImageLoader.loadImage(imageView, src, placeholder)
     }
 
     @JvmStatic
