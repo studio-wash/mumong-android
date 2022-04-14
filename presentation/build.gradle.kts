@@ -37,6 +37,9 @@ android {
         compose = true
         dataBinding = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0-alpha07"
+    }
 }
 
 dependencies {
@@ -78,21 +81,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.4.2")
 
     // compose
-    // Integration with activities
-    implementation("androidx.activity:activity-compose:1.4.0")
-    // Compose Material Design
-    implementation("androidx.compose.material:material:1.1.1")
-    // Animations
-    implementation("androidx.compose.animation:animation:1.1.1")
-    // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.1.1")
-    // Integration with ViewModels
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
-    // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.1.1")
-    // When using a MDC theme
-    implementation("com.google.android.material:compose-theme-adapter:1.1.6")
-
+    implementation("androidx.compose.ui:ui:1.2.0-alpha07")
 
     // test
     testImplementation("junit:junit:4.13.2")
