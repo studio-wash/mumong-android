@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MuMong">
         <activity
-            android:name="com.studiowash.mumong.presentation.activity.MainActivity"
+            android:name="com.studiowash.mumong.presentation.screen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.studiowash.mumong.presentation.activity.community.article.CommunityArticleActivity" />
-        <activity android:name="com.studiowash.mumong.presentation.activity.social.article.SocialArticleActivity" />
-        <activity android:name="com.studiowash.mumong.presentation.activity.profile.ProfileActivity" />
-        <activity android:name="com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.community.article.CommunityArticleActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.social.article.SocialArticleActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.profile.ProfileActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.practice.addpractice.AddPracticeActivity" />
     </application>
 
 </manifest>

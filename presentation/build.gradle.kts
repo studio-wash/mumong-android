@@ -82,6 +82,7 @@ dependencies {
 
     // compose
     implementation("androidx.compose.ui:ui:1.2.0-alpha07")
+    implementation("androidx.compose.material:material:1.2.0-alpha07")
 
     // test
     testImplementation("junit:junit:4.13.2")
