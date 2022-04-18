@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.practice.home.PracticeHomeFragment">
     <data>
-        <import type="com.studiowash.mumong.presentation.activity.practice.addpractice.MetronomeTunerStatus"/>
+        <import type="com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeViewModel.MetronomeTunerStatus"/>
         <variable
             name="metronomeTunerStatus"
             type="MetronomeTunerStatus"/>
@@ -55,12 +55,14 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="15dp"
-                android:src="@drawable/ic_metronome"/>
+                isSelected="@{metronomeTunerStatus == MetronomeTunerStatus.Metronome}"
+                android:src="@drawable/selector_ic_metronome" />
             <ImageView
                 android:id="@+id/iv_tuner_btn"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_tuner"/>
+                isSelected="@{metronomeTunerStatus == MetronomeTunerStatus.Tuner}"
+                android:src="@drawable/selector_ic_tuner"/>
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/ctl_metronome_tuner"
