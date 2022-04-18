@@ -1,11 +1,11 @@
 package com.studiowash.mumong.presentation.activity.practice.addpractice
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongActivity
 import com.studiowash.mumong.presentation.databinding.ActivityAddPracticeBinding
 
-class AddPracticeActivity : AppCompatActivity() {
+class AddPracticeActivity : MumongActivity() {
     private lateinit var binding: ActivityAddPracticeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

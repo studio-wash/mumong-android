@@ -1,6 +1,5 @@
 package com.studiowash.mumong.presentation.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
@@ -12,7 +11,7 @@ import com.studiowash.mumong.presentation.module.sound.MusicPlayer
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : MumongActivity() {
     private lateinit var binding: ActivityMainBinding
     private var isDraggingMusicTrackBar = false
 
@@ -101,4 +100,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun initStatusBar() {
+        binding.ctlMainLayout.setPadding(0,statusBarHeight,0,0)
+    }
 }

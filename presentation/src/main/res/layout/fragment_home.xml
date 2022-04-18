@@ -25,17 +25,6 @@
             android:layout_marginStart="@dimen/fragment_default_horizontal_padding"/>
 
         <ImageView
-            android:id="@+id/profile_icon_image_view"
-            android:layout_width="@dimen/icon_profile_width"
-            android:layout_height="@dimen/icon_profile_width"
-            android:src="@drawable/ic_default_profile"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="@dimen/fragment_default_top_padding"
-            android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"
-            imageSrc="@{LoginStatus.INSTANCE.currentUser.profileImg}"/>
-
-        <ImageView
             android:id="@+id/content_top_cloud_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
