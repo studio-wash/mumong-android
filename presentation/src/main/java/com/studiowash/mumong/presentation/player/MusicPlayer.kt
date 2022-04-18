@@ -1,4 +1,4 @@
-package com.studiowash.mumong.presentation.module.sound
+package com.studiowash.mumong.presentation.player
 
 import android.media.AudioAttributes
 import android.media.MediaPlayer

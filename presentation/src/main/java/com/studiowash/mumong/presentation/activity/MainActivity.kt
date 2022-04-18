@@ -7,8 +7,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityMainBinding
-import com.studiowash.mumong.presentation.module.sound.MusicChangeListener
-import com.studiowash.mumong.presentation.module.sound.MusicPlayer
+import com.studiowash.mumong.presentation.player.MusicChangeListener
+import com.studiowash.mumong.presentation.player.MusicPlayer
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

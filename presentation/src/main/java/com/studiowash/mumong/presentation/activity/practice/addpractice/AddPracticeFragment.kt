@@ -22,6 +22,16 @@ class AddPracticeFragment : Fragment(R.layout.fragment_practice_add_practice) {
         initObserve()
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.startCountingTime()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel.stopCountingTime()
+    }
+
     private fun initOnClick() {
         binding.ivMetronomeBtn.setOnClickListener {
             viewModel.updateMetronomeTunerStatus(
@@ -46,6 +56,9 @@ class AddPracticeFragment : Fragment(R.layout.fragment_practice_add_practice) {
     private fun initObserve() {
         viewModel.metronomeTunerStatus.observe(viewLifecycleOwner) {
             binding.metronomeTunerStatus = it
+        }
+        viewModel.todayPracticeTimeSec.observe(viewLifecycleOwner) {
+            binding.practiceTimeSec = it
         }
     }
 }
