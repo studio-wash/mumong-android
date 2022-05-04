@@ -8,7 +8,12 @@ import android.os.Bundle
 import com.studiowash.mumong.domain.social.entity.OnlineFriendEntity
 import com.studiowash.mumong.presentation.databinding.DialogCheerFriendBinding
 
-class CheerFriendDialog private constructor(context: Context, private val friend: OnlineFriendEntity): Dialog(context) {
+class CheerFriendDialog private constructor(
+    context: Context,
+    private val friend: OnlineFriendEntity,
+    private val onClickProfile: (friend: OnlineFriendEntity) -> Unit,
+    private val onClickCheer: (friend: OnlineFriendEntity) -> Unit
+): Dialog(context) {
     private lateinit var binding: DialogCheerFriendBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +29,22 @@ class CheerFriendDialog private constructor(context: Context, private val friend
         binding.ivClose.setOnClickListener {
             dismiss()
         }
+        binding.btnCheerPracticing.setOnClickListener {
+            onClickCheer.invoke(friend)
+            dismiss()
+        }
+        binding.ivProfile.setOnClickListener {
+            onClickProfile.invoke(friend)
+            dismiss()
+        }
     }
     
     companion object {
-        fun newInstance(context: Context, friend: OnlineFriendEntity) = CheerFriendDialog(context, friend)
+        fun newInstance(
+            context: Context,
+            friend: OnlineFriendEntity,
+            onClickProfile: (friend: OnlineFriendEntity) -> Unit,
+            onClickCheer: (friend: OnlineFriendEntity) -> Unit
+        ) = CheerFriendDialog(context, friend, onClickProfile, onClickCheer)
     }
 }

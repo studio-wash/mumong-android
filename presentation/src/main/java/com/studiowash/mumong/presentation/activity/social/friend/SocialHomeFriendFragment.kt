@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.domain.social.entity.OnlineFriendEntity
@@ -148,7 +149,11 @@ class SocialHomeFriendFragment : Fragment() {
     }
 
     private fun onClickFriend(position: Int, friend: OnlineFriendEntity) {
-        val cheerFriendDialog = CheerFriendDialog.newInstance(requireContext(), friend)
+        val cheerFriendDialog = CheerFriendDialog.newInstance(requireContext(), friend, {
+            Toast.makeText(requireContext(), "PROFILE CLICKED: FRIEND ${friend.user.nickname}", Toast.LENGTH_SHORT).show()
+        }, {
+            Toast.makeText(requireContext(), "CHEER CLICKED: FRIEND ${friend.user.nickname}", Toast.LENGTH_SHORT).show()
+        })
         cheerFriendDialog.show()
     }
 
