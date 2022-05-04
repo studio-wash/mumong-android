@@ -80,7 +80,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initOnClick() {
-        binding.profileIconImageView.setOnClickListener {
+        binding.ivProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
             startActivity(intent)
             activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)

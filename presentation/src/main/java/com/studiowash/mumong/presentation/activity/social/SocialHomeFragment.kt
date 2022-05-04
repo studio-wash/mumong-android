@@ -39,7 +39,7 @@ class SocialHomeFragment : Fragment() {
     }
 
     private fun initOnClick() {
-        binding.profileIconImageView.setOnClickListener {
+        binding.ivProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
             intent.putExtra(StringKeySet.CATEGORY, StringValueSet.SOCIAL)
             startActivity(intent)

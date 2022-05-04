@@ -232,6 +232,7 @@ class CommunityHomeFragment : Fragment() {
 
 
     private fun initView() {
+        binding.ivProfile
         binding.favoriteBoardsRecyclerView.apply {
             itemAnimator = null
             adapter = favoriteBoardAdapter
@@ -248,7 +249,7 @@ class CommunityHomeFragment : Fragment() {
     }
 
     private fun initOnClick() {
-        binding.profileIconImageView.setOnClickListener {
+        binding.ivProfile.setOnClickListener {
             val intent = Intent(context, ProfileActivity::class.java)
             intent.putExtra(StringKeySet.CATEGORY, StringValueSet.COMMUNITY)
             startActivity(intent)
