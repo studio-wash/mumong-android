@@ -2,18 +2,18 @@ package com.studiowash.mumong.presentation.activity.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
 import com.studiowash.mumong.presentation.R
-import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
-import com.studiowash.mumong.domain.Constants
+import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -39,8 +39,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initView() {
-        binding.noticeRecyclerView.adapter = noticeAdapter
-        binding.eventRecyclerView.adapter = eventAdapter
+        binding.llNotice.clipToOutline = true
+        binding.llEvent.clipToOutline = true
+
+        binding.rvNoticeList.adapter = noticeAdapter
+        binding.rvEventList.adapter = eventAdapter
 
         noticeAdapter.noticeItems = listOf(
             NoticeEntity(Constants.sample_image_url),

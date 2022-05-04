@@ -14,7 +14,7 @@
 
     <color name="brand_secondary_color">#6464E6</color>
 
-    <color name="gray">#F1F1F5</color>
+    <color name="bg_gray">#F1F1F5</color>
     <color name="gray_2">#EBEBEB</color>
 
     <color name="icon_off">#C7C7C7</color>
