@@ -79,7 +79,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 goneUnless="@{metronomeTunerStatus == MetronomeTunerStatus.Metronome}"
-                android:background="@drawable/bg_rounded_rect_20dp_fill_white"/>
+                android:background="@drawable/bg_rounded_rect_16dp_fill_white"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/ctl_tuner"
                 android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="10dp"
                 goneUnless="@{metronomeTunerStatus == MetronomeTunerStatus.Tuner}"
-                android:background="@drawable/bg_rounded_rect_20dp_fill_white"/>
+                android:background="@drawable/bg_rounded_rect_16dp_fill_white"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_instrument_list"

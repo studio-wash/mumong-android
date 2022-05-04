@@ -100,7 +100,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/replies_recycler_view"
             android:layout_marginTop="15dp"
-            android:background="@drawable/bg_rounded_rect_20dp_fill_light_gray"
+            android:background="@drawable/bg_rounded_rect_16dp_fill_light_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/like_button_linear_layout"
