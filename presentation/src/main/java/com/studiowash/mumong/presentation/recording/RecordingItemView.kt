@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import com.studiowash.mumong.presentation.databinding.ItemRecordingBinding
-import com.studiowash.mumong.presentation.module.sound.MusicPlayer
+import com.studiowash.mumong.presentation.player.MusicPlayer
 
 class RecordingItemView @JvmOverloads constructor(
     context: Context,

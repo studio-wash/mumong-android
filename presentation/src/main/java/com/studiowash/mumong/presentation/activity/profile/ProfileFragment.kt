@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
         binding.root.viewTreeObserver.addOnGlobalLayoutListener {
             initScrollY()
         }
-        binding.profileIconImageView.clipToOutline = true
+        binding.ivProfile.clipToOutline = true
     }
 
     private fun initOnClick() {

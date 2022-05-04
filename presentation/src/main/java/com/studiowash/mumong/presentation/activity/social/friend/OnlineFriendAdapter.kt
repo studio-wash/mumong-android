@@ -12,6 +12,7 @@ class OnlineFriendAdapter(private val onClick: (position: Int, item: com.studiow
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnlineFriendViewHolder {
         val binding = ItemSocialFriendOnlineFriendBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.ivProfile.clipToOutline = true
         return OnlineFriendViewHolder(binding)
     }
 

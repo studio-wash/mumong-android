@@ -4,5 +4,5 @@
         android:startColor="@color/brand_color_1"
         android:endColor="@color/brand_secondary_color"
         android:angle="270"/>
-    <corners android:radius="20dp" />
+    <corners android:radius="16dp" />
 </shape>
