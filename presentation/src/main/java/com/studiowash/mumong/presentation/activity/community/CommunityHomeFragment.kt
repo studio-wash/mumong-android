@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.kakao.adfit.ads.AdListener
+import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.activity.community.article.CommunityArticleActivity
 import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
 import com.studiowash.mumong.presentation.R
@@ -45,7 +46,7 @@ class CommunityHomeFragment : Fragment() {
                         "1분 전",
                         2,
                         listOf(),
-                        com.studiowash.mumong.domain.login.entity.UserEntity(
+                        UserEntity(
                             nickname = "비지비지",
                             profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                         )
@@ -59,7 +60,7 @@ class CommunityHomeFragment : Fragment() {
                                 "오 이거 진짜 좋은 거 같아요!",
                                 "방금",
                                 0,
-                                com.studiowash.mumong.domain.login.entity.UserEntity(
+                                UserEntity(
                                     nickname = "까지",
                                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                                 )
@@ -68,13 +69,13 @@ class CommunityHomeFragment : Fragment() {
                                 "헐 진짜요!",
                                 "방금",
                                 0,
-                                com.studiowash.mumong.domain.login.entity.UserEntity(
+                                UserEntity(
                                     nickname = "비지비지",
                                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                                 )
                             )
                         ),
-                        com.studiowash.mumong.domain.login.entity.UserEntity(
+                        UserEntity(
                             nickname = "까지",
                             profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                         )
@@ -84,13 +85,13 @@ class CommunityHomeFragment : Fragment() {
                         "1분 전",
                         2,
                         listOf(),
-                        com.studiowash.mumong.domain.login.entity.UserEntity(
+                        UserEntity(
                             nickname = "비지비지",
                             profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                         )
                     )
                 ),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ),
@@ -107,7 +108,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ),
@@ -131,7 +132,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "샤샤샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -143,7 +144,7 @@ class CommunityHomeFragment : Fragment() {
                 "1분 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -154,7 +155,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -165,7 +166,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "샤샤샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -177,7 +178,7 @@ class CommunityHomeFragment : Fragment() {
                 "1분 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -188,7 +189,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -199,7 +200,7 @@ class CommunityHomeFragment : Fragment() {
                 "2시간 전",
                 21, 2,
                 listOf(),
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "샤샤샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )

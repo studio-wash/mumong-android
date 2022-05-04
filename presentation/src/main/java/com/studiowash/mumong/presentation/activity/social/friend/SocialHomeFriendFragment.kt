@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.domain.social.entity.OnlineFriendEntity
 import com.studiowash.mumong.domain.social.entity.SocialArticleEntity
+import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.activity.social.article.SocialArticleActivity
 import com.studiowash.mumong.presentation.constant.StringKeySet
@@ -23,37 +24,37 @@ class SocialHomeFriendFragment : Fragment() {
     private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickFriend, this::onClickArticle, this::onPlayRecording, this::onPauseRecording).apply {
         friends = listOf(
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "비지비지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "까지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "무수한 연습",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), false
             ),
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "샤샤샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), false
             ),
             OnlineFriendEntity(
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), false
@@ -65,7 +66,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "오늘은  레슨실에서 녹턴 피아노 연습!\n통기타 2주차 연습곡으로 10월의 어느 멋진 날 연습했다! 코드 잡는 법이 아직 어렵다.",
                 "1분 전",
                 84, 24,
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ),
@@ -88,7 +89,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "바빠서 오늘 연습은 패스",
                 "2시간 전",
                 3, 2,
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "비지비지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 )
@@ -97,7 +98,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "새로운 악기를 배우는 것은 언제나 즐겁다!\n오늘 처음 시작한 콘트라베이스도 굉장히 매력있는 악기인 듯 한데 아니 무슨 콘트라베이스를 갑자기 배우나요 ㅋㅋ",
                 "1일 전",
                 245, 121,
-                com.studiowash.mumong.domain.login.entity.UserEntity(
+                UserEntity(
                     nickname = "까지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ),
