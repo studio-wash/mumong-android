@@ -17,6 +17,7 @@ class AddPracticeFragment : Fragment(R.layout.fragment_practice_add_practice) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentPracticeAddPracticeBinding.bind(view)
 
+        initView()
         initOnClick()
         initToolbar()
         initObserve()
@@ -30,6 +31,10 @@ class AddPracticeFragment : Fragment(R.layout.fragment_practice_add_practice) {
     override fun onStop() {
         super.onStop()
         viewModel.stopCountingTime()
+    }
+
+    private fun initView() {
+
     }
 
     private fun initOnClick() {

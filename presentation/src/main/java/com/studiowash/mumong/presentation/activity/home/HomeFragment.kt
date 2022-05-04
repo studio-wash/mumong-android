@@ -8,9 +8,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import com.studiowash.mumong.domain.EventEntity
+import com.studiowash.mumong.domain.NoticeEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
+import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
@@ -40,16 +43,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.eventRecyclerView.adapter = eventAdapter
 
         noticeAdapter.noticeItems = listOf(
-            com.studiowash.mumong.domain.NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.NoticeEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            NoticeEntity(Constants.sample_image_url),
+            NoticeEntity(Constants.sample_image_url),
+            NoticeEntity(Constants.sample_image_url),
+            NoticeEntity(Constants.sample_image_url)
         )
         eventAdapter.eventItems = listOf(
-            com.studiowash.mumong.domain.EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"),
-            com.studiowash.mumong.domain.EventEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+            EventEntity(Constants.sample_image_url),
+            EventEntity(Constants.sample_image_url),
+            EventEntity(Constants.sample_image_url),
+            EventEntity(Constants.sample_image_url)
         )
     }
 

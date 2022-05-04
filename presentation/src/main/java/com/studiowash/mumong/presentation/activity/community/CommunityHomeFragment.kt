@@ -9,6 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import com.kakao.adfit.ads.AdListener
+import com.studiowash.mumong.domain.Constants
+import com.studiowash.mumong.domain.common.entity.AttachedImageEntity
+import com.studiowash.mumong.domain.common.entity.CommentEntity
+import com.studiowash.mumong.domain.common.entity.CommentReplyEntity
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
+import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
+import com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.activity.community.article.CommunityArticleActivity
 import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
@@ -23,86 +31,86 @@ class CommunityHomeFragment : Fragment() {
 
     private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
         favoriteBoardItems = listOf(
-            com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity("피아노"),
-            com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity("밴드"),
-            com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity("오케스트라")
+            FavoriteBoardEntity("피아노"),
+            FavoriteBoardEntity("밴드"),
+            FavoriteBoardEntity("오케스트라")
         )
     }
 
     private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
-        topicItems = com.studiowash.mumong.domain.community.entity.CommunityTopicEntity.values().toList()
+        topicItems = CommunityTopicEntity.values().toList()
     }
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
                 21, 2,
                 listOf(
-                    com.studiowash.mumong.domain.common.entity.CommentEntity(
+                    CommentEntity(
                         "맞아요..! 어플 너무 좋아요ㅜㅜㅜ",
                         "1분 전",
                         2,
                         listOf(),
                         UserEntity(
                             nickname = "비지비지",
-                            profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                            profileImg = Constants.sample_image_url
                         )
                     ),
-                    com.studiowash.mumong.domain.common.entity.CommentEntity(
+                    CommentEntity(
                         "저는 연습실 예약이 조금 어려운데, 그것도 넣으면 좋을 거 같아요! 당장 만들기에는 힘이 들겠지만..!",
                         "방금",
                         5,
                         listOf(
-                            com.studiowash.mumong.domain.common.entity.CommentReplyEntity(
+                            CommentReplyEntity(
                                 "오 이거 진짜 좋은 거 같아요!",
                                 "방금",
                                 0,
                                 UserEntity(
                                     nickname = "까지",
-                                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                                    profileImg = Constants.sample_image_url
                                 )
                             ),
-                            com.studiowash.mumong.domain.common.entity.CommentReplyEntity(
+                            CommentReplyEntity(
                                 "헐 진짜요!",
                                 "방금",
                                 0,
                                 UserEntity(
                                     nickname = "비지비지",
-                                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                                    profileImg = Constants.sample_image_url
                                 )
                             )
                         ),
                         UserEntity(
                             nickname = "까지",
-                            profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                            profileImg = Constants.sample_image_url
                         )
                     ),
-                    com.studiowash.mumong.domain.common.entity.CommentEntity(
+                    CommentEntity(
                         "맞아요..! 어플 너무 좋아요ㅜㅜㅜ",
                         "1분 전",
                         2,
                         listOf(),
                         UserEntity(
                             nickname = "비지비지",
-                            profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                            profileImg = Constants.sample_image_url
                         )
                     )
                 ),
                 UserEntity(
                     nickname = "데이드림",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 ),
                 attachedImages = listOf(
-                    com.studiowash.mumong.domain.common.entity.AttachedImageEntity(
-                        "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    AttachedImageEntity(
+                        Constants.sample_image_url
                     ),
-                    com.studiowash.mumong.domain.common.entity.AttachedImageEntity("https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png")
+                    AttachedImageEntity(Constants.sample_image_url)
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -110,15 +118,15 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "데샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 ),
                 attachedImages = listOf(
-                    com.studiowash.mumong.domain.common.entity.AttachedImageEntity(
-                        "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    AttachedImageEntity(
+                        Constants.sample_image_url
                     )
                 ),
                 recordings = listOf(
-                    com.studiowash.mumong.domain.common.entity.RecordingEntity(
+                    RecordingEntity(
                         "",
                         "3:32",
                         "피아노",
@@ -126,7 +134,7 @@ class CommunityHomeFragment : Fragment() {
                     )
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -134,11 +142,11 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "샤샤샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
 
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -146,10 +154,10 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "데이드림",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -157,10 +165,10 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "데샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -168,11 +176,11 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "샤샤샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
 
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -180,10 +188,10 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "데이드림",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -191,10 +199,10 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "데샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             ),
-            com.studiowash.mumong.domain.community.entity.CommunityArticleEntity(
+            CommunityArticleEntity(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -202,7 +210,7 @@ class CommunityHomeFragment : Fragment() {
                 listOf(),
                 UserEntity(
                     nickname = "샤샤샤",
-                    profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
+                    profileImg = Constants.sample_image_url
                 )
             )
         )
@@ -281,7 +289,7 @@ class CommunityHomeFragment : Fragment() {
     private fun initObserve() {
     }
 
-    private fun onClickBoard(boardIndex: Int, board: com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity) {
+    private fun onClickBoard(boardIndex: Int, board: FavoriteBoardEntity) {
         favoriteBoardAdapter.selectedIndex = boardIndex
     }
 
@@ -289,11 +297,11 @@ class CommunityHomeFragment : Fragment() {
         // todo
     }
 
-    private fun onClickTopic(tagIndex: Int, tag: com.studiowash.mumong.domain.community.entity.CommunityTopicEntity) {
+    private fun onClickTopic(tagIndex: Int, tag: CommunityTopicEntity) {
         // todo
     }
 
-    private fun onClickArticle(articleIndex: Int, article: com.studiowash.mumong.domain.community.entity.CommunityArticleEntity) {
+    private fun onClickArticle(articleIndex: Int, article: CommunityArticleEntity) {
         val intent = Intent(context, CommunityArticleActivity::class.java).apply {
             putExtra(StringKeySet.ARTICLE, article)
         }
