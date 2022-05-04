@@ -20,10 +20,10 @@
         android:paddingTop="13dp"
         android:paddingBottom="20dp">
         <ImageView
-            android:id="@+id/profile_image_view"
+            android:id="@+id/iv_profile"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:background="@drawable/bg_friend_image"
+            android:background="@drawable/bg_friend_image_small"
             imageSrc="@{item.user.profileImg}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,11 +32,11 @@
             android:id="@+id/border_online_friend"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:src="@{item.isOnline ? @drawable/border_online_friend_image : null, default=`@drawable/border_online_friend_image`}"
-            app:layout_constraintStart_toStartOf="@id/profile_image_view"
-            app:layout_constraintEnd_toEndOf="@id/profile_image_view"
-            app:layout_constraintTop_toTopOf="@id/profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/profile_image_view"/>
+            android:src="@{item.isOnline ? @drawable/border_online_friend_image_small : null, default=`@drawable/border_online_friend_image_small`}"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintEnd_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profile"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
