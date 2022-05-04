@@ -12,6 +12,7 @@ class EventAdapter : RecyclerView.Adapter<EventAdapter.EventViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val binding = ItemHomeEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.ivEvent.clipToOutline = true
         return EventViewHolder(binding)
     }
 

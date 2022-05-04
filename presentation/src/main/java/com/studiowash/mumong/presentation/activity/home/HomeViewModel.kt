@@ -3,6 +3,7 @@ package com.studiowash.mumong.presentation.activity.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.studiowash.mumong.domain.common.RequestResult
 import com.studiowash.mumong.presentation.SingleLiveEvent
 import com.studiowash.mumong.presentation.activity.home.model.TestGetHelloResult
 import com.studiowash.mumong.presentation.activity.home.model.TestPutEchoResult
@@ -43,12 +44,12 @@ class HomeViewModel @Inject constructor(
                 showToast(exception.stackTraceToString())
             }.collect { result ->
                 when(result) {
-                    is com.studiowash.mumong.domain.common.RequestResult.Success -> {
+                    is RequestResult.Success -> {
                         _testGetHelloLoadingState.value =
                             TestGetHelloLoadingState.Success(result.data)
                         showToast("getHelloUseCase Success, ${result.data}")
                     }
-                    is com.studiowash.mumong.domain.common.RequestResult.Fail -> {
+                    is RequestResult.Fail -> {
                         _testGetHelloLoadingState.value =
                             TestGetHelloLoadingState.Fail(result.code, result.message)
                         showToast("getHelloUseCase Fail, ${result.code}, ${result.message}")
@@ -64,14 +65,15 @@ class HomeViewModel @Inject constructor(
                 _testPutEchoLoadingState.value = TestPutEchoLoadingState.Loading
             }.catch { exception ->
                 showToast(exception.stackTraceToString())
+                _testPutEchoLoadingState.value = TestPutEchoLoadingState.Fail(0,exception.message)
             }.collect { result ->
                 when(result) {
-                    is com.studiowash.mumong.domain.common.RequestResult.Success -> {
+                    is RequestResult.Success -> {
                         _testPutEchoLoadingState.value =
                             TestPutEchoLoadingState.Success(result.data.toTestPutEchoResult())
                         showToast("putEchoUseCase Success, ${result.data}")
                     }
-                    is com.studiowash.mumong.domain.common.RequestResult.Fail -> {
+                    is RequestResult.Fail -> {
                         _testPutEchoLoadingState.value =
                             TestPutEchoLoadingState.Fail(result.code, result.message)
                         showToast("putEchoUseCase Fail, ${result.code}, ${result.message}")

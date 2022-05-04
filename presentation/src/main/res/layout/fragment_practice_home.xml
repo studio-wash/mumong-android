@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="@id/cv_date_scroll_view"
             android:background="@drawable/bg_rounded_bottom_rect_20dp_fill_white"/>
         <TextView
-            android:id="@+id/tv_practice_title"
+            android:id="@+id/iv_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
             android:id="@+id/ll_calendar_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_practice_title"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="horizontal">

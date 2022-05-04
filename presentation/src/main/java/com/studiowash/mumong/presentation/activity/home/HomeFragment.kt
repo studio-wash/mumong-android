@@ -42,6 +42,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         binding.llNotice.clipToOutline = true
         binding.llEvent.clipToOutline = true
 
+        binding.ivBgBtnGoPractice.clipToOutline = true
+
         binding.rvNoticeList.adapter = noticeAdapter
         binding.rvEventList.adapter = eventAdapter
 
@@ -83,11 +85,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initOnClick() {
-        binding.ivProfile.setOnClickListener {
-            val intent = Intent(context, ProfileActivity::class.java)
-            startActivity(intent)
-            activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
-        }
     }
 
     override fun onDestroyView() {
