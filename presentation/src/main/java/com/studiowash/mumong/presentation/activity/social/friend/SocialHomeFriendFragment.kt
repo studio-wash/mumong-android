@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.studiowash.mumong.domain.common.entity.RecordingEntity
+import com.studiowash.mumong.domain.social.entity.OnlineFriendEntity
+import com.studiowash.mumong.domain.social.entity.SocialArticleEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.activity.social.article.SocialArticleActivity
 import com.studiowash.mumong.presentation.constant.StringKeySet
@@ -18,37 +21,37 @@ class SocialHomeFriendFragment : Fragment() {
 
     private val socialHomeFriendAdapter = SocialHomeFriendAdapter(this::onClickFriend, this::onClickArticle, this::onPlayRecording, this::onPauseRecording).apply {
         friends = listOf(
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "데이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "비지비지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "까지",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), true
             ),
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "무수한 연습",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), false
             ),
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "샤샤샤",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
                 ), false
             ),
-            com.studiowash.mumong.domain.social.entity.OnlineFriendEntity(
+            OnlineFriendEntity(
                 com.studiowash.mumong.domain.login.entity.UserEntity(
                     nickname = "데이이드림",
                     profileImg = "https://whoisnerdy.com/web/product/big/202201/0cb0fe62aac7685c3692371492c2cbeb.png"
@@ -144,11 +147,12 @@ class SocialHomeFriendFragment : Fragment() {
         }
     }
 
-    private fun onClickFriend(position: Int, friend: com.studiowash.mumong.domain.social.entity.OnlineFriendEntity) {
-        // todo
+    private fun onClickFriend(position: Int, friend: OnlineFriendEntity) {
+        val cheerFriendDialog = CheerFriendDialog.newInstance(requireContext(), friend)
+        cheerFriendDialog.show()
     }
 
-    private fun onClickArticle(position: Int, article: com.studiowash.mumong.domain.social.entity.SocialArticleEntity) {
+    private fun onClickArticle(position: Int, article: SocialArticleEntity) {
         val intent = Intent(context, SocialArticleActivity::class.java).apply {
             putExtra(StringKeySet.ARTICLE, article)
         }
@@ -156,10 +160,10 @@ class SocialHomeFriendFragment : Fragment() {
         activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
     }
 
-    private fun onPlayRecording(recording: com.studiowash.mumong.domain.common.entity.RecordingEntity?) {
+    private fun onPlayRecording(recording: RecordingEntity?) {
     }
 
-    private fun onPauseRecording(recording: com.studiowash.mumong.domain.common.entity.RecordingEntity?) {
+    private fun onPauseRecording(recording: RecordingEntity?) {
     }
 
     override fun onDestroy() {
