@@ -15,6 +15,7 @@ import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.activity.MumongFragment
+import com.studiowash.mumong.presentation.activity.practice.PracticeDiaryActivity
 import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
 import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
@@ -107,6 +108,9 @@ class HomeFragment : MumongFragment(true) {
     private fun initOnClick() {
         binding.flBtnGoPractice.setOnClickListener {
             startActivity(Intent(context, AddPracticeActivity::class.java))
+        }
+        binding.flBtnWeeklyPractice.setOnClickListener {
+            startActivity(Intent(context, PracticeDiaryActivity::class.java))
         }
     }
 

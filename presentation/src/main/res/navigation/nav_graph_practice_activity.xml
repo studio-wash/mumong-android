@@ -6,16 +6,16 @@
     app:startDestination="@id/practiceHomeFragmentNav">
     <fragment
         android:id="@+id/practiceHomeFragmentNav"
-        android:name="com.studiowash.mumong.presentation.activity.practice.home.PracticeHomeFragment"
+        android:name="com.studiowash.mumong.presentation.activity.practice.home.PracticeWeeklyFragment"
         android:label="PracticeHomeFragment"
-        tools:layout="@layout/fragment_practice_home">
+        tools:layout="@layout/fragment_practice_weekly">
         <action
             android:id="@+id/action_practiceFragmentNav_to_practiceCalendarFragmentNav"
             app:destination="@id/practiceDiaryFragmentNav" />
     </fragment>
     <fragment
         android:id="@+id/practiceDiaryFragmentNav"
-        android:name="com.studiowash.mumong.presentation.activity.practice.diary.PracticeDiaryFragment"
+        android:name="com.studiowash.mumong.presentation.activity.practice.diary.PracticeCalendarFragment"
         android:label="PracticeDiaryFragment"
         tools:layout="@layout/fragment_practice_calendar" />
 </navigation>

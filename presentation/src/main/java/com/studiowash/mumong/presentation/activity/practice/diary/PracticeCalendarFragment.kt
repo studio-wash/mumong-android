@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.activity.practice.diary.view.calendar.PracticeCalendarDateAdapter
 import com.studiowash.mumong.presentation.activity.practice.diary.view.calendar.PracticeCalendarDayInWeekAdapter
 import com.studiowash.mumong.presentation.databinding.FragmentPracticeCalendarBinding
 import java.util.*
 
-class PracticeDiaryFragment : Fragment(){
+class PracticeCalendarFragment : MumongFragment(true){
     private lateinit var binding: FragmentPracticeCalendarBinding
 
     override fun onCreateView(
