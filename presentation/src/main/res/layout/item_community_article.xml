@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+        android:paddingVertical="20dp">
+
+        <!-- 내용 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/article_content_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- 게시글 제목 -->
+            <TextView
+                android:id="@+id/title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/title_mic_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{item.title, default=`제목`}"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:maxLines="1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constrainedWidth="true"/>
+
+            <ImageView
+                android:id="@+id/title_mic_image_view"
+                android:layout_width="15dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_attached_recording_mic"
+                app:layout_constraintTop_toTopOf="@id/title_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/title_text_view"
+                app:layout_constraintEnd_toStartOf="@id/iv_represent_image"
+                invisibleUnless="@{item.recordings != null &amp;&amp; !item.recordings.empty}"/>
+
+            <!-- 게시글 본문 -->
+            <TextView
+                android:id="@+id/content_text_view"
+                style="@style/articleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                app:layout_constraintStart_toStartOf="@id/title_text_view"
+                app:layout_constraintEnd_toStartOf="@id/iv_represent_image"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:text="@{item.content, default=`본문`}"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="2"/>
+
+            <!-- 첨부 이미지 -->
+            <ImageView
+                android:id="@+id/iv_represent_image"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title_text_view"
+                android:background="@drawable/bg_rounded_rect_8dp_fill_white"
+                goneUnless="@{item.attachedImages != null &amp;&amp; !item.attachedImages.empty}"
+                imageSrc="@{item.attachedImages.empty ? null : item.attachedImages[0].imageSrc}"
+                android:scaleType="centerCrop"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 글쓴이 정보 -->
+        <ImageView
+            android:id="@+id/iv_user_profile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/article_content_constraint_layout"
+            android:background="@drawable/bg_circle_white"
+            android:src="@drawable/ic_default_profile"
+            imageSrc="@{item.user.profileImg}"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/user_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            android:text="@{item.user.nickname, default=`작성자`}"
+            android:textSize="11sp"
+            android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/user_name_profile_image_separator_dot"
+            android:layout_width="2dp"
+            android:layout_height="2dp"
+            android:src="@drawable/drawable_seperator_dot"
+            app:layout_constraintStart_toEndOf="@id/user_name_text_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            android:layout_marginStart="3dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            android:text="@{item.writtenTime, default=`1분 전`}"
+            android:textSize="10sp"
+            android:layout_marginStart="3dp"/>
+
+        <!-- 우측 하단 좋아요, 댓글 개수 -->
+        <LinearLayout
+            android:id="@+id/like_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/comment_linear_layout"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="3dp">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_like_selected"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="@{Integer.toString(item.likeCount), default=`0`}"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/comment_linear_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_comment_selected"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:text="@{Integer.toString(item.commentCount), default=`0`}"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

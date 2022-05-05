@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.domain.social.entity.OnlineFriendEntity" />
+        <variable
+            name="isFirstItem"
+            type="boolean" />
+        <variable
+            name="isSelected"
+            type="boolean" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="8dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="20dp">
+        <ImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_rounded_rect_16dp_fill_white"
+            imageSrc="@{item.user.profileImg}"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/border_online_friend"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@{item.isOnline ? @drawable/border_with_56_round_56_stroke_2 : null, default=@drawable/border_with_56_round_56_stroke_2}"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintEnd_toEndOf="@id/iv_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_profile"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.user.nickname, default=`username`}"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/border_online_friend"
+            android:textSize="12sp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
