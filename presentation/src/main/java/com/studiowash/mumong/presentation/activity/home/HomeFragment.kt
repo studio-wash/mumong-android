@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.PagerSnapHelper
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
+import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
 import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
+import com.studiowash.mumong.presentation.widget.HorizontalSpacingItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -48,17 +50,23 @@ class HomeFragment : MumongFragment(true) {
     private fun initView() {
         binding.llNotice.clipToOutline = true
         binding.llEvent.clipToOutline = true
-
         binding.ivBgBtnGoPractice.clipToOutline = true
 
-        binding.rvNoticeList.adapter = noticeAdapter
-        binding.rvEventList.adapter = eventAdapter
+        val spaceWidth = resources.getDimensionPixelSize(R.dimen.rv_horizontal_spacing_width)
+        binding.rvNoticeList.apply {
+            adapter = noticeAdapter
+            addItemDecoration(HorizontalSpacingItemDecoration(spaceWidth))
+            val noticeSnapHelper = PagerSnapHelper()
+            noticeSnapHelper.attachToRecyclerView(binding.rvNoticeList)
+        }
+        binding.rvEventList.apply {
+            adapter = eventAdapter
+            addItemDecoration(HorizontalSpacingItemDecoration(spaceWidth))
+            val eventSnapHelper = PagerSnapHelper()
+            eventSnapHelper.attachToRecyclerView(binding.rvEventList)
+        }
 
-        val noticeSnapHelper = PagerSnapHelper()
-        noticeSnapHelper.attachToRecyclerView(binding.rvNoticeList)
-        val eventSnapHelper = PagerSnapHelper()
-        eventSnapHelper.attachToRecyclerView(binding.rvEventList)
-
+        // for test
         noticeAdapter.noticeItems = listOf(
             NoticeEntity(Constants.sample_image_url),
             NoticeEntity(Constants.sample_image_url),
