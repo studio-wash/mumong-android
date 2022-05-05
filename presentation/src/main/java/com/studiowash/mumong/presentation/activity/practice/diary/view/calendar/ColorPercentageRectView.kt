@@ -22,9 +22,7 @@ class ColorPercentageRectView @JvmOverloads constructor(
     private val backgroundRect = RectF()
     private val additionalRect = RectF()
 
-    var innerPadding =
-        context.resources.getDimensionPixelSize(R.dimen._calendar_date_background_inner_padding)
-            .toFloat()
+    var innerPadding = 0f
     var radius =
         context.resources.getDimensionPixelSize(R.dimen._calendar_date_background_radius).toFloat()
 

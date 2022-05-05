@@ -99,18 +99,16 @@
                     app:layout_constraintStart_toEndOf="@id/fl_btn_practice_report"
                     app:layout_constraintTop_toTopOf="@id/fl_btn_practice_report"
                     app:layout_constraintBottom_toBottomOf="@id/fl_btn_practice_report"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/bg_rounded_rect_16dp_fill_brand_4">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:layout_gravity="top|start"
-                        android:textColor="@color/brand_color_1"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginStart="16dp"
-                        android:textStyle="bold"
-                        android:text="연습\n리포트"/>
+                    android:layout_marginStart="6dp">
+                    <com.studiowash.mumong.presentation.activity.practice.diary.view.calendar.ColorPercentageRectView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_rounded_rect_20dp_fill_white"
+                            android:clipToOutline="true"/>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/border_width_100_round_20_stroke_2"/>
                 </FrameLayout>
                 <FrameLayout
                     android:id="@+id/fl_btn_monthly_practice"
