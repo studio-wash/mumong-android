@@ -14,12 +14,14 @@
         android:paddingVertical="15dp">
         <!-- 글쓴이 정보 -->
         <ImageView
-            android:id="@+id/user_profile_image_view"
+            android:id="@+id/iv_user_profile"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:src="@drawable/ic_default_profile"
+            android:background="@drawable/bg_circle_white"
             imageSrc="@{item.user.profileImg}"/>
         <ImageView
             android:layout_width="24dp"
@@ -30,9 +32,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintStart_toEndOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:layout_marginStart="10dp">
             <TextView
                 android:id="@+id/user_name_text_view"
@@ -77,7 +79,7 @@
             android:id="@+id/record_list_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
             android:layout_marginTop="10dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <TextView

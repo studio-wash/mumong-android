@@ -39,6 +39,7 @@ class SocialHomeFriendAdapter(
             }
             else -> {
                 val binding = ItemSocialFriendArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                binding.ivUserProfile.clipToOutline = true
                 RecentArticleViewHolder(binding)
             }
         }

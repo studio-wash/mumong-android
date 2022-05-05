@@ -43,7 +43,7 @@
                 android:src="@drawable/ic_attached_recording_mic"
                 app:layout_constraintTop_toTopOf="@id/title_text_view"
                 app:layout_constraintBottom_toBottomOf="@id/title_text_view"
-                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                app:layout_constraintEnd_toStartOf="@id/iv_represent_image"
                 invisibleUnless="@{item.recordings != null &amp;&amp; !item.recordings.empty}"/>
 
             <!-- 게시글 본문 -->
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/title_text_view"
                 app:layout_constraintStart_toStartOf="@id/title_text_view"
-                app:layout_constraintEnd_toStartOf="@id/represent_image_view"
+                app:layout_constraintEnd_toStartOf="@id/iv_represent_image"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:text="@{item.content, default=`본문`}"
@@ -64,22 +64,25 @@
 
             <!-- 첨부 이미지 -->
             <ImageView
-                android:id="@+id/represent_image_view"
+                android:id="@+id/iv_represent_image"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/title_text_view"
+                android:background="@drawable/bg_rounded_rect_8dp_fill_white"
                 goneUnless="@{item.attachedImages != null &amp;&amp; !item.attachedImages.empty}"
                 imageSrc="@{item.attachedImages.empty ? null : item.attachedImages[0].imageSrc}"
                 android:scaleType="centerCrop"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- 글쓴이 정보 -->
         <ImageView
-            android:id="@+id/user_profile_image_view"
+            android:id="@+id/iv_user_profile"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/article_content_constraint_layout"
+            android:background="@drawable/bg_circle_white"
             android:src="@drawable/ic_default_profile"
             imageSrc="@{item.user.profileImg}"
             android:layout_marginTop="15dp"/>
@@ -87,9 +90,9 @@
             android:id="@+id/user_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintStart_toEndOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:text="@{item.user.nickname, default=`작성자`}"
             android:textSize="11sp"
             android:textStyle="bold"/>
@@ -99,15 +102,15 @@
             android:layout_height="2dp"
             android:src="@drawable/drawable_seperator_dot"
             app:layout_constraintStart_toEndOf="@id/user_name_text_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:layout_marginStart="3dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:text="@{item.writtenTime, default=`1분 전`}"
             android:textSize="10sp"
             android:layout_marginStart="3dp"/>
@@ -118,8 +121,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@id/comment_linear_layout"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:gravity="center_vertical"
             android:layout_marginEnd="3dp">
             <ImageView
@@ -137,8 +140,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:gravity="center_vertical">
             <ImageView
                 android:layout_width="24dp"

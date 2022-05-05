@@ -28,6 +28,8 @@ class SocialHomeFragment : MumongFragment(true) {
     }
 
     private fun initView() {
+        binding.ivProfile.clipToOutline = true
+
         val innerNavController = (childFragmentManager.findFragmentById(R.id.social_home_content_view) as NavHostFragment).navController
         binding.friendPageButtonLinearLayout.setOnClickListener{
             binding.pageIndex = 0

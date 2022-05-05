@@ -14,7 +14,7 @@
 
         <!-- 댓글쓴이 정보 -->
         <ImageView
-            android:id="@+id/user_profile_image_view"
+            android:id="@+id/iv_user_profile"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,9 +25,9 @@
             android:id="@+id/user_name_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user_profile_image_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintStart_toEndOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:text="@{item.user.nickname, default=`작성자`}"
             android:textStyle="bold"/>
         <ImageView
@@ -36,15 +36,15 @@
             android:layout_height="2dp"
             android:src="@drawable/drawable_seperator_dot"
             app:layout_constraintStart_toEndOf="@id/user_name_text_view"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:layout_marginStart="3dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
-            app:layout_constraintTop_toTopOf="@id/user_profile_image_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_profile_image_view"
+            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
+            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:text="@{item.writtenTime, default=`1분 전`}"
             android:layout_marginStart="3dp"/>
 
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{item.content, default=`댓글 내용`}"
-            app:layout_constraintTop_toBottomOf="@id/user_profile_image_view"/>
+            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"/>
 
         <!-- 좋아요 및 대댓글 달기 -->
         <LinearLayout
