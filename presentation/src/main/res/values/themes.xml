@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/brand_color_2</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
 
@@ -18,7 +18,6 @@
         <item name="windowNoTitle">true</item>
 
         <item name="fontFamily">@font/font_pretendard</item>
-        <item name="lineHeight">20sp</item>
     </style>
 
     <style name="Theme.MuMong.SlideRight" parent="Theme.MuMong">

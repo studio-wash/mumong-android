@@ -9,19 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.activity.practice.PracticeClickEvent
 import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
-import com.studiowash.mumong.presentation.databinding.FragmentPracticeHomeBinding
+import com.studiowash.mumong.presentation.databinding.FragmentPracticeWeeklyBinding
 
-class PracticeHomeFragment : Fragment(){
-    private lateinit var binding: FragmentPracticeHomeBinding
+class PracticeWeeklyFragment : MumongFragment(true){
+    private lateinit var binding: FragmentPracticeWeeklyBinding
     private val practiceHomeViewModel: PracticeHomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPracticeHomeBinding.inflate(inflater, container, false)
+        binding = FragmentPracticeWeeklyBinding.inflate(inflater, container, false)
         binding.viewModel = practiceHomeViewModel
 
         initView()
@@ -44,7 +45,6 @@ class PracticeHomeFragment : Fragment(){
                 PracticeClickEvent.OnClickAddNewPractice -> {
                     val intent = Intent(context, AddPracticeActivity::class.java)
                     startActivity(intent)
-                    activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
                 }
             }
         }

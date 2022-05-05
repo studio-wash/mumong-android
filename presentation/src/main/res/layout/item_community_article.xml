@@ -49,6 +49,7 @@
             <!-- 게시글 본문 -->
             <TextView
                 android:id="@+id/content_text_view"
+                style="@style/articleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/title_text_view"
@@ -56,7 +57,6 @@
                 app:layout_constraintEnd_toStartOf="@id/represent_image_view"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
-                android:textSize="12sp"
                 android:text="@{item.content, default=`본문`}"
                 android:ellipsize="end"
                 android:inputType="none"

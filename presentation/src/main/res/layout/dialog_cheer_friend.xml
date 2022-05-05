@@ -52,7 +52,7 @@
                     android:id="@+id/iv_border_online_friend"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
-                    android:src="@{item.isOnline ? @drawable/border_online_friend_image_large : null, default=`@drawable/border_online_friend_image_large`}"
+                    android:src="@{item.isOnline ? @drawable/border_width_120_round_16_stroke_4 : null, default=@drawable/border_width_120_round_16_stroke_4}"
                     app:layout_constraintStart_toStartOf="@id/iv_profile"
                     app:layout_constraintEnd_toEndOf="@id/iv_profile"
                     app:layout_constraintTop_toTopOf="@id/iv_profile"

@@ -4,9 +4,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongActivity
 import com.studiowash.mumong.presentation.databinding.ActivityProfileBinding
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : MumongActivity(true) {
     private lateinit var binding: ActivityProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

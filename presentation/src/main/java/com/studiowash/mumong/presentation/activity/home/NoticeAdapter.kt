@@ -12,6 +12,7 @@ class NoticeAdapter : RecyclerView.Adapter<NoticeAdapter.NoticeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticeViewHolder {
         val binding = ItemHomeNoticeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.ivNotice.clipToOutline = true
         return NoticeViewHolder(binding)
     }
 

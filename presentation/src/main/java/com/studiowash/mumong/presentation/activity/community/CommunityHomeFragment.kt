@@ -21,12 +21,13 @@ import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.activity.community.article.CommunityArticleActivity
 import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.constant.StringValueSet
 import com.studiowash.mumong.presentation.databinding.FragmentCommunityHomeBinding
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
-class CommunityHomeFragment : Fragment() {
+class CommunityHomeFragment : MumongFragment(true) {
     private lateinit var binding: FragmentCommunityHomeBinding
 
     private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {

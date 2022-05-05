@@ -11,12 +11,13 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
 import com.studiowash.mumong.presentation.common.adapter.CommentAdapter
 import com.studiowash.mumong.presentation.databinding.FragmentCommunityArticleBinding
 
-class CommunityArticleFragment : Fragment() {
+class CommunityArticleFragment : MumongFragment(true) {
     private lateinit var binding: FragmentCommunityArticleBinding
     private val activityViewModel: CommunityArticleActivityViewModel by activityViewModels()
 

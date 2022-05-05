@@ -2,25 +2,30 @@ package com.studiowash.mumong.presentation.activity.home
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.PagerSnapHelper
+import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongFragment
+import com.studiowash.mumong.presentation.activity.practice.PracticeDiaryActivity
+import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
 import com.studiowash.mumong.presentation.common.extension.showToast
-import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
-import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
+import com.studiowash.mumong.presentation.widget.HorizontalSpacingItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : MumongFragment(true) {
     private val binding get() = _binding!!
     private var _binding: FragmentHomeBinding? = null
 
@@ -29,19 +34,40 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentHomeBinding.bind(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         initView()
         initOnClick()
         initObserve()
+
+        return binding.root
     }
 
     private fun initView() {
-        binding.noticeRecyclerView.adapter = noticeAdapter
-        binding.eventRecyclerView.adapter = eventAdapter
+        binding.llNotice.clipToOutline = true
+        binding.llEvent.clipToOutline = true
+        binding.ivBgBtnGoPractice.clipToOutline = true
 
+        val spaceWidth = resources.getDimensionPixelSize(R.dimen.rv_horizontal_spacing_width)
+        binding.rvNoticeList.apply {
+            adapter = noticeAdapter
+            addItemDecoration(HorizontalSpacingItemDecoration(spaceWidth))
+            val noticeSnapHelper = PagerSnapHelper()
+            noticeSnapHelper.attachToRecyclerView(binding.rvNoticeList)
+        }
+        binding.rvEventList.apply {
+            adapter = eventAdapter
+            addItemDecoration(HorizontalSpacingItemDecoration(spaceWidth))
+            val eventSnapHelper = PagerSnapHelper()
+            eventSnapHelper.attachToRecyclerView(binding.rvEventList)
+        }
+
+        // for test
         noticeAdapter.noticeItems = listOf(
             NoticeEntity(Constants.sample_image_url),
             NoticeEntity(Constants.sample_image_url),
@@ -80,10 +106,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initOnClick() {
-        binding.ivProfile.setOnClickListener {
-            val intent = Intent(context, ProfileActivity::class.java)
-            startActivity(intent)
-            activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
+        binding.flBtnGoPractice.setOnClickListener {
+            startActivity(Intent(context, AddPracticeActivity::class.java))
+        }
+        binding.flBtnWeeklyPractice.setOnClickListener {
+            startActivity(Intent(context, PracticeDiaryActivity::class.java))
         }
     }
 

@@ -7,21 +7,23 @@
     <!-- Common -->
     <string name="reply">대댓글</string>
     <string name="title_home">홈</string>
-    <string name="title_practice">연습장</string>
     <string name="title_social">소셜</string>
     <string name="title_community">커뮤니티</string>
+    <string name="title_profile">MY</string>
+    <string name="title_practice">연습장</string>
 
     <!-- Fragment Titles -->
     <string name="title_home_fragment">@string/title_home</string>
-    <string name="title_practice_fragment">@string/title_practice</string>
     <string name="title_social_fragment">@string/title_social</string>
     <string name="title_community_fragment">@string/title_community</string>
+    <string name="title_profile_fragment">@string/title_profile</string>
+    <string name="title_practice_fragment">@string/title_practice</string>
 
     <!-- Bottom Navigation Bar -->
     <string name="nav_home_label">@string/title_home</string>
-    <string name="nav_practice_label">@string/title_practice</string>
     <string name="nav_social_label">@string/title_social</string>
     <string name="nav_community_label">@string/title_community</string>
+    <string name="nav_profile_label">@string/title_profile</string>
 
     <!-- Home Fragment -->
     <string name="home_notice_title">공지사항</string>

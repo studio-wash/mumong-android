@@ -8,11 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.common.adapter.AttachedImageAdapter
 import com.studiowash.mumong.presentation.common.adapter.RecordingAdapter
 import com.studiowash.mumong.presentation.databinding.FragmentSocialArticleBinding
 
-class SocialArticleFragment : Fragment() {
+class SocialArticleFragment : MumongFragment(true) {
     private lateinit var binding: FragmentSocialArticleBinding
     private val activityViewModel: SocialArticleActivityViewModel by activityViewModels()
 
