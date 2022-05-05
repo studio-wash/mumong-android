@@ -2,17 +2,20 @@ package com.studiowash.mumong.presentation.activity.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.fragment.app.Fragment
+import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
 import com.studiowash.mumong.presentation.R
-import com.studiowash.mumong.presentation.activity.profile.ProfileActivity
+import com.studiowash.mumong.presentation.activity.MumongFragment
+import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
 import com.studiowash.mumong.presentation.common.extension.showToast
 import com.studiowash.mumong.presentation.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,7 +23,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : MumongFragment(true) {
     private val binding get() = _binding!!
     private var _binding: FragmentHomeBinding? = null
 
@@ -29,13 +32,18 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentHomeBinding.bind(view)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         initView()
         initOnClick()
         initObserve()
+
+        return binding.root
     }
 
     private fun initView() {

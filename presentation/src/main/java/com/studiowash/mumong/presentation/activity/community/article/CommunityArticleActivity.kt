@@ -5,10 +5,11 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.activity.MumongActivity
 import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.databinding.ActivityCommunityArticleBinding
 
-class CommunityArticleActivity : AppCompatActivity() {
+class CommunityArticleActivity : MumongActivity(true) {
     private lateinit var binding: ActivityCommunityArticleBinding
     private val viewModel: CommunityArticleActivityViewModel by viewModels()
 
