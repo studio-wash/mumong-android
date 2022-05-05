@@ -20,6 +20,9 @@
         android:name="com.studiowash.mumong.presentation.activity.community.CommunityHomeFragment"
         android:label="CommunityFragment"
         tools:layout="@layout/fragment_community_home" />
-
-    <include app:graph="@navigation/nav_graph_main_practice_fragment" />
+    <fragment
+        android:id="@+id/profileFragmentNav"
+        android:name="com.studiowash.mumong.presentation.activity.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

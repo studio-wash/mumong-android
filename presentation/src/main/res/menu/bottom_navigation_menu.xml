@@ -19,8 +19,8 @@
         android:title="@string/nav_community_label"/>
 
     <item
-        android:id="@id/myFragmentNav"
+        android:id="@id/profileFragmentNav"
         android:enabled="true"
-        android:icon="@drawable/ic_nav_my_unselected"
-        android:title="@string/nav_my_label"/>
+        android:icon="@drawable/btn_nav_profile"
+        android:title="@string/nav_profile_label"/>
 </menu>
