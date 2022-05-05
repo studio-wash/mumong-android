@@ -67,6 +67,8 @@
             imageSrc="@{LoginStatus.INSTANCE.currentUser.profileImg}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bg_circle_white"
+            android:scaleType="centerCrop"
             android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"/>
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/social_home_content_view"

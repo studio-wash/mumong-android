@@ -36,6 +36,8 @@ class SocialArticleFragment : MumongFragment(true) {
     }
 
     private fun initView() {
+        binding.ivUserProfile.clipToOutline = true
+
         binding.commentWriteView.setOnConfirmListener {
             Toast.makeText(context, "confirmed: $it", Toast.LENGTH_SHORT).show()
         }

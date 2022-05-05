@@ -233,7 +233,8 @@ class CommunityHomeFragment : MumongFragment(true) {
 
 
     private fun initView() {
-        binding.ivProfile
+        binding.ivProfile.clipToOutline = true
+
         binding.favoriteBoardsRecyclerView.apply {
             itemAnimator = null
             adapter = favoriteBoardAdapter

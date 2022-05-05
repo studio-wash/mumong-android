@@ -12,6 +12,8 @@ class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, ar
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentArticleViewHolder {
         val binding = ItemCommunityArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.ivUserProfile.clipToOutline = true
+        binding.ivRepresentImage.clipToOutline = true
         return RecentArticleViewHolder(binding)
     }
 
