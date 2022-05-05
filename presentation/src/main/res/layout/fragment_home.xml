@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="58dp"
+            android:layout_marginTop="29dp"
             android:src="@drawable/logo_mumong"
             android:layout_marginBottom="31dp"
             android:layout_marginStart="@dimen/fragment_default_horizontal_padding"/>
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:paddingTop="102dp">
+            android:paddingTop="73dp">
             <ImageView
                 android:id="@+id/iv_spring_top"
                 android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:layout_height="100dp"
                     app:layout_constraintStart_toStartOf="@id/fl_btn_go_practice"
                     app:layout_constraintTop_toBottomOf="@id/fl_btn_go_practice"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="6dp"
                     android:background="@drawable/bg_rounded_rect_16dp_fill_brand_4">
                     <TextView
                         android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
                     android:layout_height="100dp"
                     app:layout_constraintStart_toStartOf="@id/fl_btn_go_practice"
                     app:layout_constraintTop_toBottomOf="@id/fl_btn_practice_report"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="6dp"
                     android:background="@drawable/bg_rounded_rect_16dp_fill_brand_2">
                     <TextView
                         android:layout_width="wrap_content"
