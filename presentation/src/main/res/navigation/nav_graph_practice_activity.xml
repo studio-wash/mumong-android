@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/practiceFragmentNav"
-    app:startDestination="@id/practiceHomeFragmentNav">
+    app:startDestination="@id/practiceWeeklyFragmentNav">
     <fragment
-        android:id="@+id/practiceHomeFragmentNav"
+        android:id="@+id/practiceWeeklyFragmentNav"
         android:name="com.studiowash.mumong.presentation.activity.practice.home.PracticeWeeklyFragment"
-        android:label="PracticeHomeFragment"
+        android:label="PracticeWeeklyFragment"
         tools:layout="@layout/fragment_practice_weekly">
         <action
             android:id="@+id/action_practiceFragmentNav_to_practiceCalendarFragmentNav"
-            app:destination="@id/practiceDiaryFragmentNav" />
+            app:destination="@id/practiceCalendarFragmentNav" />
     </fragment>
     <fragment
-        android:id="@+id/practiceDiaryFragmentNav"
+        android:id="@+id/practiceCalendarFragmentNav"
         android:name="com.studiowash.mumong.presentation.activity.practice.diary.PracticeCalendarFragment"
-        android:label="PracticeDiaryFragment"
+        android:label="PracticeCalendarFragment"
         tools:layout="@layout/fragment_practice_calendar" />
 </navigation>
