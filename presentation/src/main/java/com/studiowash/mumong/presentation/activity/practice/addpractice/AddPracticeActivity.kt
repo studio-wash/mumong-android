@@ -14,9 +14,4 @@ class AddPracticeActivity : MumongActivity(true) {
         binding = ActivityAddPracticeBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
-
-    override fun finish() {
-        super.finish()
-        overridePendingTransition(R.anim.hold, R.anim.slide_out_to_right)
-    }
 }
