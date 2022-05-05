@@ -93,6 +93,9 @@ class HomeFragment : MumongFragment(true) {
     }
 
     private fun initOnClick() {
+        binding.flBtnGoPractice.setOnClickListener {
+            startActivity(Intent(context, AddPracticeActivity::class.java))
+        }
     }
 
     override fun onDestroyView() {
