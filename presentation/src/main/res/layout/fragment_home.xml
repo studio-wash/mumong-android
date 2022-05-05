@@ -111,7 +111,7 @@
                         android:src="@drawable/border_width_100_round_20_stroke_2"/>
                 </FrameLayout>
                 <FrameLayout
-                    android:id="@+id/fl_btn_monthly_practice"
+                    android:id="@+id/fl_btn_cheers"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:layout_constraintStart_toStartOf="@id/fl_btn_go_practice"
@@ -127,15 +127,15 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginStart="16dp"
                         android:textStyle="bold"
-                        android:text="월간\n연습장"/>
+                        android:text="응원\n모아보기"/>
                 </FrameLayout>
                 <FrameLayout
                     android:id="@+id/fl_btn_weekly_practice"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    app:layout_constraintStart_toEndOf="@id/fl_btn_monthly_practice"
-                    app:layout_constraintTop_toTopOf="@id/fl_btn_monthly_practice"
-                    app:layout_constraintBottom_toBottomOf="@id/fl_btn_monthly_practice"
+                    app:layout_constraintStart_toEndOf="@id/fl_btn_cheers"
+                    app:layout_constraintTop_toTopOf="@id/fl_btn_cheers"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_btn_cheers"
                     android:layout_marginStart="6dp"
                     android:background="@drawable/bg_rounded_rect_16dp_fill_brand_2">
                     <TextView
@@ -147,15 +147,15 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginStart="16dp"
                         android:textStyle="bold"
-                        android:text="데일리\n연습"/>
+                        android:text="주간\n연습장"/>
                 </FrameLayout>
                 <FrameLayout
                     android:id="@+id/fl_btn_piecely_practice"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     app:layout_constraintStart_toEndOf="@id/fl_btn_weekly_practice"
-                    app:layout_constraintTop_toTopOf="@id/fl_btn_monthly_practice"
-                    app:layout_constraintBottom_toBottomOf="@id/fl_btn_monthly_practice"
+                    app:layout_constraintTop_toTopOf="@id/fl_btn_cheers"
+                    app:layout_constraintBottom_toBottomOf="@id/fl_btn_cheers"
                     android:layout_marginStart="6dp"
                     android:background="@drawable/bg_rounded_rect_16dp_fill_brand_2">
                     <TextView
