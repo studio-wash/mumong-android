@@ -9,11 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.EventEntity
 import com.studiowash.mumong.domain.NoticeEntity
-import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.activity.MumongFragment
 import com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeActivity
 import com.studiowash.mumong.presentation.common.extension.showToast
@@ -54,6 +53,11 @@ class HomeFragment : MumongFragment(true) {
 
         binding.rvNoticeList.adapter = noticeAdapter
         binding.rvEventList.adapter = eventAdapter
+
+        val noticeSnapHelper = PagerSnapHelper()
+        noticeSnapHelper.attachToRecyclerView(binding.rvNoticeList)
+        val eventSnapHelper = PagerSnapHelper()
+        eventSnapHelper.attachToRecyclerView(binding.rvEventList)
 
         noticeAdapter.noticeItems = listOf(
             NoticeEntity(Constants.sample_image_url),
