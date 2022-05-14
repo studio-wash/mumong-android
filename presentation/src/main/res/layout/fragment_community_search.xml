@@ -22,7 +22,7 @@
                 android:id="@+id/iv_btn_back"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_btn_back"
+                android:src="@drawable/ic_btn_back_invert"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@color/brand_color_1"/>

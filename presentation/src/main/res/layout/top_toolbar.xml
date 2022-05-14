@@ -14,7 +14,7 @@
             android:layout_height="21dp"
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="17dp"
-            android:src="@drawable/btn_back"/>
+            android:src="@drawable/ic_btn_back"/>
         <ImageView
             android:id="@+id/toolbar_more_iamge_view"
             android:layout_width="21dp"
