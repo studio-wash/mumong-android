@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingVertical="15dp"
-        android:background="?android:attr/selectableItemBackground">
+        android:foreground="@drawable/ripple_black">
         <!-- 글쓴이 정보 -->
         <ImageView
             android:id="@+id/iv_user_profile"
