@@ -23,7 +23,8 @@ import com.studiowash.mumong.presentation.screen.community.search.CommunitySearc
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class MainCommunityFragment : MumongFragment(true) {
-    private lateinit var binding: FragmentMainCommunityBinding
+    private val binding get() = _binding!!
+    private var _binding: FragmentMainCommunityBinding? = null
 
     private val favoriteBoardAdapter = CommunityFavoriteBoardAdapter({ position, board -> }, this::onClickBoard).apply {
         boardItems = listOf(
@@ -106,13 +107,15 @@ class MainCommunityFragment : MumongFragment(true) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainCommunityBinding.inflate(inflater, container, false)
-        //binding.viewModel = communityViewModel
+        if (_binding == null) {
+            _binding = FragmentMainCommunityBinding.inflate(inflater, container, false)
+            //binding.viewModel = communityViewModel
 
-        initView()
-        initOnClick()
-        initObserve()
+            initView()
+            initOnClick()
+            initObserve()
 
+        }
         return binding.root
     }
 
@@ -180,5 +183,10 @@ class MainCommunityFragment : MumongFragment(true) {
             putExtra(StringKeySet.BOARD, board)
         }
         startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

@@ -26,7 +26,8 @@ import com.studiowash.mumong.presentation.screen.community.article.CommunityArti
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class CommunityBoardFragment : MumongFragment(true) {
-    private lateinit var binding: FragmentCommunityBoardBinding
+    private val binding get() = _binding!!
+    private var _binding: FragmentCommunityBoardBinding? = null
 
     private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
         favoriteBoardItems = listOf(
@@ -219,13 +220,14 @@ class CommunityBoardFragment : MumongFragment(true) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCommunityBoardBinding.inflate(inflater, container, false)
-        //binding.viewModel = communityViewModel
+        if (_binding == null) {
+            _binding = FragmentCommunityBoardBinding.inflate(inflater, container, false)
+            //binding.viewModel = communityViewModel
 
-        initView()
-        initOnClick()
-        initObserve()
-
+            initView()
+            initOnClick()
+            initObserve()
+        }
         return binding.root
     }
 
@@ -299,5 +301,10 @@ class CommunityBoardFragment : MumongFragment(true) {
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleEntity) {
         val action = CommunityBoardFragmentDirections.actionCommunityBoardFragmentNavToCommunityArticleFragmentNav(article)
         findNavController().navigate(action)
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }
