@@ -15,7 +15,6 @@ class MusicPlayerView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr) {
     private val binding = ViewMusicPlayerBinding.inflate(LayoutInflater.from(context), this, true)
 
-
     init {
         binding.sbSeekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {}
