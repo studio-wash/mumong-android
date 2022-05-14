@@ -65,7 +65,7 @@ class SocialHomeFriendAdapter(
                 holder.binding.root.setOnClickListener {
                     onClickArticle.invoke(articlePosition, article)
                 }
-                holder.binding.recordListRecyclerView.apply {
+                holder.binding.rvRecordList.apply {
                     adapter = attachedRecordingAdapter
                     itemAnimator = null
                 }

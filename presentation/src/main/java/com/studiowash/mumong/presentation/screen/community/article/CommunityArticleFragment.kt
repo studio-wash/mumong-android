@@ -2,9 +2,10 @@ package com.studiowash.mumong.presentation.screen.community.article
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -12,11 +13,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.navArgs
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.databinding.FragmentCommunityArticleBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 import com.studiowash.mumong.presentation.screen.common.attach.AttachedImageAdapter
 import com.studiowash.mumong.presentation.screen.common.attach.RecordingAdapter
-import com.studiowash.mumong.presentation.screen.common.comment.CommentAdapter
-import com.studiowash.mumong.presentation.databinding.FragmentCommunityArticleBinding
+import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
+import com.studiowash.mumong.presentation.widget.VerticalSpacingItemDecoration
 
 class CommunityArticleFragment : MumongFragment(true) {
     private lateinit var binding: FragmentCommunityArticleBinding
@@ -24,7 +26,7 @@ class CommunityArticleFragment : MumongFragment(true) {
 
     private val attachedRecordingAdapter = RecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
-    private val commentAdapter = CommentAdapter({}, {})
+    private val commentAdapter = CommunityCommentAdapter({}, {})
 
     private val args: CommunityArticleFragmentArgs by navArgs()
 
@@ -45,10 +47,25 @@ class CommunityArticleFragment : MumongFragment(true) {
     }
 
     private fun initView() {
-        binding.ivUserProfile.clipToOutline = true
-
         binding.commentWriteView.setOnConfirmListener {
             Toast.makeText(context, "confirmed: $it", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.rvRecordList.apply {
+            adapter = attachedRecordingAdapter
+            itemAnimator = null
+        }
+
+        binding.rvImageList.apply {
+            adapter = attachedImageAdapter
+            itemAnimator = null
+            val spacing = resources.getDimensionPixelSize(R.dimen.rv_vertical_spacing_height)
+            addItemDecoration(VerticalSpacingItemDecoration(spacing))
+        }
+
+        binding.commentsRecyclerView.apply {
+            adapter = commentAdapter
+            addItemDecoration(HorizontalDividerItemDecorator(context))
         }
     }
 
@@ -88,21 +105,8 @@ class CommunityArticleFragment : MumongFragment(true) {
             binding.isBookmarked = binding.isBookmarked.not()
         }
 
-        binding.recordListRecyclerView.apply {
-            adapter = attachedRecordingAdapter
-            itemAnimator = null
-        }
         attachedRecordingAdapter.items = article?.recordings ?: emptyList()
-
-        binding.imageListRecyclerView.apply {
-            adapter = attachedImageAdapter
-            itemAnimator = null
-        }
         attachedImageAdapter.items = article?.attachedImages ?: emptyList()
-
-        binding.commentsRecyclerView.apply {
-            adapter = commentAdapter
-        }
         commentAdapter.items = article?.comments ?: emptyList()
 
         initAdfit()

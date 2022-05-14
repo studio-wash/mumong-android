@@ -61,7 +61,7 @@
                         android:id="@+id/user_name_profile_image_separator_dot"
                         android:layout_width="2dp"
                         android:layout_height="2dp"
-                        android:src="@drawable/drawable_seperator_dot"
+                        android:src="@drawable/drawable_separator_dot"
                         app:layout_constraintStart_toEndOf="@id/user_name_text_view"
                         app:layout_constraintTop_toTopOf="@id/iv_user_profile"
                         app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
@@ -87,7 +87,7 @@
 
                     <!-- 본문 -->
                     <TextView
-                        android:id="@+id/content_text_view"
+                        android:id="@+id/tv_content"
                         style="@style/articleText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -97,21 +97,21 @@
 
                     <!-- 첨부된 이미지 리스트 -->
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/image_list_recycler_view"
+                        android:id="@+id/rv_image_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/content_text_view"
+                        app:layout_constraintTop_toBottomOf="@id/tv_content"
                         android:layout_marginTop="10dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
                     <!-- 좌측 하단 좋아요, 북마크 -->
                     <LinearLayout
-                        android:id="@+id/like_button_linear_layout"
+                        android:id="@+id/ll_like"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/image_list_recycler_view"
+                        app:layout_constraintTop_toBottomOf="@id/rv_image_list"
                         android:orientation="horizontal"
                         android:layout_marginTop="20dp"
                         android:gravity="center_vertical">
@@ -129,9 +129,9 @@
                         android:id="@+id/bookmark_button_linear_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toEndOf="@id/like_button_linear_layout"
-                        app:layout_constraintTop_toTopOf="@id/like_button_linear_layout"
-                        app:layout_constraintBottom_toBottomOf="@id/like_button_linear_layout"
+                        app:layout_constraintStart_toEndOf="@id/ll_like"
+                        app:layout_constraintTop_toTopOf="@id/ll_like"
+                        app:layout_constraintBottom_toBottomOf="@id/ll_like"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView
@@ -149,8 +149,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/like_button_linear_layout"
-                        app:layout_constraintBottom_toBottomOf="@id/like_button_linear_layout"
+                        app:layout_constraintTop_toTopOf="@id/ll_like"
+                        app:layout_constraintBottom_toBottomOf="@id/ll_like"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
                         <ImageView

@@ -80,7 +80,7 @@ class SocialArticleFragment : MumongFragment(true) {
         }
         attachedRecordingAdapter.items = article?.recordings ?: emptyList()
 
-        binding.imageListRecyclerView.apply {
+        binding.rvImageList.apply {
             adapter = attachedImageAdapter
             itemAnimator = null
         }

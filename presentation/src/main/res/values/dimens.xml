@@ -12,6 +12,7 @@
     <dimen name="double_elevation">16dp</dimen>
 
     <dimen name="rv_horizontal_spacing_width">6dp</dimen>
+    <dimen name="rv_vertical_spacing_height">6dp</dimen>
 
     <!-- 커뮤니티 -->
     <dimen name="community_fragment_title_bottom_padding">10dp</dimen>

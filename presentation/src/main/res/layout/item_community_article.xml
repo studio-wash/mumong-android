@@ -27,13 +27,13 @@
                 android:layout_height="16dp"
                 android:paddingEnd="5dp"
                 android:src="@drawable/ic_attached_recording_mic"
-                app:layout_constraintTop_toTopOf="@id/title_text_view"
-                app:layout_constraintBottom_toBottomOf="@id/title_text_view"
+                app:layout_constraintTop_toTopOf="@id/tv_title"
+                app:layout_constraintBottom_toBottomOf="@id/tv_title"
                 app:layout_constraintStart_toStartOf="parent"
                 goneUnless="@{item.recordings != null &amp;&amp; !item.recordings.empty}"/>
             <!-- 게시글 제목 -->
             <TextView
-                android:id="@+id/title_text_view"
+                android:id="@+id/tv_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/title_mic_image_view"
@@ -50,11 +50,11 @@
                 app:layout_constrainedWidth="true"/>
             <!-- 게시글 본문 -->
             <TextView
-                android:id="@+id/content_text_view"
+                android:id="@+id/tv_content"
                 style="@style/articleText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_represent_image"
                 android:layout_marginTop="15dp"
@@ -70,7 +70,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/title_text_view"
+                app:layout_constraintTop_toTopOf="@id/tv_title"
                 android:background="@drawable/bg_rounded_rect_8dp_fill_white"
                 goneUnless="@{item.attachedImages != null &amp;&amp; !item.attachedImages.empty}"
                 imageSrc="@{item.attachedImages.empty ? null : item.attachedImages[0].imageSrc}"
@@ -78,7 +78,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- 글쓴이 정보 -->
         <TextView
-            android:id="@+id/user_name_text_view"
+            android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,20 +89,20 @@
             android:textColor="@color/text_gray"
             android:layout_marginTop="22dp"/>
         <ImageView
-            android:id="@+id/user_name_profile_image_separator_dot"
+            android:id="@+id/user_name_separator_dot"
             android:layout_width="2dp"
             android:layout_height="2dp"
-            android:src="@drawable/drawable_seperator_dot"
-            app:layout_constraintStart_toEndOf="@id/user_name_text_view"
-            app:layout_constraintTop_toTopOf="@id/user_name_text_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_name_text_view"
+            android:src="@drawable/drawable_separator_dot"
+            app:layout_constraintStart_toEndOf="@id/tv_user_name"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:layout_marginStart="3dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
-            app:layout_constraintTop_toTopOf="@id/user_name_text_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_name_text_view"
+            app:layout_constraintStart_toEndOf="@id/user_name_separator_dot"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:text="@{item.writtenTime, default=`1분 전`}"
             android:textSize="10sp"
             android:textColor="@color/text_gray"
@@ -114,8 +114,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toStartOf="@id/comment_linear_layout"
-            app:layout_constraintTop_toTopOf="@id/user_name_text_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_name_text_view"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:gravity="center_vertical"
             android:layout_marginEnd="3dp">
             <ImageView
@@ -133,8 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/user_name_text_view"
-            app:layout_constraintBottom_toBottomOf="@id/user_name_text_view"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:gravity="center_vertical">
             <ImageView
                 android:layout_width="24dp"

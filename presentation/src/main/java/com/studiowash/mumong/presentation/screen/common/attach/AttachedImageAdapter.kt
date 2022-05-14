@@ -13,6 +13,7 @@ class AttachedImageAdapter : RecyclerView.Adapter<AttachedImageAdapter.AttachedI
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AttachedImageViewHolder {
         val binding = ItemAttachedImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.ctlItem.clipToOutline = true
         return AttachedImageViewHolder(binding)
     }
 

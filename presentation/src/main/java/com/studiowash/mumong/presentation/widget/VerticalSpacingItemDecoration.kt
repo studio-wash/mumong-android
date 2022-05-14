@@ -11,7 +11,7 @@ class VerticalSpacingItemDecoration(private val spaceHeight: Int) : RecyclerView
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        outRect.top = spaceHeight/2
-        outRect.bottom = spaceHeight/2
+        val position = parent.getChildViewHolder(view).adapterPosition
+        if (position > 0) outRect.top = spaceHeight
     }
 }
