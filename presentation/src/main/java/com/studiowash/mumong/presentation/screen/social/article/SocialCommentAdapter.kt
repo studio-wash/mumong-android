@@ -5,13 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.domain.common.entity.CommentEntity
 import com.studiowash.mumong.presentation.databinding.ItemSocialArticleCommentBinding
-import com.studiowash.mumong.presentation.screen.common.comment.CommentReplyAdapter
 
 class SocialCommentAdapter(val onClickLike: (position: Int) -> Unit, private val onClickReply:() -> Unit) : RecyclerView.Adapter<SocialCommentAdapter.SocialCommentViewHolder>() {
     class SocialCommentViewHolder(val binding: ItemSocialArticleCommentBinding) : RecyclerView.ViewHolder(binding.root) {
-        val replyAdapter = CommentReplyAdapter({}, {})
+        val replyAdapter = SocialCommentReplyAdapter({}, {})
         init {
-            binding.repliesRecyclerView.adapter = replyAdapter
+            binding.rvReplies.adapter = replyAdapter
         }
     }
 

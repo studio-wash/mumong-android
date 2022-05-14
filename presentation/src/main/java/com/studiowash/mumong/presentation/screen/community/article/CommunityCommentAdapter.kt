@@ -5,14 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.domain.common.entity.CommentEntity
 import com.studiowash.mumong.presentation.databinding.ItemCommunityArticleCommentBinding
-import com.studiowash.mumong.presentation.databinding.ItemSocialArticleCommentBinding
-import com.studiowash.mumong.presentation.screen.common.comment.CommentReplyAdapter
+import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class CommunityCommentAdapter(val onClickLike: (position: Int) -> Unit, private val onClickReply:() -> Unit) : RecyclerView.Adapter<CommunityCommentAdapter.CommunityCommentViewHolder>() {
     class CommunityCommentViewHolder(val binding: ItemCommunityArticleCommentBinding) : RecyclerView.ViewHolder(binding.root) {
-        val replyAdapter = CommentReplyAdapter({}, {})
+        val replyAdapter = CommunityCommentReplyAdapter({}, {})
         init {
-            binding.repliesRecyclerView.adapter = replyAdapter
+            binding.rvReplies.adapter = replyAdapter
         }
     }
 
@@ -20,6 +19,7 @@ class CommunityCommentAdapter(val onClickLike: (position: Int) -> Unit, private 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommunityCommentViewHolder {
         val binding = ItemCommunityArticleCommentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        binding.rvReplies.addItemDecoration(HorizontalDividerItemDecorator(binding.root.context))
         return CommunityCommentViewHolder(binding)
     }
 

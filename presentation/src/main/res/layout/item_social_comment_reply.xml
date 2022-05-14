@@ -3,21 +3,32 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.common.entity.CommentEntity" />
+            type="com.studiowash.mumong.domain.common.entity.CommentReplyEntity" />
         <variable
             name="isLiked"
             type="boolean" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
 
+        <ImageView
+            android:id="@+id/iv_reply_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_comment_reply_indicator"/>
+        
         <!-- 댓글쓴이 정보 -->
         <ImageView
             android:id="@+id/iv_user_profile"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_reply_indicator"
             app:layout_constraintTop_toTopOf="parent"
             imageSrc="@{item.user.profileImg}"
             android:layout_marginTop="15dp"/>
@@ -51,17 +62,19 @@
         <!-- 댓글 내용 -->
         <TextView
             android:id="@+id/tv_comment_content"
-            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="@id/iv_user_profile"
+            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{item.content, default=`댓글 내용`}"
-            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"/>
+            android:text="@{item.content, default=`댓글 내용`}"/>
 
         <!-- 좋아요 및 대댓글 달기 -->
         <LinearLayout
             android:id="@+id/ll_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/iv_user_profile"
             app:layout_constraintTop_toBottomOf="@id/tv_comment_content"
             android:orientation="horizontal"
             android:layout_marginTop="15dp"
@@ -76,35 +89,5 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(item.likeCount), default=`0`}" />
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/reply_button_linear_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/ll_like"
-            app:layout_constraintTop_toTopOf="@id/ll_like"
-            app:layout_constraintBottom_toBottomOf="@id/ll_like"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginStart="10dp">
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:src="@drawable/ic_comment_unselected"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reply" />
-        </LinearLayout>
-
-        <!-- 대댓글 -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_replies"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/bg_rounded_rect_16dp_fill_bg_light_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/ll_like"
-            goneUnless="@{item.replies != null &amp;&amp; !item.replies.empty}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -103,9 +103,10 @@
         </LinearLayout>
         <!-- 대댓글 -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/replies_recycler_view"
+            android:id="@+id/rv_replies"
             android:layout_marginTop="8dp"
-            android:background="@drawable/bg_rounded_rect_16dp_fill_light_gray"
+            android:paddingHorizontal="8dp"
+            android:background="@drawable/bg_rounded_rect_16dp_fill_bg_light_gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/ll_like"

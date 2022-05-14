@@ -11,35 +11,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:paddingVertical="8dp">
 
         <ImageView
-            android:id="@+id/reply_indicator_image_view"
+            android:id="@+id/iv_reply_indicator"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_comment_reply_indicator"/>
         
         <!-- 댓글쓴이 정보 -->
-        <ImageView
-            android:id="@+id/iv_user_profile"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:layout_constraintStart_toEndOf="@id/reply_indicator_image_view"
-            app:layout_constraintTop_toTopOf="parent"
-            imageSrc="@{item.user.profileImg}"
-            android:layout_marginTop="15dp"/>
         <TextView
             android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/iv_user_profile"
-            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
-            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            app:layout_constraintStart_toEndOf="@id/iv_reply_indicator"
+            app:layout_constraintTop_toTopOf="@id/iv_reply_indicator"
+            android:layout_marginTop="8dp"
             android:text="@{item.user.communityNickname, default=`작성자`}"
+            android:textSize="11sp"
+            android:textColor="@color/text_dark_gray"
             android:textStyle="bold"/>
         <ImageView
             android:id="@+id/user_name_separator_dot"
@@ -47,26 +39,31 @@
             android:layout_height="2dp"
             android:src="@drawable/drawable_separator_dot"
             app:layout_constraintStart_toEndOf="@id/tv_user_name"
-            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
-            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:layout_marginStart="3dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toEndOf="@id/user_name_separator_dot"
-            app:layout_constraintTop_toTopOf="@id/iv_user_profile"
-            app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
+            app:layout_constraintTop_toTopOf="@id/tv_user_name"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user_name"
             android:text="@{item.writtenTime, default=`1분 전`}"
+            android:textSize="10sp"
+            android:textColor="@color/text_dark_gray"
             android:layout_marginStart="3dp"/>
 
         <!-- 댓글 내용 -->
         <TextView
             android:id="@+id/tv_comment_content"
-            app:layout_constraintStart_toStartOf="@id/iv_user_profile"
-            app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
+            app:layout_constraintStart_toStartOf="@id/tv_user_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:textAppearance="@style/articleText"
+            android:textColor="@color/text_black"
             android:text="@{item.content, default=`댓글 내용`}"/>
 
         <!-- 좋아요 및 대댓글 달기 -->
@@ -74,19 +71,21 @@
             android:id="@+id/ll_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/iv_user_profile"
+            app:layout_constraintStart_toStartOf="@id/tv_user_name"
             app:layout_constraintTop_toBottomOf="@id/tv_comment_content"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="9dp"
             android:gravity="center_vertical">
             <ImageView
                 isSelected="@{isLiked}"
-                android:layout_width="28dp"
-                android:layout_height="28dp"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
                 android:src="@drawable/btn_like"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="7sp"
+                android:textColor="@color/text_dark_gray"
                 android:text="@{Integer.toString(item.likeCount), default=`0`}" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
