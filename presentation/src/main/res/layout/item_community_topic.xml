@@ -23,7 +23,7 @@
             android:id="@+id/tag_wrapper_linear_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_selectable_rounded_rect_8dp_fill_brand_2_brand_3"
+            android:background="@drawable/bg_selectable_rounded_rect_4dp_fill_brand_2_brand_3"
             android:padding="8dp"
             isSelected="@{isSelected}"
             app:layout_constraintStart_toStartOf="parent"
