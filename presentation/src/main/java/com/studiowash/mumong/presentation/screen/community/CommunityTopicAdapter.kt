@@ -7,17 +7,16 @@ import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ItemCommunityTopicBinding
 
-class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
+class CommunityTopicAdapter(private val onClickAll: () -> Unit, private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
     class CommunityTopicViewHolder(val binding: ItemCommunityTopicBinding) : RecyclerView.ViewHolder(binding.root)
 
     var topicItems = listOf<CommunityTopicEntity>()
-    var selectedIndex: Int? = null
+    var selectedIndex: Int = 0
         set(value) {
             val originalIndex = field
             field = value
-            if (value != null)
-                notifyItemChanged(value)
-            if (originalIndex != null && field != originalIndex)
+            notifyItemChanged(value)
+            if (field != originalIndex)
                 notifyItemChanged(originalIndex)
         }
 
@@ -28,6 +27,15 @@ class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onC
 
     override fun onBindViewHolder(holder: CommunityTopicViewHolder, position: Int) {
         when(getItemViewType(position)) {
+            VIEW_TYPE_ALL -> {
+                holder.binding.apply {
+                    topicNameRes = R.string.community_topic_all
+                    root.setOnClickListener {
+                        selectedIndex = position
+                        onClickAll.invoke()
+                    }
+                }
+            }
             VIEW_TYPE_BEST -> {
                 holder.binding.apply {
                     isBestItem = true
@@ -39,7 +47,7 @@ class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onC
                 }
             }
             else -> {
-                val topicPosition = position - BEST_HEADER_COUNT
+                val topicPosition = position - ITEM_HEADER_COUNT
                 val topic = topicItems[topicPosition]
                 holder.binding.apply {
                     isBestItem = false
@@ -65,14 +73,19 @@ class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onC
     }
 
     override fun getItemViewType(position: Int): Int =
-        if (position == 0) VIEW_TYPE_BEST else VIEW_TYPE_TOPIC
+        when (position) {
+            0 -> VIEW_TYPE_ALL
+            1 -> VIEW_TYPE_BEST
+            else -> VIEW_TYPE_TOPIC
+        }
 
-    override fun getItemCount() = topicItems.size + BEST_HEADER_COUNT
+    override fun getItemCount() = topicItems.size + ITEM_HEADER_COUNT
 
     companion object {
-        private const val VIEW_TYPE_BEST = 0
-        private const val VIEW_TYPE_TOPIC = 1
+        private const val VIEW_TYPE_ALL = 0
+        private const val VIEW_TYPE_BEST = 1
+        private const val VIEW_TYPE_TOPIC = 2
 
-        private const val BEST_HEADER_COUNT = 1
+        private const val ITEM_HEADER_COUNT = 2
     }
 }

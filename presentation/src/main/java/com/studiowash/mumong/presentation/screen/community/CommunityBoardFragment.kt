@@ -31,7 +31,7 @@ class CommunityBoardFragment : MumongFragment(true) {
     private val binding get() = _binding!!
     private var _binding: FragmentCommunityBoardBinding? = null
 
-    private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
+    private val topicAdapter = CommunityTopicAdapter(this:: onClickAll, this::onClickBest, this::onClickTopic).apply {
         topicItems = CommunityTopicEntity.values().toList()
     }
 
@@ -276,6 +276,10 @@ class CommunityBoardFragment : MumongFragment(true) {
     }
 
     private fun initObserve() {
+    }
+
+    private fun onClickAll() {
+        // todo
     }
 
     private fun onClickBest() {

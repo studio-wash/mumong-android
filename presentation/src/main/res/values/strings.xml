@@ -57,6 +57,7 @@
     <string name="community_suggest">추천</string>
     <string name="community_notice">공지사항</string>
 
+    <string name="community_topic_all">전체</string>
     <string name="community_topic_best">베스트</string>
     <string name="community_topic_daily">일상</string>
     <string name="community_topic_recording">내 음악을 들어줘</string>
