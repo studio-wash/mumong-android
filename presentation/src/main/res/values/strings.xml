@@ -50,7 +50,7 @@
     <!-- Social Fragment -->
 
     <!-- Community Fragment -->
-    <string name="community_search_board_hint">게시판을 검색해보세요</string>
+    <string name="community_main_search_board_hint">게시판을 검색해보세요</string>
     <string name="community_title_favorite_boards">즐겨찾는 게시판</string>
     <string name="community_title_mumong_pick">뮤몽 PICK</string>
     <string name="community_title_recent_articles">실시간 게시글</string>
@@ -63,6 +63,9 @@
     <string name="community_topic_tip">꿀팁</string>
     <string name="community_topic_question">질문답변</string>
     <string name="community_topic_advertise">홍보</string>
+
+    <string name="community_search_remove_all_recent_searched"><u>모두 삭제</u></string>
+    <string name="community_search_board_hint"><u>게시판 이름</u></string>
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>

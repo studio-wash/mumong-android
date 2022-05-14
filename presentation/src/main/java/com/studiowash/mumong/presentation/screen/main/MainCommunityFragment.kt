@@ -1,5 +1,6 @@
 package com.studiowash.mumong.presentation.screen.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,10 +13,13 @@ import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
 import com.studiowash.mumong.domain.login.LoginStatus
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.databinding.FragmentMainCommunityBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
+import com.studiowash.mumong.presentation.screen.community.CommunityActivity
 import com.studiowash.mumong.presentation.screen.community.board.CommunityAllBoardAdapter
 import com.studiowash.mumong.presentation.screen.community.board.CommunityFavoriteBoardAdapter
+import com.studiowash.mumong.presentation.screen.community.search.CommunitySearchActivity
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class MainCommunityFragment : MumongFragment(true) {
@@ -128,6 +132,10 @@ class MainCommunityFragment : MumongFragment(true) {
     }
 
     private fun initOnClick() {
+        binding.svSearchBoard.setOnClickListener {
+            val intent = Intent(context, CommunitySearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initAdfit() {
@@ -168,5 +176,9 @@ class MainCommunityFragment : MumongFragment(true) {
     }
 
     private fun onClickBoard(boardIndex: Int, board: CommunityBoardEntity) {
+        val intent = Intent(context, CommunityActivity::class.java).apply {
+            putExtra(StringKeySet.BOARD, board)
+        }
+        startActivity(intent)
     }
 }

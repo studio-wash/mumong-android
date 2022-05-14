@@ -188,7 +188,7 @@
                     android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                     android:background="@drawable/bg_rounded_rect_20dp_fill_white"
                     android:layout_marginTop="@dimen/horizontal_separator_height_thick"
-                    app:hint_res="@string/community_search_board_hint"/>
+                    app:hint_res="@string/community_main_search_board_hint"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/ctl_all_boards"
                     android:layout_width="match_parent"
