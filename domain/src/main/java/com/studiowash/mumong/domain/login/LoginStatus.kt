@@ -7,6 +7,7 @@ object LoginStatus {
     var currentUser: UserEntity? =
         UserEntity(
             "sechiyo97@daum.net",
+            "이세희",
             "별으잉",
             Constants.sample_image_url,
             "샘플 자기소개"
