@@ -5,6 +5,9 @@
     tools:context=".presentation.community.eFragment">
     <data>
         <import type="com.studiowash.mumong.domain.login.LoginStatus" />
+        <variable
+            name="boardName"
+            type="String" />
     </data>
     <com.studiowash.mumong.presentation.widget.SavingMotionLayout
         android:id="@+id/motion_layout"
@@ -12,37 +15,20 @@
         android:layout_height="match_parent"
         app:layoutDescription="@xml/fragment_community_home_scene">
 
-        <!-- 게시판 목록 -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/favorite_boards_recycler_view"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/iv_profile"
-            imageSrc="@{LoginStatus.INSTANCE.currentUser.profileImg}"
-            android:layout_width="@dimen/icon_profile_width"
-            android:layout_height="@dimen/icon_profile_width"
-            android:layout_marginTop="@dimen/fragment_default_top_padding"
-            android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"
-            android:src="@drawable/ic_default_profile"
-            android:scaleType="centerCrop"
-            android:background="@drawable/bg_circle_white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{boardName, default=`boardName`}"
+            app:navigationIcon="@drawable/ic_btn_back"/>
 
         <FrameLayout
             android:id="@+id/adfit_frame_layout"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            app:layout_constraintTop_toBottomOf="@id/favorite_boards_recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
             <View

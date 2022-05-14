@@ -17,6 +17,9 @@
             app:exitAnim="@anim/hold"
             app:popEnterAnim="@anim/hold"
             app:popExitAnim="@anim/slide_out_to_right"/>
+        <argument
+            android:name="board"
+            app:argType="com.studiowash.mumong.domain.community.entity.CommunityBoardEntity" />
     </fragment>
     <fragment
         android:id="@+id/communityArticleFragmentNav"

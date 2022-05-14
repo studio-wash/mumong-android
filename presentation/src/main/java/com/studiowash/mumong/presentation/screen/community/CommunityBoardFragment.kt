@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.common.entity.AttachedImageEntity
@@ -20,6 +21,7 @@ import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
 import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.databinding.FragmentCommunityBoardBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 import com.studiowash.mumong.presentation.screen.community.article.CommunityArticleAdapter
@@ -29,17 +31,11 @@ class CommunityBoardFragment : MumongFragment(true) {
     private val binding get() = _binding!!
     private var _binding: FragmentCommunityBoardBinding? = null
 
-    private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
-        favoriteBoardItems = listOf(
-            CommunityBoardEntity("피아노"),
-            CommunityBoardEntity("밴드"),
-            CommunityBoardEntity("오케스트라")
-        )
-    }
-
     private val topicAdapter = CommunityTopicAdapter(this::onClickBest, this::onClickTopic).apply {
         topicItems = CommunityTopicEntity.values().toList()
     }
+
+    private val args: CommunityBoardFragmentArgs by navArgs()
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
@@ -233,12 +229,8 @@ class CommunityBoardFragment : MumongFragment(true) {
 
 
     private fun initView() {
-        binding.ivProfile.clipToOutline = true
+        binding.boardName = args.board.boardName
 
-        binding.favoriteBoardsRecyclerView.apply {
-            itemAnimator = null
-            adapter = favoriteBoardAdapter
-        }
         binding.topicRecyclerView.apply {
             itemAnimator = null
             adapter = topicAdapter
@@ -284,10 +276,6 @@ class CommunityBoardFragment : MumongFragment(true) {
     }
 
     private fun initObserve() {
-    }
-
-    private fun onClickBoard(boardIndex: Int, board: CommunityBoardEntity) {
-        favoriteBoardAdapter.selectedIndex = boardIndex
     }
 
     private fun onClickBest() {

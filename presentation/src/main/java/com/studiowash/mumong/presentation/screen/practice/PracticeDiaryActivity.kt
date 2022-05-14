@@ -3,6 +3,7 @@ package com.studiowash.mumong.presentation.screen.practice
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.screen.MumongActivity
 import com.studiowash.mumong.presentation.screen.community.article.CommunityArticleViewModel
@@ -17,7 +18,7 @@ class PracticeDiaryActivity: MumongActivity(true) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_practice_diary)
 
-        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
+        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? CommunityArticleEntity
         viewModel.setArticle(article)
     }
 }

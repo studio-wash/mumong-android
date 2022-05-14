@@ -3,6 +3,7 @@ package com.studiowash.mumong.presentation.screen.social.article
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import com.studiowash.mumong.domain.social.entity.SocialArticleEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.screen.MumongActivity
 import com.studiowash.mumong.presentation.constant.StringKeySet
@@ -16,7 +17,7 @@ class SocialArticleActivity : MumongActivity(true) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_social_article)
 
-        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? com.studiowash.mumong.domain.social.entity.SocialArticleEntity
+        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? SocialArticleEntity
         viewModel.setArticle(article)
     }
 
