@@ -1,12 +1,14 @@
 package com.studiowash.mumong.presentation.screen.community
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.*
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.fragment.findNavController
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.common.entity.AttachedImageEntity
@@ -14,14 +16,13 @@ import com.studiowash.mumong.domain.common.entity.CommentEntity
 import com.studiowash.mumong.domain.common.entity.CommentReplyEntity
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
-import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
+import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.databinding.FragmentCommunityBoardBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 import com.studiowash.mumong.presentation.screen.community.article.CommunityArticleAdapter
-import com.studiowash.mumong.presentation.constant.StringKeySet
-import com.studiowash.mumong.presentation.databinding.FragmentCommunityBoardBinding
 import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class CommunityBoardFragment : MumongFragment(true) {
@@ -296,10 +297,7 @@ class CommunityBoardFragment : MumongFragment(true) {
     }
 
     private fun onClickArticle(articleIndex: Int, article: CommunityArticleEntity) {
-        val intent = Intent(context, CommunityActivity::class.java).apply {
-            putExtra(StringKeySet.ARTICLE, article)
-        }
-        startActivity(intent)
-        activity?.overridePendingTransition(R.anim.slide_in_from_right, R.anim.hold)
+        val action = CommunityBoardFragmentDirections.actionCommunityBoardFragmentNavToCommunityArticleFragmentNav(article)
+        findNavController().navigate(action)
     }
 }

@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.fragment.navArgs
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.screen.MumongFragment
@@ -18,11 +20,13 @@ import com.studiowash.mumong.presentation.databinding.FragmentCommunityArticleBi
 
 class CommunityArticleFragment : MumongFragment(true) {
     private lateinit var binding: FragmentCommunityArticleBinding
-    private val activityViewModel: CommunityArticleViewModel by activityViewModels()
+    private val activityViewModel: CommunityArticleViewModel by viewModels()
 
     private val attachedRecordingAdapter = RecordingAdapter({}, {})
     private val attachedImageAdapter = AttachedImageAdapter()
     private val commentAdapter = CommentAdapter({}, {})
+
+    private val args: CommunityArticleFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +35,7 @@ class CommunityArticleFragment : MumongFragment(true) {
         binding = FragmentCommunityArticleBinding.inflate(inflater, container, false)
         initView()
         initObserve()
+        initData()
         return binding.root
     }
 
@@ -65,6 +70,10 @@ class CommunityArticleFragment : MumongFragment(true) {
         activityViewModel.articleLiveData.observe(viewLifecycleOwner) {
             onUpdateArticle(it)
         }
+    }
+
+    private fun initData() {
+        activityViewModel.setArticle(args.article)
     }
 
     private fun onUpdateArticle(article: com.studiowash.mumong.domain.community.entity.CommunityArticleEntity?) {

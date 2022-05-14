@@ -11,13 +11,9 @@ import com.studiowash.mumong.presentation.databinding.ActivityCommunityBinding
 
 class CommunityActivity : MumongActivity(true) {
     private lateinit var binding: ActivityCommunityBinding
-    private val viewModel: CommunityArticleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_community)
-
-        val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
-        viewModel.setArticle(article)
     }
 }
