@@ -196,7 +196,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="24dp"
-                    android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                     app:layout_constraintTop_toBottomOf="@id/sv_search_board"
                     android:layout_marginTop="@dimen/horizontal_separator_height_thick"
                     android:background="@drawable/bg_rounded_rect_20dp_fill_white">
@@ -206,6 +205,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginHorizontal="@dimen/fragment_default_horizontal_padding"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="@color/text_black"

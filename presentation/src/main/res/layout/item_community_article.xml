@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingTop="20dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        android:background="?android:attr/selectableItemBackground">
 
         <!-- 내용 -->
         <androidx.constraintlayout.widget.ConstraintLayout
