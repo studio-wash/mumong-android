@@ -37,27 +37,27 @@
             app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
             android:layout_marginStart="10dp">
             <TextView
-                android:id="@+id/user_name_text_view"
+                android:id="@+id/tv_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@{item.user.nickname, default=`작성자`}"
+                android:text="@{item.user.communityNickname, default=`작성자`}"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
             <TextView
                 android:id="@+id/article_written_time_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/user_name_text_view"
-                app:layout_constraintStart_toStartOf="@id/user_name_text_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+                app:layout_constraintStart_toStartOf="@id/tv_user_name"
                 android:text="@{item.writtenTime, default=`1분 전`}"
                 android:textSize="10sp"/>
             <ImageView
-                android:id="@+id/user_name_profile_image_separator_dot"
+                android:id="@+id/user_name_separator_dot"
                 android:layout_width="2dp"
                 android:layout_height="2dp"
-                android:src="@drawable/drawable_seperator_dot"
+                android:src="@drawable/drawable_separator_dot"
                 app:layout_constraintStart_toEndOf="@id/article_written_time_text_view"
                 app:layout_constraintTop_toTopOf="@id/article_written_time_text_view"
                 app:layout_constraintBottom_toBottomOf="@id/article_written_time_text_view"
@@ -66,7 +66,7 @@
                 android:id="@+id/practicing_instruments_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/user_name_profile_image_separator_dot"
+                app:layout_constraintStart_toEndOf="@id/user_name_separator_dot"
                 app:layout_constraintTop_toTopOf="@id/article_written_time_text_view"
                 app:layout_constraintBottom_toBottomOf="@id/article_written_time_text_view"
                 android:text="피아노 연습 중"
@@ -76,18 +76,18 @@
 
         <!-- 첨부된 녹음파일 리스트 -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/record_list_recycler_view"
+            android:id="@+id/rv_record_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/iv_user_profile"
             android:layout_marginTop="10dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <TextView
-            android:id="@+id/content_text_view"
+            android:id="@+id/tv_content"
             style="@style/articleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/record_list_recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/rv_record_list"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@{item.content, default=`본문`}"
             android:ellipsize="end"
@@ -102,7 +102,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/content_text_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
             android:gravity="center_vertical"
             android:src="@drawable/btn_bookmark"
             android:layout_marginTop="11dp"

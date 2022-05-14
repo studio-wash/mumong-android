@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navCommunityActivity"
+    app:startDestination="@id/communityBoardFragmentNav">
+
+    <fragment
+        android:id="@+id/communityBoardFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.community.CommunityBoardFragment"
+        android:label="CommunityBoardFragment"
+        tools:layout="@layout/fragment_community_board" >
+        <action
+            android:id="@+id/action_communityBoardFragmentNav_to_communityArticleFragmentNav"
+            app:destination="@id/communityArticleFragmentNav"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/hold"
+            app:popEnterAnim="@anim/hold"
+            app:popExitAnim="@anim/slide_out_to_right"/>
+        <argument
+            android:name="board"
+            app:argType="com.studiowash.mumong.domain.community.entity.CommunityBoardEntity" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityArticleFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.community.article.CommunityArticleFragment"
+        android:label="CommunityArticleFragment"
+        tools:layout="@layout/fragment_community_article">
+        <argument
+            android:name="article"
+            app:argType="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
+    </fragment>
+</navigation>

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.studiowash.mumong.presentation.activity.practice.home.PracticeHomeViewModel" />
+            type="com.studiowash.mumong.presentation.screen.practice.home.PracticeHomeViewModel" />
         <variable
             name="year"
             type="int" />
@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:background="@color/gray_2">
         <View
-            android:id="@+id/bg_top_layer"
+            android:id="@+id/ctl_top_layer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong.presentation.activity.practice.home.view.DateScrollView
+        <com.studiowash.mumong.presentation.screen.practice.home.view.DateScrollView
             android:id="@+id/cv_date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

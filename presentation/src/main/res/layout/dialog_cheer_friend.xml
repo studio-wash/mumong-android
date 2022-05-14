@@ -30,7 +30,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/text_black"
-                android:text="@{item.user.nickname, default=`username`}"/>
+                android:text="@{item.user.communityNickname, default=`username`}"/>
             <ImageView
                 android:id="@+id/iv_close"
                 android:layout_width="wrap_content"

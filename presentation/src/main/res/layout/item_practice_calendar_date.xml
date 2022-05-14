@@ -18,7 +18,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.studiowash.mumong.presentation.activity.practice.diary.view.calendar.ColorPercentageRectView
+        <com.studiowash.mumong.presentation.screen.practice.diary.view.calendar.ColorPercentageRectView
             android:id="@+id/calendar_date_background_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

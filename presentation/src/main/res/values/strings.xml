@@ -11,6 +11,7 @@
     <string name="title_community">커뮤니티</string>
     <string name="title_profile">MY</string>
     <string name="title_practice">연습장</string>
+    <string name="default_hint">검색어를 입력해주세요.</string>
 
     <!-- Fragment Titles -->
     <string name="title_home_fragment">@string/title_home</string>
@@ -49,12 +50,14 @@
     <!-- Social Fragment -->
 
     <!-- Community Fragment -->
+    <string name="community_main_search_board_hint">게시판을 검색해보세요</string>
     <string name="community_title_favorite_boards">즐겨찾는 게시판</string>
     <string name="community_title_mumong_pick">뮤몽 PICK</string>
     <string name="community_title_recent_articles">실시간 게시글</string>
     <string name="community_suggest">추천</string>
     <string name="community_notice">공지사항</string>
 
+    <string name="community_topic_all">전체</string>
     <string name="community_topic_best">베스트</string>
     <string name="community_topic_daily">일상</string>
     <string name="community_topic_recording">내 음악을 들어줘</string>
@@ -62,8 +65,12 @@
     <string name="community_topic_question">질문답변</string>
     <string name="community_topic_advertise">홍보</string>
 
+    <string name="community_search_remove_all_recent_searched"><u>모두 삭제</u></string>
+    <string name="community_search_board_hint"><u>게시판 이름</u></string>
+
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+    <string name="toolbar_action_search">Search</string>
     <string name="toolbar_action_tuner">Tuner</string>
     
     <!-- Profile -->
@@ -86,4 +93,5 @@
 
     <!-- Comment -->
     <string name="comment_hint">댓글을 남겨주세요.</string>
+
 </resources>

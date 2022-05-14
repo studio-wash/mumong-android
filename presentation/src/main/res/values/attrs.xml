@@ -3,4 +3,9 @@
     <declare-styleable name="CustomizableCalendarView">
         <attr name="divider_src" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="MumongSearchView">
+        <attr name="hint_res" format="reference"/>
+        <attr name="editable" format="boolean"/>
+    </declare-styleable>
 </resources>
