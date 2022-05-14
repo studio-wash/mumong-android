@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/bg_rounded_rect_16dp_fill_light_gray">
+            android:background="@drawable/bg_rounded_rect_16dp_fill_bg_light_gray">
             <EditText
                 android:id="@+id/comment_edit_text"
                 android:layout_width="match_parent"

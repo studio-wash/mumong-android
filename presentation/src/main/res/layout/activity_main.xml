@@ -21,7 +21,7 @@
             app:layout_constraintBottom_toTopOf="@id/music_player_view"
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph_main_activity" />
-        <com.studiowash.mumong.presentation.player.MusicPlayerView
+        <com.studiowash.mumong.presentation.screen.common.player.MusicPlayerView
             android:id="@+id/music_player_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

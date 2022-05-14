@@ -11,7 +11,7 @@ class HorizontalSpacingItemDecoration(private val spaceWidth: Int) : RecyclerVie
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        outRect.left = spaceWidth/2
-        outRect.right = spaceWidth/2
+        val position = parent.getChildViewHolder(view).adapterPosition
+        if (position > 0) outRect.left = spaceWidth
     }
 }
