@@ -5,7 +5,7 @@
         android:layout_height="match_parent">
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/content_view"
-            android:name="com.studiowash.mumong.presentation.activity.social.article.SocialArticleFragment"
+            android:name="com.studiowash.mumong.presentation.screen.social.article.SocialArticleFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

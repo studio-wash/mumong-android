@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.studiowash.mumong.presentation.activity.practice.home.PracticeHomeViewModel" />
+            type="com.studiowash.mumong.presentation.screen.practice.home.PracticeHomeViewModel" />
         <variable
             name="year"
             type="int" />
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="@{Integer.toString(month)}"/>
         </LinearLayout>
-        <com.studiowash.mumong.presentation.activity.practice.home.view.DateScrollView
+        <com.studiowash.mumong.presentation.screen.practice.home.view.DateScrollView
             android:id="@+id/cv_date_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

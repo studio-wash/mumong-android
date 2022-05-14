@@ -6,7 +6,7 @@
     app:startDestination="@id/practiceWeeklyFragmentNav">
     <fragment
         android:id="@+id/practiceWeeklyFragmentNav"
-        android:name="com.studiowash.mumong.presentation.activity.practice.home.PracticeWeeklyFragment"
+        android:name="com.studiowash.mumong.presentation.screen.practice.home.PracticeWeeklyFragment"
         android:label="PracticeWeeklyFragment"
         tools:layout="@layout/fragment_practice_weekly">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/practiceCalendarFragmentNav"
-        android:name="com.studiowash.mumong.presentation.activity.practice.diary.PracticeCalendarFragment"
+        android:name="com.studiowash.mumong.presentation.screen.practice.diary.PracticeCalendarFragment"
         android:label="PracticeCalendarFragment"
         tools:layout="@layout/fragment_practice_calendar" />
 </navigation>

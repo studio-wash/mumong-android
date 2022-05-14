@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.practice.home.PracticeHomeFragment">
     <data>
-        <import type="com.studiowash.mumong.presentation.activity.practice.addpractice.AddPracticeViewModel.MetronomeTunerStatus"/>
+        <import type="com.studiowash.mumong.presentation.screen.practice.addpractice.AddPracticeViewModel.MetronomeTunerStatus"/>
         <variable
             name="metronomeTunerStatus"
             type="MetronomeTunerStatus"/>

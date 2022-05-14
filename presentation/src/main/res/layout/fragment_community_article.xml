@@ -206,7 +206,7 @@
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-        <com.studiowash.mumong.presentation.comment.CommentWriteView
+        <com.studiowash.mumong.presentation.screen.common.comment.CommentWriteView
             android:id="@+id/comment_write_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
