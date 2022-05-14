@@ -48,7 +48,7 @@ dependencies {
     implementation("com.google.android.material:material:1.5.0")
 
     // jetpack navigation component
-    val navVersion = "2.4.0"
+    val navVersion = "2.4.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
     // Feature module Support
