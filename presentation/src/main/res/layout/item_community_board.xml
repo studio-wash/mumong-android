@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.studiowash.mumong.domain.community.entity.CommunityBoardEntity" />
+        <variable
+            name="isLastItem"
+            type="boolean" />
+        <variable
+            name="isSelected"
+            type="boolean" />
+    </data>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp">
+        <TextView
+            android:id="@+id/iv_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.boardName, default=`게시판`}"
+            android:textColor="@{isSelected ? @color/text_black: @color/text_gray}"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <View
+            android:id="@+id/end_margin_view"
+            android:layout_width="@dimen/community_board_item_spacing"
+            android:layout_height="match_parent"
+            goneUnless="@{!isLastItem}"/>
+    </LinearLayout>
+</layout>

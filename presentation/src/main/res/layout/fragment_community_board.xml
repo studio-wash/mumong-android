@@ -1,0 +1,94 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.community.eFragment">
+    <data>
+        <import type="com.studiowash.mumong.domain.login.LoginStatus" />
+        <variable
+            name="boardName"
+            type="String" />
+    </data>
+    <com.studiowash.mumong.presentation.widget.SavingMotionLayout
+        android:id="@+id/motion_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_community_home_scene">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:contentInsetStartWithNavigation="0dp"
+            app:titleTextAppearance="@style/toolbarTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{boardName, default=`boardName`}"
+            app:navigationIcon="@drawable/ic_btn_back"
+            app:menu="@menu/toolbar_action_menu_community_board"/>
+
+        <FrameLayout
+            android:id="@+id/adfit_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <View
+                android:id="@+id/adfit_background_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/adfit_background_color"/>
+            <com.kakao.adfit.ads.ba.BannerAdView
+                android:id="@+id/adfit_ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </FrameLayout>
+
+        <!-- 태그 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topic_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="9dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/adfit_frame_layout"
+            android:background="@color/white"/>
+
+        <!-- 실시간 게시글 -->
+        <View
+            android:id="@+id/separator_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_separator_height_thin"
+            android:background="@color/gray_2"
+            app:layout_constraintTop_toBottomOf="@id/topic_recycler_view"
+            android:layout_marginTop="9dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recent_articles_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/separator_1"
+            app:layout_constraintBottom_toTopOf="@id/cv_music_player"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <ImageView
+            android:id="@+id/iv_btn_write_article"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/cv_music_player"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:elevation="10dp"
+            android:background="@drawable/bg_circle_white"
+            android:src="@drawable/ic_write_article"/>
+        <com.studiowash.mumong.presentation.screen.common.player.MusicPlayerView
+            android:id="@+id/cv_music_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </com.studiowash.mumong.presentation.widget.SavingMotionLayout>
+</layout>

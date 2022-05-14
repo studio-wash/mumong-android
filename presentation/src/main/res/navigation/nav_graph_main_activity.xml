@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navMainActivity"
+    app:startDestination="@id/homeFragmentNav">
+
+    <fragment
+        android:id="@+id/homeFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.main.MainHomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_main_home" />
+    <fragment
+        android:id="@+id/socialFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.main.MainSocialFragment"
+        android:label="SocialFragment"
+        tools:layout="@layout/fragment_main_social" />
+    <fragment
+        android:id="@+id/communityFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.main.MainCommunityFragment"
+        android:label="CommunityFragment"
+        tools:layout="@layout/fragment_community_board" />
+    <fragment
+        android:id="@+id/profileFragmentNav"
+        android:name="com.studiowash.mumong.presentation.screen.main.MainProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_main_profile" />
+</navigation>
