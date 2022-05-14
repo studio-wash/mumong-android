@@ -124,7 +124,7 @@ class MainCommunityFragment : MumongFragment(true) {
         binding.communityNickname = LoginStatus.currentUser?.communityNickname
         binding.rvFavoriteBoards.apply {
             itemAnimator = null
-            addItemDecoration(HorizontalDividerItemDecorator(context))
+            addItemDecoration(HorizontalDividerItemDecorator(context, R.dimen.fragment_default_horizontal_padding))
             adapter = favoriteBoardAdapter
         }
         binding.rvAllBoards.apply {

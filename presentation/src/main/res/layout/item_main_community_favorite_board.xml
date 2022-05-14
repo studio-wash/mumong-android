@@ -20,6 +20,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:paddingTop="12dp"
         android:paddingBottom="17dp"
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:background="?android:attr/selectableItemBackground">
         <ImageView
             android:id="@+id/iv_favorite_pin"
