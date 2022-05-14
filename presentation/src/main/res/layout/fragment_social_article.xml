@@ -126,7 +126,7 @@
                             android:text="@{Integer.toString(item.likeCount), default=`0`}" />
                     </LinearLayout>
                     <LinearLayout
-                        android:id="@+id/bookmark_button_linear_layout"
+                        android:id="@+id/ll_scrap"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toEndOf="@id/ll_like"

@@ -101,7 +101,7 @@ class CommunityArticleFragment : MumongFragment(true) {
         binding.llLike.setOnClickListener {
             binding.isLiked = binding.isLiked.not()
         }
-        binding.bookmarkButtonLinearLayout.setOnClickListener {
+        binding.llScrap.setOnClickListener {
             binding.isBookmarked = binding.isBookmarked.not()
         }
 
