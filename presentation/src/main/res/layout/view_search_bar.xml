@@ -18,6 +18,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/iv_search"
             android:background="@null"
+            android:textSize="14sp"
             android:hint="@{hint, default=`hint`}"/>
         <ImageView
             android:id="@+id/iv_search"

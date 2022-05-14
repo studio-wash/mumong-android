@@ -15,7 +15,7 @@ import com.studiowash.mumong.domain.common.entity.CommentReplyEntity
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
 import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
-import com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity
+import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.screen.MumongFragment
@@ -29,9 +29,9 @@ class CommunityBoardFragment : MumongFragment(true) {
 
     private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
         favoriteBoardItems = listOf(
-            FavoriteBoardEntity("피아노"),
-            FavoriteBoardEntity("밴드"),
-            FavoriteBoardEntity("오케스트라")
+            CommunityBoardEntity("피아노"),
+            CommunityBoardEntity("밴드"),
+            CommunityBoardEntity("오케스트라")
         )
     }
 
@@ -283,7 +283,7 @@ class CommunityBoardFragment : MumongFragment(true) {
     private fun initObserve() {
     }
 
-    private fun onClickBoard(boardIndex: Int, board: FavoriteBoardEntity) {
+    private fun onClickBoard(boardIndex: Int, board: CommunityBoardEntity) {
         favoriteBoardAdapter.selectedIndex = boardIndex
     }
 

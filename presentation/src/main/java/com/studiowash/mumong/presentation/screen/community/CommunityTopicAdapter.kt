@@ -7,10 +7,10 @@ import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ItemCommunityTopicBinding
 
-class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: com.studiowash.mumong.domain.community.entity.CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
+class CommunityTopicAdapter(private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
     class CommunityTopicViewHolder(val binding: ItemCommunityTopicBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var topicItems = listOf<com.studiowash.mumong.domain.community.entity.CommunityTopicEntity>()
+    var topicItems = listOf<CommunityTopicEntity>()
     var selectedIndex: Int? = null
         set(value) {
             val originalIndex = field

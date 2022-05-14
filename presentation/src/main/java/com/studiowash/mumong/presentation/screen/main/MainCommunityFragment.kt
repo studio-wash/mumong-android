@@ -9,20 +9,91 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
-import com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity
+import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentMainCommunityBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
-import com.studiowash.mumong.presentation.screen.community.FavoriteBoardAdapter
+import com.studiowash.mumong.presentation.screen.community.board.CommunityAllBoardAdapter
+import com.studiowash.mumong.presentation.screen.community.board.CommunityFavoriteBoardAdapter
+import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
 
 class MainCommunityFragment : MumongFragment(true) {
     private lateinit var binding: FragmentMainCommunityBinding
 
-    private val favoriteBoardAdapter = FavoriteBoardAdapter(this::onClickBoard).apply {
-        favoriteBoardItems = listOf(
-            FavoriteBoardEntity("피아노"),
-            FavoriteBoardEntity("밴드"),
-            FavoriteBoardEntity("오케스트라")
+    private val favoriteBoardAdapter = CommunityFavoriteBoardAdapter({ position, board -> }, this::onClickBoard).apply {
+        boardItems = listOf(
+            CommunityBoardEntity("피아노 게시판",
+                hasNewArticle = true,
+                isFavorite = true,
+                recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
+            ),
+            CommunityBoardEntity("오케스트라 게시판",
+                hasNewArticle = true,
+                isFavorite = true,
+                recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
+            ),
+            CommunityBoardEntity("밴드 게시판",
+                hasNewArticle = true,
+                isFavorite = true,
+                recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
+            ),
+            CommunityBoardEntity("현악기 게시판",
+                hasNewArticle = true,
+                isFavorite = false,
+                recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
+            )
+        )
+    }
+    private val allBoardAdapter = CommunityAllBoardAdapter({ position, board -> }, this::onClickBoard).apply {
+        boardItems = listOf(
+            CommunityBoardEntity("피아노 게시판",
+                hasNewArticle = true,
+                isFavorite = true
+            ),
+            CommunityBoardEntity("기타 게시판",
+                hasNewArticle = true,
+                isFavorite = true
+            ),
+            CommunityBoardEntity("오케스트라 게시판",
+                hasNewArticle = false,
+                isFavorite = true
+            ),
+            CommunityBoardEntity("밴드 게시판",
+                hasNewArticle = true,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("현악기 게시판",
+                hasNewArticle = true,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("목관악기 게시판",
+                hasNewArticle = true,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("타악기 게시판",
+                hasNewArticle = false,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("건반악기 게시판",
+                hasNewArticle = false,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("작곡 게시판",
+                hasNewArticle = false,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("국악 게시판",
+                hasNewArticle = false,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("금관악기 게시판",
+                hasNewArticle = false,
+                isFavorite = false
+            ),
+            CommunityBoardEntity("보컬 게시판",
+                hasNewArticle = true,
+                isFavorite = false
+            )
         )
     }
 
@@ -42,6 +113,15 @@ class MainCommunityFragment : MumongFragment(true) {
 
 
     private fun initView() {
+        binding.rvFavoriteBoards.apply {
+            itemAnimator = null
+            addItemDecoration(HorizontalDividerItemDecorator(context))
+            adapter = favoriteBoardAdapter
+        }
+        binding.rvAllBoards.apply {
+            itemAnimator = null
+            adapter = allBoardAdapter
+        }
         initAdfit()
     }
 
@@ -85,7 +165,6 @@ class MainCommunityFragment : MumongFragment(true) {
     private fun initObserve() {
     }
 
-    private fun onClickBoard(boardIndex: Int, board: FavoriteBoardEntity) {
-        favoriteBoardAdapter.selectedIndex = boardIndex
+    private fun onClickBoard(boardIndex: Int, board: CommunityBoardEntity) {
     }
 }

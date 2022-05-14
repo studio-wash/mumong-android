@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.presentation.databinding.ItemCommunityBoardBinding
 
-class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity) -> Unit) : RecyclerView.Adapter<FavoriteBoardAdapter.FavoriteBoardViewHolder>() {
+class FavoriteBoardAdapter(private val onClickBoard: (boardIndex: Int, board: com.studiowash.mumong.domain.community.entity.CommunityBoardEntity) -> Unit) : RecyclerView.Adapter<FavoriteBoardAdapter.FavoriteBoardViewHolder>() {
     class FavoriteBoardViewHolder(val binding: ItemCommunityBoardBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var favoriteBoardItems = listOf<com.studiowash.mumong.domain.community.entity.FavoriteBoardEntity>()
+    var favoriteBoardItems = listOf<com.studiowash.mumong.domain.community.entity.CommunityBoardEntity>()
     var selectedIndex: Int = 0
         set(value) {
             val oldIndex = field
