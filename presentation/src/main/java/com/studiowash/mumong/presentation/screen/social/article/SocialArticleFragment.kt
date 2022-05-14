@@ -67,7 +67,7 @@ class SocialArticleFragment : MumongFragment(true) {
 
         // todo : viewmodel로 추후 이동
         // SERVER API : 좋아요, 북마크 결과 받아서 ui에 적용 가능한 api
-        binding.likeButtonLinearLayout.setOnClickListener {
+        binding.llLike.setOnClickListener {
             binding.isLiked = binding.isLiked.not()
         }
         binding.bookmarkButtonLinearLayout.setOnClickListener {
