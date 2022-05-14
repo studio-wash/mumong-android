@@ -20,9 +20,4 @@ class CommunityActivity : MumongActivity(true) {
         val article = intent?.getSerializableExtra(StringKeySet.ARTICLE) as? com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
         viewModel.setArticle(article)
     }
-
-    override fun finish() {
-        super.finish()
-        overridePendingTransition(R.anim.hold, R.anim.slide_out_to_right)
-    }
 }

@@ -22,6 +22,9 @@ class CommunityAllBoardAdapter(private val onClickFavoritePin: (position: Int, b
             title = item.boardName
             hasNewArticle = item.hasNewArticle
             isFavorite = item.isFavorite
+            root.setOnClickListener {
+                onClickBoard.invoke(position, item)
+            }
             executePendingBindings()
         }
     }
