@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{user.nickname, default=`닉네임`}"
+                android:text="@{user.communityNickname, default=`닉네임`}"
                 app:layout_constraintStart_toEndOf="@id/iv_profile"
                 app:layout_constraintTop_toTopOf="@id/iv_profile"/>
             <TextView
@@ -164,7 +164,7 @@
                     app:settingName="@{@string/profile_community_commented}"/>
                 <include layout="@layout/item_setting"
                     android:id="@+id/profile_community_bookmarked_view"
-                    app:iconRes="@{@drawable/ic_profile_community_bookmarked}"
+                    app:iconRes="@{@drawable/ic_profile_community_bookmarked_articles}"
                     app:settingName="@{@string/profile_community_bookmarked}"
                     app:showRedDot="@{showAlertRedDot}"/>
 

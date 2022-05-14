@@ -53,7 +53,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                         2,
                         listOf(),
                         UserEntity(
-                            nickname = "비지비지",
+                            communityNickname = "비지비지",
                             profileImg = Constants.sample_image_url
                         )
                     ),
@@ -67,7 +67,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                                 "방금",
                                 0,
                                 UserEntity(
-                                    nickname = "까지",
+                                    communityNickname = "까지",
                                     profileImg = Constants.sample_image_url
                                 )
                             ),
@@ -76,13 +76,13 @@ class CommunityBoardFragment : MumongFragment(true) {
                                 "방금",
                                 0,
                                 UserEntity(
-                                    nickname = "비지비지",
+                                    communityNickname = "비지비지",
                                     profileImg = Constants.sample_image_url
                                 )
                             )
                         ),
                         UserEntity(
-                            nickname = "까지",
+                            communityNickname = "까지",
                             profileImg = Constants.sample_image_url
                         )
                     ),
@@ -92,13 +92,13 @@ class CommunityBoardFragment : MumongFragment(true) {
                         2,
                         listOf(),
                         UserEntity(
-                            nickname = "비지비지",
+                            communityNickname = "비지비지",
                             profileImg = Constants.sample_image_url
                         )
                     )
                 ),
                 UserEntity(
-                    nickname = "데이드림",
+                    communityNickname = "데이드림",
                     profileImg = Constants.sample_image_url
                 ),
                 attachedImages = listOf(
@@ -115,7 +115,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "데샤",
+                    communityNickname = "데샤",
                     profileImg = Constants.sample_image_url
                 ),
                 attachedImages = listOf(
@@ -139,7 +139,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "샤샤샤",
+                    communityNickname = "샤샤샤",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -151,7 +151,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "데이드림",
+                    communityNickname = "데이드림",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -162,7 +162,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "데샤",
+                    communityNickname = "데샤",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -173,7 +173,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "샤샤샤",
+                    communityNickname = "샤샤샤",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -185,7 +185,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "데이드림",
+                    communityNickname = "데이드림",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -196,7 +196,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "데샤",
+                    communityNickname = "데샤",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -207,7 +207,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 21, 2,
                 listOf(),
                 UserEntity(
-                    nickname = "샤샤샤",
+                    communityNickname = "샤샤샤",
                     profileImg = Constants.sample_image_url
                 )
             )

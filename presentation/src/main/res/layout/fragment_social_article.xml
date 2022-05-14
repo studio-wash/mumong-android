@@ -55,7 +55,7 @@
                         app:layout_constraintStart_toEndOf="@id/iv_user_profile"
                         app:layout_constraintTop_toTopOf="@id/iv_user_profile"
                         app:layout_constraintBottom_toBottomOf="@id/iv_user_profile"
-                        android:text="@{item.user.nickname, default=`작성자`}"
+                        android:text="@{item.user.communityNickname, default=`작성자`}"
                         android:textStyle="bold"/>
                     <ImageView
                         android:id="@+id/user_name_profile_image_separator_dot"

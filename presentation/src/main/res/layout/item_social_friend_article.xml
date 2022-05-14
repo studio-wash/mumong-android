@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@{item.user.nickname, default=`작성자`}"
+                android:text="@{item.user.communityNickname, default=`작성자`}"
                 android:textSize="14sp"
                 android:textStyle="bold"/>
             <TextView

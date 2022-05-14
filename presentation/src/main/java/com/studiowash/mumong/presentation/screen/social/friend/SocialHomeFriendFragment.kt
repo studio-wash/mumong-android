@@ -26,37 +26,37 @@ class SocialHomeFriendFragment : Fragment() {
         friends = listOf(
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "데이드림",
+                    communityNickname = "데이드림",
                     profileImg = Constants.sample_image_url
                 ), true
             ),
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "비지비지",
+                    communityNickname = "비지비지",
                     profileImg = Constants.sample_image_url
                 ), true
             ),
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "까지",
+                    communityNickname = "까지",
                     profileImg = Constants.sample_image_url
                 ), true
             ),
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "무수한 연습",
+                    communityNickname = "무수한 연습",
                     profileImg = Constants.sample_image_url
                 ), false
             ),
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "샤샤샤",
+                    communityNickname = "샤샤샤",
                     profileImg = Constants.sample_image_url
                 ), false
             ),
             OnlineFriendEntity(
                 UserEntity(
-                    nickname = "데이이드림",
+                    communityNickname = "데이이드림",
                     profileImg = Constants.sample_image_url
                 ), false
             )
@@ -68,7 +68,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "1분 전",
                 84, 24,
                 UserEntity(
-                    nickname = "데이드림",
+                    communityNickname = "데이드림",
                     profileImg = Constants.sample_image_url
                 ),
                 recordings = listOf(
@@ -91,7 +91,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "2시간 전",
                 3, 2,
                 UserEntity(
-                    nickname = "비지비지",
+                    communityNickname = "비지비지",
                     profileImg = Constants.sample_image_url
                 )
             ),
@@ -100,7 +100,7 @@ class SocialHomeFriendFragment : Fragment() {
                 "1일 전",
                 245, 121,
                 UserEntity(
-                    nickname = "까지",
+                    communityNickname = "까지",
                     profileImg = Constants.sample_image_url
                 ),
                 recordings = listOf(
@@ -152,9 +152,9 @@ class SocialHomeFriendFragment : Fragment() {
 
     private fun onClickFriend(position: Int, friend: OnlineFriendEntity) {
         val cheerFriendDialog = CheerFriendDialog.newInstance(requireContext(), friend, {
-            Toast.makeText(requireContext(), "PROFILE CLICKED: FRIEND ${friend.user.nickname}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "PROFILE CLICKED: FRIEND ${friend.user.communityNickname}", Toast.LENGTH_SHORT).show()
         }, {
-            Toast.makeText(requireContext(), "CHEER CLICKED: FRIEND ${friend.user.nickname}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "CHEER CLICKED: FRIEND ${friend.user.communityNickname}", Toast.LENGTH_SHORT).show()
         })
         cheerFriendDialog.show()
     }
