@@ -69,6 +69,7 @@
 
     <!-- Tooblar Actions -->
     <string name="toolbar_action_more">More</string>
+    <string name="toolbar_action_search">Search</string>
     <string name="toolbar_action_tuner">Tuner</string>
     
     <!-- Profile -->
