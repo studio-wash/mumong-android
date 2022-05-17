@@ -1,32 +1,15 @@
 package com.studiowash.mumong.presentation.screen.community.search
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.lifecycle.LifecycleOwner
-import com.kakao.adfit.ads.AdListener
-import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
 import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
-import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
 import com.studiowash.mumong.presentation.R
-import com.studiowash.mumong.presentation.constant.StringKeySet
-import com.studiowash.mumong.presentation.databinding.ActivityCommunityBinding
-import com.studiowash.mumong.presentation.databinding.FragmentCommunityBoardBinding
 import com.studiowash.mumong.presentation.databinding.FragmentCommunitySearchBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
-import com.studiowash.mumong.presentation.screen.community.CommunityActivity
-import com.studiowash.mumong.presentation.screen.community.article.CommunityArticleViewModel
 import com.studiowash.mumong.presentation.screen.community.search.model.SearchHistoryItem
-import com.studiowash.mumong.presentation.widget.HorizontalDividerItemDecorator
-import com.studiowash.mumong.presentation.widget.HorizontalSpacingItemDecoration
 import com.studiowash.mumong.presentation.widget.VerticalSpacingItemDecoration
 
 class CommunitySearchFragment: MumongFragment(true) {
