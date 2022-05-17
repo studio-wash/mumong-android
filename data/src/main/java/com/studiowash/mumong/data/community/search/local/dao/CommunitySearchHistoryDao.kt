@@ -17,7 +17,7 @@ interface CommunitySearchHistoryDao {
     @Query("DELETE FROM communitySearchHistory WHERE keyword = :keyword")
     fun deleteSearchHistory(keyword: String)
 
-    @Query("DELETE FROM communitySearchHistory where searchDate NOT IN (SELECT searchDate from communitySearchHistory ORDER BY searchDate DESC LIMIT 5)")
+    @Query("DELETE FROM communitySearchHistory where searchDate NOT IN (SELECT searchDate from communitySearchHistory ORDER BY searchDate DESC LIMIT 100)")
     fun deleteHistoryUntilLimitCount()
 
     @Query("DELETE FROM communitySearchHistory")
