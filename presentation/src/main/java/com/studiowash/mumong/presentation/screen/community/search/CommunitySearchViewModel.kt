@@ -6,10 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.studiowash.mumong.domain.common.RequestResult
 import com.studiowash.mumong.domain.community.usecase.GetCommunitySearchHistoriesUseCase
-import com.studiowash.mumong.presentation.SingleLiveEvent
 import com.studiowash.mumong.presentation.screen.community.search.model.CommunitySearchHistoryItem
 import com.studiowash.mumong.presentation.screen.community.search.model.toItem
-import com.studiowash.mumong.presentation.screen.home.HomeViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
