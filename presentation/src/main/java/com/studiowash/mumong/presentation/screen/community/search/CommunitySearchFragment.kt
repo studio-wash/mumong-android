@@ -49,6 +49,7 @@ class CommunitySearchFragment: MumongFragment(true) {
     }
 
     private fun initOnClick() {
+        binding.ivBtnBack.setOnClickListener { activity?.onBackPressed() }
     }
 
     private fun initObserve() {
