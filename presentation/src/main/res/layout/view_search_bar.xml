@@ -21,12 +21,14 @@
             android:textSize="14sp"
             android:paddingVertical="7dp"
             android:paddingHorizontal="16dp"
+            android:layout_marginEnd="9dp"
+            android:maxLines="1"
             android:hint="@{hint, default=`hint`}"/>
         <ImageView
             android:id="@+id/iv_search"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/ic_search"
+            android:src="@drawable/ic_search_brand"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

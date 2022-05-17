@@ -4,8 +4,9 @@
         <attr name="divider_src" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="MumongSearchView">
+    <declare-styleable name="MumongSearchBarView">
         <attr name="hint_res" format="reference"/>
+        <attr name="white_mode" format="boolean"/>
         <attr name="editable" format="boolean"/>
     </declare-styleable>
 </resources>

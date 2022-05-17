@@ -205,7 +205,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_practice_today"
                 app:layout_constraintBottom_toBottomOf="@id/tv_practice_today"
-                android:src="@drawable/ic_search"/>
+                android:src="@drawable/ic_search_brand"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

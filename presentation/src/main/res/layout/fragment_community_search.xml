@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="14dp"
             android:paddingBottom="20dp"
+            android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
             app:layout_constraintTop_toTopOf="parent">
             <ImageView
                 android:id="@+id/iv_btn_back"
@@ -28,10 +29,9 @@
                 android:src="@drawable/ic_btn_back_invert"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginStart="24dp"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@color/brand_color_1"/>
-            <com.studiowash.mumong.presentation.screen.common.search.MumongSearchView
+            <com.studiowash.mumong.presentation.screen.common.search.MumongSearchBarView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/iv_btn_back"
@@ -39,6 +39,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginStart="9dp"
+                app:white_mode="true"
                 app:hint_res="@string/community_search_board_hint"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout

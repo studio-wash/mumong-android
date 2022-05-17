@@ -8,7 +8,7 @@ import androidx.annotation.AttrRes
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ViewSearchBarBinding
 
-class MumongSearchView @JvmOverloads constructor(
+class MumongSearchBarView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     @AttrRes defStyleAttr: Int = 0
@@ -20,10 +20,11 @@ class MumongSearchView @JvmOverloads constructor(
     }
 
     private fun readAttributes(attrs: AttributeSet?) {
-        val obtainedAttributes = context.obtainStyledAttributes(attrs, R.styleable.MumongSearchView)
+        val obtainedAttributes = context.obtainStyledAttributes(attrs, R.styleable.MumongSearchBarView)
         try {
-            hintRes = obtainedAttributes.getResourceId(R.styleable.MumongSearchView_hint_res, -1)
-            editable = obtainedAttributes.getBoolean(R.styleable.MumongSearchView_editable, true)
+            hintRes = obtainedAttributes.getResourceId(R.styleable.MumongSearchBarView_hint_res, -1)
+            whiteMode = obtainedAttributes.getBoolean(R.styleable.MumongSearchBarView_white_mode, false)
+            editable = obtainedAttributes.getBoolean(R.styleable.MumongSearchBarView_editable, true)
         } finally {
             obtainedAttributes.recycle()
         }
@@ -38,5 +39,12 @@ class MumongSearchView @JvmOverloads constructor(
         set(value) {
             field = value
             binding.tvSearch.isEnabled = editable
+        }
+    var whiteMode: Boolean = false
+        set(value) {
+            field = value
+            binding.ivSearch.setImageResource(
+                if (value) R.drawable.ic_search_white else R.drawable.ic_search_brand
+            )
         }
 }

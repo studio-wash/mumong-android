@@ -35,7 +35,7 @@ class HomeViewModel @Inject constructor(
     private val _showToastEvent = SingleLiveEvent<String>()
 
     init {
-        putEchoTest()
+//        putEchoTest()
     }
 
     private fun getHelloTest() {
