@@ -33,6 +33,7 @@
                 android:layout_marginStart="16dp"
                 android:background="@color/brand_color_1"/>
             <com.studiowash.mumong.presentation.screen.common.search.MumongSearchBarView
+                android:id="@+id/sv_search_board"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toEndOf="@id/iv_btn_back"
@@ -63,7 +64,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
             <TextView
-                android:id="@+id/tv_remove_all_recent_searched"
+                android:id="@+id/tv_delete_all_recent_searched"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/community_search_remove_all_recent_searched"

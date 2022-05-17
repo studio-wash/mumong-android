@@ -17,6 +17,7 @@ class MumongSearchBarView @JvmOverloads constructor(
 
     init {
         readAttributes(attrs)
+        initOnClick()
     }
 
     private fun readAttributes(attrs: AttributeSet?) {
@@ -28,6 +29,16 @@ class MumongSearchBarView @JvmOverloads constructor(
         } finally {
             obtainedAttributes.recycle()
         }
+    }
+
+    private fun initOnClick() {
+        binding.ivSearch.setOnClickListener {
+            onSearchListener?.onSearch(binding.tvSearch.text.toString())
+        }
+    }
+
+    fun setOnSearchListener(searchListener: OnSearchListener) {
+        this.onSearchListener = searchListener
     }
 
     var hintRes = R.string.default_hint
@@ -47,4 +58,10 @@ class MumongSearchBarView @JvmOverloads constructor(
                 if (value) R.drawable.ic_search_white else R.drawable.ic_search_brand
             )
         }
+
+    private var onSearchListener: OnSearchListener? = null
+
+    fun interface OnSearchListener {
+        fun onSearch(keyword: String)
+    }
 }

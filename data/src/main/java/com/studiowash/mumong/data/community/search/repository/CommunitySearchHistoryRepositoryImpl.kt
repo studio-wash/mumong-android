@@ -23,4 +23,11 @@ class CommunitySearchHistoryRepositoryImpl @Inject constructor(private val histo
             emit(RequestResult.Success(true))
         }
     }
+
+    override suspend fun deleteAllHistories(): Flow<RequestResult<Boolean>> {
+        return flow {
+            historyDao.deleteAllHistories()
+            emit(RequestResult.Success(true))
+        }
+    }
 }

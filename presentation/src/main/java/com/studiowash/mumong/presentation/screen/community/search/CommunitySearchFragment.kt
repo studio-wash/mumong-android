@@ -50,6 +50,12 @@ class CommunitySearchFragment: MumongFragment(true) {
 
     private fun initOnClick() {
         binding.ivBtnBack.setOnClickListener { activity?.onBackPressed() }
+        binding.tvDeleteAllRecentSearched.setOnClickListener {
+            viewModel.deleteAllHistories()
+        }
+        binding.svSearchBoard.setOnSearchListener {
+            viewModel.search(it)
+        }
     }
 
     private fun initObserve() {
