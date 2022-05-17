@@ -93,7 +93,7 @@ class CommunityArticleFragment : MumongFragment(true) {
         activityViewModel.setArticle(args.article)
     }
 
-    private fun onUpdateArticle(article: com.studiowash.mumong.domain.community.entity.CommunityArticleEntity?) {
+    private fun onUpdateArticle(article: com.studiowash.mumong.domain.community.entity.CommunityArticle?) {
         binding.item = article
 
         // todo : viewmodel로 추후 이동

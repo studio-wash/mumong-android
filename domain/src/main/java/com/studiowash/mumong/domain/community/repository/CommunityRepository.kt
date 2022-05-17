@@ -1,7 +1,7 @@
 package com.studiowash.mumong.domain.community.repository
 
 import com.studiowash.mumong.domain.common.RequestResult
-import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticle
 import kotlinx.coroutines.flow.Flow
 
 interface CommunityRepository {
@@ -9,5 +9,5 @@ interface CommunityRepository {
         keyword: String,
         articleId: Int, // 마지막으로 검색된 글 번호,
         boardId: Int
-    ) : Flow<RequestResult<List<CommunityArticleEntity>>>
+    ) : Flow<RequestResult<List<CommunityArticle>>>
 }

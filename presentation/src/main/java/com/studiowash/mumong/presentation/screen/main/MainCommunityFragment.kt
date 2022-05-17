@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
-import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
+import com.studiowash.mumong.domain.community.entity.CommunityBoard
 import com.studiowash.mumong.domain.login.LoginStatus
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.constant.StringKeySet
@@ -28,22 +28,22 @@ class MainCommunityFragment : MumongFragment(true) {
 
     private val favoriteBoardAdapter = CommunityFavoriteBoardAdapter({ position, board -> }, this::onClickBoard).apply {
         boardItems = listOf(
-            CommunityBoardEntity("피아노 게시판",
+            CommunityBoard("피아노 게시판",
                 hasNewArticle = true,
                 isFavorite = true,
                 recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
             ),
-            CommunityBoardEntity("오케스트라 게시판",
+            CommunityBoard("오케스트라 게시판",
                 hasNewArticle = true,
                 isFavorite = true,
                 recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
             ),
-            CommunityBoardEntity("밴드 게시판",
+            CommunityBoard("밴드 게시판",
                 hasNewArticle = true,
                 isFavorite = true,
                 recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
             ),
-            CommunityBoardEntity("현악기 게시판",
+            CommunityBoard("현악기 게시판",
                 hasNewArticle = true,
                 isFavorite = false,
                 recentArticleContent = "이 어플 참 괜찮네요를레히히히히깔…"
@@ -52,51 +52,51 @@ class MainCommunityFragment : MumongFragment(true) {
     }
     private val allBoardAdapter = CommunityAllBoardAdapter({ position, board -> }, this::onClickBoard).apply {
         boardItems = listOf(
-            CommunityBoardEntity("피아노 게시판",
+            CommunityBoard("피아노 게시판",
                 hasNewArticle = true,
                 isFavorite = true
             ),
-            CommunityBoardEntity("기타 게시판",
+            CommunityBoard("기타 게시판",
                 hasNewArticle = true,
                 isFavorite = true
             ),
-            CommunityBoardEntity("오케스트라 게시판",
+            CommunityBoard("오케스트라 게시판",
                 hasNewArticle = false,
                 isFavorite = true
             ),
-            CommunityBoardEntity("밴드 게시판",
+            CommunityBoard("밴드 게시판",
                 hasNewArticle = true,
                 isFavorite = false
             ),
-            CommunityBoardEntity("현악기 게시판",
+            CommunityBoard("현악기 게시판",
                 hasNewArticle = true,
                 isFavorite = false
             ),
-            CommunityBoardEntity("목관악기 게시판",
+            CommunityBoard("목관악기 게시판",
                 hasNewArticle = true,
                 isFavorite = false
             ),
-            CommunityBoardEntity("타악기 게시판",
+            CommunityBoard("타악기 게시판",
                 hasNewArticle = false,
                 isFavorite = false
             ),
-            CommunityBoardEntity("건반악기 게시판",
+            CommunityBoard("건반악기 게시판",
                 hasNewArticle = false,
                 isFavorite = false
             ),
-            CommunityBoardEntity("작곡 게시판",
+            CommunityBoard("작곡 게시판",
                 hasNewArticle = false,
                 isFavorite = false
             ),
-            CommunityBoardEntity("국악 게시판",
+            CommunityBoard("국악 게시판",
                 hasNewArticle = false,
                 isFavorite = false
             ),
-            CommunityBoardEntity("금관악기 게시판",
+            CommunityBoard("금관악기 게시판",
                 hasNewArticle = false,
                 isFavorite = false
             ),
-            CommunityBoardEntity("보컬 게시판",
+            CommunityBoard("보컬 게시판",
                 hasNewArticle = true,
                 isFavorite = false
             )
@@ -178,7 +178,7 @@ class MainCommunityFragment : MumongFragment(true) {
     private fun initObserve() {
     }
 
-    private fun onClickBoard(boardIndex: Int, board: CommunityBoardEntity) {
+    private fun onClickBoard(boardIndex: Int, board: CommunityBoard) {
         val intent = Intent(context, CommunityActivity::class.java).apply {
             putExtra(StringKeySet.BOARD, board)
         }

@@ -1,6 +1,6 @@
 package com.studiowash.mumong.data.community.home.remote.api
 
-import com.studiowash.mumong.data.community.home.remote.dto.CommunityArticleDTO
+import com.studiowash.mumong.data.CommunityArticleDTO
 import com.studiowash.mumong.domain.common.RequestResult
 import retrofit2.http.Field
 import retrofit2.http.GET

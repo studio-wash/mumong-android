@@ -3,14 +3,14 @@ package com.studiowash.mumong.presentation.screen.community
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
+import com.studiowash.mumong.domain.community.entity.CommunityTopic
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ItemCommunityTopicBinding
 
-class CommunityTopicAdapter(private val onClickAll: () -> Unit, private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopicEntity) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
+class CommunityTopicAdapter(private val onClickAll: () -> Unit, private val onClickBest: () -> Unit, private val onClickTopic: (topicPosition: Int, topic: CommunityTopic) -> Unit) : RecyclerView.Adapter<CommunityTopicAdapter.CommunityTopicViewHolder>() {
     class CommunityTopicViewHolder(val binding: ItemCommunityTopicBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var topicItems = listOf<CommunityTopicEntity>()
+    var topicItems = listOf<CommunityTopic>()
     var selectedIndex: Int = 0
         set(value) {
             val originalIndex = field
@@ -52,11 +52,11 @@ class CommunityTopicAdapter(private val onClickAll: () -> Unit, private val onCl
                 holder.binding.apply {
                     isBestItem = false
                     topicNameRes = when(topic) {
-                        CommunityTopicEntity.DAILY -> R.string.community_topic_daily
-                        CommunityTopicEntity.RECORDING -> R.string.community_topic_recording
-                        CommunityTopicEntity.TIP -> R.string.community_topic_tip
-                        CommunityTopicEntity.QUESTION -> R.string.community_topic_question
-                        CommunityTopicEntity.ADVERTISE -> R.string.community_topic_advertise
+                        CommunityTopic.DAILY -> R.string.community_topic_daily
+                        CommunityTopic.RECORDING -> R.string.community_topic_recording
+                        CommunityTopic.TIP -> R.string.community_topic_tip
+                        CommunityTopic.QUESTION -> R.string.community_topic_question
+                        CommunityTopic.ADVERTISE -> R.string.community_topic_advertise
                     }
                     root.setOnClickListener {
                         selectedIndex = position

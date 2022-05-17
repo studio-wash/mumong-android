@@ -16,12 +16,10 @@ import com.studiowash.mumong.domain.common.entity.AttachedImageEntity
 import com.studiowash.mumong.domain.common.entity.CommentEntity
 import com.studiowash.mumong.domain.common.entity.CommentReplyEntity
 import com.studiowash.mumong.domain.common.entity.RecordingEntity
-import com.studiowash.mumong.domain.community.entity.CommunityArticleEntity
-import com.studiowash.mumong.domain.community.entity.CommunityBoardEntity
-import com.studiowash.mumong.domain.community.entity.CommunityTopicEntity
+import com.studiowash.mumong.domain.community.entity.CommunityArticle
+import com.studiowash.mumong.domain.community.entity.CommunityTopic
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.presentation.R
-import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.databinding.FragmentCommunityBoardBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 import com.studiowash.mumong.presentation.screen.community.article.CommunityArticleAdapter
@@ -32,14 +30,14 @@ class CommunityBoardFragment : MumongFragment(true) {
     private var _binding: FragmentCommunityBoardBinding? = null
 
     private val topicAdapter = CommunityTopicAdapter(this:: onClickAll, this::onClickBest, this::onClickTopic).apply {
-        topicItems = CommunityTopicEntity.values().toList()
+        topicItems = CommunityTopic.values().toList()
     }
 
     private val args: CommunityBoardFragmentArgs by navArgs()
 
     private val recentArticleAdapter = CommunityArticleAdapter(this::onClickArticle).apply {
         recentArticleItems = listOf(
-            CommunityArticleEntity(
+            CommunityArticle(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -106,7 +104,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     AttachedImageEntity(Constants.sample_image_url)
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -130,7 +128,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     )
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -142,7 +140,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 )
             ),
 
-            CommunityArticleEntity(
+            CommunityArticle(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -153,7 +151,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     profileImg = Constants.sample_image_url
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -164,7 +162,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     profileImg = Constants.sample_image_url
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -176,7 +174,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                 )
             ),
 
-            CommunityArticleEntity(
+            CommunityArticle(
                 "이 어플 참 괜찮네요",
                 "메트로놈 기능 다들 써보셨나요?\n세심하게 어플 만든 거 같아요! 다른 기능도 추가되면 좋을 것 같아요.",
                 "1분 전",
@@ -187,7 +185,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     profileImg = Constants.sample_image_url
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "오늘 연습! 한 번 평가 부탁드려요~",
                 "오늘 피아노 연습 올려요! 객관적인 평가랑 피드백\n부탁드립니다. 너무 심한 말은 삼가주세 요...! 열심히 할게요.",
                 "2시간 전",
@@ -198,7 +196,7 @@ class CommunityBoardFragment : MumongFragment(true) {
                     profileImg = Constants.sample_image_url
                 )
             ),
-            CommunityArticleEntity(
+            CommunityArticle(
                 "같이 밴드 하실 분 모집합니다!",
                 "저희 밴드 인원이 한 자리 비어서 급하게 모집합니다!\n드럼 가능하신 분으로 구하고, 못 하시더라도 친절하게 가르쳐 드려요.",
                 "2시간 전",
@@ -286,11 +284,11 @@ class CommunityBoardFragment : MumongFragment(true) {
         // todo
     }
 
-    private fun onClickTopic(tagIndex: Int, tag: CommunityTopicEntity) {
+    private fun onClickTopic(tagIndex: Int, tag: CommunityTopic) {
         // todo
     }
 
-    private fun onClickArticle(articleIndex: Int, article: CommunityArticleEntity) {
+    private fun onClickArticle(articleIndex: Int, article: CommunityArticle) {
         val action = CommunityBoardFragmentDirections.actionCommunityBoardFragmentNavToCommunityArticleFragmentNav(article)
         findNavController().navigate(action)
     }

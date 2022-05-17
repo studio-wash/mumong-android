@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.presentation.databinding.ItemCommunityArticleBinding
 
-class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: com.studiowash.mumong.domain.community.entity.CommunityArticleEntity) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {
+class CommunityArticleAdapter(private val onClickArticle: (articleIndex: Int, article: com.studiowash.mumong.domain.community.entity.CommunityArticle) -> Unit) : RecyclerView.Adapter<CommunityArticleAdapter.RecentArticleViewHolder>() {
     class RecentArticleViewHolder(val binding: ItemCommunityArticleBinding) : RecyclerView.ViewHolder(binding.root)
 
-    var recentArticleItems = listOf<com.studiowash.mumong.domain.community.entity.CommunityArticleEntity>()
+    var recentArticleItems = listOf<com.studiowash.mumong.domain.community.entity.CommunityArticle>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecentArticleViewHolder {
         val binding = ItemCommunityArticleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
