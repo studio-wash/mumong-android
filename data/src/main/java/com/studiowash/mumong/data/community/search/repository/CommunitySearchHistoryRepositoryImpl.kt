@@ -19,6 +19,7 @@ class CommunitySearchHistoryRepositoryImpl @Inject constructor(private val histo
 
     override suspend fun addHistory(history: CommunitySearchHistory): Flow<RequestResult<Boolean>> {
         return flow {
+            if (history.keyword.isBlank()) emit(RequestResult.Fail(message = "blank keyword"))
             historyDao.addRecentSearchHistory(history.toEntity())
             historyDao.deleteHistoryUntilLimitCount()
             emit(RequestResult.Success(true))

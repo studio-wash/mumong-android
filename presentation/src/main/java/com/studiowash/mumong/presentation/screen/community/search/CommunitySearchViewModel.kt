@@ -67,6 +67,12 @@ class CommunitySearchViewModel @Inject constructor(
 
 
     fun search(keyword: String) {
+        if (keyword.isBlank()) return
+        addKeywordToHistory(keyword)
+
+    }
+
+    private fun addKeywordToHistory(keyword: String) {
         viewModelScope.launch(Dispatchers.IO) {
             addSearchHistoryUseCase(keyword).catch { exception ->
 
