@@ -68,7 +68,7 @@ class CommunitySearchViewModel @Inject constructor(
 
     fun search(keyword: String) {
         if (keyword.isBlank()) return
-        addKeywordToHistory(keyword)
+        addKeywordToHistory(keyword.trim())
 
     }
 
