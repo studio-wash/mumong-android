@@ -14,6 +14,12 @@ object BindingAdapters {
     }
 
     @JvmStatic
+    @BindingAdapter(value=["imageRes"], requireAll = false)
+    fun setImageRes(imageView: ImageView, res: Int){
+        imageView.setImageResource(res)
+    }
+
+    @JvmStatic
     @BindingAdapter("goneUnless")
     fun setGoneUnless(view: View, condition: Boolean) {
         view.visibility = if (condition) View.VISIBLE else View.GONE

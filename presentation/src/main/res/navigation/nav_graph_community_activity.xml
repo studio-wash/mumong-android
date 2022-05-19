@@ -19,7 +19,7 @@
             app:popExitAnim="@anim/slide_out_to_right"/>
         <argument
             android:name="board"
-            app:argType="com.studiowash.mumong.domain.community.entity.CommunityBoardEntity" />
+            app:argType="com.studiowash.mumong.domain.community.entity.CommunityBoard" />
     </fragment>
     <fragment
         android:id="@+id/communityArticleFragmentNav"
@@ -28,6 +28,6 @@
         tools:layout="@layout/fragment_community_article">
         <argument
             android:name="article"
-            app:argType="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
+            app:argType="com.studiowash.mumong.domain.community.entity.CommunityArticle" />
     </fragment>
 </navigation>

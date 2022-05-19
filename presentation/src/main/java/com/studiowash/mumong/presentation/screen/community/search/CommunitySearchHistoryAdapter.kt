@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.studiowash.mumong.presentation.databinding.ItemCommunitySearchHistoryBinding
-import com.studiowash.mumong.presentation.screen.community.search.model.SearchHistoryItem
+import com.studiowash.mumong.presentation.screen.community.search.model.CommunitySearchHistoryItem
 
 class CommunitySearchHistoryAdapter: RecyclerView.Adapter<CommunitySearchHistoryAdapter.SearchHistoryViewHolder>() {
     class SearchHistoryViewHolder(val binding: ItemCommunitySearchHistoryBinding): RecyclerView.ViewHolder(binding.root)
 
-    var items = listOf<SearchHistoryItem>()
+    var items = listOf<CommunitySearchHistoryItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchHistoryViewHolder {
         val binding = ItemCommunitySearchHistoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -17,7 +17,7 @@ class CommunitySearchHistoryAdapter: RecyclerView.Adapter<CommunitySearchHistory
     }
 
     override fun onBindViewHolder(holder: SearchHistoryViewHolder, position: Int) {
-        holder.binding.query = items[position].query
+        holder.binding.query = items[position].keyword
         holder.binding.executePendingBindings()
     }
 

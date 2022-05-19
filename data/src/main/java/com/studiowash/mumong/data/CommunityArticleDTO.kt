@@ -1,4 +1,4 @@
-package com.studiowash.mumong.data.community.remote.dto
+package com.studiowash.mumong.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
