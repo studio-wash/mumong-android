@@ -74,9 +74,6 @@ dependencies {
     val lifecycleVersion = "2.4.1"
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion")
 
-    // room
-    implementation("androidx.room:room-ktx:2.4.2")
-
     // test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")

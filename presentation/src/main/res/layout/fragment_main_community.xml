@@ -136,12 +136,12 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="24dp"
                     android:paddingBottom="8dp"
-                    android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                     app:layout_constraintTop_toBottomOf="@id/ctl_top_layer"
                     android:layout_marginTop="@dimen/horizontal_separator_height_thick"
                     android:background="@drawable/bg_rounded_rect_20dp_fill_white">
                     <TextView
                         android:id="@+id/tv_favorite_boards_title"
+                        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
@@ -176,7 +176,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </FrameLayout>
-                <com.studiowash.mumong.presentation.screen.common.search.MumongSearchView
+                <com.studiowash.mumong.presentation.screen.common.search.MumongSearchBarView
                     android:id="@+id/sv_search_board"
                     app:editable="false"
                     android:focusable="true"
@@ -185,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/fl_adfit_banner_1"
-                    app:searchIcon="@drawable/ic_search"
+                    app:searchIcon="@drawable/ic_search_brand"
                     android:paddingVertical="12dp"
                     android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                     android:background="@drawable/bg_rounded_rect_20dp_fill_white"
@@ -196,7 +196,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="24dp"
-                    android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
                     app:layout_constraintTop_toBottomOf="@id/sv_search_board"
                     android:layout_marginTop="@dimen/horizontal_separator_height_thick"
                     android:background="@drawable/bg_rounded_rect_20dp_fill_white">
@@ -206,6 +205,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginHorizontal="@dimen/fragment_default_horizontal_padding"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="@color/text_black"

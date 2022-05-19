@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.domain.test.usecase.TestGetHelloUseCase
+import com.studiowash.mumong.domain.test.usecase.TestPutEchoUseCase
 import com.studiowash.mumong.presentation.SingleLiveEvent
 import com.studiowash.mumong.presentation.screen.home.model.TestGetHelloResult
 import com.studiowash.mumong.presentation.screen.home.model.TestPutEchoResult
@@ -15,8 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getHelloUseCase: com.studiowash.mumong.domain.test.usecase.TestGetHelloUseCase,
-    private val putEchoUseCase: com.studiowash.mumong.domain.test.usecase.TestPutEchoUseCase
+    private val getHelloUseCase: TestGetHelloUseCase,
+    private val putEchoUseCase: TestPutEchoUseCase
 ) : ViewModel() {
 
     val testPutEchoLoadingState: StateFlow<TestPutEchoLoadingState> get() = _testPutEchoLoadingState
@@ -33,7 +35,7 @@ class HomeViewModel @Inject constructor(
     private val _showToastEvent = SingleLiveEvent<String>()
 
     init {
-        putEchoTest()
+//        putEchoTest()
     }
 
     private fun getHelloTest() {

@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
-        android:paddingVertical="15dp">
+        android:paddingVertical="15dp"
+        android:foreground="@drawable/ripple_black">
         <!-- 글쓴이 정보 -->
         <ImageView
             android:id="@+id/iv_user_profile"

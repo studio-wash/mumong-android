@@ -16,7 +16,9 @@
         android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
+        android:foreground="@drawable/ripple_black">
         <ImageView
             android:id="@+id/iv_favorite_pin"
             android:layout_width="24dp"

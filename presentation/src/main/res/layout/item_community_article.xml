@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
+            type="com.studiowash.mumong.domain.community.entity.CommunityArticle" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item_container_constraint_layout"
@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/fragment_default_horizontal_padding"
         android:paddingTop="20dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        android:foreground="@drawable/ripple_black">
 
         <!-- 내용 -->
         <androidx.constraintlayout.widget.ConstraintLayout

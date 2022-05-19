@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.studiowash.mumong.domain.community.entity.CommunityArticleEntity" />
+            type="com.studiowash.mumong.domain.community.entity.CommunityArticle" />
         <variable
             name="isLiked"
             type="boolean" />
