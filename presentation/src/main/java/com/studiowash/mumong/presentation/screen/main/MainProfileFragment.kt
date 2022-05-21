@@ -32,9 +32,6 @@ class MainProfileFragment : MumongFragment(true) {
     }
 
     private fun initOnClick() {
-        binding.closeButtonImageView.setOnClickListener {
-            activity?.finish()
-        }
     }
 
     private fun initScrollY() {

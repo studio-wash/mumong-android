@@ -56,14 +56,6 @@
                 app:layout_constraintTop_toBottomOf="@id/nickname_text_view"
                 android:textSize="10sp"
                 android:textColor="@color/brand_color_1"/>
-            <ImageView
-                android:id="@+id/close_button_image_view"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/btn_close"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <ScrollView
             android:id="@+id/items_scroll_view"
