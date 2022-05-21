@@ -74,19 +74,16 @@
     <string name="toolbar_action_tuner">Tuner</string>
     
     <!-- Profile -->
-    <string name="profile_edit_account"><u>계정 편집하기</u></string>
     <string name="profile_common_notice">공지사항</string>
     <string name="profile_common_alert">알림</string>
     <string name="profile_common_settings">설정</string>
-    <string name="profile_social_friends">친구 목록</string>
-    <string name="profile_social_groups">그룹 목록</string>
-    <string name="profile_social_my_articles">나의 피드</string>
-    <string name="profile_social_commented">댓글 단 피드</string>
-    <string name="profile_social_bookmarked">스크랩한 피드</string>
-    <string name="profile_community_favorite_boards">즐겨찾는 게시판</string>
-    <string name="profile_community_my_articles">나의 글</string>
-    <string name="profile_community_commented">댓글 단 글</string>
-    <string name="profile_community_bookmarked">스크랩한 글</string>
+
+    <string name="profile_my_target_practice_time">목표 연습시간</string>
+    <string name="profile_my_instruments">주요 악기</string>
+    <string name="template_profile_my_target_practice_time_hour">%d시간</string>
+    <string name="template_profile_my_target_practice_time_minute">%d분</string>
+    <string name="template_profile_my_instruments_count">%d개</string>
+
     <string name="profile_common_mumong_guide">뮤몽 안내서</string>
     <string name="profile_common_about_us">제작자 이야기</string>
     <string name="profile_common_version_info">버전 정보</string>
