@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_rounded_rect_20dp_fill_dark_gray"
+    android:paddingVertical="2dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="6dp">
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_community_edit_profile"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/text_invert"
+        android:text="수정"/>
+</LinearLayout>

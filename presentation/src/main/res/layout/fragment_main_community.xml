@@ -36,31 +36,13 @@
                         app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginStart="@dimen/fragment_default_horizontal_padding"
                         android:text="@{communityNickname, default=`commu_nick`}"/>
-                    <LinearLayout
+                    <include layout="@layout/view_btn_edit_profile"
+                        android:id="@+id/view_btn_edit_profile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/bg_rounded_rect_20dp_fill_dark_gray"
-                        android:paddingVertical="2dp"
-                        android:paddingStart="4dp"
-                        android:paddingEnd="6dp"
-                        android:layout_marginEnd="@dimen/fragment_default_horizontal_padding">
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            android:src="@drawable/ic_community_edit_profile"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="4dp"
-                            android:textColor="@color/text_invert"
-                            android:text="수정"/>
-                    </LinearLayout>
+                        android:layout_marginEnd="@dimen/fragment_default_horizontal_padding"/>
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
