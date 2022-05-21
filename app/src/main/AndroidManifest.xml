@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MuMong">
         <activity
-            android:name="com.studiowash.mumong.MainActivity"
+            android:name="com.studiowash.mumong.presentation.screen.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".community.article.CommunityArticleActivity" />
-        <activity android:name=".social.article.SocialArticleActivity" />
-        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.community.CommunityActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.social.article.SocialArticleActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.practice.addpractice.AddPracticeActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.practice.PracticeDiaryActivity" />
+        <activity android:name="com.studiowash.mumong.presentation.screen.community.search.CommunitySearchActivity" />
     </application>
 
 </manifest>
