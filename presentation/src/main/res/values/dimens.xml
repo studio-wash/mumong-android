@@ -6,7 +6,7 @@
     <dimen name="fragment_default_horizontal_padding">24dp</dimen>
     <dimen name="fragment_default_top_padding">16dp</dimen>
 
-    <dimen name="icon_profile_width">32dp</dimen>
+    <dimen name="icon_profile_width">56dp</dimen>
 
     <dimen name="single_elevation">8dp</dimen>
     <dimen name="double_elevation">16dp</dimen>
