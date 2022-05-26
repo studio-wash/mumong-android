@@ -44,6 +44,9 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${hiltVersion}")
     kapt("com.google.dagger:hilt-android-compiler:${hiltVersion}")
 
+    // login
+    implementation("com.kakao.sdk:v2-user:2.7.0")
+
     // test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
