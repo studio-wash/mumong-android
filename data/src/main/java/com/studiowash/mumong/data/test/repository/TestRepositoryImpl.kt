@@ -1,5 +1,6 @@
 package com.studiowash.mumong.data.test.repository
 
+import android.accounts.NetworkErrorException
 import com.studiowash.mumong.data.test.remote.api.TestApi
 import com.studiowash.mumong.data.test.remote.dto.TestGetHelloResultDTO
 import com.studiowash.mumong.data.test.remote.dto.TestPutEchoRequestDTO
