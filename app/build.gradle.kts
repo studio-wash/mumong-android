@@ -15,7 +15,8 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
-        buildConfigField("String", "KAKAO_NATIVE_APP_KEY", "b494f0df7d1a69d740e57c3dfac3c091")
+        manifestPlaceholders["KAKAO_NATIVE_APP_KEY"] = "b494f0df7d1a69d740e57c3dfac3c091"
+        buildConfigField("String", "KAKAO_NATIVE_APP_KEY", "\"b494f0df7d1a69d740e57c3dfac3c091\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
