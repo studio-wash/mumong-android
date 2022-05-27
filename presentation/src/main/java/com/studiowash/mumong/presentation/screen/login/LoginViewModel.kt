@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kakao.sdk.user.UserApiClient
-import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.login.usecase.RequestKakaoManualLoginUseCase
 import com.studiowash.mumong.domain.login.usecase.RequestKakaoTalkLoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,11 +27,11 @@ class LoginViewModel @Inject constructor(
                     println(exception.stackTraceToString())
                 }.collect { result ->
                     when (result) {
-                        is RequestResult.Success -> {
+                        is BaseResult.Success -> {
                             println("Login test success, token=${result.data.token}")
                         }
-                        is RequestResult.Fail -> {
-                            println("Login test fail, code ${result.code}, message=${result.message}")
+                        is BaseResult.Fail -> {
+                            println("Login test fail, ${result.data}")
                         }
                     }
                 }
@@ -42,11 +42,11 @@ class LoginViewModel @Inject constructor(
                     println(exception.stackTraceToString())
                 }.collect { result ->
                     when (result) {
-                        is RequestResult.Success -> {
+                        is BaseResult.Success -> {
                             println("Login test success, token=${result.data.token}")
                         }
-                        is RequestResult.Fail -> {
-                            println("Login test fail, code ${result.code}, message=${result.message}")
+                        is BaseResult.Fail -> {
+                            println("Login test fail, ${result.data}")
                         }
                     }
                 }

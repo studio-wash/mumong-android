@@ -10,5 +10,5 @@ interface LoginApi {
     suspend fun login(
         @Query("id") id: String,
         @Query("password") password: String
-    ): com.studiowash.mumong.domain.common.RequestResult<LoginResultDTO>
+    ): com.studiowash.mumong.domain.common.BaseResult<LoginResultDTO>
 }
