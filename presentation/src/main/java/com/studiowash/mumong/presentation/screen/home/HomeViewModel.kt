@@ -3,7 +3,7 @@ package com.studiowash.mumong.presentation.screen.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.test.usecase.TestGetHelloUseCase
 import com.studiowash.mumong.domain.test.usecase.TestPutEchoUseCase
 import com.studiowash.mumong.presentation.SingleLiveEvent
@@ -46,15 +46,15 @@ class HomeViewModel @Inject constructor(
                 showToast(exception.stackTraceToString())
             }.collect { result ->
                 when(result) {
-                    is RequestResult.Success -> {
+                    is BaseResult.Success -> {
                         _testGetHelloLoadingState.value =
                             TestGetHelloLoadingState.Success(result.data)
                         showToast("getHelloUseCase Success, ${result.data}")
                     }
-                    is RequestResult.Fail -> {
+                    is BaseResult.Fail -> {
                         _testGetHelloLoadingState.value =
-                            TestGetHelloLoadingState.Fail(result.code, result.message)
-                        showToast("getHelloUseCase Fail, ${result.code}, ${result.message}")
+                            TestGetHelloLoadingState.Fail(result.data.code, result.data.message)
+                        showToast("getHelloUseCase Fail, ${result.data.code}, ${result.data.message}")
                     }
                 }
             }
@@ -70,15 +70,15 @@ class HomeViewModel @Inject constructor(
                 _testPutEchoLoadingState.value = TestPutEchoLoadingState.Fail(0,exception.message)
             }.collect { result ->
                 when(result) {
-                    is RequestResult.Success -> {
+                    is BaseResult.Success -> {
                         _testPutEchoLoadingState.value =
                             TestPutEchoLoadingState.Success(result.data.toTestPutEchoResult())
                         showToast("putEchoUseCase Success, ${result.data}")
                     }
-                    is RequestResult.Fail -> {
+                    is BaseResult.Fail -> {
                         _testPutEchoLoadingState.value =
-                            TestPutEchoLoadingState.Fail(result.code, result.message)
-                        showToast("putEchoUseCase Fail, ${result.code}, ${result.message}")
+                            TestPutEchoLoadingState.Fail(result.data.code, result.data.message)
+                        showToast("putEchoUseCase Fail, ${result.data.code}, ${result.data.message}")
                     }
                 }
             }

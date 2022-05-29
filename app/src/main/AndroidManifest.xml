@@ -16,9 +16,12 @@
         <activity
             android:name="com.studiowash.mumong.presentation.screen.main.MainActivity"
             android:exported="true">
+        </activity>
+        <activity
+            android:name="com.studiowash.mumong.presentation.screen.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,6 +30,20 @@
         <activity android:name="com.studiowash.mumong.presentation.screen.practice.addpractice.AddPracticeActivity" />
         <activity android:name="com.studiowash.mumong.presentation.screen.practice.PracticeDiaryActivity" />
         <activity android:name="com.studiowash.mumong.presentation.screen.community.search.CommunitySearchActivity" />
+
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data android:host="oauth"
+                    android:scheme="kakao${KAKAO_NATIVE_APP_KEY}" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
