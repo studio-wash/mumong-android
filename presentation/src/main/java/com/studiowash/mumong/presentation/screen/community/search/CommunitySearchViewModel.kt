@@ -1,11 +1,10 @@
 package com.studiowash.mumong.presentation.screen.community.search
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.studiowash.mumong.domain.common.RequestResult
+import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.community.usecase.AddCommunitySearchHistoriesUseCase
 import com.studiowash.mumong.domain.community.usecase.DeleteAllCommunitySearchHistoriesUseCase
 import com.studiowash.mumong.domain.community.usecase.GetCommunitySearchHistoriesUseCase
@@ -42,11 +41,11 @@ class CommunitySearchViewModel @Inject constructor(
                 _historyLoadingState.postValue(SearchHistoryLoadingState.Fail(exception.message))
             }.collect { result ->
                 when (result) {
-                    is RequestResult.Success -> _historyLoadingState.postValue(
+                    is BaseResult.Success -> _historyLoadingState.postValue(
                         SearchHistoryLoadingState.Success(result.data.map { it.toItem() })
                     )
-                    is RequestResult.Fail -> _historyLoadingState.postValue(
-                        SearchHistoryLoadingState.Fail(result.message)
+                    is BaseResult.Fail -> _historyLoadingState.postValue(
+                        SearchHistoryLoadingState.Fail(result.data.message)
                     )
                 }
             }
@@ -58,7 +57,7 @@ class CommunitySearchViewModel @Inject constructor(
             deleteAllHistoriesUseCase().catch { exception ->
 
             }.collect { result ->
-                if (result is RequestResult.Success) {
+                if (result is BaseResult.Success) {
                     loadSearchHistories()
                 }
             }
@@ -77,7 +76,7 @@ class CommunitySearchViewModel @Inject constructor(
             addSearchHistoryUseCase(keyword).catch { exception ->
 
             }.collect { result ->
-                if (result is RequestResult.Success) {
+                if (result is BaseResult.Success) {
                     loadSearchHistories()
                 }
             }
