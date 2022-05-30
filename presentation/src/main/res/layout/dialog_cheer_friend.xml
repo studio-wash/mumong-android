@@ -43,20 +43,21 @@
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="13dp"
-                android:background="@drawable/bg_friend_image_large"
                 app:imageSrc="@{item.user.profileImg}"
+                android:scaleType="centerCrop"
+                android:background="@drawable/bg_rounded_rect_16dp_fill_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_user_name"/>
             <ImageView
-                    android:id="@+id/iv_border_online_friend"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@{item.isOnline ? @drawable/border_width_120_round_16_stroke_4 : null, default=@drawable/border_width_120_round_16_stroke_4}"
-                    app:layout_constraintStart_toStartOf="@id/iv_profile"
-                    app:layout_constraintEnd_toEndOf="@id/iv_profile"
-                    app:layout_constraintTop_toTopOf="@id/iv_profile"
-                    app:layout_constraintBottom_toBottomOf="@id/iv_profile"/>
+                android:id="@+id/iv_border_online_friend"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@{item.isOnline ? @drawable/border_width_120_round_16_stroke_4 : null, default=@drawable/border_width_120_round_16_stroke_4}"
+                app:layout_constraintStart_toStartOf="@id/iv_profile"
+                app:layout_constraintEnd_toEndOf="@id/iv_profile"
+                app:layout_constraintTop_toTopOf="@id/iv_profile"
+                app:layout_constraintBottom_toBottomOf="@id/iv_profile"/>
             <TextView
                 android:id="@+id/tv_is_practicing"
                 android:layout_width="wrap_content"
