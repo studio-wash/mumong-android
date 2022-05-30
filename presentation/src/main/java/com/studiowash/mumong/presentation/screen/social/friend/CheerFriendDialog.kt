@@ -25,7 +25,7 @@ class CheerFriendDialog private constructor(
     }
 
     fun initView() {
-        binding.flProfileWrapper.clipToOutline = true
+        binding.ivProfile.clipToOutline = true
         binding.item = friend
         binding.ivClose.setOnClickListener {
             dismiss()

@@ -38,27 +38,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/btn_close"/>
-            <FrameLayout
-                android:id="@+id/fl_profile_wrapper"
+            <ImageView
+                android:id="@+id/iv_profile"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:background="@drawable/bg_friend_image_large"
+                android:layout_marginTop="13dp"
+                app:imageSrc="@{item.user.profileImg}"
+                android:scaleType="centerCrop"
+                android:background="@drawable/bg_rounded_rect_16dp_fill_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_user_name">
-                <ImageView
-                    android:id="@+id/iv_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="13dp"
-                    app:imageSrc="@{item.user.profileImg}"
-                    android:scaleType="centerCrop"/>
-                <ImageView
-                    android:id="@+id/iv_border_online_friend"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@{item.isOnline ? @drawable/border_width_120_round_16_stroke_4 : null, default=@drawable/border_width_120_round_16_stroke_4}"/>
-            </FrameLayout>
+                app:layout_constraintTop_toBottomOf="@id/tv_user_name"/>
+            <ImageView
+                android:id="@+id/iv_border_online_friend"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@{item.isOnline ? @drawable/border_width_120_round_16_stroke_4 : null, default=@drawable/border_width_120_round_16_stroke_4}"
+                app:layout_constraintStart_toStartOf="@id/iv_profile"
+                app:layout_constraintEnd_toEndOf="@id/iv_profile"
+                app:layout_constraintTop_toTopOf="@id/iv_profile"
+                app:layout_constraintBottom_toBottomOf="@id/iv_profile"/>
             <TextView
                 android:id="@+id/tv_is_practicing"
                 android:layout_width="wrap_content"
@@ -67,7 +66,7 @@
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fl_profile_wrapper"
+                app:layout_constraintTop_toBottomOf="@id/iv_border_online_friend"
                 android:textSize="14sp"
                 android:textColor="@color/text_black"
                 android:text="지금 열심히 연습 중!"/>
