@@ -82,5 +82,8 @@ dependencies {
     // login
     implementation("com.kakao.sdk:v2-user:2.7.0")
 
+    // splash
+    implementation("androidx.core:core-splashscreen:1.0.0-rc01")
+
     implementation(project(":domain"))
 }

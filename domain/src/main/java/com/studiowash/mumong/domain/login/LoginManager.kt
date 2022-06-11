@@ -2,7 +2,6 @@ package com.studiowash.mumong.domain.login
 
 import android.webkit.CookieManager
 import com.studiowash.mumong.domain.Constants
-import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.login.entity.UserEntity
 
 object LoginManager {
