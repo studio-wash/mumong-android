@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(
     private val requestKakaoTalkLoginUseCase: RequestKakaoTalkLoginUseCase,
     private val requestKakaoManualLoginUseCase: RequestKakaoManualLoginUseCase,
     private val requestNaverManualLoginUseCase: RequestNaverManualLoginUseCase,
-    private val getUserInfoUseCase: GetUserInfoUseCase
+    private val getUserInfoByOauthUseCase: GetUserInfoUseByOauthCase
 ) : ViewModel() {
     val currentUser: LiveData<UserEntity> get() = _currentUser
     private val _currentUser = MutableLiveData<UserEntity>()
@@ -86,7 +86,7 @@ class LoginViewModel @Inject constructor(
 
     private fun onLoginSuccess(loginAuthType: LoginAuthType, token: String) {
         viewModelScope.launch {
-            getUserInfoUseCase(loginAuthType, token).onStart {
+            getUserInfoByOauthUseCase(loginAuthType, token).onStart {
 //                    println("Login test on start")
             }.catch { exception ->
                 Log.e("TAG", exception.stackTraceToString())

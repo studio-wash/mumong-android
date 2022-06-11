@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetUserInfoUseCase @Inject constructor() {
+class GetUserInfoUseByOauthCase @Inject constructor() {
     suspend operator fun invoke(loginAuthType: LoginAuthType, token: String): Flow<BaseResult<UserEntity, Throwable>> {
         return flow {
             val user = UserEntity(
