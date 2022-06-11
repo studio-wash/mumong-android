@@ -24,8 +24,8 @@ class LoginViewModel @Inject constructor(
     private val requestNaverManualLoginUseCase: RequestNaverManualLoginUseCase,
     private val getUserInfoByOauthUseCase: GetUserInfoUseByOauthCase
 ) : ViewModel() {
-    val currentUser: LiveData<UserEntity> get() = _currentUser
-    private val _currentUser = MutableLiveData<UserEntity>()
+    val currentUser: LiveData<UserEntity?> get() = _currentUser
+    private val _currentUser = MutableLiveData<UserEntity?>()
 
     fun requestKakaoLogin(context: Context) {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {
@@ -47,7 +47,7 @@ class LoginViewModel @Inject constructor(
                 Log.e("TAG", exception.stackTraceToString())
             }.collect { result ->
                 when (result) {
-                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data.token)
+                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data?.token)
                     is BaseResult.Fail -> onLoginFail()
                 }
             }
@@ -62,7 +62,7 @@ class LoginViewModel @Inject constructor(
                 Log.e("TAG", exception.stackTraceToString())
             }.collect { result ->
                 when (result) {
-                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data.token)
+                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data?.token)
                     is BaseResult.Fail -> onLoginFail()
                 }
             }
@@ -77,14 +77,18 @@ class LoginViewModel @Inject constructor(
                 Log.e("TAG", exception.stackTraceToString())
             }.collect { result ->
                 when (result) {
-                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Naver, result.data.token)
+                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Naver, result.data?.token)
                     is BaseResult.Fail -> onLoginFail()
                 }
             }
         }
     }
 
-    private fun onLoginSuccess(loginAuthType: LoginAuthType, token: String) {
+    private fun onLoginSuccess(loginAuthType: LoginAuthType, token: String?) {
+        if (token == null) {
+            onLoginFail()
+            return
+        }
         viewModelScope.launch {
             getUserInfoByOauthUseCase(loginAuthType, token).onStart {
 //                    println("Login test on start")

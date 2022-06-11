@@ -4,4 +4,5 @@ import com.studiowash.mumong.domain.login.entity.UserEntity
 
 object LoginStatus {
     var currentUser: UserEntity? = null
+    var currentToken: String? = null
 }

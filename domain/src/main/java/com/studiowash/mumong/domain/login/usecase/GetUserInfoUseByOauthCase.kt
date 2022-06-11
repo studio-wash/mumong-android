@@ -12,6 +12,7 @@ import javax.inject.Inject
 class GetUserInfoUseByOauthCase @Inject constructor() {
     suspend operator fun invoke(loginAuthType: LoginAuthType, token: String): Flow<BaseResult<UserEntity, Throwable>> {
         return flow {
+            val token = "TEST_TOKEN" // TODO
             val user = UserEntity(
                 "sechiyo97@daum.net",
                 "이세희",
@@ -20,6 +21,7 @@ class GetUserInfoUseByOauthCase @Inject constructor() {
                 "샘플 자기소개"
             )
             LoginStatus.currentUser = user
+            LoginStatus.currentToken = token
             emit(BaseResult.Success(user))
         }
     }
