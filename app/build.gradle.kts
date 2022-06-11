@@ -17,6 +17,8 @@ android {
 
         manifestPlaceholders["KAKAO_NATIVE_APP_KEY"] = "e5579144143cc481cd1f4594cf9ec86d"
         buildConfigField("String", "KAKAO_NATIVE_APP_KEY", "\"e5579144143cc481cd1f4594cf9ec86d\"")
+        buildConfigField("String", "NAVER_CLIENT_ID", "\"OE9FlOcv8OXgE0lPzUFt\"")
+        buildConfigField("String", "NAVER_CLIENT_SECRET", "\"mDU3kh2F8P\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -55,6 +57,7 @@ dependencies {
 
     // login
     implementation("com.kakao.sdk:v2-user:2.7.0")
+    implementation("com.navercorp.nid:oauth:5.1.0") // jdk 11
 
     implementation(project(":data"))
     implementation(project(":domain"))

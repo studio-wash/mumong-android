@@ -8,4 +8,5 @@ import kotlinx.coroutines.flow.Flow
 interface LoginRepository {
     suspend fun requestKakaoTalkLogin(context: Context) : Flow<BaseResult<LoginResultEntity, Throwable>>
     suspend fun requestKakaoManualLogin(context: Context) : Flow<BaseResult<LoginResultEntity, Throwable>>
+    suspend fun requestNaverManualLogin(context: Context) : Flow<BaseResult<LoginResultEntity, Throwable>>
 }
