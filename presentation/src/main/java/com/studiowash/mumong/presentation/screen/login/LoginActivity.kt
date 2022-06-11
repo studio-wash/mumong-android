@@ -28,6 +28,9 @@ class LoginActivity : MumongActivity(true) {
         binding.btnKakaoLogin.setOnClickListener {
             viewModel.requestKakaoLogin(this)
         }
+        binding.btnNaverLogin.setOnClickListener {
+            viewModel.requestNaverLogin(this)
+        }
     }
 
     private fun initObserve() {

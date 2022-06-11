@@ -9,9 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.kakao.sdk.user.UserApiClient
 import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.login.entity.UserEntity
-import com.studiowash.mumong.domain.login.usecase.RequestKakaoManualLoginUseCase
-import com.studiowash.mumong.domain.login.usecase.RequestKakaoTalkLoginUseCase
-import com.studiowash.mumong.domain.login.usecase.UpdateUserInfoUseCase
+import com.studiowash.mumong.domain.login.usecase.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
@@ -22,11 +20,11 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val requestKakaoTalkLoginUseCase: RequestKakaoTalkLoginUseCase,
     private val requestKakaoManualLoginUseCase: RequestKakaoManualLoginUseCase,
+    private val requestNaverManualLoginUseCase: RequestNaverManualLoginUseCase,
     private val updateUserInfoUseCase: UpdateUserInfoUseCase
 ) : ViewModel() {
     val currentUser: LiveData<UserEntity> get() = _currentUser
     private val _currentUser = MutableLiveData<UserEntity>()
-
 
     fun requestKakaoLogin(context: Context) {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {
@@ -34,6 +32,10 @@ class LoginViewModel @Inject constructor(
         } else {
             requestKakaoManualLogin(context)
         }
+    }
+
+    fun requestNaverLogin(context: Context) {
+        requestNaverManualLogin(context)
     }
 
     private fun requestKakaoTalkLogin(context: Context) {
@@ -54,6 +56,21 @@ class LoginViewModel @Inject constructor(
     private fun requestKakaoManualLogin(context: Context) {
         viewModelScope.launch {
             requestKakaoManualLoginUseCase(context).onStart {
+//                    println("Login test on start")
+            }.catch { exception ->
+                Log.e("TAG", exception.stackTraceToString())
+            }.collect { result ->
+                when (result) {
+                    is BaseResult.Success -> onLoginSuccess(result.data.token)
+                    is BaseResult.Fail -> onLoginFail()
+                }
+            }
+        }
+    }
+
+    private fun requestNaverManualLogin(context: Context) {
+        viewModelScope.launch {
+            requestNaverManualLoginUseCase(context).onStart {
 //                    println("Login test on start")
             }.catch { exception ->
                 Log.e("TAG", exception.stackTraceToString())
