@@ -9,7 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
-import com.studiowash.mumong.domain.login.LoginStatus
+import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentMainProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
@@ -28,7 +28,7 @@ class MainProfileFragment : MumongFragment(true) {
     }
 
     private fun initView() {
-        binding.user = LoginStatus.currentUser
+        binding.user = LoginManager.currentUser
         binding.ivProfile.clipToOutline = true
 
         binding.showAlertRedDot = true

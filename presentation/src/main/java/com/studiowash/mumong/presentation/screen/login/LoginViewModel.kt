@@ -22,7 +22,7 @@ class LoginViewModel @Inject constructor(
     private val requestKakaoTalkLoginUseCase: RequestKakaoTalkLoginUseCase,
     private val requestKakaoManualLoginUseCase: RequestKakaoManualLoginUseCase,
     private val requestNaverManualLoginUseCase: RequestNaverManualLoginUseCase,
-    private val getUserInfoByOauthUseCase: GetUserInfoUseByOauthCase
+    private val getUserInfoByOauthUseCase: UpadteOauthLoginInfoCase
 ) : ViewModel() {
     val currentUser: LiveData<UserEntity?> get() = _currentUser
     private val _currentUser = MutableLiveData<UserEntity?>()
