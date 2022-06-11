@@ -76,7 +76,7 @@ class LoginRepositoryImpl : LoginRepository {
                 Constants.sample_image_url,
                 "샘플 자기소개"
             )
-            LoginManager.updateLoginInfo(user, token)
+            LoginManager.updateCurrentLoginInfo(user, token)
             emit(BaseResult.Success(user))
         }
     }

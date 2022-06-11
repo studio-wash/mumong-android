@@ -9,8 +9,10 @@ import androidx.lifecycle.viewModelScope
 import com.kakao.sdk.user.UserApiClient
 import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.login.LoginAuthType
+import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.domain.login.entity.UserEntity
 import com.studiowash.mumong.domain.login.usecase.*
+import com.studiowash.mumong.presentation.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
@@ -24,8 +26,21 @@ class LoginViewModel @Inject constructor(
     private val requestNaverManualLoginUseCase: RequestNaverManualLoginUseCase,
     private val getUserInfoByOauthUseCase: UpadteOauthLoginInfoCase
 ) : ViewModel() {
+    val redirectLogin: SingleLiveEvent<Boolean> get() = _redirectLogin
+    private val _redirectLogin = SingleLiveEvent<Boolean>()
+
     val currentUser: LiveData<UserEntity?> get() = _currentUser
     private val _currentUser = MutableLiveData<UserEntity?>()
+
+    fun getLastLoginInfo() {
+        viewModelScope.launch {
+            val loginInfo = LoginManager.updateUserInfoWithLastLoginToken()
+            if (loginInfo == null)
+                _redirectLogin.value = true
+            else
+                _currentUser.value = loginInfo
+        }
+    }
 
     fun requestKakaoLogin(context: Context) {
         if (UserApiClient.instance.isKakaoTalkLoginAvailable(context)) {
