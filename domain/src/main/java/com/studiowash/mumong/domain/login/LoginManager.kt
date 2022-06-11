@@ -3,6 +3,7 @@ package com.studiowash.mumong.domain.login
 import android.webkit.CookieManager
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.login.entity.UserEntity
+import kotlin.concurrent.thread
 
 object LoginManager {
     var currentUser: UserEntity? = null
@@ -10,11 +11,11 @@ object LoginManager {
 
     suspend fun updateUserInfoWithLastLoginToken(): UserEntity? {
         val existingToken = CookieManager.getInstance().getCookie("token")
-        existingToken ?: return null
         return getUserInfoWithMumongToken(existingToken)
     }
 
-    private suspend fun getUserInfoWithMumongToken(token: String): UserEntity {
+    private suspend fun getUserInfoWithMumongToken(token: String?): UserEntity? {
+        token ?: return null
         val user = UserEntity(
             "sechiyo97@daum.net",
             "이세희-자동로그인",
@@ -30,5 +31,11 @@ object LoginManager {
         currentUser = user
         currentToken = token
         CookieManager.getInstance().setCookie("token", token)
+    }
+
+    fun logout() {
+        CookieManager.getInstance().removeAllCookies(null)
+        currentUser = null
+        currentToken = null
     }
 }

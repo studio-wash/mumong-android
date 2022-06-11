@@ -29,7 +29,7 @@ class MainActivity : MumongActivity(true) {
 
     private val loginResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
-            loginViewModel.getLastLoginInfo()
+            loginViewModel.updateCurrentLoginInfo()
         }
     }
 

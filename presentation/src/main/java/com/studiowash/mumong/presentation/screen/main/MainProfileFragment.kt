@@ -36,6 +36,9 @@ class MainProfileFragment : MumongFragment(true) {
     }
 
     private fun initOnClick() {
+        binding.cvSettingVersionInfo.root.setOnClickListener {
+            LoginManager.logout()
+        }
     }
 
     private fun initAdfit() {
