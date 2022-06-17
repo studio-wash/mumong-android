@@ -1,13 +1,17 @@
 package com.studiowash.mumong.presentation.screen.practice.addpractice
 
 import android.Manifest
+import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.studiowash.mumong.presentation.screen.MumongFragment
@@ -20,17 +24,13 @@ class AddPracticeFragment : MumongFragment(true) {
 
     private val viewModel: AddPracticeViewModel by viewModels()
     
-    private val recordPermissionRequestLauncher = registerForActivityResult(
+    private val recordPermissionCheckLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
         ) { isGranted: Boolean ->
             if (isGranted) {
                 viewModel.startRecording(requireContext())
             } else {
-                // Explain to the user that the feature is unavailable because the
-                // features requires a permission that the user has denied. At the
-                // same time, respect the user's decision. Don't link to system
-                // settings in an effort to convince the user to change their
-                // decision.
+                showAlertDialogForAppPermissionSetting()
             }
         }
     
@@ -82,7 +82,7 @@ class AddPracticeFragment : MumongFragment(true) {
                     if(ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
                         viewModel.startRecording(requireContext())
                     } else {
-                        recordPermissionRequestLauncher.launch(Manifest.permission.RECORD_AUDIO)
+                        recordPermissionCheckLauncher.launch(Manifest.permission.RECORD_AUDIO)
                     }
                 }
                 RecordingStatus.RECORDING -> viewModel.stopRecording()
@@ -113,6 +113,21 @@ class AddPracticeFragment : MumongFragment(true) {
         }
     }
 
+    private fun showAlertDialogForAppPermissionSetting() {
+        AlertDialog.Builder(context)
+            .setMessage("녹음 기능을 사용하기 위해서는 마이크 권한이 필요합니다. 앱 설정으로 이동하시겠습니까?")
+            .setPositiveButton("예") { _, _ ->
+                    val intent = Intent(
+                        Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package", activity?.packageName, null)
+                    )
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+            }
+            .setNegativeButton("아니오") { _, _ -> }
+            .create().show()
+
+    }
 //    private fun checkPermission() {
 //        val activity = requireActivity()
 //        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
