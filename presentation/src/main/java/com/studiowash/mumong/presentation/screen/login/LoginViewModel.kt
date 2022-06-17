@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
 import com.studiowash.mumong.domain.common.BaseResult
 import com.studiowash.mumong.domain.login.LoginAuthType
@@ -64,6 +65,10 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun requestKakaoTalkLogin(context: Context) {
+// 아래 두 줄은 개발 중 해시키 다시 등록 필요할 때 활성화
+//        val key = Utility.getKeyHash(context);
+//        println("key $key")
+        
         viewModelScope.launch {
             requestKakaoTalkLoginUseCase(context).onStart {
 //                    println("Login test on start")
@@ -71,7 +76,7 @@ class LoginViewModel @Inject constructor(
                 Log.e("TAG", exception.stackTraceToString())
             }.collect { result ->
                 when (result) {
-                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data?.token)
+                    is BaseResult.Success -> onLoginSuccess(LoginAuthType.Kakao, result.data.token)
                     is BaseResult.Fail -> onLoginFail()
                 }
             }
