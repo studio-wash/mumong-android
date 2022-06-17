@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.home.HomeFragment">
     <data>
-        <import type="com.studiowash.mumong.domain.login.LoginStatus"/>
+        <import type="com.studiowash.mumong.domain.login.LoginManager"/>
         <variable
             name="showLoadingBar"
             type="boolean"/>

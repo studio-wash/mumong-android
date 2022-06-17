@@ -67,5 +67,9 @@ dependencies {
     implementation("androidx.room:room-runtime:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
 
+    // login
+    implementation("com.kakao.sdk:v2-user:2.7.0")
+    implementation("com.navercorp.nid:oauth:5.1.0") // jdk 11
+
     implementation(project(":domain"))
 }

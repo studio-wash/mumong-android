@@ -11,7 +11,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
 import com.studiowash.mumong.domain.community.entity.CommunityBoard
-import com.studiowash.mumong.domain.login.LoginStatus
+import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.constant.StringKeySet
 import com.studiowash.mumong.presentation.databinding.FragmentMainCommunityBinding
@@ -121,7 +121,7 @@ class MainCommunityFragment : MumongFragment(true) {
 
 
     private fun initView() {
-        binding.communityNickname = LoginStatus.currentUser?.communityNickname
+        binding.communityNickname = LoginManager.currentUser?.communityNickname
         binding.rvFavoriteBoards.apply {
             itemAnimator = null
             addItemDecoration(HorizontalDividerItemDecorator(context, R.dimen.fragment_default_horizontal_padding))

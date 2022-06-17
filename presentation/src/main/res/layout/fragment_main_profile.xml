@@ -143,7 +143,7 @@
                             app:iconRes="@{@drawable/ic_profile_common_about_us}"
                             app:settingName="@{@string/profile_common_about_us}"/>
                         <include layout="@layout/item_setting"
-                            android:id="@+id/profile_community_commented_view"
+                            android:id="@+id/cv_setting_version_info"
                             app:iconRes="@{@drawable/ic_profile_common_version_info}"
                             app:settingName="@{@string/profile_common_version_info}"/>
                     </LinearLayout>
