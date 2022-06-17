@@ -18,8 +18,8 @@ object LoginManager {
 
         val user = UserEntity(
             "sechiyo97@daum.net",
-            "이세희-자동로그인",
-            "별으잉-자동로그인",
+            "이세희",
+            "별으잉",
             Constants.sample_image_url,
             "샘플 자기소개"
         )

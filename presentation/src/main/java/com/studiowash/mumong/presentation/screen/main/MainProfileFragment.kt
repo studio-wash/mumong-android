@@ -2,6 +2,7 @@ package com.studiowash.mumong.presentation.screen.main
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentMainProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
+import com.studiowash.mumong.presentation.screen.login.LoginActivity
 import com.studiowash.mumong.presentation.screen.login.LoginViewModel
 
 class MainProfileFragment : MumongFragment(true) {
@@ -51,6 +53,12 @@ class MainProfileFragment : MumongFragment(true) {
 
     private fun initObserve() {
         loginViewModel.currentUser.observe(viewLifecycleOwner) {
+            if (it == null) {
+                // login page redirection
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
             binding.user = it
         }
     }
