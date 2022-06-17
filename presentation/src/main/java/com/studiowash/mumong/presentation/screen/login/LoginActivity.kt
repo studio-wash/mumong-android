@@ -8,7 +8,6 @@ import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityLoginBinding
 import com.studiowash.mumong.presentation.screen.MumongActivity
 import com.studiowash.mumong.presentation.screen.main.MainActivity
-import com.studiowash.mumong.presentation.util.ToastUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -36,15 +35,10 @@ class LoginActivity : MumongActivity(true) {
     private fun initObserve() {
         viewModel.currentUser.observe(this) {
             if (it != null) {
-                ToastUtil.showToast(this, "Login Success")
-                startMainActivity()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
-    }
-
-    private fun startMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.social.SocialHomeFragment">
     <data>
-        <import type="com.studiowash.mumong.domain.login.LoginStatus" />
+        <import type="com.studiowash.mumong.domain.login.LoginManager" />
         <variable
             name="pageIndex"
             type="int" />
@@ -64,7 +64,7 @@
             android:layout_width="@dimen/icon_profile_width"
             android:layout_height="@dimen/icon_profile_width"
             android:src="@drawable/ic_default_profile"
-            imageSrc="@{LoginStatus.INSTANCE.currentUser.profileImg}"
+            imageSrc="@{LoginManager.INSTANCE.currentUser.profileImg}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/bg_circle_white"
