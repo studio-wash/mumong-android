@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
@@ -18,7 +19,21 @@ class AddPracticeFragment : MumongFragment(true) {
     private var _binding : FragmentPracticeAddPracticeBinding? = null
 
     private val viewModel: AddPracticeViewModel by viewModels()
-
+    
+    private val recordPermissionRequestLauncher = registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                viewModel.startRecording(requireContext())
+            } else {
+                // Explain to the user that the feature is unavailable because the
+                // features requires a permission that the user has denied. At the
+                // same time, respect the user's decision. Don't link to system
+                // settings in an effort to convince the user to change their
+                // decision.
+            }
+        }
+    
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -64,8 +79,11 @@ class AddPracticeFragment : MumongFragment(true) {
         binding.recordButton.setOnClickListener {
             when (viewModel.recordingStatusLiveData.value) {
                 RecordingStatus.IDLE -> {
-                    checkPermission()
-                    viewModel.startRecording(requireContext())
+                    if(ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
+                        viewModel.startRecording(requireContext())
+                    } else {
+                        recordPermissionRequestLauncher.launch(Manifest.permission.RECORD_AUDIO)
+                    }
                 }
                 RecordingStatus.RECORDING -> viewModel.stopRecording()
                 RecordingStatus.DONE_RECORDING -> viewModel.startPlayingRecentRecording(
@@ -95,11 +113,12 @@ class AddPracticeFragment : MumongFragment(true) {
         }
     }
 
-    private fun checkPermission() {
-        val activity = requireActivity()
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-            || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1234)
-        }
-    }
+//    private fun checkPermission() {
+//        val activity = requireActivity()
+//        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+//            || ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+//            || ContextCompat.checkSelfPermission(activity, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO), 1234)
+//        }
+//    }
 }
