@@ -3,7 +3,6 @@ package com.studiowash.mumong.domain.login
 import android.webkit.CookieManager
 import com.studiowash.mumong.domain.Constants
 import com.studiowash.mumong.domain.login.entity.UserEntity
-import kotlin.concurrent.thread
 
 object LoginManager {
     var currentUser: UserEntity? = null
@@ -16,6 +15,7 @@ object LoginManager {
 
     private suspend fun getUserInfoWithMumongToken(token: String?): UserEntity? {
         token ?: return null
+
         val user = UserEntity(
             "sechiyo97@daum.net",
             "이세희-자동로그인",

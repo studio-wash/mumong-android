@@ -1,10 +1,13 @@
 package com.studiowash.mumong.presentation.screen.main
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
@@ -13,9 +16,11 @@ import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentMainProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
+import com.studiowash.mumong.presentation.screen.login.LoginViewModel
 
 class MainProfileFragment : MumongFragment(true) {
     private lateinit var binding: FragmentMainProfileBinding
+    private val loginViewModel: LoginViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,11 +29,11 @@ class MainProfileFragment : MumongFragment(true) {
         binding = FragmentMainProfileBinding.inflate(inflater, container, false)
         initView()
         initOnClick()
+        initObserve()
         return binding.root
     }
 
     private fun initView() {
-        binding.user = LoginManager.currentUser
         binding.ivProfile.clipToOutline = true
 
         binding.showAlertRedDot = true
@@ -37,7 +42,16 @@ class MainProfileFragment : MumongFragment(true) {
 
     private fun initOnClick() {
         binding.cvSettingVersionInfo.root.setOnClickListener {
-            LoginManager.logout()
+            AlertDialog.Builder(context)
+                .setPositiveButton("ok") { p0, p1 -> loginViewModel.logout() }
+                .setNegativeButton("cancel") { p0, p1 -> }
+                .create().show()
+        }
+    }
+
+    private fun initObserve() {
+        loginViewModel.currentUser.observe(viewLifecycleOwner) {
+            binding.user = it
         }
     }
 

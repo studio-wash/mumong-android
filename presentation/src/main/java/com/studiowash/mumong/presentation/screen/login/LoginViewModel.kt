@@ -32,6 +32,11 @@ class LoginViewModel @Inject constructor(
     val currentUser: LiveData<UserEntity?> get() = _currentUser
     private val _currentUser = MutableLiveData<UserEntity?>()
 
+    fun logout() {
+        LoginManager.logout()
+        updateCurrentLoginInfo()
+    }
+
     fun updateCurrentLoginInfo() {
         _currentUser.value = LoginManager.currentUser
     }

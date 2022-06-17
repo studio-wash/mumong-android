@@ -68,7 +68,9 @@ class LoginRepositoryImpl : LoginRepository {
         token: String
     ): Flow<BaseResult<UserEntity, Throwable>> {
         return flow {
-            val token = "TEST_TOKEN" // TODO
+            // 서버에 loginAuthType, token 보내서 결과를 받아오는데...
+
+            val mumongToken = "TEST_TOKEN" // TODO
             val user = UserEntity(
                 "sechiyo97@daum.net",
                 "이세희",
@@ -76,7 +78,7 @@ class LoginRepositoryImpl : LoginRepository {
                 Constants.sample_image_url,
                 "샘플 자기소개"
             )
-            LoginManager.updateCurrentLoginInfo(user, token)
+            LoginManager.updateCurrentLoginInfo(user, mumongToken)
             emit(BaseResult.Success(user))
         }
     }
