@@ -14,12 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MuMong">
         <activity
-            android:name="com.studiowash.mumong.presentation.screen.main.MainActivity"
+            android:name="com.studiowash.mumong.presentation.screen.splash.InitActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.studiowash.mumong.presentation.screen.main.MainActivity"
+            android:exported="true">
         </activity>
         <activity
             android:name="com.studiowash.mumong.presentation.screen.login.LoginActivity"

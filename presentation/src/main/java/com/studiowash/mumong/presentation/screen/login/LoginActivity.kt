@@ -1,12 +1,13 @@
 package com.studiowash.mumong.presentation.screen.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityLoginBinding
 import com.studiowash.mumong.presentation.screen.MumongActivity
-import com.studiowash.mumong.presentation.util.ToastUtil
+import com.studiowash.mumong.presentation.screen.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,8 +35,8 @@ class LoginActivity : MumongActivity(true) {
     private fun initObserve() {
         viewModel.currentUser.observe(this) {
             if (it != null) {
-                ToastUtil.showToast(this, "Login Success")
-                setResult(RESULT_OK)
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         }
