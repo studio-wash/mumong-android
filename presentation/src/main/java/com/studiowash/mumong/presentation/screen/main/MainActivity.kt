@@ -1,14 +1,23 @@
 package com.studiowash.mumong.presentation.screen.main
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContract
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.core.app.ActivityOptionsCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.screen.MumongActivity
 import com.studiowash.mumong.presentation.databinding.ActivityMainBinding
 import com.studiowash.mumong.presentation.screen.common.player.MusicChangeListener
 import com.studiowash.mumong.presentation.screen.common.player.MusicPlayer
+import com.studiowash.mumong.presentation.screen.login.LoginActivity
+import com.studiowash.mumong.presentation.screen.login.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,11 +25,22 @@ class MainActivity : MumongActivity(true) {
     private lateinit var binding: ActivityMainBinding
     private var isDraggingMusicTrackBar = false
 
+    private val loginViewModel: LoginViewModel by viewModels()
+
+    private val loginResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == RESULT_OK) {
+            loginViewModel.updateCurrentLoginInfo()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         initOnClick()
+        initObserve()
         initNavigation()
+        loginViewModel.getLastLoginInfo()
     }
 
     private fun initOnClick() {
@@ -42,6 +62,13 @@ class MainActivity : MumongActivity(true) {
         binding.musicPlayerView.onClickClose = {
             MusicPlayer.stop()
             binding.showMusicPlayer = false
+        }
+    }
+
+    private fun initObserve() {
+        loginViewModel.redirectLogin.observe(this) {
+            val intent = Intent(this, LoginActivity::class.java)
+            loginResultLauncher.launch(intent)
         }
     }
 

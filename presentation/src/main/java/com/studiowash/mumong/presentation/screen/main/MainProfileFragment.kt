@@ -1,21 +1,28 @@
 package com.studiowash.mumong.presentation.screen.main
 
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import com.kakao.adfit.ads.AdListener
-import com.studiowash.mumong.domain.login.LoginStatus
+import com.studiowash.mumong.domain.login.LoginManager
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentMainProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
+import com.studiowash.mumong.presentation.screen.login.LoginActivity
+import com.studiowash.mumong.presentation.screen.login.LoginViewModel
 
 class MainProfileFragment : MumongFragment(true) {
     private lateinit var binding: FragmentMainProfileBinding
+    private val loginViewModel: LoginViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -24,11 +31,11 @@ class MainProfileFragment : MumongFragment(true) {
         binding = FragmentMainProfileBinding.inflate(inflater, container, false)
         initView()
         initOnClick()
+        initObserve()
         return binding.root
     }
 
     private fun initView() {
-        binding.user = LoginStatus.currentUser
         binding.ivProfile.clipToOutline = true
 
         binding.showAlertRedDot = true
@@ -36,6 +43,24 @@ class MainProfileFragment : MumongFragment(true) {
     }
 
     private fun initOnClick() {
+        binding.cvSettingVersionInfo.root.setOnClickListener {
+            AlertDialog.Builder(context)
+                .setPositiveButton("ok") { p0, p1 -> loginViewModel.logout() }
+                .setNegativeButton("cancel") { p0, p1 -> }
+                .create().show()
+        }
+    }
+
+    private fun initObserve() {
+        loginViewModel.currentUser.observe(viewLifecycleOwner) {
+            if (it == null) {
+                // login page redirection
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+            }
+            binding.user = it
+        }
     }
 
     private fun initAdfit() {
