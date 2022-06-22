@@ -30,6 +30,19 @@
     <string name="home_notice_title">공지사항</string>
     <string name="home_event_title">이벤트</string>
 
+    <!-- Login Activity -->
+    <string name="login_start_with_kakao">카카오로 시작하기</string>
+    <string name="login_start_with_naver">네이버로 시작하기</string>
+    <string name="login_tutorial_1_title">하루하루의\n연습을 기록해 보세요</string>
+    <string name="login_tutorial_2_title">나의 음악을 공유하고\n응원을 주고받아요</string>
+    <string name="login_tutorial_3_title">음악 전문 커뮤니티에서\n다양한 사람들과 만나요</string>
+    <string name="login_tutorial_1_content">녹음과 메트로놈, 튜너 등\n음악 연습에 꼭 필요한 기능</string>
+    <string name="login_tutorial_2_content">피드형 소셜에서 프라이빗한\n음악 기록 공유와 응원</string>
+    <string name="login_tutorial_3_content">악기별로 세분화된\n자유로운 정보성 커뮤니티</string>
+
+    <!-- Join Activity -->
+    <string name="join_mumong_next">다음</string>
+
     <!-- Practice Fragment -->
     <string name="practice_home_practice_today_title">오늘의 연습</string>
     <string name="practice_home_practice_analytics_title">연습 기록</string>
@@ -91,4 +104,6 @@
     <!-- Comment -->
     <string name="comment_hint">댓글을 남겨주세요.</string>
 
+    <!-- placeholder -->
+    <string name="empty_two_lines">\n</string>
 </resources>

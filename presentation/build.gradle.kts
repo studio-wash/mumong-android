@@ -82,5 +82,8 @@ dependencies {
     // login
     implementation("com.kakao.sdk:v2-user:2.7.0")
 
+    // ui
+    implementation("ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1")
+
     implementation(project(":domain"))
 }

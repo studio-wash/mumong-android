@@ -30,7 +30,6 @@ class CommunitySearchFragment: MumongFragment(true) {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCommunitySearchBinding.inflate(inflater, container, false)
-        //binding.viewModel = communityViewModel
 
         initView()
         initOnClick()
