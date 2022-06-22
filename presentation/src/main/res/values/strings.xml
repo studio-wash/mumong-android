@@ -99,4 +99,6 @@
     <!-- Comment -->
     <string name="comment_hint">댓글을 남겨주세요.</string>
 
+    <!-- placeholder -->
+    <string name="empty_two_lines">\n</string>
 </resources>

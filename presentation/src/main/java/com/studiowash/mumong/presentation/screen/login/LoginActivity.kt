@@ -9,6 +9,7 @@ import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityLoginBinding
 import com.studiowash.mumong.presentation.screen.MumongActivity
 import com.studiowash.mumong.presentation.screen.main.MainActivity
+import com.studiowash.mumong.presentation.util.setTextCrossFade
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,10 +33,11 @@ class LoginActivity : MumongActivity(true) {
     private fun initViewPager() {
         binding.vpTutorial.adapter = TutorialImagePagerAdapter(tutorialImageResources)
         binding.uiTutorialIndicatorDots.attachToPager(binding.vpTutorial)
-        binding.vpTutorial.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+        binding.vpTutorial.currentItem = 0
+            binding.vpTutorial.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                binding.tvTutorialTitle.setText(tutorialTitleResources[position])
-                binding.tvTutorialContent.setText(tutorialContentResources[position])
+                binding.tvTutorialTitle.setTextCrossFade(tutorialTitleResources[position])
+                binding.tvTutorialContent.setTextCrossFade(tutorialContentResources[position])
             }
         })
     }
