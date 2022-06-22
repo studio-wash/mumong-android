@@ -2,7 +2,6 @@ package com.studiowash.mumong.presentation.screen.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
@@ -31,14 +30,14 @@ class LoginActivity : MumongActivity(true) {
     }
 
     private fun initViewPager() {
-        binding.vpTutorial.adapter = TutorialImagePagerAdapter(
-            listOf(
-                R.drawable.img_login_tutorial_3,
-                R.drawable.img_login_tutorial_3,
-                R.drawable.img_login_tutorial_3
-            )
-        )
+        binding.vpTutorial.adapter = TutorialImagePagerAdapter(tutorialImageResources)
         binding.uiTutorialIndicatorDots.attachToPager(binding.vpTutorial)
+        binding.vpTutorial.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                binding.tvTutorialTitle.setText(tutorialTitleResources[position])
+                binding.tvTutorialContent.setText(tutorialContentResources[position])
+            }
+        })
     }
 
     private fun initOnClick() {
@@ -58,5 +57,23 @@ class LoginActivity : MumongActivity(true) {
                 finish()
             }
         }
+    }
+
+    companion object {
+        private val tutorialImageResources = listOf(
+            R.drawable.img_tutorial_1,
+            R.drawable.img_tutorial_2,
+            R.drawable.img_tutorial_3
+        )
+        private val tutorialTitleResources = listOf(
+            R.string.login_tutorial_1_title,
+            R.string.login_tutorial_2_title,
+            R.string.login_tutorial_3_title
+        )
+        private  val tutorialContentResources = listOf(
+            R.string.login_tutorial_1_content,
+            R.string.login_tutorial_2_content,
+            R.string.login_tutorial_3_content
+        )
     }
 }
