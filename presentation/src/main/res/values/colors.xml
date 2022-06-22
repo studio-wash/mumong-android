@@ -27,4 +27,7 @@
     <color name="text_dark_dark_gray">#404040</color>
 
     <color name="adfit_background_color">#F3F3F3</color>
+
+    <color name="brand_kakao">#FEE500</color>
+    <color name="brand_naver">#02C759</color>
 </resources>
