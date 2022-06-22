@@ -31,6 +31,8 @@
     <string name="home_event_title">이벤트</string>
 
     <!-- Login Activity -->
+    <string name="login_start_with_kakao">카카오로 시작하기</string>
+    <string name="login_start_with_naver">네이버로 시작하기</string>
     <string name="login_tutorial_1_title">하루하루의\n연습을 기록해 보세요</string>
     <string name="login_tutorial_2_title">나의 음악을 공유하고\n응원을 주고받아요</string>
     <string name="login_tutorial_3_title">음악 전문 커뮤니티에서\n다양한 사람들과 만나요</string>
