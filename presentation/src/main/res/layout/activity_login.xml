@@ -67,6 +67,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_width="312dp"
                 android:layout_height="50dp"
+                android:foreground="@drawable/ripple_black_rounded_rect_20dp"
                 android:background="@drawable/bg_btn_kakao_login">
                 <ImageView
                     android:layout_width="26dp"
@@ -94,6 +95,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_width="312dp"
                 android:layout_height="50dp"
+                android:foreground="@drawable/ripple_black_rounded_rect_20dp"
                 android:background="@drawable/bg_btn_naver_login">
                 <ImageView
                     android:layout_width="26dp"
