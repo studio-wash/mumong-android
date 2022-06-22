@@ -2,6 +2,7 @@ package com.studiowash.mumong.presentation.screen.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.presentation.R
@@ -19,8 +20,19 @@ class LoginActivity : MumongActivity(true) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        initView()
         initOnClick()
         initObserve()
+    }
+
+    private fun initView() {
+        binding.vpTutorial.adapter = TutorialImagePagerAdapter(
+            listOf(
+                R.drawable.img_login_tutorial_3,
+                R.drawable.img_login_tutorial_3,
+                R.drawable.img_login_tutorial_3
+            )
+        )
     }
 
     private fun initOnClick() {
