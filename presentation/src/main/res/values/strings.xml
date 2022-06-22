@@ -40,6 +40,9 @@
     <string name="login_tutorial_2_content">피드형 소셜에서 프라이빗한\n음악 기록 공유와 응원</string>
     <string name="login_tutorial_3_content">악기별로 세분화된\n자유로운 정보성 커뮤니티</string>
 
+    <!-- Join Activity -->
+    <string name="join_mumong_next">다음</string>
+
     <!-- Practice Fragment -->
     <string name="practice_home_practice_today_title">오늘의 연습</string>
     <string name="practice_home_practice_analytics_title">연습 기록</string>

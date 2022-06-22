@@ -20,6 +20,10 @@
         <item name="fontFamily">@font/font_pretendard</item>
     </style>
 
+    <style name="Theme.MuMong.GrayStatusBar" parent="Theme.MuMong">
+        <item name="android:statusBarColor">@color/bg_gray</item>
+    </style>
+
     <style name="Theme.MuMong.SlideRight" parent="Theme.MuMong">
         <item name="enterAnim">@android:anim/slide_in_left</item>
         <item name="exitAnim">@android:anim/slide_out_right</item>

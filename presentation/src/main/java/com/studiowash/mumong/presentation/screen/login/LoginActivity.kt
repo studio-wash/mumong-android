@@ -8,12 +8,13 @@ import androidx.viewpager2.widget.ViewPager2
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityLoginBinding
 import com.studiowash.mumong.presentation.screen.MumongActivity
+import com.studiowash.mumong.presentation.screen.login.join.JoinMumongActivity
 import com.studiowash.mumong.presentation.screen.main.MainActivity
 import com.studiowash.mumong.presentation.util.setTextCrossFade
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : MumongActivity(true) {
+class LoginActivity: MumongActivity(false) {
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
@@ -54,10 +55,14 @@ class LoginActivity : MumongActivity(true) {
     private fun initObserve() {
         viewModel.currentUser.observe(this) {
             if (it != null) {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, JoinMumongActivity::class.java)
                 startActivity(intent)
-                finish()
             }
+//            if (it != null) {
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
+//                finish()
+//            }
         }
     }
 
