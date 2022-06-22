@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.widget.ViewPager2
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityLoginBinding
 import com.studiowash.mumong.presentation.screen.MumongActivity
@@ -26,6 +27,10 @@ class LoginActivity : MumongActivity(true) {
     }
 
     private fun initView() {
+        initViewPager()
+    }
+
+    private fun initViewPager() {
         binding.vpTutorial.adapter = TutorialImagePagerAdapter(
             listOf(
                 R.drawable.img_login_tutorial_3,
@@ -33,6 +38,7 @@ class LoginActivity : MumongActivity(true) {
                 R.drawable.img_login_tutorial_3
             )
         )
+        binding.uiTutorialIndicatorDots.attachToPager(binding.vpTutorial)
     }
 
     private fun initOnClick() {
