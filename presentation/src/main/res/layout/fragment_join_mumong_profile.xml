@@ -110,6 +110,7 @@
                         android:src="@drawable/logo_mumong_charactor_white" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ctl_profile_select_custom"
                         android:layout_width="88dp"
                         android:layout_height="88dp"
                         android:layout_marginStart="8dp">
@@ -120,7 +121,7 @@
                             android:background="@drawable/bg_rounded_rect_16dp_fill_line_gray"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            android:src="@drawable/ic_default_profile"
+                            android:src="@drawable/img_tutorial_2"
                             app:imageSrc="@{customImageSrc}"/>
                         <ImageView
                             android:id="@+id/iv_border_profile_select_custom"

@@ -1,13 +1,17 @@
 package com.studiowash.mumong.presentation.screen.login.join
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.studiowash.mumong.presentation.R
+import com.studiowash.mumong.presentation.constant.ImageTypes
 import com.studiowash.mumong.presentation.databinding.FragmentJoinMumongProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 
@@ -16,6 +20,15 @@ class JoinMumongProfileFragment: MumongFragment(false) {
     private var _binding: FragmentJoinMumongProfileBinding? = null
 
     private val viewModel: JoinMumongProfileViewModel by viewModels()
+
+    private val profileImagePickerResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == RESULT_OK) {
+            val uri = it.data?.data
+            binding.customImageSrc = uri?.toString()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +56,13 @@ class JoinMumongProfileFragment: MumongFragment(false) {
     private fun initOnClick() {
         binding.btnNext.setOnClickListener {
             viewModel.moveToNextPage()
+        }
+        binding.ctlProfileSelectCustom.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK).apply {
+                type = ImageTypes.IMAGE
+                putExtra(Intent.EXTRA_MIME_TYPES, ImageTypes.STILL_IMAGES)
+            }
+            profileImagePickerResultLauncher.launch(intent)
         }
     }
 
