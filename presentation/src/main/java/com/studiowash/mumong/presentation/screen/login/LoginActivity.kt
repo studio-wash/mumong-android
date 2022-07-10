@@ -32,15 +32,13 @@ class LoginActivity: MumongActivity(false) {
     }
 
     private fun initViewPager() {
-        binding.vpTutorial.adapter = TutorialImagePagerAdapter(tutorialImageResources)
+        binding.vpTutorial.adapter = TutorialImagePagerAdapter(listOf(
+            TutorialContents.Page1,
+            TutorialContents.Page2,
+            TutorialContents.Page3
+        ))
         binding.uiTutorialIndicatorDots.attachToPager(binding.vpTutorial)
         binding.vpTutorial.currentItem = 0
-            binding.vpTutorial.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                binding.tvTutorialTitle.setTextCrossFade(tutorialTitleResources[position])
-                binding.tvTutorialContent.setTextCrossFade(tutorialContentResources[position])
-            }
-        })
     }
 
     private fun initOnClick() {
@@ -64,23 +62,5 @@ class LoginActivity: MumongActivity(false) {
 //                finish()
 //            }
         }
-    }
-
-    companion object {
-        private val tutorialImageResources = listOf(
-            R.drawable.img_tutorial_1,
-            R.drawable.img_tutorial_2,
-            R.drawable.img_tutorial_3
-        )
-        private val tutorialTitleResources = listOf(
-            R.string.login_tutorial_1_title,
-            R.string.login_tutorial_2_title,
-            R.string.login_tutorial_3_title
-        )
-        private  val tutorialContentResources = listOf(
-            R.string.login_tutorial_1_content,
-            R.string.login_tutorial_2_content,
-            R.string.login_tutorial_3_content
-        )
     }
 }

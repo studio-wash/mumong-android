@@ -25,34 +25,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="42sp"
-            app:layout_constraintBottom_toTopOf="@id/tv_tutorial_title"
+            app:layout_constraintBottom_toTopOf="@id/ll_login_buttons"
             app:layout_constraintStart_toStartOf="@id/vp_tutorial"
             app:layout_constraintEnd_toEndOf="@id/vp_tutorial"/>
-        <TextView
-            android:id="@+id/tv_tutorial_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textColor="@color/text_black"
-            android:text="@string/empty_two_lines"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/tv_tutorial_content"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
-        <TextView
-            android:id="@+id/tv_tutorial_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:text="@string/empty_two_lines"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/ll_login_buttons"
-            android:gravity="center"
-            android:textColor="@color/text_dark_gray"
-            android:layout_marginBottom="50dp"/>
         <LinearLayout
             android:id="@+id/ll_login_buttons"
             app:layout_constraintBottom_toBottomOf="parent"
