@@ -1,6 +1,7 @@
 package com.studiowash.mumong.presentation.screen.login.join
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.ActivityJoinMumongBinding
@@ -8,6 +9,7 @@ import com.studiowash.mumong.presentation.screen.MumongActivity
 
 class JoinMumongActivity: MumongActivity(false) {
     private lateinit var binding: ActivityJoinMumongBinding
+    private val viewModel: JoinViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,5 +30,8 @@ class JoinMumongActivity: MumongActivity(false) {
     }
 
     private fun initObserve() {
+        viewModel.availableData.observe(this) {
+            binding.availableData = it
+        }
     }
 }
