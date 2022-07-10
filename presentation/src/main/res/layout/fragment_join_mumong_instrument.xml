@@ -2,47 +2,70 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ScrollView
+    <data>
+        <variable
+            name="availableData"
+            type="boolean" />
+    </data>
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bg_gray">
-        <androidx.constraintlayout.widget.ConstraintLayout             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="@dimen/fragment_default_horizontal_padding">
-            <TextView
-                android:id="@+id/tv_label_et_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="76dp"
-                android:textColor="@color/text_black"
-                android:text="이름을 입력해 주세요."/>
-            <EditText
-                android:id="@+id/et_name"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg_gray">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_et_name"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textColor="@color/text_black"
-                android:layout_marginTop="30dp"/>
-            <TextView
-                android:id="@+id/tv_label_et_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/et_name"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="108dp"
-                android:textColor="@color/text_black"
-                android:text="ID를 입력해 주세요."/>
-            <EditText
-                android:id="@+id/et_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_label_et_id"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textColor="@color/text_black"
-                android:layout_marginTop="30dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                android:paddingHorizontal="@dimen/fragment_default_horizontal_padding">
+                <TextView
+                    android:id="@+id/tv_label_et_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="76dp"
+                    android:textColor="@color/text_black"
+                    android:text="이름을 입력해 주세요."/>
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_et_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/text_black"
+                    android:layout_marginTop="30dp"/>
+                <TextView
+                    android:id="@+id/tv_label_et_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/et_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="108dp"
+                    android:textColor="@color/text_black"
+                    android:text="ID를 입력해 주세요."/>
+                <EditText
+                    android:id="@+id/et_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tv_label_et_id"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/text_black"
+                    android:layout_marginTop="30dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+        <TextView
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_selector_btn_mumong"
+            android:layout_marginBottom="40dp"
+            android:layout_marginHorizontal="@dimen/fragment_default_horizontal_padding"
+            android:text="@string/join_mumong_next"
+            android:gravity="center"
+            android:textColor="@color/text_invert"
+            android:textSize="16dp"
+            android:enabled="@{availableData}"/>
+    </FrameLayout>
 </layout>
