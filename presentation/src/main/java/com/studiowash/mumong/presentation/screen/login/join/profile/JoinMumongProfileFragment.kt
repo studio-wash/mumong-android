@@ -1,4 +1,4 @@
-package com.studiowash.mumong.presentation.screen.login.join
+package com.studiowash.mumong.presentation.screen.login.join.profile
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.studiowash.mumong.presentation.R

@@ -1,4 +1,4 @@
-package com.studiowash.mumong.presentation.screen.login.join
+package com.studiowash.mumong.presentation.screen.login.join.instrument
 
 import android.content.Intent
 import android.os.Bundle

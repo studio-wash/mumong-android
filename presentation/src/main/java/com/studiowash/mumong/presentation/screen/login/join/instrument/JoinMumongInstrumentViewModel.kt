@@ -1,4 +1,4 @@
-package com.studiowash.mumong.presentation.screen.login.join
+package com.studiowash.mumong.presentation.screen.login.join.instrument
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

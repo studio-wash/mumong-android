@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/joinProfileFragmentNav"
-        android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongProfileFragment"
+        android:name="com.studiowash.mumong.presentation.screen.login.join.profile.JoinMumongProfileFragment"
         android:label="JoinProfileFragment"
         tools:layout="@layout/fragment_join_mumong_profile">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/joinInstrumentFragmentNav"
-        android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongInstrumentFragment"
+        android:name="com.studiowash.mumong.presentation.screen.login.join.instrument.JoinMumongInstrumentFragment"
         android:label="JoinInstrumentFragment"
         tools:layout="@layout/fragment_join_mumong_instrument" />
 </navigation>
