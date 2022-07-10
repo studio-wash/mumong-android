@@ -29,7 +29,7 @@
         <activity android:name="com.studiowash.mumong.presentation.screen.login.LoginActivity" android:theme="@style/Theme.MuMong.GrayStatusBar"/>
         <activity android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongActivity"
             android:theme="@style/Theme.MuMong.GrayStatusBar"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name="com.studiowash.mumong.presentation.screen.community.CommunityActivity" />
         <activity android:name="com.studiowash.mumong.presentation.screen.social.article.SocialArticleActivity" />
         <activity android:name="com.studiowash.mumong.presentation.screen.practice.addpractice.AddPracticeActivity" />
