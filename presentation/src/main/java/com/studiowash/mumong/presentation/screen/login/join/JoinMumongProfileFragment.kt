@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
 import com.studiowash.mumong.presentation.databinding.FragmentJoinMumongProfileBinding
@@ -30,10 +31,10 @@ class JoinMumongProfileFragment: MumongFragment(false) {
 
     private fun initView() {
         binding.etName.requestFocus()
-        binding.etId.doOnTextChanged { text, start, before, count ->
+        binding.etId.doAfterTextChanged {
             activityViewModel.setDataAvailability(checkDataAvailability())
         }
-        binding.etName.doOnTextChanged { text, start, before, count ->
+        binding.etName.doAfterTextChanged {
             activityViewModel.setDataAvailability(checkDataAvailability())
         }
     }
