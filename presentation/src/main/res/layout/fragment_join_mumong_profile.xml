@@ -9,9 +9,6 @@
         <variable
             name="availableData"
             type="boolean" />
-        <variable
-            name="customImageSrc"
-            type="String" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
@@ -118,11 +115,11 @@
                             android:id="@+id/iv_profile_select_custom"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
+                            android:scaleType="centerCrop"
                             android:background="@drawable/bg_rounded_rect_16dp_fill_line_gray"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            android:src="@drawable/img_tutorial_2"
-                            app:imageSrc="@{customImageSrc}"/>
+                            android:src="@drawable/img_tutorial_2"/>
                         <ImageView
                             android:id="@+id/iv_border_profile_select_custom"
                             android:layout_width="80dp"

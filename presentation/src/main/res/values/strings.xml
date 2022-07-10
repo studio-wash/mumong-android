@@ -41,6 +41,11 @@
     <string name="login_tutorial_3_content">악기별로 세분화된\n자유로운 정보성 커뮤니티</string>
 
     <!-- Join Activity -->
+    <string name="join_please_input_name">이름을 입력해주세요.</string>
+    <string name="join_please_input_id">id를 입력해주세요.</string>
+    <string name="join_please_select_profile_image">프로필 사진을 선택해주세요.</string>
+    <string name="join_custom_image_select_from_gallery">앨범에서 선택</string>
+    <string name="join_custom_image_select_take_picture">사진 촬영</string>
     <string name="join_mumong_next">다음</string>
 
     <!-- Practice Fragment -->
