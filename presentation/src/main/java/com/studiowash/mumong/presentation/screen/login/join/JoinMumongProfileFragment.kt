@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.studiowash.mumong.presentation.R
 import com.studiowash.mumong.presentation.databinding.FragmentJoinMumongProfileBinding
 import com.studiowash.mumong.presentation.screen.MumongFragment
 
@@ -47,5 +49,8 @@ class JoinMumongProfileFragment: MumongFragment(false) {
     }
 
     private fun initObserve() {
+        activityViewModel.moveNextPageEvent.observe(viewLifecycleOwner) {
+            findNavController().navigate(R.id.action_joinProfileFragmentNav_to_joinInstrumentFragmentNav)
+        }
     }
 }

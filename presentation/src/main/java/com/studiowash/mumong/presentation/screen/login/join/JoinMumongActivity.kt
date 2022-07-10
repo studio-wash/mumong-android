@@ -27,6 +27,9 @@ class JoinMumongActivity: MumongActivity(false) {
     }
 
     private fun initOnClick() {
+        binding.btnNext.setOnClickListener {
+            viewModel.moveToNextPage()
+        }
     }
 
     private fun initObserve() {

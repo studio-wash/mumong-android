@@ -10,11 +10,14 @@
         android:layout_height="match_parent">
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/content_view"
-            android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongProfileFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/bg_gray"/>
+            android:background="@color/bg_gray"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph_join_activity" />
         <TextView
+            android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
