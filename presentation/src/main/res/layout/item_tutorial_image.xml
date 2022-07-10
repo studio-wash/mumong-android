@@ -14,7 +14,7 @@
             app:layout_constraintBottom_toTopOf="@id/tv_tutorial_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="30dp"/>
         <TextView
             android:id="@+id/tv_tutorial_title"
             android:layout_width="wrap_content"
