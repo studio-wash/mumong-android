@@ -9,7 +9,7 @@
         android:id="@+id/joinProfileFragmentNav"
         android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongProfileFragment"
         android:label="JoinProfileFragment"
-        tools:layout="@layout/fragment_main_home">
+        tools:layout="@layout/fragment_join_mumong_profile">
         <action
             android:id="@+id/action_joinProfileFragmentNav_to_joinInstrumentFragmentNav"
             app:destination="@id/joinInstrumentFragmentNav" />
@@ -18,5 +18,5 @@
         android:id="@+id/joinInstrumentFragmentNav"
         android:name="com.studiowash.mumong.presentation.screen.login.join.JoinMumongInstrumentFragment"
         android:label="JoinInstrumentFragment"
-        tools:layout="@layout/fragment_main_social" />
+        tools:layout="@layout/fragment_join_mumong_instrument" />
 </navigation>
