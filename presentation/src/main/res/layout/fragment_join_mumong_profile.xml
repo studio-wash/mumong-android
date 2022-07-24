@@ -3,12 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="com.studiowash.mumong.presentation.screen.login.join.profile.ProfileImageType"/>
         <variable
             name="errorMessage"
             type="String" />
         <variable
             name="availableData"
             type="boolean" />
+        <variable
+            name="selectedProfileImageType"
+            type="ProfileImageType" />
     </data>
     <FrameLayout
         android:layout_width="match_parent"
@@ -98,13 +102,24 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tv_label_select_profile_image">
 
-                    <ImageView
-                        android:id="@+id/iv_profile_select_default"
+                    <FrameLayout
+                        android:id="@+id/fl_profile_select_default"
                         android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:background="@drawable/bg_rounded_rect_20dp_fill_line_gray"
-                        android:padding="8dp"
-                        android:src="@drawable/logo_mumong_charactor_white" />
+                        android:layout_height="80dp">
+                        <ImageView
+                            android:id="@+id/iv_profile_select_default"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/bg_rounded_rect_20dp_fill_line_gray"
+                            android:padding="8dp"
+                            android:src="@drawable/logo_mumong_charactor_white" />
+                        <ImageView
+                            android:id="@+id/iv_border_profile_select_default"
+                            invisibleUnless="@{selectedProfileImageType == ProfileImageType.Default}"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:src="@drawable/border_width_80_round_16_stroke_2"/>
+                    </FrameLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/ctl_profile_select_custom"
@@ -124,6 +139,7 @@
                             android:id="@+id/iv_border_profile_select_custom"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
+                            invisibleUnless="@{selectedProfileImageType == ProfileImageType.Custom}"
                             android:src="@drawable/border_width_80_round_16_stroke_2"
                             app:layout_constraintStart_toStartOf="@id/iv_profile_select_custom"
                             app:layout_constraintEnd_toEndOf="@id/iv_profile_select_custom"

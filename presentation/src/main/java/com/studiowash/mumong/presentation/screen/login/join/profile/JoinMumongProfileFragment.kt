@@ -31,6 +31,7 @@ class JoinMumongProfileFragment: MumongFragment(false) {
         if (it.resultCode == RESULT_OK) {
             val bitmap = it.data?.extras?.get("data") as? Bitmap
             binding.ivProfileSelectCustom.setImageBitmap(bitmap)
+            binding.selectedProfileImageType = ProfileImageType.Custom
         }
     }
     private val profileImagePickerResultLauncher = registerForActivityResult(
@@ -39,6 +40,7 @@ class JoinMumongProfileFragment: MumongFragment(false) {
         if (it.resultCode == RESULT_OK) {
             val uri = it.data?.data
             binding.ivProfileSelectCustom.load(uri?.toString())
+            binding.selectedProfileImageType = ProfileImageType.Custom // TODO:  viewModel에 저장해야 뒤로가기 해도 유지됨
         }
     }
 
@@ -51,6 +53,7 @@ class JoinMumongProfileFragment: MumongFragment(false) {
         initView()
         initOnClick()
         initObserve()
+        initData()
 
         return binding.root
     }
@@ -69,6 +72,9 @@ class JoinMumongProfileFragment: MumongFragment(false) {
     private fun initOnClick() {
         binding.btnNext.setOnClickListener {
             viewModel.moveToNextPage()
+        }
+        binding.flProfileSelectDefault.setOnClickListener {
+            binding.selectedProfileImageType = ProfileImageType.Default // TODO: viewModel로 이동 필요
         }
         binding.ctlProfileSelectCustom.setOnClickListener {
             SelectionBottomSheet.Builder(requireContext())
@@ -99,5 +105,9 @@ class JoinMumongProfileFragment: MumongFragment(false) {
         viewModel.availableData.observe(viewLifecycleOwner) {
             binding.availableData = it
         }
+    }
+
+    private fun initData() {
+        binding.selectedProfileImageType = ProfileImageType.Default
     }
 }
